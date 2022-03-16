@@ -53,19 +53,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-<<<<<<< HEAD:resources/views/Layout.blade.php
-<li><a class="getstarted scrollto" href="http://127.0.0.1:8000/Login">connexion</a></li>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-=======
           <li><a class="getstarted scrollto" href="http://127.0.0.1:8000/Login">connexion</a></li>
->>>>>>> 5fb60ca (1 commit):resources/views/index.blade.php
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
