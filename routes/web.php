@@ -21,6 +21,9 @@ Route::get('/Login', function () {
 Route::get('/Admin', function () {
     return view('Admin');
 });
+Route::get('/commercants', function () {
+    return view('Listecommercant');
+});
 Route::get('/Commerçant', function () {
     return view('Commerçant');
 });
