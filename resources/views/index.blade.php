@@ -52,9 +52,17 @@
       </a>
 
       <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="getstarted scrollto" href="http://127.0.0.1:8000/Login">connexion</a></li>
-        </ul>
+            @if (Route::has('login'))
+                <div >
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class=" class="getstarted scrollto" href="">Connexion</a>
+
+                    @endauth
+                </div>
+            @endif
+       
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
@@ -150,19 +158,6 @@
       
           <div class="col-lg-6">
             <h3>Chaque statut de votre commande est suivie à chaque étape.</h3>
-
-           
-
-            
-
-          
-
-  
-
-   
-    
-    
- 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
