@@ -31,6 +31,16 @@ Route::get('/liste-commande-declare', function () {
     return view('liste-commande-declare');
 });
 
+Route::get('/page-contact', function () {
+    return view('page-contact');
+});
+Route::get('/profil', function () {
+    return view('profil');
+});
+Route::get('/Declarer-commande', function () {
+    return view('Declarer-commande');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

@@ -35,6 +35,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
 </head>
 
 <body>
@@ -133,14 +134,53 @@
         </li><!-- End Notification Nav -->
 
 
+      
         <li class="nav-item dropdown pe-3">
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+  <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
+</a><!-- End Profile Iamge Icon -->
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span >Commerçant X</span>
-          </a><!-- End Profile Iamge Icon -->
-         
-        </li><!-- End Profile Nav -->
+
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+  <li class="dropdown-header">
+    <h6>Commerçant X</h6>
+    <span>responsable vente en ligne</span>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
+
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+      <i class="bi bi-person"></i>
+      <span>Mon Profil</span>
+    </a>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
+
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+      <i class="bi bi-gear"></i>
+      <span>Editer profil</span>
+    </a>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
+
+
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
+      <i class="bi bi-box-arrow-right"></i>
+      <span>Deconnexion</span>
+    </a>
+  </li>
+
+</ul><!-- End Profile Dropdown Items -->
+        </li>
 
       </ul>
     </nav><!-- End Icons Navigation -->
@@ -151,8 +191,8 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+    <li class="nav-item">
+        <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
           <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
         </a>
      
@@ -167,27 +207,16 @@
         
       </li><!-- End liste des commandes nav -->
 
-      <li class="nav-heading">Pages</li>
+      <li class="nav-heading">contact</li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+<!-- END contact -->
 
-<li class="nav-item">
-  <a class="nav-link collapsed" href="users-profile.html">
-    <i class="bi bi-person"></i>
-    <span>Mon Profile</span>
-  </a>
-</li><!-- End Profile Page Nav -->
-     
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Commer%C3%A7ant">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>retour</span>
-        </a>
-      </li><!-- End retour Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Deconnexion</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
+      
      
 
 
@@ -386,6 +415,7 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>
   <script src="assets/vendor/echarts/echarts.min.js"></script>
   <script src="assets/vendor/quill/quill.min.js"></script>
@@ -395,6 +425,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <svg id="SvgjsSvg1145" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1146"></defs><polyline id="SvgjsPolyline1147" points="0,0"></polyline><path id="SvgjsPath1148" d="M-1 270.2L-1 270.2C-1 270.2 128.2247596153846 270.2 128.2247596153846 270.2C128.2247596153846 270.2 213.7079326923077 270.2 213.7079326923077 270.2C213.7079326923077 270.2 299.1911057692308 270.2 299.1911057692308 270.2C299.1911057692308 270.2 384.67427884615387 270.2 384.67427884615387 270.2C384.67427884615387 270.2 470.15745192307696 270.2 470.15745192307696 270.2C470.15745192307696 270.2 555.640625 270.2 555.640625 270.2C555.640625 270.2 555.640625 270.2 555.640625 270.2 "></path></svg>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
