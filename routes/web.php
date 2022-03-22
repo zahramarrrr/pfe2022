@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/index', function () {
     return view('index');
 });
-Route::get('/Login', function () {
-    return view('Login');
+Route::get('/login', function () {
+    return view('login');
 });
 Route::get('/Admin', function () {
     return view('Admin');
 });
-Route::get('/commercants', function () {
+Route::get('/Listecommercant', function () {
     return view('Listecommercant');
 });
 Route::get('/Commerçant', function () {
@@ -29,6 +29,15 @@ Route::get('/Commerçant', function () {
 });
 Route::get('/liste-commande-declare', function () {
     return view('liste-commande-declare');
+});
+Route::get('/ListeAgent', function () {
+    return view('ListeAgent');
+});
+Route::get('/ListeLivreur', function () {
+    return view('ListeLivreur');
+});
+Route::get('/ajout', function () {
+    return view('ajout');
 });
 
 Route::get('/page-contact', function () {

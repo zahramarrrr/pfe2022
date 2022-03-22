@@ -48,17 +48,23 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assetswelcome/img/logo.png" alt="">
-        <span>FlexStart</span>
+        <span>MaCommande</span>
       </a>
 
       <nav id="navbar" class="navbar">
+      <ul>
+          <li><a class="nav-link scrollto active" href="#hero">A propos</a></li>
+          <li><a class="nav-link scrollto active" href="#about">Contact</a></li>
+      </ul>
             @if (Route::has('login'))
                 <div >
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class=" class="getstarted scrollto" href="">Connexion</a>
-
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500 underline">Register</a>
+                        @endif
                     @endauth
                 </div>
             @endif
@@ -77,7 +83,14 @@
         <div class="col-lg-6 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Optimisez votre gestion des commandes</h1>
           <h2 data-aos="fade-up" data-aos-delay="400">optimisez et automatisez vos processus avec une gestion des commandes ouverte, agile et robuste.</h2>
-          
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Suivre votre commande</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
         </div>
         <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
           <img src="assetswelcome/img/hero-img.png" class="img-fluid" alt="">
@@ -90,7 +103,8 @@
   <main id="main">
     
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
+    <section id="features" class="features hero d-flex align-items-center"> 
+      
 
       <div class="container" data-aos="fade-up">
 
@@ -156,8 +170,7 @@
         </div> <!-- / row -->
 
       
-          <div class="col-lg-6">
-            <h3>Chaque statut de votre commande est suivie à chaque étape.</h3>
+          
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

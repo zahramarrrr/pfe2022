@@ -50,7 +50,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="http://127.0.0.1:8000/Listecommercant"class="logo d-flex align-items-center">
+      <a href="http://127.0.0.1:8000/Listecommercant" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">MaCommande</span>
       </a>
@@ -224,17 +224,18 @@
     </a>
     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="http://127.0.0.1:8000/Listecommercant">
+      <a href="http://127.0.0.1:8000/Listecommercant">
           <i class="bi bi-circle"></i><span>Commerçants</span>
         </a>
       </li>
       <li>
-        <a href="http://127.0.0.1:8000/ListeAgent">
+      <a href="http://127.0.0.1:8000/ListeAgent">
+
           <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
         </a>
       </li>
       <li>
-        <a href="http://127.0.0.1:8000/ListeLivreur">
+      <a href="http://127.0.0.1:8000/ListeLivreur">
           <i class="bi bi-circle"></i><span>Livreurs</span>
         </a>
       </li>
@@ -282,90 +283,42 @@
 
             <!-- Recent Sales -->
             
+            <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
 
-                <div class="card-body">
-                  <h5 class="card-title">Liste des commerçants <span>| Aujord'hui</span></h5>
-                  <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"> <i class="material-icons"></i><span>Add New Employee</span></a>
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">Identifiant</th>
-                        <th scope="col">Commerçant</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col">Adresse mail</th>
-                        <th scope="col">Télèphone</th>
-                       
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                        <td>$64</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                        <td>$47</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                         
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                        <td>$147</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                        <td>$67</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                        <td>$165</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
-
+          <div class="card">
+            <div class="card-body">
             
-          </div>
-        </div><!-- End Left side columns -->
+              <h5 class="card-title">Liste des livreurs</h5>
+             
+              
 
+              <!-- Table with stripped rows -->
+              <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"><div class="dataTable-top"><div class="dataTable-dropdown">
+                <label><select class="dataTable-selector">
+                  <option value="5">5</option><option value="10" selected="">10</option>
+                  <option value="15">15</option><option value="20">20</option>
+                  <option value="25">25</option></select> entries per page</label></div>
+                  
+                  <div class="dataTable-search">
+                  <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter</button>
+                    <input class="dataTable-input" placeholder="Search..." type="text"></div></div>
+                    <div class="dataTable-container"><table class="table datatable dataTable-table">
+                    <div class="col-sm-4">
+                     
+                    </div>
+                <thead>
+                  <tr><th scope="col" data-sortable="" style="width: 7.61421%;"><a href="#" class="dataTable-sorter">#</a></th><th scope="col" data-sortable="" style="width: 27.1574%;"><a href="#" class="dataTable-sorter">Name</a></th><th scope="col" data-sortable="" style="width: 33.5025%;"><a href="#" class="dataTable-sorter">Position</a></th><th scope="col" data-sortable="" style="width: 12.6904%;"><a href="#" class="dataTable-sorter">Age</a></th><th scope="col" data-sortable="" style="width: 19.0355%;"><a href="#" class="dataTable-sorter">Start Date</a></th></tr>
+                </thead>
+                <tbody><tr><th scope="row">1</th><td>Brandon Jacob</td><td>Designer</td><td>28</td><td>2016-05-25</td></tr><tr><th scope="row">2</th><td>Bridie Kessler</td><td>Developer</td><td>35</td><td>2014-12-05</td></tr><tr><th scope="row">3</th><td>Ashleigh Langosh</td><td>Finance</td><td>45</td><td>2011-08-12</td></tr><tr><th scope="row">4</th><td>Angus Grady</td><td>HR</td><td>34</td><td>2012-06-11</td></tr><tr><th scope="row">5</th><td>Raheem Lehner</td><td>Dynamic Division Officer</td><td>47</td><td>2011-04-19</td></tr></tbody>
+              </table></div><div class="dataTable-bottom"><div class="dataTable-info">Showing 1 to 5 of 5 entries</div><nav class="dataTable-pagination"><ul class="dataTable-pagination-list"></ul></nav></div></div>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -373,7 +326,9 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-   
+    <div class="copyright">
+      &copy; Copyright <strong><span>Order Check</span></strong>. All Rights Reserved
+    </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
