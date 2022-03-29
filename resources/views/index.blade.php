@@ -44,7 +44,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top">
- <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assetswelcome/img/logo.png" alt="">
@@ -62,9 +62,7 @@
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class=" class="getstarted scrollto" href="">Connexion</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500 underline">Register</a>
-                        @endif
+                        
                     @endauth
                 </div>
             @endif

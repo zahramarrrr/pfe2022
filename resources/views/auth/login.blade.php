@@ -1,12 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>FlexStart Bootstrap Template - Index</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="assetslogin/css/style.css">
+
+
+  <title>Login</title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
@@ -30,11 +37,54 @@
   <link href="assetswelcome/css/style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-        
-        </x-slot>
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.9.0
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+	<body>
+        <!-- ======= Header ======= -->
+     <header id="header" class="header fixed-top">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assetswelcome/img/logo.png" alt="">
+        <span>MaCommande</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+      <ul>
+          <li><a class="nav-link scrollto active" href="#hero">A propos</a></li>
+          <li><a class="nav-link scrollto active" href="#about">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="http://127.0.0.1:8000/">Retoure</a></li>
+      </ul>
+           
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+        </div>
+     </header>
+     <!-- End Header -->
+     
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url(assetslogin/images/bg-1.png);">
+			      </div>
+						<div class="login-wrap p-4 p-md-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+                          <div class="row justify-content-center">
+                          <div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Connexion</h2>
+				</div>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -45,40 +95,62 @@
             @csrf
 
             <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Adresse mail')" />
+            <div> 
+            
+            <div class="form-group mb-3">
+                <x-label for="email" :value="__('Adresse mail:')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Mot de passe')" />
+            
+            
+            <div class="form-group mb-3">
+                <x-label for="password" :value="__('Mot de passe: ')" />
 
-                <x-input id="password" class="block mt-1 w-full"
+                <x-input id="password"  class="form-control" 
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" />
             </div>
 
+            <!-- Remember Me -->
+            <div class="block mt-4">
+                <label for="remember_me" class="inline-flex items-center" >
+                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                </label>
+            </div>
+
             
 
-            <div class="flex items-center justify-end mt-4">
+                <x-button class="ml-3"  class="form-control btn btn-primary rounded submit px-3">
+                    {{ __('Connecter') }}
+                </x-button>
+                <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="checkbox-wrap checkbox-primary mb-0" href="{{ route('password.request') }}">
                         {{ __('Mot de passe oublié ?') }}
                     </a>
                 @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
+                </div>
         </form>
-    </x-auth-card>
-</x-guest-layout>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        </div>
+		          </form>
+		          
+		        
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
 
+    <script src="assetslogin/js/jquery.min.js"></script>
+  <script src="assetslogin/js/popper.js"></script>
+  <script src="assetslogin/js/bootstrap.min.js"></script>
+  <script src="assetslogin/js/main.js"></script>
   <!-- Vendor JS Files -->
   <script src="assetswelcome/vendor/purecounter/purecounter.js"></script>
   <script src="assetswelcome/vendor/aos/aos.js"></script>
@@ -95,5 +167,3 @@
 </body>
 
 </html>
-
- 

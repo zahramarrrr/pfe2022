@@ -207,14 +207,22 @@
         
       </li><!-- End liste des commandes nav -->
 
-      <li class="nav-heading">contact</li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
       </li><!-- End Contact Page Nav -->
-<!-- END contact -->
+      <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          
+        
+                        @csrf
+                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+          </form>
+
 
       
      
