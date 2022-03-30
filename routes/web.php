@@ -19,6 +19,19 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+Route::get('/ListeLivreur', function () {
+    return view('ListeLivreur');
+});
+Route::get('/ListeAgent', function () {
+    return view('ListeAgent');
+});
+Route::get('/liste-commande-declare', function () {
+    return view('liste-commande-declare');
+});
+Route::get('/Listecommercant', function () {
+    return view('Listecommercant');
+});
+
 
 
 Route::post("/logout",[LogoutController::class,"perform"])->name("logout");
