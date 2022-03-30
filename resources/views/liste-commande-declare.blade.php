@@ -129,60 +129,7 @@ table.table td .add {
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <script>
-$(document).ready(function(){
-	$('[data-toggle="tooltip"]').tooltip();
-	var actions = $("table td:last-child").html();
-	// Append table with add row form on add new button click
-    $(".add-new").click(function(){
-		$(this).attr("disabled", "disabled");
-		var index = $("table tbody tr:last-child").index();
-        var row = '<tr>' +
-            '<td><input type="text" class="form-control" name="name" id="name"></td>' +
-            '<td><input type="text" class="form-control" name="department" id="department"></td>' +
-            '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
-			'<td>' + actions + '</td>' +
-        '</tr>';
-    	$("table").append(row);		
-		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-	// Add row on add button click
-	$(document).on("click", ".add", function(){
-		var empty = false;
-		var input = $(this).parents("tr").find('input[type="text"]');
-        input.each(function(){
-			if(!$(this).val()){
-				$(this).addClass("error");
-				empty = true;
-			} else{
-                $(this).removeClass("error");
-            }
-		});
-		$(this).parents("tr").find(".error").first().focus();
-		if(!empty){
-			input.each(function(){
-				$(this).parent("td").html($(this).val());
-			});			
-			$(this).parents("tr").find(".add, .edit").toggle();
-			$(".add-new").removeAttr("disabled");
-		}		
-    });
-	// Edit row on edit button click
-	$(document).on("click", ".edit", function(){		
-        $(this).parents("tr").find("td:not(:last-child)").each(function(){
-			$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-		});		
-		$(this).parents("tr").find(".add, .edit").toggle();
-		$(".add-new").attr("disabled", "disabled");
-    });
-	// Delete row on delete button click
-	$(document).on("click", ".delete", function(){
-        $(this).parents("tr").remove();
-		$(".add-new").removeAttr("disabled");
-    });
-});
-</script>
+
 </head>
 
 <body>
@@ -246,7 +193,7 @@ $(document).ready(function(){
   </li>
 
   <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
       <i class="bi bi-person"></i>
       <span>Mon Profil</span>
     </a>
@@ -256,7 +203,7 @@ $(document).ready(function(){
   </li>
 
   <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
       <i class="bi bi-gear"></i>
       <span>Editer profil</span>
     </a>
@@ -326,63 +273,156 @@ $(document).ready(function(){
 
   
 
-  <div class="container-lg">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-8"><h2>Mes <b>Commandes</b></h2></div>
-                    <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                    </div>
-                </div>
-            </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID Commandee</th>
-                        <th>nom du client</th>
-                        <th>telephone</th>
-                        <th>total prix</th>
-                        <th>xxx</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>Administration</td>
-                        <td>(171) 555-2222</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Peter Parker</td>
-                        <td>Customer Service</td>
-                        <td>(313) 555-5735</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Fran Wilson</td>
-                        <td>Human Resources</td>
-                        <td>(503) 555-9931</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>      
-                </tbody>
-            </table>
+           
+  
+
+<!-- Recent Sales -->
+
+<section class="section">
+<div class="row">
+<div class="col-lg-12">
+
+<div class="card">
+<div class="card-body">
+
+  <h5 class="card-title">Liste des commandes déclarées</h5>
+ 
+  
+
+  <!-- Table with stripped rows -->
+  <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"><div class="dataTable-top"><div class="dataTable-dropdown">
+    <label><select class="dataTable-selector">
+      <option value="5">5</option><option value="10" selected="">10</option>
+      <option value="15">15</option><option value="20">20</option>
+      <option value="25">25</option></select> entier par page</label></div>
+      
+      <div class="dataTable-search">
+      <button type="button" class="btn btn-info add-new" onclick="window.location.href ='http://127.0.0.1:8000/Declarer-commande';"><i class="fa fa-plus"></i> Ajouter</button>
+        <input class="dataTable-input" placeholder="Search..." type="text"></div></div>
+        <div class="dataTable-container"><table class="table datatable dataTable-table">
+        <div class="col-sm-4">
+         
         </div>
+    <thead>
+      <tr>
+      <th scope="col" data-sortable="" style="width: 19.61421%;"><a href="#" class="dataTable-sorter">ID commande</a></th>
+      <th scope="col" data-sortable="" style="width: 19.0355%;"><a href="#" class="dataTable-sorter">nom du client</a></th>
+      <th scope="col" data-sortable="" style="width: 20.6904%;"><a href="#" class="dataTable-sorter">prénom du client</a></th>
+
+      <th scope="col" data-sortable="" style="width: 21.0355%;"><a href="#" class="dataTable-sorter">telephone du client</a></th>
+      <th scope="col" data-sortable="" style="width: 21.0355%;"><a href="#" class="dataTable-sorter">Date de déclaration</a></th>
+      <th scope="col" data-sortable="" style="width: 12.6904%;"><a href="#" class="dataTable-sorter">details</a></th>
+      </tr>
+      @foreach($declarers as $declarer)
+     
+
+    </thead>
+    <tbody>
+      <td>{{$declarer->ID_commande}} </td>
+      <td>{{$declarer->nom}} </td>
+      <td>{{$declarer->prenom}} </td>
+      <td>{{$declarer->telephone}} </td>
+      <td>{{$declarer->date}} </td>
+      <td>
+      <button type="button" data-toggle="modal" data-target="#infos" class="btn btn-primary">details</button>
+</td>
+      </tr>
+
+    
+    @endforeach
+  </table></div><div class="dataTable-bottom"><div class="dataTable-info">Showing 1 to 5 of 5 entries</div><nav class="dataTable-pagination"><ul class="dataTable-pagination-list"></ul></nav></div></div>
+  <!-- End Table with stripped rows -->
+  <!--dialogue-->
+<div class="modal" id="infos">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Plus d'informations</h4>
+      </div>
+      <div class="modal-body">
+      <div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="space-row">
+												<th>date:</th>
+												<td id="date-val">{{$declarer->date}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>temps:</th>
+												<td id="temps-val">{{$declarer->temps}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>nom:</th>
+												<td id="nom-val">{{$declarer->nom}}</td>
+                        <tr class="space-row">
+                        <th>prénom:</th>
+												<td id="prenom-val">{{$declarer->prenom}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>téléphone:</th>
+												<td id="telephone-val">{{$declarer->telephone}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Addresse mail:</th>
+												<td id="email-val">{{$declarer->email}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Adresse 1:</th>
+												<td id="adresse1-val">{{$declarer->adresse1}}</td>
+											</tr>
+                        <tr class="space-row">
+												<th>Adresse 2:</th>
+												<td id="adresse2-val">{{$declarer->adresse2}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>Governorat:</th>
+												<td id="governorat-val">{{$declarer->governorat}}</td>
+                         </tr>
+                         <tr class="space-row">
+                         <th>ville</th>
+												<td id="ville-val">{{$declarer->ville}}</td>
+                         </tr>
+                         <tr class="space-row">
+                          <th>code postal</th>
+												<td id="code_postal-val">{{$declarer->code_postal}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>ID Commande:</th>
+												<td id="ID_commande-val">{{$declarer->ID_commande}} </td>
+											</tr>
+											<tr class="space-row">
+												<th>poids:</th>
+												<td id="poids-val">{{$declarer->poids}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>mode de paiment:</th>
+												<td id="paiment-val">{{$declarer->paiement}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>total prix:</th>
+												<td id="prix-val">{{$declarer->prix}}</td>
+											</tr> 
+                        <tr class="space-row">
+												<th>description:</th>
+												<td id="description-val">{{$declarer->description}}</td>
+                        </tr>
+										</tbody>
+									</table>
+								</div>
+      </div>
+      <div class="modal-footer">
+        <em>Informations sous réserve</em>
+      </div>
     </div>
-</div>     
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
 
 
 

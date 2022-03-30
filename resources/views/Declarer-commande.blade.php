@@ -2,22 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Declaration</title>
+<!-- Font Icon -->
+<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
 
-  <title>page liste</title>
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="description">
   <meta content="" name="keywords">
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!-- Font-->
-	<link rel="stylesheet" type="text/css" href="css/raleway-font.css">
-	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
-	<!-- Jquery -->
-	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
-	<!-- Main Style Css -->
-    <link rel="stylesheet" href="css/style.css"/>
-  <!-- Favicons -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -43,10 +55,24 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
+
+
 </head>
 
 <body>
+<main id="main" class="main">
 
+  <div class="pagetitle">
+      <h1>Liste des commandes déclarées</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/Commer%C3%A7ant">page d'accueil</a></li>
+          
+          <li class="breadcrumb-item active">liste</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -70,12 +96,7 @@
         </li><!-- End espace-->
 
         <li class="nav-item dropdown">
-
-       
-
-
-
-        </li><!-- End Notification Nav -->
+ </li><!-- End Notification Nav -->
 
 
         <li class="nav-item dropdown pe-3">
@@ -131,7 +152,7 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-    <li class="nav-item">
+        <li class="nav-item">
         <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
           <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
         </a>
@@ -163,261 +184,157 @@
           <span>retour</span>
         </a>
       </li><!-- End retour Nav -->
-      
-     
+      </ul>
+       </aside><!-- End Sidebar-->
 
+  
 
-
-
-    </ul>
-
-  </aside><!-- End Sidebar-->
-  <main id="main" class="main">
-
-  <div class="pagetitle">
-      <h1>Declaration</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/Commer%C3%A7ant">page d'accueil</a></li>
-          
-          <li class="breadcrumb-item active">Declaration</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-    
-	<div class="page-content" style="background-image: url('images/wizard-v1.jpg')">
-		<div class="wizard-v1-content">
-			<div class="wizard-form">
-		        <form class="form-register" id="form-register" action="#" method="post">
-		        	<div  id="form-total" role="application" class="wizard clearfix">
-             
-		        		<!-- SECTION 1 -->
-			            <h2>
-			            	<span class="step-icon"><i class="zmdi zmdi-account"></i></span>
-			            	<span class="step-number">Etape 1</span>
-			            	<span class="step-text">client</span>
-			            </h2>
-			            <section>
-			            <div class="inner">
+        
+  <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="images/form-img.jpg" alt="">
+                    <div class="signup-img-content">
+                        <h2>Register now </h2>
+                        <p>while seats are available !</p>
+                    </div>
+                </div>
+                <div class="signup-form">
+                @if(Session::has('post_add'))
+        <span>{{Session::get('post_add')}}</span>
+        @endif
+                    <form method="POST" class="register-form" id="register-form"   method="post" action="{{ route('save.post') }}">
+                    @csrf
                     <div class="form-row">
-                      <div class="form-holder form-holder-2">
-                         <label for="date" class="form-holder form-holder-2">Date</label>
-                           <div class="col-sm-10">
-                               <input type="date" placeholder="date" class="form-control" id="date" name="date" required="" aria-required="true" aria-invalid="false">
-                           </div>
-                      </div>
-         
-                  <div class="form-holder form-holder-2">
-                  <label for="temps" class="form-holder form-holder-2">Temps</label>
-                    <div class="col-sm-10">
-                      <input type="time" placeholder="temps" class="form-control" id="temps" name="temps" required>
-                    </div>
-                   </div>
+                                <div class="form-input">
+                                    <input type="date" placeholder="date" class="form-control" id="date" name="date" required="" aria-required="true" aria-invalid="false">
+                                 </div>
+                                <div class="form-input">
+                                  <input type="time"  class="form-control" id="temps" name="temps" required>
+                                </div>
+                          </div>
+                           <div class="form-row">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label for="nom" class="required">Nom du client</label>
+                                    <input type="text" name="nom" id="nom" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="prenom" class="required">Prénom du client</label>
+                                    <input type="text" name="prenom" id="prenom" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="telephone" class="required">Téléphone</label>
+                                    <input type="text" name="telephone" id="telephone" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="email" class="required">Email</label>
+                                    <input type="text" name="email" id="email" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="adresse1" class="required">Adresse 1</label>
+                                    <input type="text" name="adresse1" id="adresse1" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="adresse2" class="required">Adresse 2</label>
+                                    <input type="text" name="adresse2" id="adresse2" />
+                                </div>
+                                <div class="form-row">
+                                  <div class="form-input">
+                               <label for="governorat" class="required">Governorat</label>
+                                     <select name="governorat" id="governorat">
+                                    <option value="0">Sélectionner le gouvernorat</option>
+                                  	<option value="1">ARIANA</option>
+																		 <option value="2">BEJA</option>
+																		 <option value="3">BEN AROUS</option>
+																		 <option value="4">BIZERTE</option>
+																		 <option value="5">GABES</option>
+																		 <option value="6">GAFSA</option>
+																		 <option value="7">JENDOUBA</option>
+																		 <option value="8">KAIROUAN</option>
+																		 <option value="9">KASSERINE</option>
+																		 <option value="10">KEBILI</option>
+																		 <option value="11">KEF</option>
+																		 <option value="12">MAHDIA</option>
+																		 <option value="13">MANOUBA</option>
+																		 <option value="14">MEDENINE</option>
+																		 <option value="15">MONASTIR</option>
+																		 <option value="16">NABEUL</option>
+																		 <option value="17">SFAX</option>
+																		 <option value="18">SIDI BOUZID</option>
+																		 <option value="19">SILIANA</option>
+																		 <option value="20">SOUSSE</option>
+																		 <option value="21">TATAOUINE</option>
+																		 <option value="22">TOZEUR</option>
+																		 <option value="23">TUNIS</option>
+																		 <option value="24">ZAGHOUAN</option>
+																	  </select>
+                                 </div>
+                                 <div class="form-input">
+                                  <label for="ville" class="required">ville</label>
+                                    <input type="text" name="ville" id="ville" />
+                                  </div>
+                                    <div class="form-input">
+                                    <label for="code_postal" class="required">code postal</label>
+                                    <input type="text" name="code_postal" id="code_postal" />
+                                </div>
+                            </div>
+                          </div>
+                            <div class="form-group">
+                            <div class="form-input">
+                                    <label for="ID_commande">ID Commande</label>
+                                    <input type="text" name="ID_commande" id="ID_commande" />
+                                </div>
+                                
+                                <div class="form-radio">
+                                    <div class="label-flex">
+                                        <label for="paiement">Mode de paiement </label>
+                                    </div>
+                                    <div class="form-radio-group">            
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="paiement" id="livraison" value="livraison">
+                                            <label for="livraison">a la livraison</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="paiement" id="enligne" value="enligne">
+                                            <label for="enligne">en ligne</label>
+                                            <span class="check"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label for="poids">Poids du commande</label>
+                                    <input type="text" name="poids" id="poids" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="prix">prix total</label>
+                                    <input type="text" name="prix" id="prix" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="description">description du commande</label>
+                                    <input type="textarea" name="description" id="description" />
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="form-submit">
+                            <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
+                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+                        </div>
+                    </form>
                 </div>
-								
-                <div class="form-row">
-									<div class="form-holder">
-										<label for="nom">Nom*</label>
-										<input type="text" placeholder="nom" class="form-control" id="nom" name="nom" required >
-									</div>
-									<div class="form-holder">
-										<label for="prenom">Prénom*</label>
-										<input type="text" placeholder="prénom" class="form-control" id="prenom" name="prenom" required>
-									</div>
-                  <div class="form-holder">
-                    <label for="telephone">téléphone</label>
-                    <input type="text" placeholder="numero" class="form-control" id="telephone" name="telephone" required>
-                  </div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="email">Email*</label>
-										<input type="email" placeholder=" Email" class="form-control" id="email" name="email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
-									</div>
-								</div>
-                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="adresse1">Adresse 1*</label>
-										<input type="text" placeholder="Adresse 1" class="form-control" id="adresse1" name="adresse1" required>
-									</div>
-								</div>
-                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="adresse2">Adresse 2</label>
-										<input type="text" placeholder="Adresse 2" class="form-control" id="adresse2" name="adresse2" >
-									</div>
-								</div>
-                <div class="form-row">
-                <div class="form-holder form-holder-2">
-                    <label for="pays">pays</label>
-                      <input type="text" class="form-control" id="pays" placeholder="Pays">
-                </div>
-                
-                <div class="form-holder form-holder-2">
-                <label for="ville">ville</label>
-                    <select class="form-select" id="ville" aria-label="State">
-                      <option selected value="monastir">monastir</option>
-                      <option value="sousse">sousse</option>
-                      <option value="mahdia">mahdia</option>
-                    </select>
-                    
-                </div>
-               
-                
-                <div class="form-holder form-holder-2">
-                <label for="code_postal">code postal</label>
-                    <input type="text" class="form-control" id="code_postal" placeholder="code postal">
-                    
-                </div>
-                </div>
-							</div>
+            </div>
+        </div>
+</div>
 
-			            </section>
-						<!-- SECTION 2 -->
-			            <h2>
-			            	<span class="step-icon"><i class="zmdi zmdi-card"></i></span>
-			            	<span class="step-number">Etape 2</span>
-			            	<span class="step-text">Commande</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-                      <div class="form-row">
-									<div class="form-holder form-holder-3">
-										<label for="ID_commande">ID Commande</label>
-										<input type="text" name="ID_commande" class="card-number" id="ID_commande" placeholder="ex: 489050625008xxxx">
-									</div>
-									<div class="form-holder">
-										<label for="poids">poids en gramme</label>
-										<input type="text" name="poids" class="cvc" id="poids" placeholder="00g">
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="paiment">mode de paiment</label>
-										<select name="paiment" id="paiment" class="form-control">
-											<option value="" disabled selected>choisir le type de paiment</option>
-											<option value="a la livraison">paiment a la livraison</option>
-											<option value="en ligne">paiment en ligne</option>
-										
-										</select>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder">
-                      <label>total prix</label>
-                      <input type="text" class="form-control" id="prix" aria-label="Amount (to the nearest dollar)">
-                      <span > .00$</span>
-                    </div>
-</div>
-                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="description">description du commande*</label>
-										<input type="text" placeholder="description" class="form-control" id="description" name="description" >
-									</div>
-								</div>
-									
-							
-</div>
-			            </section>
-			            <!-- SECTION 3 -->
-			            <h2>
-			            	<span class="step-icon"><i class="zmdi zmdi-receipt"></i></span>
-			            	<span class="step-number">Etape 3</span>
-			            	<span class="step-text">Confirmation </span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<h3>Confirmer </h3>
-								<div class="form-row table-responsive">
-									<table class="table">
-										<tbody>
-											<tr class="space-row">
-												<th>date:</th>
-												<td id="date-val"></td>
-											</tr>
-                      <tr class="space-row">
-												<th>temps:</th>
-												<td id="temps-val"></td>
-											</tr>
-                      <tr class="space-row">
-												<th>nom:</th>
-												<td id="nom-val"></td>
-                        <tr class="space-row">
-                         <th>prénom:</th>
-												<td id="prenom-val"></td>
-											</tr>
-                      <tr class="space-row">
-												<th>téléphone:</th>
-												<td id="telephone-val"></td>
-											</tr>
-											<tr class="space-row">
-												<th>Addresse mail:</th>
-												<td id="email-val"></td>
-											</tr>
-											<tr class="space-row">
-												<th>Adresse 1:</th>
-												<td id="adresse1-val"></td>
-											</tr>
-                      <tr class="space-row">
-												<th>Adresse 2:</th>
-												<td id="adresse2-val"></td>
-											</tr>
-                      <tr class="space-row">
-												<th>pays:</th>
-												<td id="pays-val"></td>
-                      </tr>
-                      <tr class="space-row">
-                      <th>ville</th>
-												<td id="ville-val"></td>
-                       </tr>
-                       <tr class="space-row">
-                         <th>code postal</th>
-												<td id="code_postal-val"></td>
-											</tr>
-											<tr class="space-row">
-												<th>ID Commande:</th>
-												<td id="ID_commande-val"></td>
-											</tr>
-											<tr class="space-row">
-												<th>poids:</th>
-												<td id="poids-val"></td>
-											</tr>
-											<tr class="space-row">
-												<th>mode de paiment:</th>
-												<td id="paiment-val"></td>
-											</tr>
-											<tr class="space-row">
-												<th>total prix:</th>
-												<td id="prix-val"></td>
-											</tr>
-                      <tr class="space-row">
-												<th>description:</th>
-												<td id="description-val"></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-           
-			            </section>
-                  
-		        	</div>
-              
-		        </form>
-            
-			</div>
-		</div>
-	</div>
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-	<script src="js/jquery.steps.js"></script>
-	<script src="js/main.js"></script>
 
 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+</section>
 </main>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -432,11 +349,13 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
- 
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+  <!-- JS -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/nouislider/nouislider.min.js"></script>
+    <script src="vendor/wnumb/wNumb.js"></script>
+    <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

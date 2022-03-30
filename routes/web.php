@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\declarerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,26 +20,23 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/ListeLivreur', function () {
-    return view('ListeLivreur');
+
+Route::get('/page-contact', function () {
+    return view('page-contact');
 });
-Route::get('/ListeAgent', function () {
-    return view('ListeAgent');
+Route::get('/profil-commerçant', function () {
+    return view('profil-commerçant');
 });
-Route::get('/liste-commande-declare', function () {
-    return view('liste-commande-declare');
+Route::get('/profil-admin', function () {
+    return view('profil-admin');
 });
-Route::get('/Listecommercant', function () {
-    return view('Listecommercant');
+Route::get('/Declarer-commande', function () {
+    return view('Declarer-commande');
 });
 
-
-
-Route::post("/logout",[LogoutController::class,"perform"])->name("logout");
-
-Route::get('/index', function () {
-    return view('index');
-});
+route::get('Declarer-commande', [declarerController::class,'addDeclarer'])->name('declarer.add');
+route::post('Declarer-commande', [declarerController::class,'saveDeclarer'])->name('save.post');
+route::get('liste-commande-declare', [declarerController::class,'declarerList'])->name('declarer.List');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
