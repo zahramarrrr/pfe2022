@@ -50,7 +50,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="http://127.0.0.1:8000/Listecommercant"class="logo d-flex align-items-center">
+      <a href="http://127.0.0.1:8000/Listecommercant" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">MaCommande</span>
       </a>
@@ -224,17 +224,17 @@
     </a>
     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="http://127.0.0.1:8000/Listecommercant">
+      <a href="http://127.0.0.1:8000/Listecommercant">
           <i class="bi bi-circle"></i><span>Commerçants</span>
         </a>
       </li>
       <li>
-        <a href="http://127.0.0.1:8000/ListeAgent">
+      <a href="http://127.0.0.1:8000/ListeAgent">
           <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
         </a>
       </li>
       <li>
-        <a href="http://127.0.0.1:8000/ListeLivreur">
+      <a href="http://127.0.0.1:8000/ListeLivreur">
           <i class="bi bi-circle"></i><span>Livreurs</span>
         </a>
       </li>
@@ -278,90 +278,380 @@
 </aside><!-- End Sidebar-->
 
 
-  <main id="main" class="main">
+  <main id="main" class="main" >
+  <div class="pagetitle">
+      <h1>Liste des commerçants</h1>
+      <nav>
+        <ol class="breadcrumb">
+        </ol>
+      </nav>
+    </div>
+    <div class="dataTable-top"><div class="dataTable-dropdown" style="float:right" >
+                  
+                  <button type="button" class="btn btn-info add-new" ><i class="fa fa-plus"></i> Ajouter</button>
+                    <input class="dataTable-input" placeholder="Search..." type="text"  ></div></div>
 
-            <!-- Recent Sales -->
-            
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.9.95/css/materialdesignicons.css" rel="stylesheet">
+<div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="show-results mt-4">
+                        
+                    </div>
+                </div>
+            </div>
 
-                <div class="card-body">
-                  <h5 class="card-title">Liste des commerçants <span>| Aujord'hui</span></h5>
-                  <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"> <i class="material-icons"></i><span>Add New Employee</span></a>
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">Identifiant</th>
-                        <th scope="col">Commerçant</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col">Adresse mail</th>
-                        <th scope="col">Télèphone</th>
-                       
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                        <td>$64</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                        <td>$47</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                         
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                        <td>$147</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                        <td>$67</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                        <td>$165</td>
-                        <td>52887942</td>
-                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="left-sidebar">
+                        <div class="accordion" id="accordionExample">
+                           
+                                <a data-toggle="collapse" href="#collapseOne" class="job-list" aria-expanded="true" aria-controls="collapseOne">
+                                
+                                        
+                                    </div>
+                                </div>
+                            
+                            
+                            
+                    </div>
                 </div>
 
-              </div>
-            </div><!-- End Recent Sales -->
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
+                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
+                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
+                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                               
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
+                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
+                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                               
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
+                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
+                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                <div class="apply-button text-center mt-2 mb-2">
+                                    <a href="#" class="btn btn-custom btn-sm">View Profile</a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Ricky Cash</a></h5>
+                                        <p class="text-muted f-14 mb-0">UI/UX Designer, Software Developer</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>2683 Farland Street Chicago, IL 60631</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-outline f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Kelly Perez</a></h5>
+                                        <p class="text-muted f-14 mb-0">Software Developer, Graphic Disegner</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>2120 County Line Road St George, FL 34683</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-half f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Dale Gambill</a></h5>
+                                        <p class="text-muted f-14 mb-0">Graphic Disegner, Web Designer</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>3633 Cessna Drive Fort Wayne, IN 46802</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-half f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="list-grid-item mt-4">
+                                <div class="grid-item-content p-2">
+                                    <div class="employers-list-img mt-3">
+                                        <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                    </div>
+                                    <div class="grid-list-desc text-center mt-4">
+                                        <h5 class="mb-1"><a href="#" class="text-dark">Matt Morgan</a></h5>
+                                        <p class="text-muted f-14 mb-0">Web Delveloper, PHP Delveloper</p>
+                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>2639 Warner Street Casper, WY 82601</p>
+                                        <ul class="employers-icons list-inline mb-1">
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                                        </ul>
+                                        <td class="modal-footer">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+			                 	</td>
+                                </div>
+                                <hr class="mt-0 mb-0">
+                                
+                            </div>
+                        </div>
+
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination job-pagination justify-content-center mt-5 mb-5">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                    <i class="mdi mdi-chevron-double-left f-15"></i>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="mdi mdi-chevron-double-right f-15"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
             
           </div>
         </div><!-- End Left side columns -->
@@ -373,13 +663,15 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-   
+    <div class="copyright">
+      &copy; Copyright <strong><span>Order check</span></strong>. All Rights Reserved
+    </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+     
     </div>
   </footer><!-- End Footer -->
 
