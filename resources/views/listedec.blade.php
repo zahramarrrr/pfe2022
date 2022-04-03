@@ -328,6 +328,7 @@
                                  </div>
                                  <div class="media-body valign-middle text-right overflow-visible">
                                     <div class="btn-group dropdown">
+                                    <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Valider</button>
                                     <a href="#" class="view" title="" data-toggle="tooltip" data-original-title="View"><i class="material-icons"></i></a>
 					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
                                     </div>
@@ -348,6 +349,7 @@
                                  </div>
                                  <div class="media-body valign-middle text-right overflow-visible">
                                     <div class="btn-group dropdown">
+                                    <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Valider</button>
                                     <a href="#" class="view" title="" data-toggle="tooltip" data-original-title="View"><i class="material-icons"></i></a>
 					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
                                     </div>

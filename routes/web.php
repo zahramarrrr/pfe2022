@@ -36,8 +36,14 @@ Route::get('/Declarer-commande', function () {
     return view('Declarer-commande');
 });
 
+Route::get('/listedec2', function () {
+    return view('listedec2');
+});
 Route::get('/listedec', function () {
-    return view('listedec');
+        return view('listedec');
+});
+Route::get('/details', function () {
+    return view('details');
 });
 
 
