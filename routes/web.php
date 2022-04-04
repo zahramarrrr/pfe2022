@@ -50,6 +50,9 @@ Route::get('/listedec2', function () {
 Route::get('/notification', function () {
     return view('notification');
 });
+Route::get('/details', function () {
+    return view('details');
+});
 
 Route::get('test', function () {
     event(new App\Events\MyEvenet('welcome'));
@@ -59,7 +62,8 @@ use App\Http\Controllers\CommandeController;
 route::get('Declarer-commande', [CommandeController::class,'addCommande'])->name('commande.add');
 route::post('Declarer-commande', [CommandeController::class,'saveCommande'])->name('save.post');
 route::get('liste-commande-declare', [CommandeController::class,'CommandeList'])->name('commande.List');
-route::get('iste-commande-declare', [CommandeController::class,'DeleteCommande'])->name('commande.delete');
+route::get('edit-commande/{id}', [CommandeController::class,'EditCommande'])->name('commande.edit');
+route::get('/delete-commande/{id}', [CommandeController::class,'DeleteCommande'])->name('commande.delete');
 
 
 Route::get('/index', function () {

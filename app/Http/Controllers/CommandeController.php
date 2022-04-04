@@ -39,8 +39,22 @@ DB::table('commandes')->insert([
 return back()->with('post_add', 'post added successfully');
     }
     public function CommandeList(){
-        $declarers=DB::table('commandes')->get();
+        $commandes=DB::table('commandes')->get();
         return view('liste-commande-declare', compact('commandes'));
     }
     //
+  /*  public function delete(Request $request) {
+		$id = $request->id;
+		$emp = Employee::find($id);
+		if (Storage::delete('public/images/' . $emp->avatar)) {
+			Employee::destroy($id);
+		}
+	}*/
+    public function EditCommande ($id){ 
+$commande=DB::table('commandes')->where('id' , $id)->first();
+return view('edit-commande',compact('commande'));
+    }
+    public function DeleteCommande ($id){ 
+        
+    }
 }
