@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use DB;
 
-class declarerController extends Controller
+class CommandeController extends Controller
 {
-    public function addDeclarer(){
+    public function addCommande(){
         return view('Declarer-commande');
     }
-    public function saveDeclarer(request $request){
-DB::table('declarers')->insert([
+    public function saveCommande(request $request){
+DB::table('commandes')->insert([
     'date'=>$request->date,
     'temps'=>$request->temps,
     'nom'=>$request->nom,
@@ -38,9 +38,9 @@ DB::table('declarers')->insert([
 ]);
 return back()->with('post_add', 'post added successfully');
     }
-    public function declarerList(){
-        $declarers=DB::table('declarers')->get();
-        return view('liste-commande-declare', compact('declarers'));
+    public function CommandeList(){
+        $declarers=DB::table('commandes')->get();
+        return view('liste-commande-declare', compact('commandes'));
     }
     //
 }

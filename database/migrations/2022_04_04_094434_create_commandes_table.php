@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeclarersTable extends Migration
+class CreateCommandesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDeclarersTable extends Migration
      */
     public function up()
     {
-        Schema::create('declarers', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->date('date');
             $table->time('temps');
@@ -31,12 +31,6 @@ class CreateDeclarersTable extends Migration
             $table->integer('poids')->default(0);
             $table->integer('prix')->default(0);
             $table->string('description')->default('');
-
-
-
-
-
-
             $table->timestamps();
         });
     }
@@ -48,6 +42,6 @@ class CreateDeclarersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('declarers');
+        Schema::dropIfExists('commandes');
     }
 }

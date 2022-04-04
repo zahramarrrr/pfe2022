@@ -171,7 +171,6 @@
   </aside><!-- End Sidebar-->
   
 
- 
   <main id="main" class="main" >
   <div class="pagetitle">
       <h1>Liste des Livreurs</h1>
@@ -180,91 +179,165 @@
         </ol>
       </nav>
     </div>
-    <div class="container">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="header-title pb-3 mt-0">Payments</h5>
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr class="align-self-center">
-                                   
-                                    <th>ID commande</th>
-                                    <th>Date de commande</th>
-                                    <th>Prix</th>
-                                    <th>Statut</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2"> Kevin Heal</td>
-                                    <td>Paypal</td>
-                                    <td>5/8/2018</td>
-                                    <td> <span class="badge badge-success m-0">Declarée</span></td>
-                                    <td><a href="#" class="view" title="" data-toggle="tooltip" data-original-title="View"><i class="material-icons"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span></td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2"> Frank M. Lyons</td>
-                                    <td>Paypal</td>
-                                    <td>15/7/2018</td>
-                                    <td><span class="badge badge-success m-0">Declarée</span></td>
-                                    <td><span class="assets/img/avatar4.png">Success</span></td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2"> Angelo Butler</td>
-                                    <td>Pioneer</td>
-                                    <td>30/9/2018</td>
-                                    <td>$45,000</td>
-                                    <td><span class="badge badge-boxed badge-soft-warning">Panding</span></td>
-                                </tr>
-                                <tr>
-                                   
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2"> Phillip Morse</td>
-                                    <td>Paypal</td>
-                                    <td>2/6/2018</td>
-                                    <td>$70,000</td>
-                                    <td><span class="badge badge-boxed badge-soft-warning">Success</span></td>
-                                </tr>
-                                <tr>
-                                   
-                                    <td><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="thumb-sm rounded-circle mr-2"> Kevin Heal</td>
-                                    <td>Paypal</td>
-                                    <td>5/8/2018</td>
-                                    <td>$15,000</td>
-                                    <td><span class="badge badge-boxed badge-soft-primary">panding</span></td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="thumb-sm rounded-circle mr-2"> Frank M. Lyons</td>
-                                    <td>Paypal</td>
-                                    <td>15/7/2018</td>
-                                    <td>$35,000</td>
-                                    <td><span class="badge badge-boxed badge-soft-primary">Success</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--end table-responsive-->
-                    <div class="pt-3 border-top text-right"><a href="#" class="text-primary">View all <i class="mdi mdi-arrow-right"></i></a></div>
-                </div>
+    <div class="dataTable-top"><div class="dataTable-dropdown" style="float:right" >
+                  
+                  <button type="button" class="btn btn-info add-new" ><i class="fa fa-plus"></i> Ajouter</button>
+                    <input class="dataTable-input" placeholder="Search..." type="text"  ></div></div>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+                    @foreach($declarers as $declarer)
+
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <div id="content" class="content content-full-width">
+            <!-- begin profile -->
+            <div class="profile">
+               <div class="profile-header">
+                  <!-- BEGIN profile-header-cover -->
+                  <div class="profile-header-cover"></div>
+                  <!-- END profile-header-cover -->
+              
+                  
+                  <!-- END profile-header-tab -->
+               </div>
             </div>
+            <!-- end profile -->
+            <!-- begin profile-content -->
+            <div class="profile-content">
+               <!-- begin tab-content -->
+               <div class="tab-content p-0">
+                  
+                     <div class="row row-space-2">
+                        <!-- begin col-6 -->
+                        <div class="col-md-6 m-b-2">
+                           <div class="p-10 bg-white">
+                              <div class="media media-xs overflow-visible">
+                                 <a class="media-left" href="javascript:;">
+                                 <img src="assets/img/avatar4.png" alt="" class="media-object img-circle">
+                                 </a>
+                                 <div class="media-body valign-middle">
+                                    <b class="text-inverse">{{$declarer->nom}} {{$declarer->prenom}}</b>
+                                 </div>
+                                 <div class="media-body valign-middle text-right overflow-visible">
+                                    <div class="btn-group dropdown">
+                                    <a href="#" class="view"  data-toggle="tooltip" data-original-title="View" data-toggle="modal" data-target="#infos" class="btn btn-primary"><i class="material-icons"></i></a>
+					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                        <button type="button" data-toggle="modal" data-target="#infos" class="btn btn-primary">details</button>
+       
+                      </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                           
+                     </div>
+
+                     <!-- end row -->
+                  </div>
+
+                  <!-- end #profile-friends tab -->
+               </div>
+
+               <!-- end tab-content -->
+            </div>
+
+            <!-- end profile-content -->
+         </div>
+      </div>
+   </div>
+</div>
         </div>
     </div>
 </div>
+@endforeach
 
+</div>
+<div class="modal" id="infos">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Plus d'informations</h4>
+      </div>
+      <div class="modal-body">
+      <div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="space-row">
+												<th>date:</th>
+												<td id="date-val">{{$declarer->date}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>temps:</th>
+												<td id="temps-val">{{$declarer->temps}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>nom:</th>
+												<td id="nom-val">{{$declarer->nom}}</td>
+                        <tr class="space-row">
+                        <th>prénom:</th>
+												<td id="prenom-val">{{$declarer->prenom}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>téléphone:</th>
+												<td id="telephone-val">{{$declarer->telephone}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Addresse mail:</th>
+												<td id="email-val">{{$declarer->email}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Adresse 1:</th>
+												<td id="adresse1-val">{{$declarer->adresse1}}</td>
+											</tr>
+                        <tr class="space-row">
+												<th>Adresse 2:</th>
+												<td id="adresse2-val">{{$declarer->adresse2}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>Governorat:</th>
+												<td id="governorat-val">{{$declarer->governorat}}</td>
+                         </tr>
+                         <tr class="space-row">
+                         <th>ville</th>
+												<td id="ville-val">{{$declarer->ville}}</td>
+                         </tr>
+                         <tr class="space-row">
+                          <th>code postal</th>
+												<td id="code_postal-val">{{$declarer->code_postal}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>ID Commande:</th>
+												<td id="ID_commande-val">{{$declarer->ID_commande}} </td>
+											</tr>
+											<tr class="space-row">
+												<th>poids:</th>
+												<td id="poids-val">{{$declarer->poids}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>mode de paiment:</th>
+												<td id="paiment-val">{{$declarer->paiement}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>total prix:</th>
+												<td id="prix-val">{{$declarer->prix}}</td>
+											</tr> 
+                        <tr class="space-row">
+												<th>description:</th>
+												<td id="description-val">{{$declarer->description}}</td>
+                        </tr>
+										</tbody>
+									</table>
+								</div>
+      </div>
+      <div class="modal-footer">
+        <em>Informations sous réserve</em>
+      </div>
+    </div>
+  </div>
 
-
-
-
-
-      <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>

@@ -26,6 +26,7 @@ namespace Illuminate\Support\Facades;
  *
  * @see \Illuminate\Database\Schema\Builder
  */
+
 class Schema extends Facade
 {
     /**
@@ -48,4 +49,5 @@ class Schema extends Facade
     {
         return static::$app['db']->connection()->getSchemaBuilder();
     }
+
 }

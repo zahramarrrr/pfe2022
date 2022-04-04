@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,16 +38,13 @@ Route::get('/Declarer-commande', function () {
     return view('Declarer-commande');
 });
 
+Route::get('/listedec', function () {
+    return view('listedec');
+});
+
 Route::get('/listedec2', function () {
     return view('listedec2');
 });
-Route::get('/listedec', function () {
-        return view('listedec');
-});
-Route::get('/details', function () {
-    return view('details');
-});
-
 
 
 Route::get('/notification', function () {
@@ -56,10 +55,11 @@ Route::get('test', function () {
     event(new App\Events\MyEvenet('welcome'));
     return "Event has been sent!";
 });
-use App\Http\Controllers\declarerController;
-route::get('Declarer-commande', [declarerController::class,'addDeclarer'])->name('declarer.add');
-route::post('Declarer-commande', [declarerController::class,'saveDeclarer'])->name('save.post');
-route::get('liste-commande-declare', [declarerController::class,'declarerList'])->name('declarer.List');
+use App\Http\Controllers\CommandeController;
+route::get('Declarer-commande', [CommandeController::class,'addCommande'])->name('commande.add');
+route::post('Declarer-commande', [CommandeController::class,'saveCommande'])->name('save.post');
+route::get('liste-commande-declare', [CommandeController::class,'CommandeList'])->name('commande.List');
+route::get('iste-commande-declare', [CommandeController::class,'DeleteCommande'])->name('commande.delete');
 
 
 Route::get('/index', function () {
