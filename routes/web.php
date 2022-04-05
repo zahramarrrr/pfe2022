@@ -73,10 +73,10 @@ Route::get('/edit-commande', function () {
     return view('edit-commande');
 });
 
-Route::get('test', function () {
+/**Route::get('test', function () {
     event(new App\Events\MyEvenet('welcome'));
    //    return "Event has been sent!";
-});
+});**/
 use App\Http\Controllers\ColisController;
 use App\Http\Controllers\CommandeController;
 route::get('Declarer-commande', [CommandeController::class,'addCommande'])->name('commande.add');

@@ -40,6 +40,7 @@ DB::table('commandes')->insert([
 
 ]);
 event(new MyEvenet('commande ajoutée'));
+
 return back()->with('post_add', 'post added successfully');
     }
     public function CommandeList(){
