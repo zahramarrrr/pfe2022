@@ -26,6 +26,9 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.11.5/css/dataTables.semanticui.min.css" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -180,6 +183,7 @@
         </ol>
       </nav>
     </div>
+    
     @if(Session::has('commande_delete'))
         <span>{{Session::get('commande_delete')}}</span>
         @endif
@@ -189,11 +193,10 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="header-title pb-3 mt-0">Mes commandes</h5>
-                    <div class="table-responsive">
 
-                        <table class="table table-hover mb-0">
+                    <table id="tablecommandes" class="ui celled table" style="width:100%">
                             <thead>
-                                <tr class="align-self-center">
+                                <tr >
                                    
                                     <th>ID commande</th>
                                     <th>Date de commande</th>
@@ -215,7 +218,11 @@
                                     <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
                                          <a a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
                                          
+
+                                         <button type="button" data-toggle="modal" data-target="#infos" class="btn btn-primary">details</button>
                                    <a href="edit-commande/{{$commande->id}}">edit </a>
+                                   <a href="/delete-commande/{{$commande->id}}">delete</a>
+
                                         </td>
                                         </tr>
                                        
@@ -223,11 +230,7 @@
 
                                 </tbody>
                         </table>
-
-                    </div>
-                    <!--end table-responsive-->
-                    <div class="pt-3 border-top text-right"><a href="#" class="text-primary">View all <i class="mdi mdi-arrow-right"></i></a></div>
-                </div>
+                      </div>
             </div>
         </div>
     </div>
@@ -332,6 +335,22 @@
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+
+  <script >
+    $(document).ready(function() {
+    $('#tablecommandes').DataTable({
+        language: {
+            url: "{{ asset('assets/datatable-fr-FR.json') }}"
+        },
+        "searching": true
+    } );
+} );
+    </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

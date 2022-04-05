@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\commandes;
+use  App\Events\MyEvenet;
 use Illuminate\Http\Request;
 use DB;
+
+
 
 class CommandeController extends Controller
 {
@@ -36,12 +39,14 @@ DB::table('commandes')->insert([
 
 
 ]);
+event(new MyEvenet('commande ajoutée'));
 return back()->with('post_add', 'post added successfully');
     }
     public function CommandeList(){
         $commandes=DB::table('commandes')->get();
         return view('liste-commande-declare', compact('commandes'));
     }
+    
     public function CommandeListAdmin(){
         $commandes=DB::table('commandes')->get();
         return view('listedec2', compact('commandes'));
@@ -56,6 +61,7 @@ return view('edit-commande',compact('commande'));
 
         
     }
+    
     public function updateCommande(Request $request){
         DB::table('commandes')->where('id' , $request->id)->update([
             'date'=>$request->date,
@@ -79,4 +85,11 @@ return view('edit-commande',compact('commande'));
         return back()->with('commandes_update' , 'commande updated succefully');
 
     }
+    
+    public function search (){ 
+        $search_text=$_GET['query'];
+        $commandes=DB::table('commandes')->where('ID_commande','LIKE','%'.$search_text.'%')->get();
+        return view ('liste-commande-declare',compact('commandes'));        
+    }
+    
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
+});
+Route::get('/Admin', function () {
+    return view('Admin');
 });
 Route::get('/login', function () {
     return view('login');
@@ -44,14 +48,19 @@ Route::get('/Admin', function () {
 Route::get('/Declarer-commande', function () {
     return view('Declarer-commande');
 });
+Route::get('/Declarer-commande', function () {
+    return view('Declarer-commande');
+});
+
 
 Route::get('/listedec', function () {
     return view('listedec');
 });
 
-Route::get('/listedec2', function () {
-    return view('listedec2');
+Route::get('/details', function () {
+    return view('details');
 });
+
 
 
 Route::get('/notification', function () {
@@ -66,7 +75,7 @@ Route::get('/edit-commande', function () {
 
 Route::get('test', function () {
     event(new App\Events\MyEvenet('welcome'));
-    return "Event has been sent!";
+   //    return "Event has been sent!";
 });
 use App\Http\Controllers\ColisController;
 use App\Http\Controllers\CommandeController;
@@ -75,14 +84,20 @@ route::post('Declarer-commande', [CommandeController::class,'saveCommande'])->na
 route::get('liste-commande-declare', [CommandeController::class,'CommandeList'])->name('commande.List');
 route::get('edit-commande/{id}', [CommandeController::class,'EditCommande'])->name('commande.edit');
 route::get('/delete-commande/{id}', [CommandeController::class,'DeleteCommande'])->name('commande.delete');
+
 route::post('update-commande', [CommandeController::class,'updateCommande'])->name('update.commande');
 route::get('listedec2', [CommandeController::class,'CommandeListAdmin'])->name('commande.ListAdmin');
 route::post('listedec2', [ColisController::class,'saveColis'])->name('save.colis');
 route::get('shift-data',[ColisController::class, 'shiftdata'])->name('shiftdata');
 
+route::get('/search','CommandeController@search');
+
+
 Route::get('/index', function () {
     return view('index');
 });
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

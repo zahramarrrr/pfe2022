@@ -279,50 +279,101 @@
 
 
   <main id="main" class="main" >
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
-<div class="container padding-bottom-3x mb-1">
-        <div class="card mb-3">
-          
-          <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
-            <div class="w-100 text-center py-1 px-2"><span class="text-medium">Commandée à partir de:</span> UPS Ground</div>
-            <div class="w-100 text-center py-1 px-2"><span class="text-medium">ID commande:</span> Checking Quality</div>
-            <div class="w-100 text-center py-1 px-2"><span class="text-medium">Date de commande:</span> SEP 09, 2017</div>
-          </div>
-          <div class="card-body">
-            <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
-              <div class="step completed">
-                <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-cart"></i></div>
-                </div>
-                <h4 class="step-title">Confirmed Order</h4>
-              </div>
-              <div class="step completed">
-                <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-config"></i></div>
-                </div>
-                <h4 class="step-title">Processing Order</h4>
-              </div>
-              
-              <div class="step">
-                <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-car"></i></div>
-                </div>
-                <h4 class="step-title">Product Dispatched</h4>
-              </div>
-              <div class="step">
-                <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-home"></i></div>
-                </div>
-                <h4 class="step-title">Product Delivered</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        </div>
-      </div>
-      
 
+  <div class="pagetitle">
+      <h1>Liste des commerçants</h1>
+      <nav>
+        <ol class="breadcrumb">
+        </ol>
+      </nav>
+    </div>
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+
+        <div class="col-lg-9 my-lg-0 my-1">
+            
+                
+                <div class="order my-3 bg-light">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="d-flex flex-column justify-content-between order-summary">
+                                <div class="d-flex align-items-center">
+                                    
+                                </div>
+                                <div class="employers-list-img mt-3">
+
+                                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3">Details</button>                                
+                                <img  src="assets/img/avatar4.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                   </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
+                                <div class="status">ID Commande: 123</div>
+                               <span> <div><button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Agent d'entrepot</button></span></div><br>
+
+                               <span><div><button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Livreur</button></div></span><br>
+</span>
+
+                            </div>
+                            <div class="progressbar-track">
+                                <ul class="progressbar">
+                                    <li id="step-1" class="text-muted green"> <span class="fas fa-gift"></span> </li>
+                                    <li id="step-2" class="text-muted"> <span class="fas fa-check"></span> </li>
+                                    <li id="step-3" class="text-muted"> <span class="fas fa-box"></span> </li>
+                                    <li id="step-4" class="text-muted"> <span class="fas fa-truck"></span> </li>
+                                    <li id="step-5" class="text-muted"> <span class="fas fa-box-open"></span> </li>
+                                </ul>
+                                <div id="tracker"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order my-3 bg-light">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="d-flex flex-column justify-content-between order-summary">
+                                <div class="d-flex align-items-center">
+                                    
+                                </div>
+                                <div class="employers-list-img mt-3">
+
+                                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3">Details</button>                                
+                                <img  src="assets/img/avatar4.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+                                   </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
+                                <div class="status">ID Commande: 123</div>
+                               <span> <div><button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Agent d'entrepot</button></span></div><br>
+
+                               <span><div><button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Livreur</button></div></span><br>
+</span>
+
+                            </div>
+                            <div class="progressbar-track">
+                                <ul class="progressbar">
+                                    <li id="step-1" class="text-muted green"> <span class="fas fa-gift"></span> </li>
+                                    <li id="step-2" class="text-muted"> <span class="fas fa-check"></span> </li>
+                                    <li id="step-3" class="text-muted"> <span class="fas fa-box"></span> </li>
+                                    <li id="step-4" class="text-muted"> <span class="fas fa-truck"></span> </li>
+                                    <li id="step-5" class="text-muted"> <span class="fas fa-box-open"></span> </li>
+                                </ul>
+                                <div id="tracker"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
       
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
