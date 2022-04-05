@@ -203,12 +203,14 @@
 						<div class="form-header">
 							<h1><i class="bi bi-card-checklist"></i>  Déclaration des commandes</h1>
               </div>
-              @if(Session::has('post_add'))
-        <span>{{Session::get('post_add')}}</span>
+              @if(Session::has('commandes_update'))
+        <span>{{Session::get('commandes_update')}}</span>
         @endif
-						<form method="POST" class="register-form" id="register-form"   method="post" action="{{ route('save.post') }}">
+						<form method="POST" class="register-form" id="register-form"   method="post" action="{{ route('update.commande') }}">
             @csrf
+            <input type="hidden" name="id" value="{{$commande->id}}">
 	          <div class="row">
+
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
@@ -222,7 +224,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
                             <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
                    </svg> Prénom</span>
-										<input class="form-control" type="text"  name="prenom" value="{{$commande->nom}}" id="prenom">
+										<input class="form-control" type="text"  name="prenom" value="{{$commande->prenom}}" id="prenom">
 									</div>
 								</div>
                 <div class="col-sm-6">
@@ -230,7 +232,7 @@
 										<span class="form-label"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
                       <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
                       </svg> Adresse mail</span>
-										<input class="form-control" type="text" name="email" placeholder="Entrer votre adresse email" id="email">
+										<input class="form-control" type="text" name="email" value="{{$commande->email}}" id="email">
 									</div>
 								</div>
                 <div class="col-sm-6">
@@ -238,7 +240,7 @@
 										<span class="form-label"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                  </svg>  Télèphone</span>
-										<input class="form-control" type="text" name="telephone" placeholder="Entrer votre  numero de télèphone" id="telephone">
+										<input class="form-control" type="text" name="telephone" value="{{$commande->telephone}}" id="telephone">
 									</div>
 								</div>
 							
@@ -247,7 +249,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                        </svg> Adresse 1</span>
-										<input class="form-control" type="text" name="adresse1" placeholder="Entrer votre adresse 1" id="adresse1">
+										<input class="form-control" type="text" name="adresse1" value="{{$commande->adresse1}}" id="adresse1">
 									</div>
 								</div>
                 <div class="col-sm-6">
@@ -255,7 +257,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                       <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                        </svg> Adresse 2</span>
-										<input class="form-control" type="text" name="adresse2" placeholder="Entrer votre adresse 2" id="adresse2">
+										<input class="form-control" type="text" name="adresse2" value="{{$commande->adresse2}}" id="adresse2">
 									</div>
 								</div>
 						
@@ -264,9 +266,9 @@
                     <span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-fill" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
                              </svg>  Governorat</span>
-								<select name="governorat" id="governorat" class="form-control">
+								<select name="governorat" id="governorat" class="form-control" value="{{$commande->governorat}}">
                                     <option value="0">Sélectionner le gouvernorat</option>
-                                  	<option value="ARIANA">ARIANA</option>
+                                  	                                    <option value="ARIANA">ARIANA</option>
 																		 <option value="BEJA">BEJA</option>
 																		 <option value="BEN AROUS">BEN AROUS</option>
 																		 <option value="BIZERTE">BIZERTE</option>
@@ -299,7 +301,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-fill" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
                      </svg> ville</span>
-										<input class="form-control" type="text" name="ville" placeholder="Entrer la ville" id="ville">
+										<input class="form-control" type="text" name="ville" value="{{$commande->ville}}" id="ville">
 									</div>
 								</div>
                 <div class="col-sm-6">
@@ -307,7 +309,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-fill" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
                        </svg> code postal</span>
-										<input class="form-control" type="text" name="code_postal" placeholder="Entrer le code postal" id="code_postal">
+										<input class="form-control" type="text" name="code_postal" value="{{$commande->code_postal}}" id="code_postal">
 									</div>
 								</div>
                 <div class="col-sm-6">
@@ -315,7 +317,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
                         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
                            </svg> ID Commande</span>
-										<input class="form-control" type="text" name="ID_commande" placeholder="Entrer le code postal" id="ID_commande">
+										<input class="form-control" type="text" name="ID_commande" value="{{$commande->ID_commande}}" id="ID_commande">
 									</div>
 								</div>
                 <div class="col-sm-6">
@@ -324,7 +326,7 @@
                      <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
                         </svg> Mode de paiement</span>
 								        	<div class="form-group">
-												<select class="form-control" name="paiement" id="paiement">
+												<select class="form-control" name="paiement" id="paiement" value="{{$commande->paiement}}">
 													<option value="livraison">a la livraison</option>
 													<option value="enligne">en ligne</option>
 												
@@ -342,7 +344,7 @@
                       <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
                       <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
                       </svg> prix total</span>
-										<input class="form-control" type="text" name="prix" placeholder="Entrer votre  numero de télèphone" id="prix" >
+										<input class="form-control" type="text" name="prix" value="{{$commande->telephone}}" id="prix" >
                     </div>
                     <div class="form-group">
 
@@ -352,7 +354,7 @@
                       <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
                       <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
                       </svg> poids</span>
-										<input class="form-control" type="text" name="poids" placeholder="Entrer votre  numero de télèphone" id="poids" >
+										<input class="form-control" type="text" name="poids" value="{{$commande->poids}}" id="poids" >
 									</div>
 								</div>
 
@@ -365,7 +367,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
                           <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
                                 </svg>Date de déclaration</span>
-										<input class="form-control" type="date" name="date" id="date" required>
+										<input class="form-control" type="date" name="date" id="date" value="{{$commande->date}}" required>
 									</div>
 								</div>
                 <div class="col-sm-6">
@@ -373,22 +375,21 @@
                   <span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
                           <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
                                 </svg>heur de déclaration</span>
-                  <input class="form-control" type="time" name="temps" id="temps" required>
+                  <input class="form-control" type="time" name="temps" id="temps" value="{{$commande->temps}}" required>
                   </div>
 								</div>
                 <div >
                 <span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
                         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
                            </svg> description</span>
-                           <input class="form-control" type="text" name="description" id="description" required>
+                           <input class="form-control" type="text" name="description" id="description" value="{{$commande->description}}" required>
                 </div>
         
 			</div>
               
 							<div class="form-btn" >
 							
-                <input class="submit-btn" type="submit" value="Déclarer" id="submit" name="submit"  />
-                
+                <input class="submit-btn" type="submit" value="modifier" id="submit" name="submit"  />
 							</div>
 						</form>
 					</div>

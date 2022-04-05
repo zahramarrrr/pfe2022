@@ -248,7 +248,7 @@
     </a>
     <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="forms-elements.html">
+        <a href="http://127.0.0.1:8000/listedec2">
           <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
         </a>
       </li>
@@ -278,84 +278,62 @@
 </aside><!-- End Sidebar-->
 
 
-  <main id="main" class="main" >
+<main id="main" class="main" >
   <div class="pagetitle">
-      <h1>Liste des Livreurs</h1>
+      <h1>Liste des commandes déclarées</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
+    @if(Session::has('commande_delete'))
+        <span>{{Session::get('commande_delete')}}</span>
+        @endif
     <div class="container">
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="header-title pb-3 mt-0">Payments</h5>
+                    <h5 class="header-title pb-3 mt-0">Mes commandes</h5>
+
                     <div class="table-responsive">
+
                         <table class="table table-hover mb-0">
                             <thead>
                                 <tr class="align-self-center">
                                    
                                     <th>ID commande</th>
                                     <th>Date de commande</th>
-                                    <th>Prix</th>
+                                    <th>téléphone</th>
                                     <th>Statut</th>
                                     <th></th>
                                 </tr>
+
                             </thead>
                             <tbody>
+                            @foreach($commandes as $commande)
+
                                 <tr>
                                     
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2"> Kevin Heal</td>
-                                    <td>Paypal</td>
-                                    <td>5/8/2018</td>
+                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                                    <td>{{$commande->date}}</td>
+                                    <td>{{$commande->telephone}}</td>
                                     <td> <span class="badge badge-success m-0">Declarée</span></td>
-                                    <td><a href="#" class="view" title="" data-toggle="tooltip" data-original-title="View"><i class="material-icons"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span></td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2"> Frank M. Lyons</td>
-                                    <td>Paypal</td>
-                                    <td>15/7/2018</td>
-                                    <td><span class="badge badge-success m-0">Declarée</span></td>
-                                    <td><span class="assets/img/avatar4.png">Success</span></td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2"> Angelo Butler</td>
-                                    <td>Pioneer</td>
-                                    <td>30/9/2018</td>
-                                    <td>$45,000</td>
-                                    <td><span class="badge badge-boxed badge-soft-warning">Panding</span></td>
-                                </tr>
-                                <tr>
-                                   
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2"> Phillip Morse</td>
-                                    <td>Paypal</td>
-                                    <td>2/6/2018</td>
-                                    <td>$70,000</td>
-                                    <td><span class="badge badge-boxed badge-soft-warning">Success</span></td>
-                                </tr>
-                                <tr>
-                                   
-                                    <td><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="thumb-sm rounded-circle mr-2"> Kevin Heal</td>
-                                    <td>Paypal</td>
-                                    <td>5/8/2018</td>
-                                    <td>$15,000</td>
-                                    <td><span class="badge badge-boxed badge-soft-primary">panding</span></td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="thumb-sm rounded-circle mr-2"> Frank M. Lyons</td>
-                                    <td>Paypal</td>
-                                    <td>15/7/2018</td>
-                                    <td>$35,000</td>
-                                    <td><span class="badge badge-boxed badge-soft-primary">Success</span></td>
-                                </tr>
-                            </tbody>
+                                    <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
+                                         <a a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
+                                         
+                                   <a href="edit-commande/{{$commande->id}}">edit </a>
+                                   <button type="submit" method="post" action="{{ route('save.colis') }}" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Valider</button>
+                                                           </td>
+                                                           
+                                        </tr>
+
+                                       
+                                        @endforeach
+
+                                </tbody>
                         </table>
+
                     </div>
                     <!--end table-responsive-->
                     <div class="pt-3 border-top text-right"><a href="#" class="text-primary">View all <i class="mdi mdi-arrow-right"></i></a></div>
@@ -364,6 +342,92 @@
         </div>
     </div>
 </div>
+
+
+</div>
+<div class="modal" id="infos">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Plus d'informations</h4>
+      </div>
+      <div class="modal-body">
+      <div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="space-row">
+												<th>date:</th>
+												<td id="date-val">{{$commande->date}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>temps:</th>
+												<td id="temps-val">{{$commande->temps}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>nom:</th>
+												<td id="nom-val">{{$commande->nom}}</td>
+                        <tr class="space-row">
+                        <th>prénom:</th>
+												<td id="prenom-val">{{$commande->prenom}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>téléphone:</th>
+												<td id="telephone-val">{{$commande->telephone}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Addresse mail:</th>
+												<td id="email-val">{{$commande->email}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Adresse 1:</th>
+												<td id="adresse1-val">{{$commande->adresse1}}</td>
+											</tr>
+                        <tr class="space-row">
+												<th>Adresse 2:</th>
+												<td id="adresse2-val">{{$commande->adresse2}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>Governorat:</th>
+												<td id="governorat-val">{{$commande->governorat}}</td>
+                         </tr>
+                         <tr class="space-row">
+                         <th>ville</th>
+												<td id="ville-val">{{$commande->ville}}</td>
+                         </tr>
+                         <tr class="space-row">
+                          <th>code postal</th>
+												<td id="code_postal-val">{{$commande->code_postal}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>ID Commande:</th>
+												<td id="ID_commande-val">{{$commande->ID_commande}} </td>
+											</tr>
+											<tr class="space-row">
+												<th>poids:</th>
+												<td id="poids-val">{{$commande->poids}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>mode de paiment:</th>
+												<td id="paiment-val">{{$commande->paiement}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>total prix:</th>
+												<td id="prix-val">{{$commande->prix}}</td>
+											</tr> 
+                        <tr class="space-row">
+												<th>description:</th>
+												<td id="description-val">{{$commande->description}}</td>
+                        </tr>
+										</tbody>
+									</table>
+								</div>
+      </div>
+      <div class="modal-footer">
+        <em>Informations sous réserve</em>
+      </div>
+    </div>
+  </div>
+</main>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

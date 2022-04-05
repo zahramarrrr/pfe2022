@@ -174,13 +174,15 @@
  
   <main id="main" class="main" >
   <div class="pagetitle">
-      <h1>Liste des Livreurs</h1>
+      <h1>Liste des commandes déclarées</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
-
+    @if(Session::has('commande_delete'))
+        <span>{{Session::get('commande_delete')}}</span>
+        @endif
     <div class="container">
     <div class="row">
         <div class="col-xl-12">
@@ -195,7 +197,7 @@
                                    
                                     <th>ID commande</th>
                                     <th>Date de commande</th>
-                                    <th>description</th>
+                                    <th>téléphone</th>
                                     <th>Statut</th>
                                     <th></th>
                                 </tr>
@@ -208,14 +210,12 @@
                                     
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
                                     <td>{{$commande->date}}</td>
-                                    <td>{{$commande->description}}</td>
+                                    <td>{{$commande->telephone}}</td>
                                     <td> <span class="badge badge-success m-0">Declarée</span></td>
-                                    <td><a href="#" class="view"  data-toggle="tooltip" data-original-title="View" data-toggle="modal" data-target="#infos" class="btn btn-primary"><i class="material-icons"></i></a>
-                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
+                                    <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
+                                         <a a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
                                          
-                                         <button type="button" data-toggle="modal" data-target="#infos" class="btn btn-primary">details</button>
-                                   <a href="/edit-commande/{{$commande->id}}">edit </a>
-                                   <a href="/delete-commande/{{$commande->id}}">delete</a>
+                                   <a href="edit-commande/{{$commande->id}}">edit </a>
                                         </td>
                                         </tr>
                                        
