@@ -80,11 +80,6 @@ Route::get('/edit-commande', function () {
 });
 Route::get('/list','CommandeController@list')->name('list');
 
-Route::get('test', function () {
-    event(new App\Events\MyEvenet('welcome'));
-   //    return "Event has been sent!";
-});
-
 use App\Http\Controllers\ColisController;
 use App\Http\Controllers\CommandeController;
 route::get('Declarer-commande', [CommandeController::class,'addCommande'])->name('commande.add');
@@ -95,8 +90,6 @@ route::get('/delete-commande/{id}', [CommandeController::class,'DeleteCommande']
 
 route::post('update-commande', [CommandeController::class,'updateCommande'])->name('update.commande');
 route::get('listedec2', [CommandeController::class,'CommandeListAdmin'])->name('commande.ListAdmin');
-//route::post('listedec2', [ColisController::class,'saveColis'])->name('save.colis');
-//route::get('listedec2',[ColisController::class, 'shiftdata'])->name('shiftdata');
 
 route::get('/search','CommandeController@search');
 
@@ -112,12 +105,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-
-/*Route::middleware(['auth','role:admin'])->group(function(){
-    Route::get('/private',function(){
-        return 'bonjour';
-    });
-});*/
 
 
 require __DIR__.'/auth.php';

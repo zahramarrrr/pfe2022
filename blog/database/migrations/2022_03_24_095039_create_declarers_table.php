@@ -31,6 +31,7 @@ class CreateDeclarersTable extends Migration
             $table->integer('poids')->default(0);
             $table->integer('prix')->default(0);
             $table->string('description')->default('');
+            
 
 
 

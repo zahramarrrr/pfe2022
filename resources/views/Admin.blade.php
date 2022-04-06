@@ -1,3 +1,8 @@
+<?php
+use App\models\Notifications;
+$NotificationsCommandes=Notifications::all();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,10 +40,26 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('d76c5db9b1fa63985fd9', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script>
+
 </head>
 
 <body>
-
+ 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -67,17 +88,17 @@
 
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
   <li class="dropdown-header">
-    You have 4 new notifications
+  Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
     <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
   </li>
   <li>
     <hr class="dropdown-divider">
   </li>
-
+<div id='notif'>
   <li class="notification-item">
     <i class="bi bi-exclamation-circle text-warning"></i>
     <div>
-      <h4>Lorem Ipsum</h4>
+      <h4>Lorem Ipsumlll</h4>
       <p>Quae dolorem earum veritatis oditseno</p>
       <p>30 min. ago</p>
     </div>
@@ -121,7 +142,7 @@
       <p>4 hrs. ago</p>
     </div>
   </li>
-
+  </div>
   <li>
     <hr class="dropdown-divider">
   </li>
@@ -134,65 +155,24 @@
 </li>
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            <li class="dropdown-header" id="header_notification_bar" class="dropdown">
+            <p >Vous avez {{count($NotificationsCommandes)}} nouvelles alertes</p>              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            
 
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
+            <li class="notification-item" >
+            
+              <div id="notif_comm">
+              @foreach ($NotificationsCommandes as $Notif)
+              <li>
+                                        <a href="notif_ass">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                            {{$Notif->message}}
+                                            </li>
+                                @endforeach
               </div>
             </li>
 
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
             <li class="dropdown-footer">
               <a href="#">Show all notifications</a>
             </li>
@@ -1022,8 +1002,7 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1039,7 +1018,24 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  <script>
 
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('d76c5db9b1fa63985fd9', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+      oldcontent=document.getElementById('notif').innerHTML;
+      document.getElementById('notif').innerHTML='<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Nouvelles commande déclareé!</h4><p>Nouvelles commande déclareé!</p></div></li>'+oldcontent;
+    //  $("#notif").html('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Lorem Ipsumlll5555</h4><p>Quae dolorem earum veritatis oditseno</p><p>30 min. ago</p></div></li>');
+    });
+  </script>
 </body>
 
 </html>
