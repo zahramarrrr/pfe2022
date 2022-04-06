@@ -32,6 +32,8 @@ DB::table('commandes')->insert([
     'prix'=>$request->prix,
 
     'description'=>$request->description,
+    'etat'=>$request->etat,
+
 
 
 
@@ -91,5 +93,9 @@ return view('edit-commande',compact('commande'));
         $commandes=DB::table('commandes')->where('ID_commande','LIKE','%'.$search_text.'%')->get();
         return view ('liste-commande-declare',compact('commandes'));        
     }
+    public function list()
+{
+    return view('/liste-commande-declare');
+}
     
 }

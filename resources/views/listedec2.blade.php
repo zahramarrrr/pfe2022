@@ -253,7 +253,7 @@
         </a>
       </li>
       <li>
-        <a href="forms-layouts.html">
+        <a href="http://127.0.0.1:8000/listedec">
           <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
         </a>
       </li>
@@ -277,7 +277,6 @@
 
 </aside><!-- End Sidebar-->
 
-
 <main id="main" class="main" >
   <div class="pagetitle">
       <h1>Liste des commandes déclarées</h1>
@@ -297,6 +296,8 @@
                     <h5 class="header-title pb-3 mt-0">Mes commandes</h5>
 
                     <div class="table-responsive">
+                    <div class="row"><div class="eight wide column"><div class="dataTables_length" id="tablecommandes_length"><label>Afficher <select name="tablecommandes_length" aria-controls="tablecommandes" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entrées</label></div></div><div class="right aligned eight wide column"><div id="tablecommandes_filter" class="dataTables_filter ui form"><label>Rechercher:<span class="ui input"><input type="search" class="" placeholder="" aria-controls="tablecommandes"></span></label>
+                    <button type="button" class="btn btn-info add-new" onclick="window.location.href ='http://127.0.0.1:8000/ajouter-commande';"><i class="fa fa-plus"></i> Ajouter</button></div></div></div>
 
                         <table class="table table-hover mb-0">
                             <thead>
@@ -319,12 +320,12 @@
                                     <td>{{$commande->date}}</td>
                                     <td>{{$commande->telephone}}</td>
                                     <td> <span class="badge badge-success m-0">Declarée</span></td>
-<<<<<<< Updated upstream
                                     <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
                                          <a a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
                                          
                                    <a href="edit-commande/{{$commande->id}}">edit </a>
-                                   <button type="submit" method="post" action="{{ route('save.colis') }}" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Valider</button>
+                                   <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4" onclick="window.location.href ='http://127.0.0.1:8000/listedec';">+ valider</button>
+
                                                            </td>
                                                            
                                         </tr>
@@ -337,7 +338,6 @@
                         </table>
 
                     </div>
-                    <!--end table-responsive-->
                     <div class="pt-3 border-top text-right"><a href="#" class="text-primary">View all <i class="mdi mdi-arrow-right"></i></a></div>
                 </div>
             </div>
@@ -430,8 +430,8 @@
     </div>
   </div>
 </main>
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+     <!-- Vendor JS Files -->
+     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>
   <script src="assets/vendor/echarts/echarts.min.js"></script>
@@ -440,6 +440,22 @@
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+
+  <script >
+    $(document).ready(function() {
+    $('#tablecommandes').DataTable({
+        language: {
+            url: "{{ asset('assets/datatable-fr-FR.json') }}"
+        },
+        "searching": true
+    } );
+} );
+    </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

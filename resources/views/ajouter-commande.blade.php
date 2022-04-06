@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Declaration</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 <!-- Font Icon -->
 <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
@@ -39,7 +41,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<!-- Favicons -->
+  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -71,25 +73,14 @@
 </head>
 
 <body>
-<main id="main" class="main">
 
-  <div class="pagetitle">
-      <h1>Liste des commandes déclarées</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/Commer%C3%A7ant">page d'accueil</a></li>
-          
-          <li class="breadcrumb-item active">liste</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="http://127.0.0.1:8000/Listecommercant" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+        <span class="d-none d-lg-block">MaCommande</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -103,101 +94,219 @@
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
-        </li><!-- End espace-->
+        </li><!-- End Search Icon-->
 
         <li class="nav-item dropdown">
- </li><!-- End Notification Nav -->
 
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 4 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>Lorem Ipsum</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>30 min. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-x-circle text-danger"></i>
+              <div>
+                <h4>Atque rerum nesciunt</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>1 hr. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Sit rerum fuga</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>2 hrs. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Dicta reprehenderit</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        
 
         <li class="nav-item dropdown pe-3">
 
-<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-  <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
-</a><!-- End Profile Iamge Icon -->
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          </a><!-- End Profile Iamge Icon -->
 
-<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
-  <li class="dropdown-header">
-    <h6>Commerçant X</h6>
-    <span>responsable vente en ligne</span>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Kevin Anderson</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
-      <i class="bi bi-person"></i>
-      <span>Mon Profil</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
-      <i class="bi bi-gear"></i>
-      <span>Editer profil</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
-      <i class="bi bi-box-arrow-right"></i>
-      <span>Deconnexion</span>
-    </a>
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
 
-</ul><!-- End Profile Dropdown Items -->
-  
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
 
-  <aside id="sidebar" class="sidebar">
+   <!-- ======= Sidebar ======= -->
+   <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item">
-        <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
-          <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
+<ul class="sidebar-nav" id="sidebar-nav">
+
+  <li class="nav-item">
+    <a class="nav-link " href="index.html">
+      <i class="bi bi-grid"></i>
+      <span>Dashboard</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+      <a href="http://127.0.0.1:8000/Listecommercant">
+          <i class="bi bi-circle"></i><span>Commerçants</span>
         </a>
+      </li>
+      <li>
+      <a href="http://127.0.0.1:8000/ListeAgent">
+          <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
+        </a>
+      </li>
+      <li>
+      <a href="http://127.0.0.1:8000/ListeLivreur">
+          <i class="bi bi-circle"></i><span>Livreurs</span>
+        </a>
+      </li>
+
+    </ul>
+  </li><!-- End Personnels Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="http://127.0.0.1:8000/listedec2">
+          <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://127.0.0.1:8000/listedec">
+          <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
+        </a>
+      </li>
+      <li>
+        <a href="forms-elements.html">
+          <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
+        </a>
+      </li>
      
-        </li><!-- End declarer commande nav -->
-    
+    </ul>
+  </li><!-- End commandes Nav -->
+  
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="pages-login.html">
+      <i class="bi bi-box-arrow-in-right"></i>
+      <span>Login</span>
+    </a>
+  </li><!-- End Login Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
-          <i class="bi bi-layout-text-window-reverse"></i>
-          <span>la liste des commandes déclarées</span>
-        </a>
-        
-      </li><!-- End liste des commandes nav -->
+</ul>
 
-      <li class="nav-heading">contact</li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-<!-- END contact -->
+</aside><!-- End Sidebar-->
 
-     
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Commer%C3%A7ant">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>retour</span>
-        </a>
-      </li><!-- End retour Nav -->
-      </ul>
-       </aside><!-- End Sidebar-->
-       
-			<div class="container">
+  
+<div class="container">
 				<div class="row">
 					<div class="booking-form">
 						<div class="form-header">
@@ -206,7 +315,7 @@
               @if(Session::has('post_add'))
         <span>{{Session::get('post_add')}}</span>
         @endif
-						<form  class="register-form" id="register-form"   method="post" action="{{ route('save.post') }}">
+						<form method="POST" class="register-form" id="register-form"   method="post" action="{{ route('save.post') }}">
             @csrf
 	          <div class="row">
 								<div class="col-sm-6">
@@ -387,9 +496,8 @@
               
 							<div class="form-btn" >
 							
-              <a href="{{route('list')}}"> <input class="submit-btn" type="submit" value="Déclarer" id="submit" name="submit" / > </a>
-                <button type="button" class="btn btn-info add-new" onclick="window.location.href ='http://127.0.0.1:8000/ajouter-commande';"><i class="fa fa-plus"></i> Ajouter</button></div></div></div>
-
+                <input class="submit-btn" type="submit" value="Déclarer" id="submit" name="submit"  />
+                
 							</div>
 						</form>
 					</div>
@@ -403,14 +511,13 @@
        
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-</section>
-</main>
+
+
+
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-
   <script src="assets/vendor/chart.js/chart.min.js"></script>
   <script src="assets/vendor/echarts/echarts.min.js"></script>
   <script src="assets/vendor/quill/quill.min.js"></script>
@@ -421,12 +528,13 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <!-- JS -->
-  <script src="vendor/jquery/jquery.min.js"></script>
+ <!-- JS -->
+ <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/nouislider/nouislider.min.js"></script>
     <script src="vendor/wnumb/wNumb.js"></script>
     <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

@@ -45,6 +45,12 @@ Route::get('/Listecommercant', function () {
 Route::get('/Admin', function () {
     return view('Admin');
 });
+Route::get('/ajout', function () {
+    return view('ajout');
+});
+Route::get('/ajouter-commande', function () {
+    return view('ajouter-commande');
+});
 Route::get('/Declarer-commande', function () {
     return view('Declarer-commande');
 });
@@ -72,11 +78,13 @@ Route::get('/details', function () {
 Route::get('/edit-commande', function () {
     return view('edit-commande');
 });
+Route::get('/list','CommandeController@list')->name('list');
 
 Route::get('test', function () {
     event(new App\Events\MyEvenet('welcome'));
    //    return "Event has been sent!";
 });
+
 use App\Http\Controllers\ColisController;
 use App\Http\Controllers\CommandeController;
 route::get('Declarer-commande', [CommandeController::class,'addCommande'])->name('commande.add');
@@ -87,8 +95,8 @@ route::get('/delete-commande/{id}', [CommandeController::class,'DeleteCommande']
 
 route::post('update-commande', [CommandeController::class,'updateCommande'])->name('update.commande');
 route::get('listedec2', [CommandeController::class,'CommandeListAdmin'])->name('commande.ListAdmin');
-route::post('listedec2', [ColisController::class,'saveColis'])->name('save.colis');
-route::get('shift-data',[ColisController::class, 'shiftdata'])->name('shiftdata');
+//route::post('listedec2', [ColisController::class,'saveColis'])->name('save.colis');
+//route::get('listedec2',[ColisController::class, 'shiftdata'])->name('shiftdata');
 
 route::get('/search','CommandeController@search');
 
