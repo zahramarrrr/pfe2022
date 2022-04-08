@@ -108,7 +108,7 @@ $NotificationsCommandes=Notifications::all();
     <hr class="dropdown-divider">
   </li>
 <div id='notif'>
-<a href="{{route('commande.details',$commandes->id)}}">
+<a href="{{route('commande.details',['id'=> 1])}}">
   <li class="notification-item">
   <i class="bi bi-exclamation-circle text-warning"></i>
     <div>
@@ -1218,7 +1218,7 @@ $NotificationsCommandes=Notifications::all();
     channel.bind('my-event', function(data) {
       alert(JSON.stringify(data));
       oldcontent=document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML='<a  href="{{route('commande.details')}}"><li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Nouvelles commande déclareé!</h4><p>Nouvelles commande déclareé!</p></div></li></a>'+oldcontent;
+      document.getElementById('notif').innerHTML='<a  href="{{route(commande.details)}}"><li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Nouvelles commande déclareé!</h4><p>Nouvelles commande déclareé!</p></div></li></a>'+oldcontent;
     //  $("#notif").html('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Lorem Ipsumlll5555</h4><p>Quae dolorem earum veritatis oditseno</p><p>30 min. ago</p></div></li>');
     });
   </script>
