@@ -270,7 +270,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Ajouter un agent d'entrepot:</h2>
+					<h2 class="heading-section">Ajouter un livreur:</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -287,25 +287,32 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" class="form-control" name="name" id="name" placeholder="Nom et prénom">
+													<input type="text" class="form-control" name="name" id="name" placeholder="Nom ">
+												</div>
+                        <div class="form-group">
+													<input type="text" class="form-control" name="subject" id="subject" placeholder="prénom">
 												</div>
 											</div>
 											<div class="col-md-12"> 
-												<div class="form-group">
-													<input type="email" class="form-control" name="email" id="email" placeholder="Email">
-												</div>
+												
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" class="form-control" name="subject" id="subject" placeholder="Adresse">
+													<input type="text" class="form-control" name="subject" id="subject" placeholder="Adresse mail">
 												</div>
+                       
 											</div>
                                             <div class="col-md-12">
 												<div class="form-group">
 													<input type="text" class="form-control" name="subject" id="subject" placeholder="Télèphone">
 												</div>
 											</div>
-											
+											<div class="form-group">
+													<input type="text" class="form-control" name="subject" id="subject" placeholder="ID Agent d'entrepot">
+												</div>
+                        <div class="form-group">
+													<input type="text" class="form-control" name="subject" id="subject" placeholder="Mot de passe">
+</div>
 											<div class="col-md-12">
 												<div class="form-group">
 													<input type="submit" value="Ajouter" class="btn btn-primary">
@@ -318,7 +325,7 @@
 								</div>
 							</div>
 							<div class="col-lg-6 d-flex align-items-stretch">
-								<div class="info-wrap w-100 p-5 img" style="background-image: url(assetsajout/images/img.png);">
+								<div class="info-wrap w-100 p-5 img" style="background-image: url(assetsajout/images/img2.png);">
 			          </div>
 							</div>
 						</div>

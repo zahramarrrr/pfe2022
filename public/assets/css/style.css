@@ -39,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 60px;
   padding: 20px 30px;
   transition: all 0.3s;
+  background-color: rgb(232, 234, 243);
 }
 @media (max-width: 1199px) {
   #main {
@@ -288,25 +289,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
 /* Breadcrumbs */
 .breadcrumb {
   font-size: 14px;
   font-family: "Nunito", sans-serif;
-  color: #899bbd;
+  color: #142e5e;
   font-weight: 600;
 }
 .breadcrumb a {
-  color: #899bbd;
+  color: #142e5e;
   transition: 0.3s;
 }
 .breadcrumb a:hover {
-  color: #51678f;
+  color: #142e5e;
 }
 .breadcrumb .breadcrumb-item::before {
-  color: #899bbd;
+  color: #142e5e;
 }
 .breadcrumb .active {
-  color: #51678f;
+  color: #0d3070;
   font-weight: 600;
 }
 
@@ -553,7 +555,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
 }
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #aab7cf;
+  background-color: #c9d9f5;
 }
 
 @media (min-width: 1200px) {
@@ -1924,8 +1926,9 @@ body.flat-black {
 }
 .btn.btn-tertiary {
   color: #fff;
-  background: #72e681;
-  border-color: #72e681;
+  font-weight: bold;
+  background: #24b354;
+  border-color: #24b354;
 }
 
 .btn.btn-tertiary.btn-tag:before {
@@ -1950,7 +1953,7 @@ body.flat-black {
   height: 0;
   border-style: solid;
   border-width: 14px 0 14px 10px;
-  border-color: transparent transparent transparent #72e681;
+  border-color: transparent transparent transparent #24b354;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -2161,3 +2164,15 @@ body{
   color: #605daf;
 }
 /****** fin liste des commandes****/
+.btn.btn-round {
+  border-radius: 100px;
+}
+
+.btn.btn-secondary {
+  color: #fff;
+  font-weight: bold;
+  border-color: #6082B6;
+  background: #6082B6;
+  position: relative;
+top: -0.8em; left:788px;
+}

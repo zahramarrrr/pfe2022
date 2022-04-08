@@ -59,18 +59,17 @@ Route::get('/Declarer-commande', function () {
 });
 
 
-Route::get('/listedec', function () {
-    return view('listedec');
-});
-Route::get('/listedec2', function () {
-    return view('listedec2');
-});
-
-Route::get('/Statut', function () {
-    return view('Statut');
+Route::get('/liste-commande-declare-admin', function () {
+    return view('liste-commande-declare-admin');
 });
 
 
+Route::get('/liste-personnels-Agent', function () {
+    return view('liste-personnels-Agent');
+});
+Route::get('/liste-commande-validee', function () {
+    return view('liste-commande-validee');
+});
 
 Route::get('/notification', function () {
     return view('notification');
@@ -82,9 +81,15 @@ Route::get('/details', function () {
     return view('details');
 });
 Route::get('/list','CommandeController@list')->name('list');
-=======
-Route::get('/ajout', function () {
-    return view('ajout');
+
+Route::get('/ajout-agent', function () {
+    return view('ajout-agent');
+});
+Route::get('/ajout-livreur', function () {
+    return view('ajout-livreur');
+});
+Route::get('/Statut', function () {
+    return view('Statut');
 });
 
 use App\Http\Controllers\ColisController;

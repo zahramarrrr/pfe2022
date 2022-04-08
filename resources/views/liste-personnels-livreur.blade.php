@@ -177,16 +177,14 @@
  
   <main id="main" class="main" >
   <div class="pagetitle">
-      <h1>Liste des commandes déclarées</h1>
+      <h1>Liste des Agents d'entrepôts</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
     
-    @if(Session::has('commande_delete'))
-        <span>{{Session::get('commande_delete')}}</span>
-        @endif
+   
 
     <div class="container">
       
@@ -194,7 +192,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='http://127.0.0.1:8000/ajouter-commande';"><i class="bi bi-bag-plus"></i> Ajouter</button>
+                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='http://127.0.0.1:8000/ajout';"><i class="bi bi-bookmark-check"></i> Ajouter</button>
 
 
                     <table id="tablecommandes" class="ui celled table" style="width:100%">
@@ -202,115 +200,38 @@
                                 <tr >
                                    
                                     <th>ID commande</th>
-                                    <th>Date de commande</th>
-                                    <th>téléphone</th>
-                                    <th>Details</th>
-                                    <th>Etat actuel</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Télèphone</th>
+                                    <th>Adresse d'email</th>
                                     <th></th>
                                 </tr>
 
                             </thead>
                             <tbody>
-                            @foreach($commandes as $commande)
 
                                 <tr>
                                     
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                                    <td>{{$commande->date}}</td>
-                                    <td>{{$commande->telephone}}</td>
-                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details</button></td>
-                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
+                                    <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">ID Agent d'entrepôt</td>
+                                    <td>Nom</td>
+                                    <td>Prénom</td>
+                                    <td>Télèphone</td>
+                                    <td>Adresse d'email</td>
 
                                     <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
-                                         <a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
+                                         <a><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
                                          
 
-                                         <a href="edit-commande/{{$commande->id}}"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span>                                    
+                                         <a ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span>                                    
 
                                         </td>
                                         </tr>
                                         
-                                      @endforeach
+                                     
                                 </tbody>
                                 
                         </table>
-                        <div class="modal" id="infos">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Plus d'informations</h4>
-      </div>
-      <div class="modal-body">
-      <div class="form-row table-responsive">
-									<table class="table">
-										<tbody>
-											<tr class="space-row">
-												<th>date:</th>
-												<td id="date-val">{{$commande->date}}</td>
-											</tr>
-                       <tr class="space-row">
-												<th>temps:</th>
-												<td id="temps-val">{{$commande->temps}}</td>
-											</tr>
-                       <tr class="space-row">
-												<th>nom:</th>
-												<td id="nom-val">{{$commande->nom}}</td>
-                        <tr class="space-row">
-                        <th>prénom:</th>
-												<td id="prenom-val">{{$commande->prenom}}</td>
-											</tr>
-                      <tr class="space-row">
-												<th>téléphone:</th>
-												<td id="telephone-val">{{$commande->telephone}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>Addresse mail:</th>
-												<td id="email-val">{{$commande->email}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>Adresse 1:</th>
-												<td id="adresse1-val">{{$commande->adresse1}}</td>
-											</tr>
-                        <tr class="space-row">
-												<th>Adresse 2:</th>
-												<td id="adresse2-val">{{$commande->adresse2}}</td>
-											</tr>
-                      <tr class="space-row">
-												<th>Governorat:</th>
-												<td id="governorat-val">{{$commande->governorat}}</td>
-                         </tr>
-                         <tr class="space-row">
-                         <th>ville</th>
-												<td id="ville-val">{{$commande->ville}}</td>
-                         </tr>
-                         <tr class="space-row">
-                          <th>code postal</th>
-												<td id="code_postal-val">{{$commande->code_postal}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>ID Commande:</th>
-												<td id="ID_commande-val">{{$commande->ID_commande}} </td>
-											</tr>
-											<tr class="space-row">
-												<th>poids:</th>
-												<td id="poids-val">{{$commande->poids}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>mode de paiment:</th>
-												<td id="paiment-val">{{$commande->paiement}}</td>
-											</tr>
-                      <tr class="space-row">
-												<th>total prix:</th>
-												<td id="prix-val">{{$commande->prix}}</td>
-											</tr> 
-                        <tr class="space-row">
-												<th>description:</th>
-												<td id="description-val">{{$commande->description}}</td>
-                        </tr>
-										</tbody>
-									</table>
-								</div>
-      </div>
+                        
       <div class="modal-footer">
         <em>Informations sous réserve</em>
       </div>
