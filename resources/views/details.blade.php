@@ -248,12 +248,12 @@
     </a>
     <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="forms-elements.html">
+        <a href="http://127.0.0.1:8000/listedec2">
           <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
         </a>
       </li>
       <li>
-        <a href="forms-layouts.html">
+        <a href="http://127.0.0.1:8000/listedec">
           <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
         </a>
       </li>
@@ -277,114 +277,98 @@
 
 </aside><!-- End Sidebar-->
 
-
-  <main id="main" class="main" >
-
+<main id="main" class="main" >
   <div class="pagetitle">
-      <h1>Liste des commerçants</h1>
+      <h1>Liste des commandes déclarées</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
-    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<?php //dd($commandes); ?>
+<div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Plus d'informations</h4>
+      </div>
+      <div class="modal-body">
+      <div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
 
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    
-
-        <div class="col-lg-9 my-lg-0 my-1">
-            
-                
-                <div class="order my-3 bg-light">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="d-flex flex-column justify-content-between order-summary">
-                                <div class="d-flex align-items-center">
-                                    
-                                </div>
-                                <div class="employers-list-img mt-3">
-
-                                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3">Details</button>                                
-                                <img  src="assets/img/avatar4.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                   </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
-                                <div class="status">ID Commande: 123</div>
-                               <span> <div><button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Agent d'entrepot</button></span></div><br>
-
-                               <span><div><button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Livreur</button></div></span><br>
-</span>
-
-                            </div>
-                            <div class="progressbar-track">
-                                <ul class="progressbar">
-                                    <li id="step-1" class="text-muted green"> <span class="fas fa-gift"></span> </li>
-                                    <li id="step-2" class="text-muted"> <span class="fas fa-check"></span> </li>
-                                    <li id="step-3" class="text-muted"> <span class="fas fa-box"></span> </li>
-                                    <li id="step-4" class="text-muted"> <span class="fas fa-truck"></span> </li>
-                                    <li id="step-5" class="text-muted"> <span class="fas fa-box-open"></span> </li>
-                                </ul>
-                                <div id="tracker"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="order my-3 bg-light">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="d-flex flex-column justify-content-between order-summary">
-                                <div class="d-flex align-items-center">
-                                    
-                                </div>
-                                <div class="employers-list-img mt-3">
-
-                                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3">Details</button>                                
-                                <img  src="assets/img/avatar4.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                   </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
-                                <div class="status">ID Commande: 123</div>
-                               <span> <div><button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Agent d'entrepot</button></span></div><br>
-
-                               <span><div><button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Livreur</button></div></span><br>
-</span>
-
-                            </div>
-                            <div class="progressbar-track">
-                                <ul class="progressbar">
-                                    <li id="step-1" class="text-muted green"> <span class="fas fa-gift"></span> </li>
-                                    <li id="step-2" class="text-muted"> <span class="fas fa-check"></span> </li>
-                                    <li id="step-3" class="text-muted"> <span class="fas fa-box"></span> </li>
-                                    <li id="step-4" class="text-muted"> <span class="fas fa-truck"></span> </li>
-                                    <li id="step-5" class="text-muted"> <span class="fas fa-box-open"></span> </li>
-                                </ul>
-                                <div id="tracker"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+											<tr class="space-row">
+												<th>date:</th>
+												<td id="date-val">{{$commande->date->id}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>temps:</th>
+												<td id="temps-val">{{$commande->temps}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>nom:</th>
+												<td id="nom-val">{{$commande->nom}}</td>
+                        <tr class="space-row">
+                        <th>prénom:</th>
+												<td id="prenom-val">{{$commande->prenom}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>téléphone:</th>
+												<td id="telephone-val">{{$commande->telephone}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Addresse mail:</th>
+												<td id="email-val">{{$commande->email}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Adresse 1:</th>
+												<td id="adresse1-val">{{$commande->adresse1}}</td>
+											</tr>
+                        <tr class="space-row">
+												<th>Adresse 2:</th>
+												<td id="adresse2-val">{{$commande->adresse2}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>Governorat:</th>
+												<td id="governorat-val">{{$commande->governorat}}</td>
+                         </tr>
+                         <tr class="space-row">
+                         <th>ville</th>
+												<td id="ville-val">{{$commande->ville}}</td>
+                         </tr>
+                         <tr class="space-row">
+                          <th>code postal</th>
+												<td id="code_postal-val">{{$commande->code_postal}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>ID Commande:</th>
+												<td id="ID_commande-val">{{$commande->ID_commande}} </td>
+											</tr>
+											<tr class="space-row">
+												<th>poids:</th>
+												<td id="poids-val">{{$commande->poids}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>mode de paiment:</th>
+												<td id="paiment-val">{{$commande->paiement}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>total prix:</th>
+												<td id="prix-val">{{$commande->prix}}</td>
+											</tr> 
+                        <tr class="space-row">
+												<th>description:</th>
+												<td id="description-val">{{$commande->description}}</td>
+                        </tr>
+                        
+										</tbody>
+									</table>
+								</div>
+      </div>
+      <div class="modal-footer">
+        <em>Informations sous réserve</em>
+      </div>
     </div>
-</div>
-      
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.min.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  </div>
+</main>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

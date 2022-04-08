@@ -216,7 +216,7 @@
                                     <td>{{$commande->telephone}}</td>
                                     <td> <span class="badge badge-success m-0">Declarée</span></td>
                                     <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
-                                         <a a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
+                                         <a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
                                          
 
                                          <button type="button" data-toggle="modal" data-target="#infos" class="btn btn-primary">details</button>

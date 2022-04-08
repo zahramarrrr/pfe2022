@@ -1,4 +1,122 @@
-<?php
+<div class="modal" id="infos">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Plus d'informations</h4>
+        </div>
+        <div class="modal-body">
+        <div class="form-row table-responsive">
+                                      <table class="table">
+                                          <tbody>
+                      @foreach($commandes as $commande)
+  
+                                              <tr class="space-row">
+                                                  <th>date:</th>
+                                                  <td id="date-val">{{$commande->date}}</td>
+                                              </tr>
+                         <tr class="space-row">
+                                                  <th>temps:</th>
+                                                  <td id="temps-val">{{$commande->temps}}</td>
+                                              </tr>
+                         <tr class="space-row">
+                                                  <th>nom:</th>
+                                                  <td id="nom-val">{{$commande->nom}}</td>
+                          <tr class="space-row">
+                          <th>prénom:</th>
+                                                  <td id="prenom-val">{{$commande->prenom}}</td>
+                                              </tr>
+                        <tr class="space-row">
+                                                  <th>téléphone:</th>
+                                                  <td id="telephone-val">{{$commande->telephone}}</td>
+                                              </tr>
+                                              <tr class="space-row">
+                                                  <th>Addresse mail:</th>
+                                                  <td id="email-val">{{$commande->email}}</td>
+                                              </tr>
+                                              <tr class="space-row">
+                                                  <th>Adresse 1:</th>
+                                                  <td id="adresse1-val">{{$commande->adresse1}}</td>
+                                              </tr>
+                          <tr class="space-row">
+                                                  <th>Adresse 2:</th>
+                                                  <td id="adresse2-val">{{$commande->adresse2}}</td>
+                                              </tr>
+                        <tr class="space-row">
+                                                  <th>Governorat:</th>
+                                                  <td id="governorat-val">{{$commande->governorat}}</td>
+                           </tr>
+                           <tr class="space-row">
+                           <th>ville</th>
+                                                  <td id="ville-val">{{$commande->ville}}</td>
+                           </tr>
+                           <tr class="space-row">
+                            <th>code postal</th>
+                                                  <td id="code_postal-val">{{$commande->code_postal}}</td>
+                                              </tr>
+                                              <tr class="space-row">
+                                                  <th>ID Commande:</th>
+                                                  <td id="ID_commande-val">{{$commande->ID_commande}} </td>
+                                              </tr>
+                                              <tr class="space-row">
+                                                  <th>poids:</th>
+                                                  <td id="poids-val">{{$commande->poids}}</td>
+                                              </tr>
+                                              <tr class="space-row">
+                                                  <th>mode de paiment:</th>
+                                                  <td id="paiment-val">{{$commande->paiement}}</td>
+                                              </tr>
+                        <tr class="space-row">
+                                                  <th>total prix:</th>
+                                                  <td id="prix-val">{{$commande->prix}}</td>
+                                              </tr> 
+                          <tr class="space-row">
+                                                  <th>description:</th>
+                                                  <td id="description-val">{{$commande->description}}</td>
+                          </tr>
+  
+                                          </tbody>
+                      
+                      @endforeach
+  
+                                      </table>
+                                  </div>
+        </div>
+        <div class="modal-footer">
+          <em>Informations sous réserve</em>
+        </div>
+      </div>
+    </div>
+  
+                        </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <?php
 use App\models\Notifications;
 $NotificationsCommandes=Notifications::all();
 ?>
@@ -108,7 +226,7 @@ $NotificationsCommandes=Notifications::all();
     <hr class="dropdown-divider">
   </li>
 <div id='notif'>
-<a href="{{route('commande.details',$commandes->id)}}">
+<a href="#" data-toggle="modal" data-target="#infos" > 
   <li class="notification-item">
   <i class="bi bi-exclamation-circle text-warning"></i>
     <div>
@@ -123,12 +241,15 @@ $NotificationsCommandes=Notifications::all();
   </li>
   <li class="notification-item">
 
-  <i class="fa fa-plus">
 
- <a  href="route('details')">
-                                
+  @foreach($commandes as $commande)
+                            <a data-toggle="modal" id="smallButton" data-target="#smallModal"
+                                data-attr="{{ route('Commande.notif', $commande->id) }}" title="show">
+                                <i class="fas fa-eye text-success  fa-lg"></i>
+                                @csrf
+@endforeach
+
 </li>
-</a>
 
   <li class="notification-item">
     <i class="bi bi-x-circle text-danger"></i>
@@ -189,9 +310,9 @@ $NotificationsCommandes=Notifications::all();
   <i class="bi bi-exclamation-circle text-warning"></i>
     <div>
               @foreach ($NotificationsCommandes as $Notif)
-              <a href="route('details')">
+              <a data-toggle="modal" id="smallButton" data-target="#smallModal"
+              data-attr="{{ route('Commande.notif', $commande->id) }}" title="show" href="notif_ass">
             {{$Notif->message}}
-          </i> </a>
              @endforeach
       </div>
   </li>
@@ -202,7 +323,100 @@ $NotificationsCommandes=Notifications::all();
             <li class="dropdown-footer">
               <a href="#">Show all notifications</a>
             </li>
-           
+            <div class="modal" id="infos">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Plus d'informations</h4>
+      </div>
+      <div class="modal-body">
+      <div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+                    @foreach($commandes as $commande)
+
+											<tr class="space-row">
+												<th>date:</th>
+												<td id="date-val">{{$commande->date}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>temps:</th>
+												<td id="temps-val">{{$commande->temps}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>nom:</th>
+												<td id="nom-val">{{$commande->nom}}</td>
+                        <tr class="space-row">
+                        <th>prénom:</th>
+												<td id="prenom-val">{{$commande->prenom}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>téléphone:</th>
+												<td id="telephone-val">{{$commande->telephone}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Addresse mail:</th>
+												<td id="email-val">{{$commande->email}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Adresse 1:</th>
+												<td id="adresse1-val">{{$commande->adresse1}}</td>
+											</tr>
+                        <tr class="space-row">
+												<th>Adresse 2:</th>
+												<td id="adresse2-val">{{$commande->adresse2}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>Governorat:</th>
+												<td id="governorat-val">{{$commande->governorat}}</td>
+                         </tr>
+                         <tr class="space-row">
+                         <th>ville</th>
+												<td id="ville-val">{{$commande->ville}}</td>
+                         </tr>
+                         <tr class="space-row">
+                          <th>code postal</th>
+												<td id="code_postal-val">{{$commande->code_postal}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>ID Commande:</th>
+												<td id="ID_commande-val">{{$commande->ID_commande}} </td>
+											</tr>
+											<tr class="space-row">
+												<th>poids:</th>
+												<td id="poids-val">{{$commande->poids}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>mode de paiment:</th>
+												<td id="paiment-val">{{$commande->paiement}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>total prix:</th>
+												<td id="prix-val">{{$commande->prix}}</td>
+											</tr> 
+                        <tr class="space-row">
+												<th>description:</th>
+												<td id="description-val">{{$commande->description}}</td>
+                        </tr>
+                        @endforeach
+										</tbody>
+									</table>
+								</div>
+      </div>
+      <div class="modal-footer">
+        <em>Informations sous réserve</em>
+      </div>
+    </div>
+  </div>
+
+                      </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
           </ul><!-- End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
@@ -1218,7 +1432,7 @@ $NotificationsCommandes=Notifications::all();
     channel.bind('my-event', function(data) {
       alert(JSON.stringify(data));
       oldcontent=document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML='<a  href="{{route('commande.details')}}"><li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Nouvelles commande déclareé!</h4><p>Nouvelles commande déclareé!</p></div></li></a>'+oldcontent;
+      document.getElementById('notif').innerHTML='<a data-toggle="modal" id="smallButton" data-target="#smallModal"data-attr="{{ route('Commande.notif', $commande->id) }}" title="show"><li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Nouvelles commande déclareé!</h4><p>Nouvelles commande déclareé!</p></div></li></a>'+oldcontent;
     //  $("#notif").html('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Lorem Ipsumlll5555</h4><p>Quae dolorem earum veritatis oditseno</p><p>30 min. ago</p></div></li>');
     });
   </script>

@@ -32,6 +32,11 @@ class CreateCommandesTable extends Migration
             $table->integer('prix')->default(0);
             $table->string('description')->default('');
             $table->string('etat')->default('');
+            $table->dateTime('date_validation');
+            $table->dateTime('date_affect_agent');
+            $table->dateTime('date_preparation');
+            $table->dateTime('date_affect_livreur');
+            $table->dateTime('date_livraison');
 
             $table->timestamps();
         });

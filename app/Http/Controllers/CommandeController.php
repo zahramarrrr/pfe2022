@@ -42,8 +42,9 @@ DB::table('commandes')->insert([
 
 ]);
 event(new MyEvenet('commande ajoutée'));
+        $commandes=DB::table('commandes')->get();
 
-return back()->with('post_add', 'post added successfully');
+return view('liste-commande-declare', compact('commandes'));
     }
     public function CommandeList(){
         $commandes=DB::table('commandes')->get();
@@ -54,9 +55,18 @@ return back()->with('post_add', 'post added successfully');
         $commandes=DB::table('commandes')->get();
         return view('listedec2', compact('commandes'));
     }
+    
+    public function Commandedetails($id){ 
+        $commande=DB::table('commandes')->where('id' , $id)->first();
+        return view('details', compact('commande'));
+}
+    public function Commandenotif(){
+        $commandes=DB::table('commandes')->get();
+        return view('Admin', compact('commandes'));
+    }
     public function EditCommande ($id){ 
-$commande=DB::table('commandes')->where('id' , $id)->first();
-return view('edit-commande',compact('commande'));
+$commandes=DB::table('commandes')->where('id' , $id)->first();
+return view('edit-commande',compact('commandes'));
     }
     public function DeleteCommande ($id){ 
         DB::table('commandes')->where('id' , $id)->delete();
@@ -94,9 +104,6 @@ return view('edit-commande',compact('commande'));
         $commandes=DB::table('commandes')->where('ID_commande','LIKE','%'.$search_text.'%')->get();
         return view ('liste-commande-declare',compact('commandes'));        
     }
-    public function list()
-{
-    return view('/liste-commande-declare');
-}
+    
     
 }

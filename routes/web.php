@@ -78,6 +78,9 @@ Route::get('/details', function () {
 Route::get('/edit-commande', function () {
     return view('edit-commande');
 });
+Route::get('/details', function () {
+    return view('details');
+});
 Route::get('/list','CommandeController@list')->name('list');
 
 use App\Http\Controllers\ColisController;
@@ -90,6 +93,8 @@ route::get('/delete-commande/{id}', [CommandeController::class,'DeleteCommande']
 
 route::post('update-commande', [CommandeController::class,'updateCommande'])->name('update.commande');
 route::get('listedec2', [CommandeController::class,'CommandeListAdmin'])->name('commande.ListAdmin');
+route::get('Admin', [CommandeController::class,'Commandenotif'])->name('Commande.notif');
+route::get('details/{id}', [CommandeController::class,'Commandedetails'])->name('commande.details');
 
 route::get('/search','CommandeController@search');
 
