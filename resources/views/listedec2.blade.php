@@ -56,9 +56,7 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
-  
-
+    
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
@@ -66,218 +64,118 @@
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
-        </li><!-- End Search Icon-->
+        </li><!-- End espace-->
 
         <li class="nav-item dropdown">
 
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
+       
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-
-          </ul><!-- End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
 
-        
 
         <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
+<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+  <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
+</a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+  <li class="dropdown-header">
+    <h6>Commerçant X</h6>
+    <span>responsable vente en ligne</span>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
+      <i class="bi bi-person"></i>
+      <span>Mon Profil</span>
+    </a>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
+      <i class="bi bi-gear"></i>
+      <span>Editer profil</span>
+    </a>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
+      <i class="bi bi-box-arrow-right"></i>
+      <span>Deconnexion</span>
+    </a>
+  </li>
 
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
+</ul><!-- End Profile Dropdown Items -->
+  
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
 
-   <!-- ======= Sidebar ======= -->
-   <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
 
-<ul class="sidebar-nav" id="sidebar-nav">
-
-  <li class="nav-item">
-    <a class="nav-link " href="index.html">
-      <i class="bi bi-grid"></i>
-      <span>Dashboard</span>
-    </a>
-  </li><!-- End Dashboard Nav -->
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-      <a href="http://127.0.0.1:8000/Listecommercant">
-          <i class="bi bi-circle"></i><span>Commerçants</span>
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+        <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
+          <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
         </a>
-      </li>
-      <li>
-      <a href="http://127.0.0.1:8000/ListeAgent">
-          <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
-        </a>
-      </li>
-      <li>
-      <a href="http://127.0.0.1:8000/ListeLivreur">
-          <i class="bi bi-circle"></i><span>Livreurs</span>
-        </a>
-      </li>
-
-    </ul>
-  </li><!-- End Personnels Nav -->
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="http://127.0.0.1:8000/listedec2">
-          <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
-        </a>
-      </li>
-      <li>
-        <a href="http://127.0.0.1:8000/listedec">
-          <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
-        </a>
-      </li>
-      <li>
-        <a href="forms-elements.html">
-          <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
-        </a>
-      </li>
      
+        </li><!-- End declarer commande nav -->
+    
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
+          <i class="bi bi-layout-text-window-reverse"></i>
+          <span>la liste des commandes déclarées</span>
+        </a>
+
+        
+      </li><!-- End liste des commandes nav -->
+
+      <li class="nav-heading">contact</li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+
+        </a>
+      </li><!-- End Contact Page Nav -->
+<!-- END contact -->
+
+     
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Commer%C3%A7ant">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>retour</span>
+        </a>
+      </li><!-- End retour Nav -->
+      
+     
+
+
+
+
     </ul>
-  </li><!-- End commandes Nav -->
+
+  </aside><!-- End Sidebar-->
   
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="pages-login.html">
-      <i class="bi bi-box-arrow-in-right"></i>
-      <span>Login</span>
-    </a>
-  </li><!-- End Login Page Nav -->
 
-</ul>
+ 
+  <main id="main" class="main" >
 
-</aside><!-- End Sidebar-->
-
-<main id="main" class="main" >
   <div class="pagetitle">
       <h1>Liste des commandes déclarées</h1>
       <nav>
@@ -285,6 +183,7 @@
         </ol>
       </nav>
     </div>
+    
     @if(Session::has('commande_delete'))
         <span>{{Session::get('commande_delete')}}</span>
         @endif
@@ -295,18 +194,17 @@
                 <div class="card-body">
                     <h5 class="header-title pb-3 mt-0">Mes commandes</h5>
 
-                    <div class="table-responsive">
-                    <div class="row"><div class="eight wide column"><div class="dataTables_length" id="tablecommandes_length"><label>Afficher <select name="tablecommandes_length" aria-controls="tablecommandes" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entrées</label></div></div><div class="right aligned eight wide column"><div id="tablecommandes_filter" class="dataTables_filter ui form"><label>Rechercher:<span class="ui input"><input type="search" class="" placeholder="" aria-controls="tablecommandes"></span></label>
-                    <button type="button" class="btn btn-info add-new" onclick="window.location.href ='http://127.0.0.1:8000/ajouter-commande';"><i class="fa fa-plus"></i> Ajouter</button></div></div></div>
+                    <table id="tablecommandes" class="ui celled table" style="width:100%">
 
-                        <table class="table table-hover mb-0">
                             <thead>
-                                <tr class="align-self-center">
+                                <tr >
                                    
                                     <th>ID commande</th>
                                     <th>Date de commande</th>
                                     <th>téléphone</th>
                                     <th>Statut</th>
+                                    <th>Details</th>
+                                    <th>agent d'entrepôt</th>
                                     <th></th>
                                 </tr>
 
@@ -319,10 +217,18 @@
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
                                     <td>{{$commande->date}}</td>
                                     <td>{{$commande->telephone}}</td>
-                                    <td> <span class="badge badge-success m-0">Declarée</span></td>
+
+                                    <td> <span class="badge badge-success m-0">validée</span></td>
+                                        <!-- Button to Open the Modal --> <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3"> Track your order </button> <!-- The Modal -->
+
+                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3">Details</button></span></td>
+                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3">agent d'entrepôt</button></span></td>
+
                                     <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
-                                         <a a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
+                                         <a a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                                         <a href="edit-commande/{{$commande->id}}"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span> 
                                          
+
                                    <a href="edit-commande/{{$commande->id}}">edit </a>
                                    <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4" onclick="window.location.href ='http://127.0.0.1:8000/listedec';">+ valider</button>
 
@@ -330,16 +236,22 @@
                                                            
                                         </tr>
 
+
+                                        </td>
+                                        </tr>
                                        
                                         @endforeach
 
                                 </tbody>
-
                         </table>
+<<<<<<< Updated upstream
 
                     </div>
                     <div class="pt-3 border-top text-right"><a href="#" class="text-primary">View all <i class="mdi mdi-arrow-right"></i></a></div>
                 </div>
+=======
+                      </div>
+>>>>>>> Stashed changes
             </div>
         </div>
     </div>
@@ -429,9 +341,10 @@
       </div>
     </div>
   </div>
-</main>
-     <!-- Vendor JS Files -->
-     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+
+      <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>
   <script src="assets/vendor/echarts/echarts.min.js"></script>

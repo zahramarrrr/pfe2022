@@ -4,16 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="assetslogin/css/style.css">
-
-
-  <title>Login</title>
+  <title>welcome</title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
@@ -36,6 +28,11 @@
   <!-- Template Main CSS File -->
   <link href="assetswelcome/css/style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="assetslogin1/css/style.css">
 
   <!-- =======================================================
   * Template Name: FlexStart - v1.9.0
@@ -43,8 +40,9 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  </head>
-	<body>
+</head>
+
+<body>
         <!-- ======= Header ======= -->
      <header id="header" class="header fixed-top">
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -68,22 +66,18 @@
      </header>
      <!-- End Header -->
      
+     <body class="img js-fullheight" style="background-image: url(assetslogin1/images/bg.png);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
-				
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">&mdash; Connexion &mdash;</h2>
+				</div>
 			</div>
 			<div class="row justify-content-center">
-				<div class="col-md-12 col-lg-10">
-					<div class="wrap d-md-flex">
-						<div class="img" style="background-image: url(assetslogin/images/bg-1.png);">
-			      </div>
-						<div class="login-wrap p-4 p-md-5">
-			      	<div class="d-flex">
-			      		<div class="w-100">
-                          <div class="row justify-content-center">
-                          <div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Connexion</h2>
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+					
 				</div>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -137,21 +131,12 @@
                 @endif
                 </div>
         </form>
-        </div>
-		          </form>
-		          
-		        
+	          
 		      </div>
 				</div>
 			</div>
-		</div>
-	</section>
 
-    <script src="assetslogin/js/jquery.min.js"></script>
-  <script src="assetslogin/js/popper.js"></script>
-  <script src="assetslogin/js/bootstrap.min.js"></script>
-  <script src="assetslogin/js/main.js"></script>
-  <!-- Vendor JS Files -->
+    <!-- Vendor JS Files -->
   <script src="assetswelcome/vendor/purecounter/purecounter.js"></script>
   <script src="assetswelcome/vendor/aos/aos.js"></script>
   <script src="assetswelcome/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -163,6 +148,10 @@
   <!-- Template Main JS File -->
   <script src="assetswelcome/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="assetslogin1/js/jquery.min.js"></script>
+  <script src="assetslogin1/js/popper.js"></script>
+  <script src="assetslogin1/js/bootstrap.min.js"></script>
+  <script src="assetslogin1/js/main.js"></script>
 
 </body>
 

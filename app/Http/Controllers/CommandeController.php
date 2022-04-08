@@ -50,6 +50,10 @@ return view('liste-commande-declare', compact('commandes'));
         $commandes=DB::table('commandes')->get();
         return view('liste-commande-declare', compact('commandes'));
     }
+    public function listeagent(){
+        $commandes=DB::table('commandes')->get();
+        return view('ListeAgent', compact('commandes'));
+    }
     
     public function CommandeListAdmin(){
         $commandes=DB::table('commandes')->get();

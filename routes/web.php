@@ -62,18 +62,18 @@ Route::get('/Declarer-commande', function () {
 Route::get('/listedec', function () {
     return view('listedec');
 });
+Route::get('/listedec2', function () {
+    return view('listedec2');
+});
 
-Route::get('/details', function () {
-    return view('details');
+Route::get('/Statut', function () {
+    return view('Statut');
 });
 
 
 
 Route::get('/notification', function () {
     return view('notification');
-});
-Route::get('/details', function () {
-    return view('details');
 });
 Route::get('/edit-commande', function () {
     return view('edit-commande');
@@ -82,6 +82,10 @@ Route::get('/details', function () {
     return view('details');
 });
 Route::get('/list','CommandeController@list')->name('list');
+=======
+Route::get('/ajout', function () {
+    return view('ajout');
+});
 
 use App\Http\Controllers\ColisController;
 use App\Http\Controllers\CommandeController;
@@ -95,6 +99,11 @@ route::post('update-commande', [CommandeController::class,'updateCommande'])->na
 route::get('listedec2', [CommandeController::class,'CommandeListAdmin'])->name('commande.ListAdmin');
 route::get('Admin', [CommandeController::class,'Commandenotif'])->name('Commande.notif');
 route::get('details/{id}', [CommandeController::class,'Commandedetails'])->name('commande.details');
+
+route::get('listedec2', [CommandeController::class,'listeagent'])->name('liste.agent');
+
+route::post('listedec2', [ColisController::class,'saveColis'])->name('save.colis');
+route::get('shift-data',[ColisController::class, 'shiftdata'])->name('shiftdata');
 
 route::get('/search','CommandeController@search');
 
@@ -113,4 +122,4 @@ Route::get('/dashboard', function () {
 
 
 require __DIR__.'/auth.php';
-Route::get('redirects','App\Http\Controllers\HomeController@index');
+Route::get('redirects','HomeController@index');

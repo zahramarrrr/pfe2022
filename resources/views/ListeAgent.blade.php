@@ -26,6 +26,9 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.11.5/css/dataTables.semanticui.min.css" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -56,9 +59,7 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
-  
-
+    
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
@@ -66,618 +67,267 @@
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
-        </li><!-- End Search Icon-->
+        </li><!-- End espace-->
 
         <li class="nav-item dropdown">
 
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
+       
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-
-          </ul><!-- End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
 
-        
 
         <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
+<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+  <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
+</a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+  <li class="dropdown-header">
+    <h6>Commerçant X</h6>
+    <span>responsable vente en ligne</span>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
+      <i class="bi bi-person"></i>
+      <span>Mon Profil</span>
+    </a>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
+      <i class="bi bi-gear"></i>
+      <span>Editer profil</span>
+    </a>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
+      <i class="bi bi-box-arrow-right"></i>
+      <span>Deconnexion</span>
+    </a>
+  </li>
 
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
+</ul><!-- End Profile Dropdown Items -->
+  
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
 
-   <!-- ======= Sidebar ======= -->
-   <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
 
-<ul class="sidebar-nav" id="sidebar-nav">
-
-  <li class="nav-item">
-    <a class="nav-link " href="index.html">
-      <i class="bi bi-grid"></i>
-      <span>Dashboard</span>
-    </a>
-  </li><!-- End Dashboard Nav -->
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-      <a href="http://127.0.0.1:8000/Listecommercant">
-          <i class="bi bi-circle"></i><span>Commerçants</span>
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+        <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
+          <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
         </a>
-      </li>
-      <li>
-      <a href="http://127.0.0.1:8000/ListeAgent">
-          <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
-        </a>
-      </li>
-      <li>
-      <a href="http://127.0.0.1:8000/ListeLivreur">
-          <i class="bi bi-circle"></i><span>Livreurs</span>
-        </a>
-      </li>
-
-    </ul>
-  </li><!-- End Personnels Nav -->
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="forms-elements.html">
-          <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
-        </a>
-      </li>
-      <li>
-        <a href="forms-layouts.html">
-          <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
-        </a>
-      </li>
-      <li>
-        <a href="forms-elements.html">
-          <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
-        </a>
-      </li>
      
+        </li><!-- End declarer commande nav -->
+    
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
+          <i class="bi bi-layout-text-window-reverse"></i>
+          <span>la liste des commandes déclarées</span>
+        </a>
+        
+      </li><!-- End liste des commandes nav -->
+
+      <li class="nav-heading">contact</li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+<!-- END contact -->
+
+     
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Commer%C3%A7ant">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>retour</span>
+        </a>
+      </li><!-- End retour Nav -->
+      
+     
+
+
+
+
     </ul>
-  </li><!-- End commandes Nav -->
+
+  </aside><!-- End Sidebar-->
   
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="pages-login.html">
-      <i class="bi bi-box-arrow-in-right"></i>
-      <span>Login</span>
-    </a>
-  </li><!-- End Login Page Nav -->
 
-</ul>
-
-</aside><!-- End Sidebar-->
-
-
+ 
   <main id="main" class="main" >
   <div class="pagetitle">
-      <h1>Liste des agents d'entrepots</h1>
+      <h1>Liste des commandes déclarées</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
-    <div class="dataTable-top"><div class="dataTable-dropdown" style="float:right" >
-                  
-                  <button type="button" class="btn btn-info add-new" ><i class="fa fa-plus"></i> Ajouter</button>
-                    <input class="dataTable-input" placeholder="Search..." type="text"  ></div></div>
+    
+    @if(Session::has('commande_delete'))
+        <span>{{Session::get('commande_delete')}}</span>
+        @endif
+    <div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="header-title pb-3 mt-0">Mes commandes</h5>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.9.95/css/materialdesignicons.css" rel="stylesheet">
-<div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="show-results mt-4">
-                        
-                    </div>
-                </div>
-            </div>
+                    <table id="tablecommandes" class="ui celled table" style="width:100%">
+                            <thead>
+                                <tr >
+                                   
+                                    <th>ID commande</th>
+                                    <th>Date de commande</th>
+                                    <th>téléphone</th>
+                                    <th>Statut</th>
+                                    <th>Details</th>
+                                    <th>agent d'entrepôt</th>
+                                    <th></th>
+                                </tr>
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="left-sidebar">
-                        <div class="accordion" id="accordionExample">
-                           
-                                <a data-toggle="collapse" href="#collapseOne" class="job-list" aria-expanded="true" aria-controls="collapseOne">
-                                
-                                        
-                                    </div>
-                                </div>
-                            
-                            
-                            
-                    </div>
-                </div>
+                            </thead>
+                            <tbody>
+                            @foreach($commandes as $commande)
 
-                <div class="col-lg-9">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
-                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
-                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
-                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                               
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
-                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
-                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                               
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
-                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Kyle Jones</a></h5>
-                                        <p class="text-muted f-14 mb-0">Web Delveloper, Graphic Disegner</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>419 Lakeland Terrace Detroit, MI 48226</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                <div class="apply-button text-center mt-2 mb-2">
-                                    <a href="#" class="btn btn-custom btn-sm">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
+                                <tr>
+                                    
+                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                                    <td>{{$commande->date}}</td>
+                                    <td>{{$commande->telephone}}</td>
+                                    <td> <span class="badge badge-success m-0">validée</span></td>
+                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3">Details</button></span></td>
+                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3">agent d'entrepôt</button></span></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
+                                         <a a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                                         <a href="edit-commande/{{$commande->id}}"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span> 
+                                         
+                                   
 
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Ricky Cash</a></h5>
-                                        <p class="text-muted f-14 mb-0">UI/UX Designer, Software Developer</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>2683 Farland Street Chicago, IL 60631</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-outline f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
+                                        </td>
+                                        </tr>
+                                       
+                                        @endforeach
 
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Kelly Perez</a></h5>
-                                        <p class="text-muted f-14 mb-0">Software Developer, Graphic Disegner</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>2120 County Line Road St George, FL 34683</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-half f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Dale Gambill</a></h5>
-                                        <p class="text-muted f-14 mb-0">Graphic Disegner, Web Designer</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>3633 Cessna Drive Fort Wayne, IN 46802</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-half f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Matt Morgan</a></h5>
-                                        <p class="text-muted f-14 mb-0">Web Delveloper, PHP Delveloper</p>
-                                        <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>2639 Warner Street Casper, WY 82601</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-
-                        
-
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination job-pagination justify-content-center mt-5 mb-5">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                    <i class="mdi mdi-chevron-double-left f-15"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    <i class="mdi mdi-chevron-double-right f-15"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                                </tbody>
+                        </table>
+                      </div>
             </div>
         </div>
-            
-          </div>
-        </div><!-- End Left side columns -->
+    </div>
+</div>
 
+
+</div>
+<div class="modal" id="infos">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Plus d'informations</h4>
       </div>
-    </section>
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Order check</span></strong>. All Rights Reserved
+      <div class="modal-body">
+      <div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="space-row">
+												<th>date:</th>
+												<td id="date-val">{{$commande->date}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>temps:</th>
+												<td id="temps-val">{{$commande->temps}}</td>
+											</tr>
+                       <tr class="space-row">
+												<th>nom:</th>
+												<td id="nom-val">{{$commande->nom}}</td>
+                        <tr class="space-row">
+                        <th>prénom:</th>
+												<td id="prenom-val">{{$commande->prenom}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>téléphone:</th>
+												<td id="telephone-val">{{$commande->telephone}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Addresse mail:</th>
+												<td id="email-val">{{$commande->email}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Adresse 1:</th>
+												<td id="adresse1-val">{{$commande->adresse1}}</td>
+											</tr>
+                        <tr class="space-row">
+												<th>Adresse 2:</th>
+												<td id="adresse2-val">{{$commande->adresse2}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>Governorat:</th>
+												<td id="governorat-val">{{$commande->governorat}}</td>
+                         </tr>
+                         <tr class="space-row">
+                         <th>ville</th>
+												<td id="ville-val">{{$commande->ville}}</td>
+                         </tr>
+                         <tr class="space-row">
+                          <th>code postal</th>
+												<td id="code_postal-val">{{$commande->code_postal}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>ID Commande:</th>
+												<td id="ID_commande-val">{{$commande->ID_commande}} </td>
+											</tr>
+											<tr class="space-row">
+												<th>poids:</th>
+												<td id="poids-val">{{$commande->poids}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>mode de paiment:</th>
+												<td id="paiment-val">{{$commande->paiement}}</td>
+											</tr>
+                      <tr class="space-row">
+												<th>total prix:</th>
+												<td id="prix-val">{{$commande->prix}}</td>
+											</tr> 
+                        <tr class="space-row">
+												<th>description:</th>
+												<td id="description-val">{{$commande->description}}</td>
+                        </tr>
+										</tbody>
+									</table>
+								</div>
+      </div>
+      <div class="modal-footer">
+        <em>Informations sous réserve</em>
+      </div>
     </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-     
-    </div>
-  </footer><!-- End Footer -->
+  </div>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
+
+
+
+      <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>
@@ -687,6 +337,22 @@
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+
+  <script >
+    $(document).ready(function() {
+    $('#tablecommandes').DataTable({
+        language: {
+            url: "{{ asset('assets/datatable-fr-FR.json') }}"
+        },
+        "searching": true
+    } );
+} );
+    </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
