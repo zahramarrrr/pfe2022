@@ -99,7 +99,6 @@ route::post('Declarer-commande', [CommandeController::class,'saveCommande'])->na
 route::get('liste-commande-declare', [CommandeController::class,'CommandeList'])->name('commande.List');
 route::get('edit-commande/{id}', [CommandeController::class,'EditCommande'])->name('commande.edit');
 route::get('/delete-commande/{id}', [CommandeController::class,'DeleteCommande'])->name('commande.delete');
-
 route::post('update-commande', [CommandeController::class,'updateCommande'])->name('update.commande');
 route::post('valider/{id}', [CommandeController::class,'valider'])->name('valider');
 
@@ -108,17 +107,32 @@ route::get('Admin', [CommandeController::class,'Commandenotif'])->name('Commande
 route::get('details/{id}', [CommandeController::class,'CommandedetailAdmin'])->name('Commande.detailAdmin');
 
 route::get('details/{id}', [CommandeController::class,'Commandedetails'])->name('commande.details');
+route::get('liste-personnels-Agent', [CommandeController::class,'CommandeListAgent'])->name('Liste.agent');
+route::get('liste-personnels-livreur', [CommandeController::class,'CommandeListLivreur'])->name('Liste.livreur');
+
+
 
 route::get('liste-commande-validee', [CommandeController::class,'CommandeListvalide'])->name('commande.Listvalide');
 route::get('details', [CommandeController::class,'Commandevalider'])->name('Commande.valider');
 
 
 route::get('/search','CommandeController@search');
+route::get('liste-commande-validee', [CommandeController::class,'listecommandevalidee'])->name('commande.validee');
+route::get('liste-commande-preparee', [CommandeController::class,'CommandeListAdminpreparee'])->name('commande.preparee');
+route::get('liste-commande-validee', [CommandeController::class,'assignmentagentDB'])->name('commande.valideeDB');
+
 
 
 Route::get('/index', function () {
     return view('index');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/commerçant', function () {
+    return view('commerçant');
+});
+
 
 
 
@@ -131,3 +145,5 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 Route::get('redirects','HomeController@index');
+
+

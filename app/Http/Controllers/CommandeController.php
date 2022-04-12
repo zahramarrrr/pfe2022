@@ -7,6 +7,9 @@ use Carbon\Carbon;
 use  App\Events\MyEvenet;
 use Illuminate\Http\Request;
 use App\Http\Controllers\commandes;
+=======
+use DB;
+use APP\Models\User;
 
 
 
@@ -53,11 +56,24 @@ return view('liste-commande-declare', compact('commandes'));
     }
  
     
+
+    public function listeagent(){
+        $commandes=DB::table('commandes')->get();
+        return view('ListeAgent', compact('commandes'));
+    }
+    public function listecommandevalidee(){
+        $commandes=DB::table('commandes')->get();
+        $agents=DB::table('users')->where('role' , 'agent')->get();
+        return view('liste-commande-validee', compact('commandes'),  compact('agents'));
+    }
+   
+   
     
     public function CommandeListAdmin(){
         $commandes=DB::table('commandes')->where('etat' , 'declaree')->get();
         return view('liste-commande-declare-admin', compact('commandes'));
     }
+
     public function CommandeListvalide(){
         $commandes=DB::table('commandes')->where('etat' , 'validee')->get();
         return view('liste-commande-validee', compact('commandes'));
@@ -66,6 +82,25 @@ return view('liste-commande-declare', compact('commandes'));
     public function Commandevalider(){
         $commandes=DB::table('commandes')->where('etat' , 'validee')->get();
         return view('details', compact('commandes'));
+
+    public function CommandeListAdminpreparee(){
+        $commandes=DB::table('commandes')->get();
+        $livreurs=DB::table('users')->where('role' , 'livreur')->get();
+        return view('liste-commandes-preparee', compact('livreurs'));
+    }
+    public function CommandeListAgent(){
+        $agents=DB::table('users')->where('role' , 'agent')->get();
+        return view('liste-commandes-preparee.', compact('agents'));
+        
+
+    }
+    public function CommandeListLivreur(){
+        $livreurs=DB::table('users')->where('role' , 'livreur')->get();
+        return view('liste-personnels-livreur', compact('livreurs'));
+        
+
+    }
+
     
     }
     //pour notification
@@ -96,6 +131,14 @@ return view('edit-commande',compact('commandes'));
 
         
     }
+  public function assignmentagentDB(){
+     $idagent=DB::table('user')->where('role','agent');
+     DB::table('commandes')->update([
+     'agent'->$idagent
+
+     ]);
+    }
+     
     
     public function valider($id){
         now("Europe/Rome");
@@ -143,3 +186,4 @@ return view('edit-commande',compact('commandes'));
     
     
 }
+

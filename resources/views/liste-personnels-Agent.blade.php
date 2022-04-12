@@ -177,67 +177,67 @@
  
   <main id="main" class="main" >
   <div class="pagetitle">
-      <h1>Liste des Agents d'entrepôts</h1>
+      <h1>Liste des commandes déclarées</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
     
-   
+    @if(Session::has('commande_delete'))
+        <span>{{Session::get('commande_delete')}}</span>
+        @endif
 
+        <div class="container">
+    <div class="height d-flex justify-content-center align-items-center"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Udetailsser  </button> </div>
+</div>
+
+            
+    </div>
+</div>
     <div class="container">
       
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='http://127.0.0.1:8000/ajout';"><i class="bi bi-bookmark-check"></i> Ajouter</button>
-
+                 
 
                     <table id="tablecommandes" class="ui celled table" style="width:100%">
                             <thead>
                                 <tr >
-                                   
-                                    <th>ID commande</th>
+                                <th width="50px"><input type="checkbox" id="master"></th>
+                                    <th>ID agent</th>
                                     <th>Nom</th>
-                                    <th>Prénom</th>
-                                    <th>Télèphone</th>
-                                    <th>Adresse d'email</th>
+                                    <th>email</th>
+                                    
                                     <th></th>
                                 </tr>
 
                             </thead>
                             <tbody>
+                        
 
-                                <tr>
+                            @foreach($agents as $key => $agent)
+
+                                <tr id="tr_{{$agent->id}}">
+                                <td><input type="checkbox" class="sub_chk" data-id="{{$agent->id}}"></td>
+                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$agent->id}}</td>
+                                    <td>{{$agent->name}}</td>
+                                    <td>{{$agent->email}}</td>
                                     
-                                    <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">ID Agent d'entrepôt</td>
-                                    <td>Nom</td>
-                                    <td>Prénom</td>
-                                    <td>Télèphone</td>
-                                    <td>Adresse d'email</td>
 
-                                    <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
-                                         <a><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
-                                         
-
-                                         <a ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span>                                    
-
-                                        </td>
+                                    
                                         </tr>
                                         
-                                     
+                                      @endforeach
+                                  
                                 </tbody>
                                 
                         </table>
-                        
-      <div class="modal-footer">
-        <em>Informations sous réserve</em>
-      </div>
-    </div>
-  </div>
-
+                       
+  
+      
                       </div>
             </div>
         </div>
@@ -277,6 +277,7 @@
     } );
 } );
     </script>
+    
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -177,38 +177,90 @@
  
   <main id="main" class="main" >
   <div class="pagetitle">
-      <h1>Liste des commandes validées</h1>
+      <h1>Liste des commandes déclarées</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
     
-  
+    @if(Session::has('commande_delete'))
+        <span>{{Session::get('commande_delete')}}</span>
+        @endif
 
+        <div class="container">
+    <div class="height d-flex justify-content-center align-items-center"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Udetailsser  </button> </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header float-right">
+                <h5>User details</h5>
+                <div class="text-right"> <i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i> </div>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <table  class="ui celled table" >
+
+                            <tr>
+                            <th>ID agent</th>
+                            <th>Nom</th>
+                            <th>email</th>
+                            <th></th>
+                                    
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                            @foreach($agents as $key => $agent)
+
+                              <tr>
+                              
+                              <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">{{$agent->id}}</td>
+                              <td>{{$agent->name}}</td>
+                              <td>{{$agent->email}}</td>
+                              <td><input type="submit" id ='assignment_all'value="Affectuer"></button></td>
+    
+
+    
+                               </tr>
+        
+                          @endforeach
+             
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> </div>
+        </div>
+    </div>
+</div>
     <div class="container">
       
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-
+                 
 
                     <table id="tablecommandes" class="ui celled table" style="width:100%">
                             <thead>
                                 <tr >
-                                   
+                                <th width="50px"><input type="checkbox" id="master"></th>
                                     <th>ID commande</th>
                                     <th>Date de commande</th>
                                     <th>téléphone</th>
                                     <th>Details</th>
                                     <th>Etat actuel</th>
-                                    <th></th>
+                                    
                                 </tr>
 
                             </thead>
                             <tbody>
-                           
+                            @if($commandes->count())
 
                                 <tr>
                                 @foreach($commandes as $commande)
@@ -224,20 +276,28 @@
                                          
                                          @endforeach
 
+                            @foreach($commandes as $key => $commande)
+
+                                <tr id="tr_{{$commande->id}}">
+                                <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
+                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                                    <td>{{$commande->date}}</td>
+                                    <td>{{$commande->telephone}}</td>
+                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details</button></td>
+                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
+
+                                   
 
                                         </td>
                                         </tr>
                                         
-                                      
+                                      @endforeach
+                                      @endif
                                 </tbody>
                                 
                         </table>
-     
-      <div class="modal-footer">
-        <em>Informations sous réserve</em>
-      </div>
-    </div>
-  </div>
+                        
+    
 
                       </div>
             </div>
@@ -278,6 +338,71 @@
     } );
 } );
     </script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#master').on('click', function(e) {
+         if($(this).is(':checked',true))  
+         {
+            $(".sub_chk").prop('checked', true); 
+          
+          
+         } else {  
+            $(".sub_chk").prop('checked',false);  
+         }  
+        });
+      });
+      </script>
+      <script>
+     $('.assignment_all').on('click', function(e) {
+            var allVals = [];  
+            $(".sub_chk:checked").each(function() {  
+                allVals.push($(this).attr('data-id'));
+                if(allVals.length <=0)  
+            {  
+                alert("Please select row.");  
+            }  else {  
+              var check = confirm("Are you sure you want to delete this row?");  
+                if(check == true){ 
+                  var join_selected_values = allVals.join(","); 
+                 
+
+                }
+                
+            }
+            });
+           
+        
+              
+            $.ajax({
+                        url:"{{route(' assignmentagentDB'}}",
+                        type: 'POST',
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                        data: 'ids='+join_selected_values,
+                        success: function (data) {
+                            if (data['success']) {
+                                $(".sub_chk:checked").each(function() { 
+
+                                    
+                                });
+                                alert(data['success']);
+                            } else if (data['error']) {
+                                alert(data['error']);
+                            } else {
+                                alert('Whoops Something went wrong!!');
+                            }
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
+                  $.each(allVals, function( index, value ) {
+                      $('table tr').filter("[data-row-id='" + value + "']").remove();
+                  });
+                }  
+            }  
+        });
+        **/
+      </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
