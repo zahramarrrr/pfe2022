@@ -9,4 +9,7 @@ class Commande extends Model
 {
     use HasFactory;
     protected $table = "commandes";
+    protected $fillable=['ID_commande'];
+
+   
 }

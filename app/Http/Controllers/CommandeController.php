@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\commandes;
+use DB;
+use App\Models\Commande;
+use Carbon\Carbon;
 use  App\Events\MyEvenet;
 use Illuminate\Http\Request;
-use DB;
+use App\Http\Controllers\commandes;
 
 
 
@@ -14,7 +16,11 @@ class CommandeController extends Controller
         return view('Declarer-commande');
     }
     public function saveCommande(request $request){
-DB::table('commandes')->insert([
+        //dd($request);
+$newcommande=Commande::create([
+
+    'ID_commande'=>$request->ID_commande,
+
     'date'=>$request->date,
     'temps'=>$request->temps,
     'nom'=>$request->nom,
@@ -22,25 +28,20 @@ DB::table('commandes')->insert([
     'telephone'=>$request->telephone,
     'email'=>$request->email,
     'adresse1'=>$request->adresse1,
-    'adresse2'=>$request->adresse2,
     'governorat'=>$request->governorat,
     'ville'=>$request->ville,
     'code_postal'=>$request->code_postal,
-    'ID_commande'=>$request->ID_commande,
     'paiement'=>$request->paiement,
     'poids'=>$request->poids,
     'prix'=>$request->prix,
 
     'description'=>$request->description,
-    'etat'=>$request->etat,
-
-
-
-
-
-
-
 ]);
+DB::table('Notifications')->insert([
+    'nomCommerçant'=>$request->nomCommerçant,
+'ID_commande'=>$newcommande->id
+]);
+
 event(new MyEvenet('commande ajoutée'));
         $commandes=DB::table('commandes')->get();
 
@@ -50,23 +51,39 @@ return view('liste-commande-declare', compact('commandes'));
         $commandes=DB::table('commandes')->get();
         return view('liste-commande-declare', compact('commandes'));
     }
-    public function listeagent(){
-        $commandes=DB::table('commandes')->get();
-        return view('ListeAgent', compact('commandes'));
-    }
+ 
     
     
     public function CommandeListAdmin(){
-        $commandes=DB::table('commandes')->get();
+        $commandes=DB::table('commandes')->where('etat' , 'declaree')->get();
         return view('liste-commande-declare-admin', compact('commandes'));
     }
+    public function CommandeListvalide(){
+        $commandes=DB::table('commandes')->where('etat' , 'validee')->get();
+        return view('liste-commande-validee', compact('commandes'));
+
+    }
+    public function Commandevalider(){
+        $commandes=DB::table('commandes')->where('etat' , 'validee')->get();
+        return view('details', compact('commandes'));
     
+    }
+    //pour notification
+    public function CommandedetailAdmin($id){ 
+        $commande=DB::table('commandes')->where('id' , $id)->first();
+        return view('details/{id}' , compact('commande'));
+
+}
     public function Commandedetails($id){ 
         $commande=DB::table('commandes')->where('id' , $id)->first();
         return view('details', compact('commande'));
+
 }
-    public function Commandenotif(){
+
+public function Commandenotif(){
         $commandes=DB::table('commandes')->get();
+        $notif=DB::table('notifications')->get();
+
         return view('Admin', compact('commandes'));
     }
     public function EditCommande ($id){ 
@@ -80,9 +97,23 @@ return view('edit-commande',compact('commandes'));
         
     }
     
+    public function valider($id){
+        now("Europe/Rome");
+        DB::table('commandes')->where('id',$id)
+        ->update([
+            
+            'etat'=>'validee',
+            'date_validation' =>Carbon::now()
+        ]);
+
+        return back()->with('commande_valider' , 'commande validée successfuly');
+
+
+    }
     public function updateCommande(Request $request){
         DB::table('commandes')->where('id' , $request->id)->update([
             'date'=>$request->date,
+    
     'temps'=>$request->temps,
     'nom'=>$request->nom,
     'prenom'=>$request->prenom,

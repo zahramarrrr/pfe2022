@@ -68,7 +68,6 @@ $NotificationsCommandes=Notifications::all();
       alert(JSON.stringify(data));
     });
   </script>
-
 </head>
 
 <body>
@@ -94,9 +93,9 @@ $NotificationsCommandes=Notifications::all();
         </li>
         <li class="nav-item dropdown">
 
-<a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
   <i class="bi bi-bell"></i>
-  <span class="badge bg-primary badge-number">4</span>
+  <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
 </a><!-- End Notification Icon -->
 
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
@@ -104,106 +103,23 @@ $NotificationsCommandes=Notifications::all();
   Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
     <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
   </li>
+
+
   <li>
     <hr class="dropdown-divider">
   </li>
 <div id='notif'>
-<a href="{{route('commande.details',['id'=> 1])}}">
-  <li class="notification-item">
-  <i class="bi bi-exclamation-circle text-warning"></i>
+
+
     <div>
-      <h4>Lorem Ipsumlll</h4>
-      <p>Quae dolorem earum veritatis oditseno</p>
-      <p>30 min. ago</p>
-    </div>
-  </li>
-  </a>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-  <li class="notification-item">
-
-  <i class="fa fa-plus">
-
- <a  href="route('details')">
-                                
-</li>
-</a>
-
-  <li class="notification-item">
-    <i class="bi bi-x-circle text-danger"></i>
-    <div>
-      <h4>Atque rerum nesciunt</h4>
-      <p>Quae dolorem earum veritatis oditseno</p>
-      <p>1 hr. ago</p>
-    </div>
-  </li>                 </a>
-
-
-
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-
-  <li class="notification-item">
-    <i class="bi bi-check-circle text-success"></i>
-    <div>
-      <h4>Sit rerum fuga</h4>
-      <p>Quae dolorem earum veritatis oditseno</p>
-      <p>2 hrs. ago</p>
+     
     </div>
   </li>
 
-  <li>
-    <hr class="dropdown-divider">
-  </li>
 
-  <li class="notification-item">
-    <i class="bi bi-info-circle text-primary"></i>
-    <div>
-      <h4>Dicta reprehenderit</h4>
-      <p>Quae dolorem earum veritatis oditseno</p>
-      <p>4 hrs. ago</p>
-    </div>
-  </li>
-  </div>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-  <li class="dropdown-footer">
-    <a href="#">Show all notifications</a>
-  </li>
-
+  
 </ul><!-- End Notification Dropdown Items -->
 
-</li>
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header" id="header_notification_bar" class="dropdown">
-            <p >Vous avez {{count($NotificationsCommandes)}} nouvelles alertes</p>              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            
-            <a href="#" data-toggle="modal" data-target="#infos" > 
-            <div id='notif'>
-  <li class="notification-item">
-  <i class="bi bi-exclamation-circle text-warning"></i>
-    <div>
-              @foreach ($NotificationsCommandes as $Notif)
-              <a href="route('details')">
-            {{$Notif->message}}
-          </i> </a>
-             @endforeach
-      </div>
-  </li>
-  </a>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-           
-          </ul><!-- End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
         
@@ -355,99 +271,7 @@ $NotificationsCommandes=Notifications::all();
 
 
 
-    <!-- small modal -->
-    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <div class="form-row table-responsive">
-									<table class="table">
-										<tbody>
-                    @foreach($commandes as $commande)
-
-											<tr class="space-row">
-												<th>date:</th>
-												<td id="date-val">{{$commande->date}}</td>
-											</tr>
-                       <tr class="space-row">
-												<th>temps:</th>
-												<td id="temps-val">{{$commande->temps}}</td>
-											</tr>
-                       <tr class="space-row">
-												<th>nom:</th>
-												<td id="nom-val">{{$commande->nom}}</td>
-                        <tr class="space-row">
-                        <th>prénom:</th>
-												<td id="prenom-val">{{$commande->prenom}}</td>
-											</tr>
-                      <tr class="space-row">
-												<th>téléphone:</th>
-												<td id="telephone-val">{{$commande->telephone}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>Addresse mail:</th>
-												<td id="email-val">{{$commande->email}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>Adresse 1:</th>
-												<td id="adresse1-val">{{$commande->adresse1}}</td>
-											</tr>
-                        <tr class="space-row">
-												<th>Adresse 2:</th>
-												<td id="adresse2-val">{{$commande->adresse2}}</td>
-											</tr>
-                      <tr class="space-row">
-												<th>Governorat:</th>
-												<td id="governorat-val">{{$commande->governorat}}</td>
-                         </tr>
-                         <tr class="space-row">
-                         <th>ville</th>
-												<td id="ville-val">{{$commande->ville}}</td>
-                         </tr>
-                         <tr class="space-row">
-                          <th>code postal</th>
-												<td id="code_postal-val">{{$commande->code_postal}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>ID Commande:</th>
-												<td id="ID_commande-val">{{$commande->ID_commande}} </td>
-											</tr>
-											<tr class="space-row">
-												<th>poids:</th>
-												<td id="poids-val">{{$commande->poids}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>mode de paiment:</th>
-												<td id="paiment-val">{{$commande->paiement}}</td>
-											</tr>
-                      <tr class="space-row">
-												<th>total prix:</th>
-												<td id="prix-val">{{$commande->prix}}</td>
-											</tr> 
-                        <tr class="space-row">
-												<th>description:</th>
-												<td id="description-val">{{$commande->description}}</td>
-                        </tr>
-                        @endforeach
-										</tbody>
-									</table>
-								</div>
-      </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="smallBody">
-                    <div>
-                        <!-- the result to be displayed apply here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+    
     
 
 
@@ -1218,8 +1042,7 @@ $NotificationsCommandes=Notifications::all();
     channel.bind('my-event', function(data) {
       alert(JSON.stringify(data));
       oldcontent=document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML='<a  href="{{route(commande.details)}}"><li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Nouvelles commande déclareé!</h4><p>Nouvelles commande déclareé!</p></div></li></a>'+oldcontent;
-    //  $("#notif").html('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Lorem Ipsumlll5555</h4><p>Quae dolorem earum veritatis oditseno</p><p>30 min. ago</p></div></li>');
+      document.getElementById('notif').innerHTML="<li><hr class='dropdown-divider'></li><div id='notif'><a href='{{route(`Commande.detailAdmin` , [`id` => 1]) }}'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>Nouvelles commande déclareé!</h4></div></li></a></div></li></a>"+oldcontent;
     });
   </script>
 </body>

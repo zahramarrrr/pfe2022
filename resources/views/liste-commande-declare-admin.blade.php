@@ -208,25 +208,21 @@
 
                             </thead>
                             <tbody>
-                           
+                            @foreach($commandes as $commande)
 
                                 <tr>
                                     
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">ID commande</td>
-                                    <td>date</td>
-                                    <td>Télèphone</td>
-                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details</button></td>
+                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                                    <td>{{$commande->date}}</td>
+                                    <td>{{$commande->telephone}}</td>
+                                    <td> <a href="{{route('commande.details' , ['id' => $commande->id]) }}">Details</a></td>
                                     <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
 
-                                    <td>
-                                         <a ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
-                                         
-
-
+                                    <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
                                         </td>
                                         </tr>
                                         
-                                      
+                                      @endforeach
                                 </tbody>
                                 
                         </table>
@@ -265,7 +261,6 @@
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
-
   <script >
     $(document).ready(function() {
     $('#tablecommandes').DataTable({

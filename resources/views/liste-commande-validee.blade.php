@@ -211,16 +211,18 @@
                            
 
                                 <tr>
-                                    
-                                    <td><input type="checkbox" value="" id="defaultCheck1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">ID commande  </td>
-                                    <td>date</td>
-                                    <td>Télèphone</td>
+                                @foreach($commandes as $commande)
+
+                                    <td><input type="checkbox" value="" id="defaultCheck1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->date}} </td>
+                                    <td>{{$commande->date}}</td>
+                                    <td>{{$commande->etat}}</td>
                                     <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details</button></td>
                                     <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
 
                                     <td>
                                          <a ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
                                          
+                                         @endforeach
 
 
                                         </td>

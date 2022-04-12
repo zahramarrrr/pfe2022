@@ -194,7 +194,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='http://127.0.0.1:8000/ajouter-commande';"><i class="bi bi-bag-plus"></i> Ajouter</button>
+                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='http://127.0.0.1:8000/Declarer-commande';"><i class="bi bi-bag-plus"></i> Ajouter</button>
 
 
                     <table id="tablecommandes" class="ui celled table" style="width:100%">
@@ -270,11 +270,7 @@
 											<tr class="space-row">
 												<th>Adresse 1:</th>
 												<td id="adresse1-val">{{$commande->adresse1}}</td>
-											</tr>
-                        <tr class="space-row">
-												<th>Adresse 2:</th>
-												<td id="adresse2-val">{{$commande->adresse2}}</td>
-											</tr>
+									
                       <tr class="space-row">
 												<th>Governorat:</th>
 												<td id="governorat-val">{{$commande->governorat}}</td>

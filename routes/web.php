@@ -101,14 +101,17 @@ route::get('edit-commande/{id}', [CommandeController::class,'EditCommande'])->na
 route::get('/delete-commande/{id}', [CommandeController::class,'DeleteCommande'])->name('commande.delete');
 
 route::post('update-commande', [CommandeController::class,'updateCommande'])->name('update.commande');
-route::get('listedec2', [CommandeController::class,'CommandeListAdmin'])->name('commande.ListAdmin');
+route::post('valider/{id}', [CommandeController::class,'valider'])->name('valider');
+
+route::get('liste-commande-declare-admin', [CommandeController::class,'CommandeListAdmin'])->name('commande.ListAdmin');
 route::get('Admin', [CommandeController::class,'Commandenotif'])->name('Commande.notif');
+route::get('details/{id}', [CommandeController::class,'CommandedetailAdmin'])->name('Commande.detailAdmin');
+
 route::get('details/{id}', [CommandeController::class,'Commandedetails'])->name('commande.details');
 
-route::get('listedec2', [CommandeController::class,'listeagent'])->name('liste.agent');
+route::get('liste-commande-validee', [CommandeController::class,'CommandeListvalide'])->name('commande.Listvalide');
+route::get('details', [CommandeController::class,'Commandevalider'])->name('Commande.valider');
 
-route::post('listedec2', [ColisController::class,'saveColis'])->name('save.colis');
-route::get('shift-data',[ColisController::class, 'shiftdata'])->name('shiftdata');
 
 route::get('/search','CommandeController@search');
 

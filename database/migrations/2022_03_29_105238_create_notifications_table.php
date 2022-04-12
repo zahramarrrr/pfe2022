@@ -14,13 +14,16 @@ class CreateNotificationsTable extends Migration
     public function up()
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('type');
-            $table->morphs('notifiable');
-            $table->text('data');
+            $table->id();
+            $table->integer('ID_commande')->default(0);
+            $table->string('type')->default('');
+            $table->string('nomCommerçant')->default('');
+            $table->nullableMorphs('notifiable');
+            $table->string('data')->default('');
             $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
+     
     }
 
     /**

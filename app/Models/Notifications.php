@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Notifications extends Model
 {
     use HasFactory;
-    protected $fillable=[
-        'ID_Commande'
-    ];
+    protected $table = "notifications";
+
 }
