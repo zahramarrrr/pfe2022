@@ -65,7 +65,7 @@ $NotificationsCommandes=Notifications::all();
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
+     // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
     });
   </script>
 
@@ -102,18 +102,22 @@ $NotificationsCommandes=Notifications::all();
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
   <li class="dropdown-header">
   Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-    <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+    <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
   </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-<div id='notif'>
+  @foreach($notif as $notif)
+
+  <a href="{{route('commande.details' , ['id' => $notif->id]) }}">
+    <li>
+      <hr class='dropdown-divider'>
+    </li><div id='notif'>
+      <li class='notification-item'>
+        <i class='bi bi-exclamation-circle text-warning'></i>
+        <div><h4>
+        {{$notif->nomCommerçant}} a déclaré une commande !
+  </h4></div></li></div></li></a>
+  @endforeach
 
 
-    <div>
-     
-    </div>
-  </li>
 
 </ul><!-- End Notification Dropdown Items -->
 
@@ -1037,12 +1041,19 @@ $NotificationsCommandes=Notifications::all();
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
+      idcommande= JSON.stringify(data.message);
+      urlcmd=JSON.stringify(data.message[0]);
+      comm=JSON.stringify(data.message[1]).replace(/^[\t ]*"[^:\n\r]+(?<!\\)":/gm, function (match) {
+        return match.replace(/"/g, "");
+    });
+      notifmsg=comm+" a déclaré une commande!";
+      
+      //alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
       oldcontent=document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML='<a  href={{route(commande.details)}}"><li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Nouvelles commande déclareé!</h4><p>Nouvelles commande déclareé!</p></div></li></a>'+oldcontent;
-    //  $("#notif").html('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Lorem Ipsumlll5555</h4><p>Quae dolorem earum veritatis oditseno</p><p>30 min. ago</p></div></li>');
+      document.getElementById('notif').innerHTML="<a href="+urlcmd+"><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>"+notifmsg+"</h4></div></li></div></li></a>"+oldcontent;
     });
   </script>
+  
 </body>
 
 </html>

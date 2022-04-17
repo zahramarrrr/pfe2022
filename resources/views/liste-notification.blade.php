@@ -177,140 +177,48 @@
  
   <main id="main" class="main" >
   <div class="pagetitle">
-      <h1>Liste des commandes déclarées</h1>
+      <h1>Liste des notifications</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
-    
-    @if(Session::has('commande_delete'))
-        <span>{{Session::get('commande_delete')}}</span>
-        @endif
 
-        <div class="container">
-  
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header float-right">
-                <h5>User details</h5>
-                <div class="text-right"> <i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i> </div>
-            </div>
-            <div class="modal-body">
-            @if(Session::has('affecter'))
-        <span>{{Session::get('affecter')}} </span>
-        @endif
-            <form  method="post" action="{{ route('affecteragent')}} ">
-@csrf
-                <div>
-                    <table  class="ui celled table" >
 
-                            <tr>
-                            <th>ID agent</th>
-                            <th>Nom</th>
-                            <th>email</th>
-                            <th></th>
-                                    
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                           
-                            @foreach($agents as $key => $agent)
+    <div class="col-lg-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Table with contextual classNames</h4>
+                <p class="card-description"> Add className <code>.table-{color}</code></p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead><tr><th> # </th>
+                        <th> id notification </th>
+                        <th> nom commerçant </th>
+                        <th> details </th>
+                        <th> Deadline </th>
+                    </tr></thead>
+                    <tbody>
+                    @foreach($notif as $notif)
 
-                              <tr>
-                              
-                              <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">{{$agent->id}}</td>
-                              <td>{{$agent->name}}</td>
-                              <td>{{$agent->email}}</td>
-                              <td> <input type="submit" id ='sub_chk'value="Affectuer"></button></td>
-    
+                        <tr class="table-info">
+                        <td> #</td>
 
-    
-                               </tr>
-        
-                          @endforeach
-             
-                          
-                        </tbody>
-                    </table>
-            </form>
-                </div>
-            </div>
-            
-            <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> </div>
-        </div>
-    </div>
-</div>
-    <div class="container">
-      
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-            <div class="height d-flex justify-content-center align-items-center"> 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> 
-        User details </button> 
-      </div>
-                <div class="card-body">
-                 
-
-                    <table id="tablecommandes" class="ui celled table" style="width:100%">
-                            <thead>
-                                <tr >
-                                <th width="50px"><input type="checkbox" id="master"></th>
-                                    <th>ID commande</th>
-                                    <th>Date de commande</th>
-                                    <th>téléphone</th>
-                                    <th>Details</th>
-                                    <th>Etat actuel</th>
-                                    
-                                </tr>
-
-                            </thead>
-                            <tbody>
-                            @if($commandes->count())
-                            @foreach($commandes as $commande)
-                                <tr>
-                              
-
-                                    <td><input type="checkbox" value="" id="defaultCheck1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->date}} </td>
-                                    <td>{{$commande->date}}</td>
-                                    <td>{{$commande->etat}}</td>
-                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details</button></td>
-                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
-
-                                    <td>
-                                         <a ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
-                                         
-
-                  
-
-                                        </td>
-                                        </tr>
-                                        
-                                      @endforeach
-                                      @endif
-                                </tbody>
-                                
-                        </table>
+                        <td>  {{$notif->ID_commande}}</td>
+                        <td>  {{$notif->nomCommerçant}} </td>
+                        <td>  <a href="{{route('commande.details' , ['id' => $notif->id]) }}"> details</a></td>
                         
+                    </tr>
+                    @endforeach
+
+                   </tbody></table></div></div></div></div>
+
+
+
+
     
-
-                      </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-</div>
-
-
-
-
-
+<main>
       <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -391,7 +299,7 @@ const checkdata= $(this).val();
       data:{"checkdata":checkdata},
 
       success(function(data){
-        $(".sub_chk:checked").affecteragent(liste-commande-validee.blade.php);
+        $(".sub_chk:checked").maj(liste-commande-validee.blade.php);
       })
     });
   }

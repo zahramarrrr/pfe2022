@@ -15,12 +15,13 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->integer('ID_commande')->default(0);
+            
             $table->string('type')->default('');
             $table->string('nomCommerçant')->default('');
             $table->nullableMorphs('notifiable');
             $table->string('data')->default('');
             $table->timestamp('read_at')->nullable();
+            $table->unsignedBigInteger('ID_commande');
             $table->timestamps();
         });
      

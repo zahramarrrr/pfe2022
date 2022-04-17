@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 use DB;
-use App\Models\Commande;
 use Carbon\Carbon;
+use APP\Models\User;
+use App\Models\Commande;
 use  App\Events\MyEvenet;
 use Illuminate\Http\Request;
+use App\Models\Notifications;
 use App\Http\Controllers\commandes;
-=======
-use DB;
-use APP\Models\User;
 
 
 
@@ -45,7 +44,7 @@ DB::table('Notifications')->insert([
 'ID_commande'=>$newcommande->id
 ]);
 
-event(new MyEvenet('commande ajoutée'));
+event(new MyEvenet([route('commande.details' , ['id' => $newcommande->id]),$request->nomCommerçant]));
         $commandes=DB::table('commandes')->get();
 
 return view('liste-commande-declare', compact('commandes'));
@@ -82,7 +81,7 @@ return view('liste-commande-declare', compact('commandes'));
     public function Commandevalider(){
         $commandes=DB::table('commandes')->where('etat' , 'validee')->get();
         return view('details', compact('commandes'));
-
+    }
     public function CommandeListAdminpreparee(){
         $commandes=DB::table('commandes')->get();
         $livreurs=DB::table('users')->where('role' , 'livreur')->get();
@@ -102,44 +101,45 @@ return view('liste-commande-declare', compact('commandes'));
     }
 
     
-    }
-    //pour notification
-    public function CommandedetailAdmin($id){ 
-        $commande=DB::table('commandes')->where('id' , $id)->first();
-        return view('details/{id}' , compact('commande'));
+    
 
-}
+//pour afficher a page details
     public function Commandedetails($id){ 
         $commande=DB::table('commandes')->where('id' , $id)->first();
         return view('details', compact('commande'));
 
 }
+//pour afficher 5 notifications
 
 public function Commandenotif(){
         $commandes=DB::table('commandes')->get();
-        $notif=DB::table('notifications')->get();
+        $notif=Notifications::query()->take(5)->get();
 
-        return view('Admin', compact('commandes'));
+
+        return view('Admin', compact('commandes','notif'));
     }
+    //pour afficher la liste des notifiactions 
+public function listenotif(){
+    $notif=DB::table('notifications')->orderBy('id', 'desc')->get();
+
+
+    return view('liste-notification', compact('notif'));
+}
+//pour editer la commande
     public function EditCommande ($id){ 
 $commandes=DB::table('commandes')->where('id' , $id)->first();
 return view('edit-commande',compact('commandes'));
     }
+    //pour supprimer la commande
     public function DeleteCommande ($id){ 
         DB::table('commandes')->where('id' , $id)->delete();
         return back()->with('commande_delete' , 'commande deleted successfuly');
 
         
     }
-  public function assignmentagentDB(){
-     $idagent=DB::table('user')->where('role','agent');
-     DB::table('commandes')->update([
-     'agent'->$idagent
-
-     ]);
-    }
-     
-    
+  
+ 
+    //pour changer l'etat de declaree a validee
     public function valider($id){
         now("Europe/Rome");
         DB::table('commandes')->where('id',$id)
@@ -153,6 +153,16 @@ return view('edit-commande',compact('commandes'));
 
 
     }
+    //pour laffectation des agents
+    public function affecteragent($id){
+        $agent=DB::table('users')->where('role' , 'agent')
+        ->where('id',$request->id)->get(['id']);
+       
+        return $id;
+        return back()->with('affecter' , 'commande affected successfuly');
+
+        }
+        //pour modifier la commande ( pour le moment pas dutilisation)
     public function updateCommande(Request $request){
         DB::table('commandes')->where('id' , $request->id)->update([
             'date'=>$request->date,
@@ -177,6 +187,7 @@ return view('edit-commande',compact('commandes'));
         return back()->with('commandes_update' , 'commande updated succefully');
 
     }
+    //pour la recherche dans les data table
     
     public function search (){ 
         $search_text=$_GET['query'];

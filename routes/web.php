@@ -91,9 +91,13 @@ Route::get('/ajout-livreur', function () {
 Route::get('/Statut', function () {
     return view('Statut');
 });
+Route::get('/liste-notification', function () {
+    return view('liste-notification');
+});
 
-use App\Http\Controllers\ColisController;
 use App\Http\Controllers\CommandeController;
+route::get('liste-notification', [CommandeController::class,'listenotif'])->name('listenotif');
+
 route::get('Declarer-commande', [CommandeController::class,'addCommande'])->name('commande.add');
 route::post('Declarer-commande', [CommandeController::class,'saveCommande'])->name('save.post');
 route::get('liste-commande-declare', [CommandeController::class,'CommandeList'])->name('commande.List');
@@ -102,9 +106,10 @@ route::get('/delete-commande/{id}', [CommandeController::class,'DeleteCommande']
 route::post('update-commande', [CommandeController::class,'updateCommande'])->name('update.commande');
 route::post('valider/{id}', [CommandeController::class,'valider'])->name('valider');
 
+route::post('affecteragent/{id}', [CommandeController::class,'affecteragent'])->name('affecteragent');
+
 route::get('liste-commande-declare-admin', [CommandeController::class,'CommandeListAdmin'])->name('commande.ListAdmin');
 route::get('Admin', [CommandeController::class,'Commandenotif'])->name('Commande.notif');
-route::get('details/{id}', [CommandeController::class,'CommandedetailAdmin'])->name('Commande.detailAdmin');
 
 route::get('details/{id}', [CommandeController::class,'Commandedetails'])->name('commande.details');
 route::get('liste-personnels-Agent', [CommandeController::class,'CommandeListAgent'])->name('Liste.agent');
@@ -119,7 +124,7 @@ route::get('details', [CommandeController::class,'Commandevalider'])->name('Comm
 route::get('/search','CommandeController@search');
 route::get('liste-commande-validee', [CommandeController::class,'listecommandevalidee'])->name('commande.validee');
 route::get('liste-commande-preparee', [CommandeController::class,'CommandeListAdminpreparee'])->name('commande.preparee');
-route::get('liste-commande-validee', [CommandeController::class,'assignmentagentDB'])->name('commande.valideeDB');
+route::post('liste-commande-validee', [CommandeController::class,'maj'])->name('maj.validee');
 
 
 

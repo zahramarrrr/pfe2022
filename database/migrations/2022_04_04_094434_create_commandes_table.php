@@ -20,7 +20,7 @@ class CreateCommandesTable extends Migration
             $table->id();
             $table->date('date')->default(Carbon::now());
             $table->time('temps')->default(now());
-            $table->string('ID_commande')->default('')->unique();
+            $table->unsignedBigInteger('ID_commande')->unique();
             $table->string('nom')->default('');
             $table->string('prenom')->default('');
             $table->integer('telephone')->default(0);
@@ -34,8 +34,8 @@ class CreateCommandesTable extends Migration
             $table->integer('prix')->default(0);
             $table->string('description')->default('')->nullable();
             $table->string('etat')->default('declaree');
-            $table->string('agent')->default('');
-            $table->string('livreur')->default('');
+            $table->unsignedBigInteger('agent')->default(0)->nullable();
+            $table->unsignedBigInteger('livreur')->default(0)->nullable();
             $table->dateTime('date_validation')->useCurrent();
             $table->dateTime('date_affect_agent')->useCurrent();
             $table->dateTime('date_preparation')->useCurrent();
