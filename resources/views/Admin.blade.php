@@ -139,7 +139,7 @@ $NotificationsCommandes=Notifications::all();
         <li class="nav-item dropdown pe-3">
 
 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+  <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
   <span class="d-none d-md-block dropdown-toggle ps-2">Admin X</span>
 </a><!-- End Profile Iamge Icon -->
 
@@ -1030,7 +1030,6 @@ $NotificationsCommandes=Notifications::all();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
 
- <script>
 
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -1054,6 +1053,7 @@ $NotificationsCommandes=Notifications::all();
     });
   </script>
   
+
 </body>
 
 </html>

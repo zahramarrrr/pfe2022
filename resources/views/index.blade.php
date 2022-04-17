@@ -1,9 +1,10 @@
 
-@extends('layouts.index')
-@section('content')
+@extends("layouts.index")
+@section("content")
   <!-- ======= Hero Section ======= -->
-  
-  <div id="hero" class="hero d-flex align-items-center">
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Optimisez votre gestion des commandes</h1>
@@ -23,15 +24,16 @@
       </div>
     </div>
 
-</div>
-  <!-- End Hero -->
+  </section><!-- End Hero -->
 
   <main id="main">
     
     <!-- ======= Features Section ======= -->
     <section id="features" class="features hero d-flex align-items-center"> 
-  
-      <div  data-aos="fade-up">
+      
+
+      <div class="container" data-aos="fade-up">
+
         <header class="section-header">
       
           <p>Une solution compléte qui offre:</p>
@@ -91,9 +93,8 @@
             </div>
           </div>
 
-        <!-- / row -->
-@endsection
-      
-          
+        </div> <!-- / row -->
 
-  
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+@endsection

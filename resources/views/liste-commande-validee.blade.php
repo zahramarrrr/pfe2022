@@ -81,7 +81,7 @@
         <li class="nav-item dropdown pe-3">
 
 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+  <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
   <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
 </a><!-- End Profile Iamge Icon -->
 
@@ -189,7 +189,8 @@
         @endif
 
         <div class="container">
-  
+    <div class="height d-flex justify-content-center align-items-center"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Udetailsser  </button> </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -273,7 +274,7 @@
                             @if($commandes->count())
                             @foreach($commandes as $commande)
                                 <tr>
-                              
+                                @foreach($commandes as $commande)
 
                                     <td><input type="checkbox" value="" id="defaultCheck1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->date}} </td>
                                     <td>{{$commande->date}}</td>
@@ -284,8 +285,19 @@
                                     <td>
                                          <a ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
                                          
+                                         @endforeach
 
-                  
+                            @foreach($commandes as $key => $commande)
+
+                                <tr id="tr_{{$commande->id}}">
+                                <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
+                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                                    <td>{{$commande->date}}</td>
+                                    <td>{{$commande->telephone}}</td>
+                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details</button></td>
+                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
+
+                                   
 
                                         </td>
                                         </tr>
@@ -378,24 +390,37 @@
             }
             });
            
-            $(document).on('change','input:checkbox',function(){
-const checkdata= $(this).val();
-
-  if ($(this).prop('checked')) {
-
-    $.ajax({
-      headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-
-      type:"POST",
-      url:liste-commande-validee.blade.php,
-      data:{"checkdata":checkdata},
-
-      success(function(data){
-        $(".sub_chk:checked").affecteragent(liste-commande-validee.blade.php);
-      })
-    });
-  }
-});
+        
+              
+            $.ajax({
+                        url:"{{route(' assignmentagentDB'}}",
+                        type: 'POST',
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                        data: 'ids='+join_selected_values,
+                        success: function (data) {
+                            if (data['success']) {
+                                $(".sub_chk:checked").each(function() {  
+                                
+                                    
+                                });
+                               /**  alert(data['success']);
+                            } else if (data['error']) {
+                                alert(data['error']);
+                            } else {
+                                alert('Whoops Something went wrong!!');
+                            }
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
+                  $.each(allVals, function( index, value ) {
+                      $('table tr').filter("[data-row-id='" + value + "']").remove();
+                  });
+                }  
+            }  
+        });
+        **/
       </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

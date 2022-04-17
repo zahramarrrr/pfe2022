@@ -81,7 +81,7 @@
         <li class="nav-item dropdown pe-3">
 
 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+  <img src="assets/img/profile-img.png" alt="Profile" >
   <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
 </a><!-- End Profile Iamge Icon -->
 

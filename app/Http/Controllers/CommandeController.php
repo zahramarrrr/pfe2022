@@ -11,6 +11,10 @@ use App\Models\Notifications;
 use App\Http\Controllers\commandes;
 
 
+use APP\Models\User;
+
+
+
 
 class CommandeController extends Controller
 {
@@ -102,6 +106,12 @@ return view('liste-commande-declare', compact('commandes'));
 
     
     
+
+    //pour notification
+    public function CommandedetailAdmin($id){ 
+        $commande=DB::table('commandes')->where('id' , $id)->first();
+        return view('details/{id}' , compact('commande'));
+
 
 //pour afficher a page details
     public function Commandedetails($id){ 

@@ -157,7 +157,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: url('../images/bg.png');
+  background-image: url('/assets/contact/images/bg.png');
 }
 
 .wrap-contact100 {

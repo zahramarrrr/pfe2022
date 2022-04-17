@@ -66,7 +66,8 @@
      </header>
      <!-- End Header -->
      
-     <body class="img js-fullheight" style="background-image: url(assetslogin1/images/bg.png);">
+
+
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">

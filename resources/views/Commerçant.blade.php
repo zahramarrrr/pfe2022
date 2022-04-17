@@ -1,51 +1,7 @@
 
-@extends('layouts.commercant')
-@section('content')
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-    <li class="nav-item">
-        <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
-          <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
-        </a>
-     
-        </li><!-- End declarer commande nav -->
-    
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
-          <i class="bi bi-layout-text-window-reverse"></i>
-          <span>la liste des commandes déclarées</span>
-        </a>
-        
-      </li><!-- End liste des commandes nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-      <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          
-        
-                        @csrf
-                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-          </form>
-
-    </ul>
-
-  </aside><!-- End Sidebar-->
-
-  <main id="main" class="main">
-
-   
-
+ @extends("layouts.commerçant")
+ @section("content")
+ <main id="main" class="main">
     <section class="section dashboard">
       <div class="row">
 
@@ -223,8 +179,8 @@
     </section>
 
   </main><!-- End #main -->
+  @endsection
 
 
 
-@endsection
   

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -204,7 +204,6 @@
                                     <th>ID commande</th>
                                     <th>Date de commande</th>
                                     <th>téléphone</th>
-                                    <th>Details</th>
                                     <th>Etat actuel</th>
                                     <th></th>
                                 </tr>
@@ -218,7 +217,6 @@
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
                                     <td>{{$commande->date}}</td>
                                     <td>{{$commande->telephone}}</td>
-                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details</button></td>
                                     <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
 
                                     <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>

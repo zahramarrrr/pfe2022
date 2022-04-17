@@ -131,11 +131,18 @@ route::post('liste-commande-validee', [CommandeController::class,'maj'])->name('
 Route::get('/index', function () {
     return view('index');
 });
+Route::get('/declare', function () {
+    return view('declare');
+});
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/commerçant', function () {
-    return view('commerçant');
+Route::get('/contact-admin', function () {
+    return view('contact-admin');
+});
+
+Route::get('/Commerçant', function () {
+    return view('Commerçant');
 });
 
 
