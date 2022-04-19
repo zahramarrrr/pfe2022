@@ -87,6 +87,7 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
     <!-- End Logo -->
+    
     <nav class="header-nav ms-auto">
         <li class="nav-item dropdown pe-3">
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
@@ -135,6 +136,12 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+        <a class="nav-link " href="http://127.0.0.1:8000/Commer%C3%A7ant">
+          <i class="bi bi-grid"></i>
+          <span>Tableaux de bord</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
     <li class="nav-item">
         <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
           <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>

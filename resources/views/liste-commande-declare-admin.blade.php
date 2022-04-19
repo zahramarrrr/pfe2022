@@ -82,7 +82,7 @@
 
 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
   <img src="assets/img/profile-img.png" alt="Profile" >
-  <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
+  <span class="d-none d-md-block dropdown-toggle ps-2">admin X</span>
 </a><!-- End Profile Iamge Icon -->
 
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
@@ -128,52 +128,82 @@
 
   </header><!-- End Header -->
 
+ 
+  <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item">
-        <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
-          <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
-        </a>
-     
-        </li><!-- End declarer commande nav -->
-    
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
-          <i class="bi bi-layout-text-window-reverse"></i>
-          <span>la liste des commandes déclarées</span>
+        <a class="nav-link " href="http://127.0.0.1:8000/Admin">
+          <i class="bi bi-grid"></i>
+          <span>Tableaux de bord</span>
         </a>
-        
-      </li><!-- End liste des commandes nav -->
+      </li><!-- End Dashboard Nav -->
 
-      <li class="nav-heading">contact</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- End Contact Page Nav -->
-<!-- END contact -->
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="http://127.0.0.1:8000/Listecommercant">
+              <i class="bi bi-circle"></i><span>Commerçants</span>
+            </a>
+          </li>
+          <li>
+          <a href="http://127.0.0.1:8000/ListeAgent">
+              <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://127.0.0.1:8000/ListeLivreur">
+              <i class="bi bi-circle"></i><span>Livreurs</span>
+            </a>
+          </li>
 
-     
+        </ul>
+      </li><!-- End Personnels Nav -->
+
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Commer%C3%A7ant">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>retour</span>
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- End retour Nav -->
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="http://127.0.0.1:8000/liste-commande-declare-admin">
+              <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://127.0.0.1:8000/liste-commande-validee">
+              <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-elements.html">
+              <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
+            </a>
+          </li>
+         
+        </ul>
+      </li><!-- End commandes Nav -->
       
-     
-
-
-
+         <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          
+        
+                        @csrf
+                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+          </form>
+          
+      <!-- End Login Page Nav -->
 
     </ul>
 
   </aside><!-- End Sidebar-->
-  
-
  
   <main id="main" class="main" >
   <div class="pagetitle">

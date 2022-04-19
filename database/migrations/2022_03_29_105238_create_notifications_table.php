@@ -17,7 +17,7 @@ class CreateNotificationsTable extends Migration
             $table->id();
             
             $table->string('type')->default('');
-            $table->string('nomCommerçant')->default('');
+            $table->string('ID_personnel')->default('');
             $table->nullableMorphs('notifiable');
             $table->string('data')->default('');
             $table->timestamp('read_at')->nullable();
