@@ -73,13 +73,6 @@ class CommandeController extends Controller
         return view('liste-commande-validee', compact('commandes'),  compact('agents'));
     }
 
-    public function listecommandepreparee()
-    {
-        $commandes = DB::table('commandes')->where('etat', 'preparee')->get();
-        $livreurs = DB::table('users')->where('role', 'livreur')->get();
-        return view('liste-commandes-preparee', compact('commandes'),  compact('livreurs'));
-    }
-
 
 
     public function CommandeListAdmin()
@@ -94,16 +87,16 @@ class CommandeController extends Controller
         $commandes = DB::table('commandes')->where('etat', 'validee')->get();
         return view('details', compact('commandes'));
     }
-    public function CommandeListAdminpreparee()
+    public function ListprepareeAdmin()
     {
-        $commandes = DB::table('commandes')->get();
+        $commandes = DB::table('commandes')->where('etat', 'preparee')->get();
         $livreurs = DB::table('users')->where('role', 'livreur')->get();
-        return view('liste-commandes-preparee', compact('livreurs'));
+        return view('liste-commandes-preparee', compact('commandes','livreurs'));
     }
     public function CommandeListAgent()
     {
         $agents = DB::table('users')->where('role', 'agent')->get();
-        return view('liste-commandes-preparee.', compact('agents'));
+        return view('liste-personnels-agent', compact('agents'));
     }
     //pour modal liste livreur
     public function CommandeListLivreur()
@@ -113,16 +106,22 @@ class CommandeController extends Controller
     }
 
 
+ //pour details commerçant 
+ public function CommandedetailCommerssant($id)
+ {
+     $commandes = DB::table('commandes')->where('id', $id)->first();
+     return view('detailsview/{id}', compact('commandes'));
+ }
 
 
     //pour notification
     public function CommandedetailAdmin($id)
     {
         $commande = DB::table('commandes')->where('id', $id)->first();
-        return view('details/{id}', compact('commande'));
+        return view('details', compact('commande'));
     }
 
-    //pour afficher a page details
+    //pour afficher la page details
     public function Commandedetails($id)
     {
         $commande = DB::table('commandes')->where('id', $id)->first();
@@ -138,7 +137,41 @@ class CommandeController extends Controller
 
         return view('Admin', compact('commandes', 'notif'));
     }
-    //pour afficher la liste des notifiactions 
+    public function notifAgent()
+    {
+       
+
+        $commandes = DB::table('commandes')->get();
+        $notif = Notifications::query()->where('type','agent')->take(5)->get();
+
+        return view('Agent', compact('commandes','notif'));
+    }
+    public function notiflivreur()
+    {
+       
+
+        $commandes = DB::table('commandes')->get();
+        $notif = Notifications::query()->where('type','livreur')->take(5)->get();
+
+        return view('Livreur', compact('commandes','notif'));
+    }
+    //afficher la liste des notification pour agent
+    
+    public function listenotifagent()
+    {
+        $notifs  = Notifications::where('type','agent')->orderBy('id', 'desc')->get();
+
+     return view('liste-notification-agent', compact('notifs'));
+    }
+      //afficher la liste des notification pour livreur
+    
+      public function listenotiflivreur()
+      {
+          $notifs  = Notifications::where('type','livreur')->orderBy('id', 'desc')->get();
+  
+       return view('liste-notification-livreur', compact('notifs'));
+      }
+    //pour afficher la liste des notifiactions pour admin
     public function listenotif()
     {
         $notif = DB::table('notifications')->orderBy('id', 'desc')->get();
@@ -188,15 +221,16 @@ class CommandeController extends Controller
             $cmd->etat = 'affecter a un agent';
             $cmd->date_affect_agent = Carbon::now();
 
-           
+
             $cmd->save();
-            DB::table('Notifications')->create([
-                'ID_personnel' => $request->$agentid,
-                'ID_commande' => $request->$cmd->ID_commande,
+            DB::table('Notifications')->updateOrInsert([
+                'ID_personnel' => $agentid,
+                'ID_commande' => $cmd->id,
                 'type' => 'agent',
 
             ]);
-            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), $request->ID_personnel]));
+            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), $agentid, $cmd->id]));
+
         }
 
 
@@ -207,15 +241,31 @@ class CommandeController extends Controller
     public function affecterlivreur(Request $request)
     {
 
-
+        now("Europe/Rome");
         $livreurid = $request->livreurid;
         $commandesids = $request->vals;
-
+        //$agent=DB::table('users')->where('role' , 'agent')
+        //->where('id',$agentid)->get(['id']);
         foreach ($commandesids as $commande) {
             $cmd = Commande::find($commande);
             $cmd->livreur = $livreurid;
+            $cmd->etat = 'affecter a un livreur';
+            $cmd->date_affect_livreur = Carbon::now();
+
+
             $cmd->save();
+            DB::table('Notifications')->updateOrInsert([
+                'ID_personnel' => $livreurid,
+                'ID_commande' => $cmd->id,
+                'type' => 'livreur',
+
+            ]);
+            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), $livreurid, $cmd->id]));
+
         }
+
+
+
         return response()->json(['success' => 'commande affected']);
     }
     //pour modifier la commande ( pour le moment pas dutilisation)
@@ -253,9 +303,4 @@ class CommandeController extends Controller
     }
     //route pour les views des listes 
 
-    public function Listepreparee()
-    {
-
-        return view('liste-commandes-preparee');
-    }
 }

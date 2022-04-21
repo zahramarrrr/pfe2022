@@ -116,7 +116,7 @@ $NotificationsCommandes = Notifications::all();
                   <i class='bi bi-exclamation-circle text-warning'></i>
                   <div>
                     <h4>
-                      {{$notif->nomCommerçant}} a déclaré une commande !
+                      {{$notif->ID_personnel}} a déclaré une commande !
                     </h4>
                   </div>
                 </li>

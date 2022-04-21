@@ -1,6 +1,6 @@
 <?php
 use App\models\Notifications;
-$NotificationsCommandes=Notifications::all();
+$NotificationsCommandes = Notifications::where('type', 'livreur')->get();
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,6 @@ $NotificationsCommandes=Notifications::all();
   ======================================================== -->
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
   <script>
-
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
@@ -52,7 +51,7 @@ $NotificationsCommandes=Notifications::all();
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
+      // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
     });
   </script>
 
@@ -89,110 +88,58 @@ $NotificationsCommandes=Notifications::all();
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
   <li class="dropdown-header">
   Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-    <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+    <a href="http://127.0.0.1:8000/liste-notification-livreur"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
   </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-<div id='notif'>
-  <li class="notification-item">
-    <i class="bi bi-exclamation-circle text-warning"></i>
-    <div>
-      <h4>Lorem Ipsumlll</h4>
-      <p>Quae dolorem earum veritatis oditseno</p>
-      <p>30 min. ago</p>
-    </div>
-  </li>
+           
 
   <li>
-    <hr class="dropdown-divider">
+    <hr class='dropdown-divider'>
   </li>
 
-  <li class="notification-item">
-    <i class="bi bi-x-circle text-danger"></i>
-    <div>
-      <h4>Atque rerum nesciunt</h4>
-      <p>Quae dolorem earum veritatis oditseno</p>
-      <p>1 hr. ago</p>
-    </div>
-  </li>
+  <div id='notif'>
+          
 
   <li>
-    <hr class="dropdown-divider">
+    <hr class='dropdown-divider'>
   </li>
 
-  <li class="notification-item">
-    <i class="bi bi-check-circle text-success"></i>
-    <div>
-      <h4>Sit rerum fuga</h4>
-      <p>Quae dolorem earum veritatis oditseno</p>
-      <p>2 hrs. ago</p>
-    </div>
-  </li>
+  <div id='notif'>
+  @foreach($notif as $notif)
+  
+    <li class='notification-item'>
 
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+      <i class='bi bi-exclamation-circle text-warning'></i>
+      <div>
+        <h4>
+        <a href="{{route('commande.details' , ['id' => $notif->id]) }}">
 
-  <li class="notification-item">
-    <i class="bi bi-info-circle text-primary"></i>
-    <div>
-      <h4>Dicta reprehenderit</h4>
-      <p>Quae dolorem earum veritatis oditseno</p>
-      <p>4 hrs. ago</p>
-    </div>
-  </li>
+          Admin vous a affecté la commande {{$notif->ID_commande}}
+          </a>
+        </h4>
+      </div>
+     
+    </li>
+    @endforeach
+
   </div>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-  <li class="dropdown-footer">
-    <a href="#">Show all notifications</a>
-  </li>
-
-</ul><!-- End Notification Dropdown Items -->
-
 </li>
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header" id="header_notification_bar" class="dropdown">
-            <p >Vous avez {{count($NotificationsCommandes)}} nouvelles alertes</p>              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            
-
-            <li class="notification-item" >
-            
-              <div id="notif_comm">
-              @foreach ($NotificationsCommandes as $Notif)
-              <li>
-                                        <a href="notif_ass">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                            {{$Notif->message}}
-                                            </li>
-                                @endforeach
-              </div>
-            </li>
-
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-
-          </ul><!-- End Notification Dropdown Items -->
-
-        </li><!-- End Notification Nav -->
+  </div>
+</li>
+</ul><!-- End Notification Dropdown Items -->
 
         
         <li class="nav-item dropdown pe-3">
 
 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
   <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-  <span class="d-none d-md-block dropdown-toggle ps-2">Admin X</span>
+  <span class="d-none d-md-block dropdown-toggle ps-2">livreur X</span>
 </a><!-- End Profile Iamge Icon -->
 
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
   <li class="dropdown-header">
-    <h6>Admin X</h6>
-    <span>responsable depot</span>
+    <h6>livreur X</h6>
+    <span>livreur </span>
   </li>
   <li>
     <hr class="dropdown-divider">
@@ -1019,8 +966,8 @@ $NotificationsCommandes=Notifications::all();
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  
   <script>
-
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
@@ -1030,10 +977,14 @@ $NotificationsCommandes=Notifications::all();
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
-      oldcontent=document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML='<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Nouvelles commande déclareé!</h4><p>Nouvelles commande déclareé!</p></div></li>'+oldcontent;
-    //  $("#notif").html('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>Lorem Ipsumlll5555</h4><p>Quae dolorem earum veritatis oditseno</p><p>30 min. ago</p></div></li>');
+      idcommande = JSON.stringify(data.message[2]);
+      urlcmd = JSON.stringify(data.message[0]);
+     
+      notifmsg = "Admin vous a affecté la commande " + idcommande;
+
+      //alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
+      oldcontent = document.getElementById('notif').innerHTML;
+      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + notifmsg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
 </body>

@@ -308,7 +308,7 @@
                             </thead>
                             <tbody>
 
-                                @foreach($agents as $key => $agent)
+                                @foreach($agents as $agent)
 
                                 <tr>
 
@@ -407,6 +407,8 @@
 
                 },
                 error: function(error) {
+                    console.log(response);
+
                     alert('erreur');
                 }
             });

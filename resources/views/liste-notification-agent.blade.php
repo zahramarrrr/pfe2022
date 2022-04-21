@@ -203,7 +203,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($notif as $notif)
+                @foreach($notifs as $notif)
 
                 <tr class="table-info">
                   <td> #</td>
@@ -266,6 +266,12 @@
           });
         });
       </script>
+
+
+
+
+
+
 
 
 

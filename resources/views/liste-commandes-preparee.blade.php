@@ -203,8 +203,8 @@
         </ul>
 
     </aside><!-- End Sidebar-->
-  
-  <main id="main" class="main">
+
+    <main id="main" class="main">
         <div class="pagetitle">
             <h1>Liste des commandes déclarées</h1>
             <nav>
@@ -223,9 +223,9 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card">
-                        <div class="height d-flex justify-content-center align-items-center">
+                    <div class="height d-flex justify-content-center align-items-center">
                             <button type="button" class="btn btn-primary" id="affecter" data-toggle="modal" data-target="#exampleModal">
-                                affecter livreur </button>
+                                affecter livreur</button>
                         </div>
                         <div class="card-body">
 
@@ -244,9 +244,9 @@
 
                                 </thead>
                                 <tbody>
-                                    @if($commandes->count())
+                                @if($commandes->count())
 
-                                    @foreach($commandes as $key => $commande)
+                                    @foreach($commandes as $commande)
 
                                     <tr id="tr_{{$commande->id}}">
                                         <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
@@ -268,6 +268,7 @@
                                     </tr>
 
                                     @endforeach
+
                                     @endif
 
                                 </tbody>
@@ -281,9 +282,10 @@
             </div>
         </div>
 
+
     </main>
- <!-- Modal -->
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header float-right">
@@ -299,7 +301,7 @@
                         <table class="ui celled table">
                             <thead>
                                 <tr>
-                                    <th>ID livreur</th>
+                                    <th>ID agent</th>
                                     <th>Nom</th>
                                     <th>email</th>
                                     <th></th>
@@ -309,7 +311,7 @@
                             </thead>
                             <tbody>
 
-                                @foreach($livreurs as $key => $livreur)
+                                @foreach($livreurs as $livreur)
 
                                 <tr>
 
@@ -337,24 +339,23 @@
             </div>
         </div>
     </div>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.min.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
 
-      <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.min.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
 
-  <script>
+    <script>
         $(document).ready(function() {
             $('#tablecommandes').DataTable({
                 language: {
@@ -416,9 +417,9 @@
 
         });
     </script>
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 

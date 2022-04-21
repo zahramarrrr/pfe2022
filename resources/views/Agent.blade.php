@@ -2,12 +2,63 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::all();
+$NotificationsCommandes = Notifications::where('type', 'agent')->get();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<script>
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <!-- Script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
+
+  <!-- Font Awesome JS -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"> </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"> </script>
+
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.2.2
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
@@ -20,80 +71,7 @@ $NotificationsCommandes = Notifications::all();
       // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
     });
   </script>
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Espace agent</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  <!--===============================================================================================-->
-  <link href="assets/img/favicon.png" rel="icon">
-  <!--===============================================================================================-->
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <!--===============================================================================================-->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <!--===============================================================================================-->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/css/style.css" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <!--===============================================================================================-->
-  <link href="assets/declaration/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-  <!--===============================================================================================-->
-  <link href="assets/declaration/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-  <!--===============================================================================================-->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-  <!--===============================================================================================-->
-  <link href="assets/declaration/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-  <!--===============================================================================================-->
-  <link href="assets/declaration/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--===============================================================================================-->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <!--===============================================================================================-->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <!--===============================================================================================-->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="assets/contactadmin/vendor/bootstrap/css/bootstrap.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="assets/contactadmin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="assets/contactadmin/vendor/animate/animate.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="assets/contactadmin/vendor/css-hamburgers/hamburgers.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="assets/contactadmin/vendor/select2/select2.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="assets/contactadmin/css/util.css">
-  <link rel="stylesheet" type="text/css" href="assets/contactadmin/css/main.css">
-  <!--===============================================================================================-->
-  <link href="assets/declaration/css/main.css" rel="stylesheet" media="all">
-  <!--===============================================================================================-->
+
 </head>
 
 <body>
@@ -122,76 +100,89 @@ $NotificationsCommandes = Notifications::all();
             <i class="bi bi-bell"></i>
             <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
           </a><!-- End Notification Icon -->
-
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
             <li class="dropdown-header">
               Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-              <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              <a href="{{route('listenotifagent')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+
             </li>
 
-            <li>
-              <hr class='dropdown-divider'>
-            </li>
-            <div id='notif'>
-              <li class='notification-item'>
-                <i class='bi bi-exclamation-circle text-warning'></i>
-                <div>
-                  <h4>
-                  </h4>
-                </div>
-              </li>
-            </div>
-        </li></a>
+            
 
+  <li>
+    <hr class='dropdown-divider'>
+  </li>
 
+  <div id='notif'>
+  @foreach($notif as $notif)
+  
+    <li class='notification-item'>
 
+      <i class='bi bi-exclamation-circle text-warning'></i>
+      <div>
+        <h4>
+        <a href="{{route('commande.details' , ['id' => $notif->id]) }}">
 
-      </ul><!-- End Notification Dropdown Items -->
-
-
-      </li><!-- End Notification Nav -->
-      <nav class="header-nav ms-auto">
-        <li class="nav-item dropdown pe-3">
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-            <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Agent X</span>
+          Admin vous a affecté la commande {{$notif->ID_commande}}
           </a>
-          <!-- End Profile image-->
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
-            <li class="dropdown-header">
-              <h6>Agent X</h6>
-              <span>Agent d'entrepot</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
-                <i class="bi bi-person"></i>
-                <span>Mon Profil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
-                <i class="bi bi-gear"></i>
-                <span>Editer profil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Deconnexion</span>
-              </a>
-            </li>
+        </h4>
+      </div>
+     
+    </li>
+    @endforeach
 
-          </ul>
-          <!-- End Profile -->
+  </div>
+</li>
+
+
+
+
+          </ul><!-- End Notification Dropdown Items -->
+
+
+        </li><!-- End Notification Nav -->
+        <nav class="header-nav ms-auto">
+          <li class="nav-item dropdown pe-3">
+            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+              <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+              <span class="d-none d-md-block dropdown-toggle ps-2">Agent X</span>
+            </a>
+            <!-- End Profile image-->
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+              <li class="dropdown-header">
+                <h6>Agent X</h6>
+                <span>Agent d'entrepot</span>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+                  <i class="bi bi-person"></i>
+                  <span>Mon Profil</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+                  <i class="bi bi-gear"></i>
+                  <span>Editer profil</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Deconnexion</span>
+                </a>
+              </li>
+
+            </ul>
+            <!-- End Profile -->
   </header>
   <!-- End Header -->
   <!-- ======= Sidebar ======= -->
@@ -280,16 +271,7 @@ $NotificationsCommandes = Notifications::all();
   <!--===============================================================================================-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
   <!--===============================================================================================-->
-  <script>
-    $(document).ready(function() {
-      $('#tablecommandes').DataTable({
-        language: {
-          url: "{{ asset('assets/datatable-fr-FR.json') }}"
-        },
-        "searching": true
-      });
-    });
-  </script>
+  
   <!--===============================================================================================-->
   <script src="assets/js/main.js"></script>
   <!--===============================================================================================-->
@@ -321,7 +303,7 @@ $NotificationsCommandes = Notifications::all();
     gtag('config', 'UA-23581568-13');
   </script>
   <!--===============================================================================================-->
-  <script src="assets/contact/js/main.js"></script>
+  
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -332,12 +314,10 @@ $NotificationsCommandes = Notifications::all();
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      idcommande = JSON.stringify(data.message);
+      idcommande = JSON.stringify(data.message[2]);
       urlcmd = JSON.stringify(data.message[0]);
-      comm = JSON.stringify(data.message[1]).replace(/^[\t ]*"[^:\n\r]+(?<!\\)":/gm, function(match) {
-        return match.replace(/"/g, "");
-      });
-      notifmsg = comm + " a déclaré une commande!";
+     
+      notifmsg = "Admin vous a affecté la commande " + idcommande;
 
       //alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
       oldcontent = document.getElementById('notif').innerHTML;

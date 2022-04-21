@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommandeController;
 
 
 
@@ -94,13 +95,12 @@ Route::get('/Statut', function () {
 Route::get('/liste-notification', function () {
     return view('liste-notification');
 });
-Route::get('/liste-commandes-preparee', function () {
-    return view('liste-commandes-preparee');
-});
 
-use App\Http\Controllers\CommandeController;
+
 
 route::get('liste-notification', [CommandeController::class, 'listenotif'])->name('listenotif');
+route::get('liste-notification-agent', [CommandeController::class, 'listenotifagent'])->name('listenotifagent');
+route::get('liste-notification-livreur', [CommandeController::class, 'listenotiflivreur'])->name('listenotiflivreur');
 
 route::get('Declarer-commande', [CommandeController::class, 'addCommande'])->name('commande.add');
 route::post('Declarer-commande', [CommandeController::class, 'saveCommande'])->name('save.post');
@@ -113,12 +113,17 @@ route::post('valider/{id}', [CommandeController::class, 'valider'])->name('valid
 route::post('affecteragent', [CommandeController::class, 'affecteragent'])->name('affecteragent');
 route::post('affecterlivreur', [CommandeController::class, 'affecterlivreur'])->name('affecterlivreur');
 
+route::get('liste-commandes-preparee', [CommandeController::class, 'ListprepareeAdmin'])->name('commande.preparee');
 
 route::get('liste-commande-declare-admin', [CommandeController::class, 'CommandeListAdmin'])->name('commande.ListAdmin');
 route::get('Admin', [CommandeController::class, 'Commandenotif'])->name('Commande.notif');
 route::get('details', [CommandeController::class, 'Commandevalider'])->name('Commande.valider');
+route::get('Agent', [CommandeController::class, 'notifAgent'])->name('notif.Agent');
+route::get('Livreur', [CommandeController::class, 'notiflivreur'])->name('notif.livreur');
 
 route::get('details/{id}', [CommandeController::class, 'Commandedetails'])->name('commande.details');
+route::get('detailsview', [CommandeController::class, 'CommandedetailCommerssant'])->name('details');
+
 route::get('liste-personnels-Agent', [CommandeController::class, 'CommandeListAgent'])->name('Liste.agent');
 route::get('liste-personnels-livreur', [CommandeController::class, 'CommandeListLivreur'])->name('Liste.livreur');
 route::get('/search', 'CommandeController@search');
@@ -128,20 +133,21 @@ route::get('/search', 'CommandeController@search');
 
 
 route::get('liste-commande-validee', [CommandeController::class, 'listecommandevalidee'])->name('commande.validee');
-route::get('/Listepreparee', [CommandeController::class, 'listecommandepreparee'])->name('commande.preparee');
 
 route::post('liste-commande-validee', [CommandeController::class, 'maj'])->name('maj.validee');
 
-Route::get('/Agent', function () {
-    return view('Agent');
-});
+//Route::get('/Agent', function () {
+  //  return view('Agent');
+//});
 
 Route::get('/index', function () {
     return view('index');
 });
+
 Route::get('/declare', function () {
     return view('declare');
 });
+
 Route::get('/contact', function () {
     return view('contact');
 });

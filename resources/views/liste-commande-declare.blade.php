@@ -39,12 +39,12 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-    
+
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
@@ -71,7 +71,7 @@
 
         <li class="nav-item dropdown">
 
-       
+
 
 
 
@@ -80,50 +80,50 @@
 
         <li class="nav-item dropdown pe-3">
 
-<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-  <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
-</a><!-- End Profile Iamge Icon -->
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
+          </a><!-- End Profile Iamge Icon -->
 
-<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
-  <li class="dropdown-header">
-    <h6>Commerçant X</h6>
-    <span>responsable vente en ligne</span>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+            <li class="dropdown-header">
+              <h6>Commerçant X</h6>
+              <span>responsable vente en ligne</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
-      <i class="bi bi-person"></i>
-      <span>Mon Profil</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
+                <i class="bi bi-person"></i>
+                <span>Mon Profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
-      <i class="bi bi-gear"></i>
-      <span>Editer profil</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
+                <i class="bi bi-gear"></i>
+                <span>Editer profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
-      <i class="bi bi-box-arrow-right"></i>
-      <span>Deconnexion</span>
-    </a>
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Deconnexion</span>
+              </a>
+            </li>
 
-</ul><!-- End Profile Dropdown Items -->
-  
+          </ul><!-- End Profile Dropdown Items -->
+
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
@@ -131,20 +131,20 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item">
-        <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Declarer-commande">
           <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
         </a>
-     
-        </li><!-- End declarer commande nav -->
-    
+
+      </li><!-- End declarer commande nav -->
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
           <i class="bi bi-layout-text-window-reverse"></i>
           <span>la liste des commandes déclarées</span>
         </a>
-        
+
       </li><!-- End liste des commandes nav -->
 
       <li class="nav-heading">contact</li>
@@ -154,17 +154,17 @@
           <span>Contact</span>
         </a>
       </li><!-- End Contact Page Nav -->
-<!-- END contact -->
+      <!-- END contact -->
 
-     
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="http://127.0.0.1:8000/Commer%C3%A7ant">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>retour</span>
         </a>
       </li><!-- End retour Nav -->
-      
-     
+
+
 
 
 
@@ -172,159 +172,82 @@
     </ul>
 
   </aside><!-- End Sidebar-->
-  
 
- 
-  <main id="main" class="main" >
-  <div class="pagetitle">
+
+
+  <main id="main" class="main">
+    <div class="pagetitle">
       <h1>Liste des commandes déclarées</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
-    
+
     @if(Session::has('commande_delete'))
-        <span>{{Session::get('commande_delete')}}</span>
-        @endif
+    <span>{{Session::get('commande_delete')}}</span>
+    @endif
 
     <div class="container">
-      
-    <div class="row">
+
+      <div class="row">
         <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body">
-                <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='http://127.0.0.1:8000/Declarer-commande';"><i class="bi bi-bag-plus"></i> Ajouter</button>
+          <div class="card">
+            <div class="card-body">
+              <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='http://127.0.0.1:8000/Declarer-commande';"><i class="bi bi-bag-plus"></i> Ajouter</button>
 
 
-                    <table id="tablecommandes" class="ui celled table" style="width:100%">
-                            <thead>
-                                <tr >
-                                   
-                                    <th>ID commande</th>
-                                    <th>Date de commande</th>
-                                    <th>téléphone</th>
-                                    <th>Etat actuel</th>
-                                    <th></th>
-                                </tr>
+              <table id="tablecommandes" class="ui celled table" style="width:100%">
+                <thead>
+                  <tr>
 
-                            </thead>
-                            <tbody>
-                            @foreach($commandes as $commande)
+                    <th>ID commande</th>
+                    <th>Date de commande</th>
+                    <th>téléphone</th>
+                    <th>Etat actuel</th>
+                    <th></th>
+                  </tr>
 
-                                <tr>
-                                    
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                                    <td>{{$commande->date}}</td>
-                                    <td>{{$commande->telephone}}</td>
-                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
+                </thead>
+                <tbody>
+                  @foreach($commandes as  $commande)
 
-                                    <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
-                                     <!--     <a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
+                  <tr>
+
+                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                    <td>{{$commande->date}}</td>
+                    <td>{{$commande->telephone}}</td>
+                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
+
+                    <td><a href="#" data-toggle="modal" data-target="#infos"><i class="material-icons"></i></a>
+                      
+                    </td>
+                    <!--     <a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
                                          
 
-                                        <a href="edit-commande/{{$commande->id}}"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span>                                    
+           <a href="edit-commande/{{$commande->id}}"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span>                                    
 -->
-                                        </td>
-                                        </tr>
-                                        
-                                      @endforeach
-                                </tbody>
-                                
-                        </table>
-                        <div class="modal" id="infos">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Plus d'informations</h4>
-      </div>
-      <div class="modal-body">
-      <div class="form-row table-responsive">
-									<table class="table">
-										<tbody>
-											<tr class="space-row">
-												<th>date:</th>
-												<td id="date-val">{{$commande->date}}</td>
-											</tr>
-                       <tr class="space-row">
-												<th>temps:</th>
-												<td id="temps-val">{{$commande->temps}}</td>
-											</tr>
-                       <tr class="space-row">
-												<th>nom:</th>
-												<td id="nom-val">{{$commande->nom}}</td>
-                        <tr class="space-row">
-                        <th>prénom:</th>
-												<td id="prenom-val">{{$commande->prenom}}</td>
-											</tr>
-                      <tr class="space-row">
-												<th>téléphone:</th>
-												<td id="telephone-val">{{$commande->telephone}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>Addresse mail:</th>
-												<td id="email-val">{{$commande->email}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>Adresse 1:</th>
-												<td id="adresse1-val">{{$commande->adresse1}}</td>
-									
-                      <tr class="space-row">
-												<th>Governorat:</th>
-												<td id="governorat-val">{{$commande->governorat}}</td>
-                         </tr>
-                         <tr class="space-row">
-                         <th>ville</th>
-												<td id="ville-val">{{$commande->ville}}</td>
-                         </tr>
-                         <tr class="space-row">
-                          <th>code postal</th>
-												<td id="code_postal-val">{{$commande->code_postal}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>ID Commande:</th>
-												<td id="ID_commande-val">{{$commande->ID_commande}} </td>
-											</tr>
-											<tr class="space-row">
-												<th>poids:</th>
-												<td id="poids-val">{{$commande->poids}}</td>
-											</tr>
-											<tr class="space-row">
-												<th>mode de paiment:</th>
-												<td id="paiment-val">{{$commande->paiement}}</td>
-											</tr>
-                      <tr class="space-row">
-												<th>total prix:</th>
-												<td id="prix-val">{{$commande->prix}}</td>
-											</tr> 
-                        <tr class="space-row">
-												<th>description:</th>
-												<td id="description-val">{{$commande->description}}</td>
-                        </tr>
-										</tbody>
-									</table>
-								</div>
-      </div>
-      <div class="modal-footer">
-        <em>Informations sous réserve</em>
-      </div>
-    </div>
-  </div>
 
-                      </div>
+                  </tr>
+
+                  @endforeach
+                </tbody>
+
+              </table>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-
-</div>
-
+  </main>
 
 
 
 
-      <!-- Vendor JS Files -->
+
+
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>
@@ -334,22 +257,22 @@
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  
+
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
 
-  <script >
+  <script>
     $(document).ready(function() {
-    $('#tablecommandes').DataTable({
+      $('#tablecommandes').DataTable({
         language: {
-            url: "{{ asset('assets/datatable-fr-FR.json') }}"
+          url: "{{ asset('assets/datatable-fr-FR.json') }}"
         },
         "searching": true
-    } );
-} );
-    </script>
+      });
+    });
+  </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
