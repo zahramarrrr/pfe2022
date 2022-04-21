@@ -286,52 +286,62 @@
 									<p class="mb-4">Entrez les informations nécessaires:</p>
 								
 									
-								<!-- 	<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" class="form-control" name="name" id="name" placeholder="Nom ">
+                        <x-label for="name"  :value="__('Nom')" />
+
+                        <x-input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus />
 												</div>
                         <div class="form-group">
-													<input type="text" class="form-control" name="subject" id="subject" placeholder="prénom">
+                        <x-label for="name"  :value="__('Prénom')" />
+													<input type="text" class="form-control" name="subject" id="subject" >
+												</div>
+                        <div class="form-group">
+                        <x-label for="name"  :value="__('Adresse')" />
+													<input type="text" class="form-control" name="subject" id="subject" >
+												</div>
+                        <div class="form-group">
+                        <x-label for="name"  :value="__('Télèphone')" />
+													<input type="text" class="form-control" name="subject" id="subject" >
+												</div>
+                        <div class="form-group">
+                        <x-label for="name"  :value="__('ID Agent')" />
+													<input type="text" class="form-control" name="subject" id="subject" >
 												</div>
 											</div>
 											<div class="col-md-12"> 
-												
-											</div> -->
-											<div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+											</div> 
+										
             
                       <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('Adresse d email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-input id="email"class="form-control" type="email" name="email" :value="old('email')" required />
             </div>
 
 											<div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Mot de passe')" />
 
-                <x-input id="password" class="block mt-1 w-full"
+                <x-input id="password"class="form-control"
                                 type="password"
                                 name="password"
                                 required autocomplete="new-password" />
             </div>
                         <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Confirmer le mot de passe')" />
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
+                <x-input id="password_confirmation" class="form-control"
                                 type="password"
                                 name="password_confirmation" required />
             </div>
 										
-            <div class="flex items-center justify-end mt-4">
+            <div class="mt-4">
                 
 
-                <x-button class="ml-4">
-                    {{ __('Register') }}
+                <x-button class="btn btn-primary">
+                    {{ __('Ajouter') }}
                 </x-button>
             </div>
 										</div>

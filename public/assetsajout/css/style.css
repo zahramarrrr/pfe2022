@@ -5416,22 +5416,22 @@ button.bg-dark:focus {
   background-color: #fff !important; }
 
 .bg-transparent {
-  background-color: transparent !important; }
+  background-color: #B0C4DE!important; }
 
 .border {
-  border: 1px solid #dee2e6 !important; }
+  border: 1px solid #B0C4DE !important; }
 
 .border-top {
-  border-top: 1px solid #dee2e6 !important; }
+  border-top: 1px solid #B0C4DE!important; }
 
 .border-right {
-  border-right: 1px solid #dee2e6 !important; }
+  border-right: 1px solid #B0C4DE !important; }
 
 .border-bottom {
-  border-bottom: 1px solid #dee2e6 !important; }
+  border-bottom: 1px solid #B0C4DE !important; }
 
 .border-left {
-  border-left: 1px solid #dee2e6 !important; }
+  border-left: 1px solid #B0C4DE !important; }
 
 .border-0 {
   border: 0 !important; }

@@ -273,7 +273,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Ajouter un livreur:</h2>
+					<h2 class="heading-section">Ajouter un commerçant:</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -289,11 +289,13 @@
 									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
 										<div class="row">
 											<div class="col-md-12">
+                                                <!--- attention-->
 												<div class="form-group">
                         <x-label for="name"  :value="__('Nom')" />
 
                         <x-input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus />
 												</div>
+                                           <!--fin-->
                         <div class="form-group">
                         <x-label for="name"  :value="__('Prénom')" />
 													<input type="text" class="form-control" name="subject" id="subject" >
@@ -313,7 +315,7 @@
 											</div>
 											<div class="col-md-12"> 
 											</div> 
-										
+										 <!--- attention-->
             
                       <div class="mt-4">
                 <x-label for="email" :value="__('Adresse d email')" />
@@ -343,7 +345,9 @@
                 <x-button class="btn btn-primary">
                     {{ __('Ajouter') }}
                 </x-button>
+                
             </div>
+             <!--fin-->
 										</div>
 									</form>
 									

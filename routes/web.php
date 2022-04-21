@@ -89,6 +89,9 @@ Route::get('/ajout-agent', function () {
 Route::get('/ajout-livreur', function () {
     return view('ajout-livreur');
 });
+Route::get('/ajout-commerçant', function () {
+    return view('ajout-commerçant');
+});
 Route::get('/Statut', function () {
     return view('Statut');
 });
