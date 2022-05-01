@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 
 
@@ -27,12 +29,8 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/ListeLivreur', function () {
-    return view('ListeLivreur');
-});
-Route::get('/ListeAgent', function () {
-    return view('ListeAgent');
-});
+
+
 Route::get('/liste-commande-declare', function () {
     return view('liste-commande-declare');
 });
@@ -40,9 +38,7 @@ Route::get('/liste-commande-valide', function () {
     return view('liste-commande-valide');
 });
 
-Route::get('/Listecommercant', function () {
-    return view('Listecommercant');
-});
+
 Route::get('/Admin', function () {
     return view('Admin');
 });
@@ -82,7 +78,7 @@ Route::get('/details', function () {
     return view('details');
 });
 Route::get('/list', 'CommandeController@list')->name('list');
-
+//pour laffichage de view form
 Route::get('/ajout-agent', function () {
     return view('ajout-agent');
 });
@@ -95,12 +91,17 @@ Route::get('/ajout-commerçant', function () {
 Route::get('/Statut', function () {
     return view('Statut');
 });
+
 Route::get('/liste-notification', function () {
     return view('liste-notification');
 });
 
+Route::get('/MDPagent', function () {
+    return view('MDPagent');
+});
 
 
+//route pour voir tout les notifications 
 route::get('liste-notification', [CommandeController::class, 'listenotif'])->name('listenotif');
 route::get('liste-notification-agent', [CommandeController::class, 'listenotifagent'])->name('listenotifagent');
 route::get('liste-notification-livreur', [CommandeController::class, 'listenotiflivreur'])->name('listenotiflivreur');
@@ -126,10 +127,9 @@ route::get('Livreur', [CommandeController::class, 'notiflivreur'])->name('notif.
 
 route::get('details/{id}', [CommandeController::class, 'Commandedetails'])->name('commande.details');
 route::get('detailsview', [CommandeController::class, 'CommandedetailCommerssant'])->name('details');
-
-route::get('liste-personnels-Agent', [CommandeController::class, 'CommandeListAgent'])->name('Liste.agent');
-route::get('liste-personnels-livreur', [CommandeController::class, 'CommandeListLivreur'])->name('Liste.livreur');
 route::get('/search', 'CommandeController@search');
+
+
 
 
 
@@ -139,10 +139,46 @@ route::get('liste-commande-validee', [CommandeController::class, 'listecommandev
 
 route::post('liste-commande-validee', [CommandeController::class, 'maj'])->name('maj.validee');
 
-//Route::get('/Agent', function () {
-  //  return view('Agent');
-//});
 
+
+
+
+
+//pour l'ajout des agents livreurs et commerçants ( les fonctions)
+route::post('ajouter-agent', [RegisteredUserController::class, 'storeagent'])->name('create.agent');
+route::post('ajouter-livreur', [RegisteredUserController::class, 'storelivreur'])->name('create.livreur');
+route::post('ajouter-comm', [RegisteredUserController::class, 'storecom'])->name('create.com');
+route::post('motdp', [CommandeController::class, 'store'])->name('sotemdp');
+
+//route pour la liste des agents livreurs commerçant
+route::get('ListeAgent', [CommandeController::class, 'listeagent'])->name('listeagent');
+route::get('ListeLivreur', [CommandeController::class, 'listeLivreur'])->name('listeLivreur');
+route::get('Listecommercant', [CommandeController::class, 'listecommercant'])->name('listecommercant');
+
+//pour la supression des personnels
+route::get('Deletepersonnel/{id}', [CommandeController::class, 'Deletepersonnel'])->name('personnel.delete');
+// pour editer les informations du personnels
+// editer agent
+route::get('edit-agent/{id}', [CommandeController::class, 'Editagent'])->name('agent.edit');
+route::post('update-agent', [CommandeController::class, 'updateAgent'])->name('update.agent');
+route::get('edit-livreur/{id}', [CommandeController::class, 'Editlivreur'])->name('livreur.edit');
+route::post('update-livreur', [CommandeController::class, 'updateLivreur'])->name('update.livreur');
+route::get('edit-commercant/{id}', [CommandeController::class, 'Editcommercant'])->name('commercant.edit');
+route::post('update-commercant', [CommandeController::class, 'updatecommercant'])->name('update.commercant');
+
+
+//profil
+route::get('profilAgent', [CommandeController::class, 'profilagent'])->name('profilAgent');
+route::get('editer-profil-agent/{id}', [CommandeController::class, 'EditerprofilAgent'])->name('editer-profil-agent');
+route::post('update-profilAgent', [CommandeController::class, 'profileUpDatAagent'])->name('update.profilAgent');
+
+// preparer commande
+route::post('preparer', [CommandeController::class, 'preparer'])->name('preparer');
+
+route::post('updatemdp', [CommandeController::class, 'updatemdp'])->name('updatemdp');
+
+
+route::get('mdp', [CommandeController::class, 'mdp'])->name('mdp');
 Route::get('/index', function () {
     return view('index');
 });
@@ -174,4 +210,17 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 Route::get('redirects', 'HomeController@index');
-// route pour les listes 
+// route pour mail
+/*
+Route::get('send-mail', function () {
+   
+    $details = [
+        'title' => 'Mail from ItSolutionStuff.com',
+        'body' => 'This is for testing email using smtp'
+    ];
+   
+   Mail::to('Manager@rmdp.tn')->send(new \App\Mail\testmail($details));
+    dd("Email is Sent.");
+});
+*/
+

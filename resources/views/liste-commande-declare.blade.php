@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -187,60 +187,48 @@
     @if(Session::has('commande_delete'))
     <span>{{Session::get('commande_delete')}}</span>
     @endif
+    <div id="tablecommandes_wrapper" class="dataTables_wrapper dt-semanticUI no-footer">
+      <div class="ui stackable grid">
 
-    <div class="container">
+      </div>
+      <div class="row dt-table">
+        <div class="sixteen wide column">
+          <table id="tablecommandes" class="ui celled table dataTable no-footer" style="width: 100%;" aria-describedby="tablecommandes_info">
+            <thead>
+              <tr>
+                <th class="sorting sorting_asc" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID commande: activer pour trier la colonne par ordre décroissant" style="width: 149px;">ID commande</th>
+                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="Date de commande: activer pour trier la colonne par ordre croissant" style="width: 149px;">Date de commande</th>
+                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="téléphone: activer pour trier la colonne par ordre croissant" style="width: 149px;">téléphone</th>
+                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="Etat actuel: activer pour trier la colonne par ordre croissant" style="width: 149px;">Etat actuel</th>
+                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label=": activer pour trier la colonne par ordre croissant" style="width: 149px;"></th>
+              </tr>
 
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="card">
-            <div class="card-body">
-              <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='http://127.0.0.1:8000/Declarer-commande';"><i class="bi bi-bag-plus"></i> Ajouter</button>
+            </thead>
+            <tbody>
+              @foreach($commandes as $com)
+              <tr class="odd">
 
+                <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$com->ID_commande}}</td>
+                <td>{{$com->date}}</td>
+                <td>{{$com->telephone}}</td>
+                <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">{{$com->etat}}</button></td>
 
-              <table id="tablecommandes" class="ui celled table" style="width:100%">
-                <thead>
-                  <tr>
+                <td><a href="#" data-toggle="modal" data-target="#infos"><i class="material-icons"></i></a>
 
-                    <th>ID commande</th>
-                    <th>Date de commande</th>
-                    <th>téléphone</th>
-                    <th>Etat actuel</th>
-                    <th></th>
-                  </tr>
+                </td>
+              </tr>
+              @endforeach
 
-                </thead>
-                <tbody>
-                  @foreach($commandes as  $commande)
+            </tbody>
 
-                  <tr>
-
-                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                    <td>{{$commande->date}}</td>
-                    <td>{{$commande->telephone}}</td>
-                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
-
-                    <td><a href="#" data-toggle="modal" data-target="#infos"><i class="material-icons"></i></a>
-                      
-                    </td>
-                    <!--     <a href="/delete-commande/{{$commande->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>
-                                         
-
-           <a href="edit-commande/{{$commande->id}}"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span>                                    
--->
-
-                  </tr>
-
-                  @endforeach
-                </tbody>
-
-              </table>
-            </div>
-          </div>
+          </table>
         </div>
       </div>
-    </div>
 
+    </div>
+    </div>
   </main>
+
 
 
 

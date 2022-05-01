@@ -36,12 +36,12 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-  
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -143,7 +143,7 @@
 
         </li><!-- End Notification Nav -->
 
-        
+
 
         <li class="nav-item dropdown pe-3">
 
@@ -206,478 +206,185 @@
 
   </header><!-- End Header -->
 
-   <!-- ======= Sidebar ======= -->
-   <aside id="sidebar" class="sidebar">
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
 
-<ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-  <li class="nav-item">
-    <a class="nav-link " href="index.html">
-      <i class="bi bi-grid"></i>
-      <span>Dashboard</span>
-    </a>
-  </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link " href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-      <a href="http://127.0.0.1:8000/Listecommercant">
-          <i class="bi bi-circle"></i><span>Commerçants</span>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li>
-      <li>
-      <a href="http://127.0.0.1:8000/ListeAgent">
-          <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="http://127.0.0.1:8000/Listecommercant">
+              <i class="bi bi-circle"></i><span>Commerçants</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://127.0.0.1:8000/ListeAgent">
+              <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://127.0.0.1:8000/ListeLivreur">
+              <i class="bi bi-circle"></i><span>Livreurs</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End Personnels Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li>
-      <li>
-      <a href="http://127.0.0.1:8000/ListeLivreur">
-          <i class="bi bi-circle"></i><span>Livreurs</span>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="forms-elements.html">
+              <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-elements.html">
+              <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End commandes Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
         </a>
-      </li>
+      </li><!-- End Login Page Nav -->
 
     </ul>
-  </li><!-- End Personnels Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="forms-elements.html">
-          <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
-        </a>
-      </li>
-      <li>
-        <a href="forms-layouts.html">
-          <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
-        </a>
-      </li>
-      <li>
-        <a href="forms-elements.html">
-          <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
-        </a>
-      </li>
-     
-    </ul>
-  </li><!-- End commandes Nav -->
-  
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="pages-login.html">
-      <i class="bi bi-box-arrow-in-right"></i>
-      <span>Login</span>
-    </a>
-  </li><!-- End Login Page Nav -->
-
-</ul>
-
-</aside><!-- End Sidebar-->
+  </aside><!-- End Sidebar-->
 
 
-  <main id="main" class="main" >
-  <div class="pagetitle">
+  <main id="main" class="main">
+    <div class="pagetitle">
       <h1>Liste des Livreurs</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
-    <div class="dataTable-top"><div class="dataTable-dropdown" style="float:right" >
-                  
-                  <button type="button" class="btn btn-info add-new" ><i class="fa fa-plus"></i> Ajouter</button>
-                    <input class="dataTable-input" placeholder="Search..." type="text"  ></div></div>
+    <div class="dataTable-top">
+      <div class="dataTable-dropdown" style="float:right">
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.9.95/css/materialdesignicons.css" rel="stylesheet">
-<div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="show-results mt-4">
-                        
-                    </div>
-                </div>
-            </div>
+       <a href="http://127.0.0.1:8000/ajout-livreur"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter</button></a> 
+        <input class="dataTable-input" placeholder="Search..." type="text">
+      </div>
+    </div>
 
-            <div class="row" >
-                <div class="col-lg-3">
-                    
-                        <div class="accordion" id="accordionExample">
-                           
-                                <a data-toggle="collapse" href="#collapseOne" class="job-list" aria-expanded="true" aria-controls="collapseOne">
-                                
-                                        
-                                    </div>
-                                </div>
-                            
-                            
-                            
-                    </div>
-                </div>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.9.95/css/materialdesignicons.css" rel="stylesheet">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <div class="show-results mt-4">
 
-                <div class="col-lg-9">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                    <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                    <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                               
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                    <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4" class="p-2">
-                                <div class="grid-item-content p-2 " class="p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                    <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                               
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                    <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                    <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                    <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-outline f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-half f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                        <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star-half f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                    </div>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="list-grid-item mt-4">
-                                <div class="grid-item-content p-2">
-                                    <div class="employers-list-img mt-3">
-                                        <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
-                                    </div>
-                                    <div class="grid-list-desc text-center mt-4">
-                                    <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i>  5</a></h5>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> Zahra Ammar</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> Zahra.ammar@gmail.com</p>
-                                        <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> 52887942</p>
-                                        
-                                        <ul class="employers-icons list-inline mb-1">
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                            <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
-                                        </ul>
-                                        <td class="modal-footer">
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-					              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			                 	</td>
-                                </div>
-                                <hr class="mt-0 mb-0">
-                                
-                            </div>
-                        </div>
-
-                        
-
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination job-pagination justify-content-center mt-5 mb-5">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                    <i class="mdi mdi-chevron-double-left f-15"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    <i class="mdi mdi-chevron-double-right f-15"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-            
           </div>
-        </div><!-- End Left side columns -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+
+          <div class="accordion" id="accordionExample">
+
+            <a data-toggle="collapse" href="#collapseOne" class="job-list" aria-expanded="true" aria-controls="collapseOne">
+
+
+          </div>
+        </div>
+
+
 
       </div>
-    </section>
+    </div>
+
+    <div class="col-lg-9">
+      <div class="row">
+        @foreach($livreur as $l)
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="list-grid-item mt-4">
+            <div class="grid-item-content p-2">
+              <div class="employers-list-img mt-3">
+                <img src="assets/img/avatar3.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
+              </div>
+              <div class="grid-list-desc text-center mt-4">
+                <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i> 5</a></h5>
+                <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> {{$l->name}} {{$l->prenom}}</p>
+                <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> {{$l->email}}</p>
+                <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> {{$l->tel}}</p>
+
+                <ul class="employers-icons list-inline mb-1">
+                  <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                  <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                  <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                  <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                  <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>
+                </ul>
+                <td class="modal-footer">
+                <a href="edit-livreur/{{$l->id}}"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span>                                    
+                  <a href="Deletepersonnel/{{$l->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                </td>
+              </div>
+            </div>
+            <hr class="mt-0 mb-0">
+
+          </div>
+
+        </div>
+        @endforeach
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination job-pagination justify-content-center mt-5 mb-5">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                <i class="mdi mdi-chevron-double-left f-15"></i>
+              </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">
+                <i class="mdi mdi-chevron-double-right f-15"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    </div>
+
+    </div>
+
 
   </main><!-- End #main -->
 
@@ -691,7 +398,7 @@
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-     
+
     </div>
   </footer><!-- End Footer -->
 

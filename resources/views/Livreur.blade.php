@@ -133,12 +133,12 @@ $NotificationsCommandes = Notifications::where('type', 'livreur')->get();
 
 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
   <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-  <span class="d-none d-md-block dropdown-toggle ps-2">livreur X</span>
+  <span class="d-none d-md-block dropdown-toggle ps-2">{{$livreur->name}}</span>
 </a><!-- End Profile Iamge Icon -->
 
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
   <li class="dropdown-header">
-    <h6>livreur X</h6>
+    <h6>{{$livreur->name}}</h6>
     <span>livreur </span>
   </li>
   <li>

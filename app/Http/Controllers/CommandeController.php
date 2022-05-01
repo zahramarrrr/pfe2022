@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use APP\Models\User;
 use App\Models\Commande;
 use  App\Events\MyEvenet;
 use Illuminate\Http\Request;
 use App\Models\Notifications;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\commandes;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class CommandeController extends Controller
 {
@@ -18,6 +18,7 @@ class CommandeController extends Controller
     {
         return view('Declarer-commande');
     }
+    //pour declarer une commande
     public function saveCommande(request $request)
     {
         //dd($request);
@@ -61,11 +62,6 @@ class CommandeController extends Controller
 
 
 
-    public function listeagent()
-    {
-        $commandes = DB::table('commandes')->get();
-        return view('ListeAgent', compact('commandes'));
-    }
     public function listecommandevalidee()
     {
         $commandes = DB::table('commandes')->where('etat', 'validee')->get();
@@ -91,7 +87,7 @@ class CommandeController extends Controller
     {
         $commandes = DB::table('commandes')->where('etat', 'preparee')->get();
         $livreurs = DB::table('users')->where('role', 'livreur')->get();
-        return view('liste-commandes-preparee', compact('commandes','livreurs'));
+        return view('liste-commandes-preparee', compact('commandes', 'livreurs'));
     }
     public function CommandeListAgent()
     {
@@ -106,12 +102,12 @@ class CommandeController extends Controller
     }
 
 
- //pour details commerçant 
- public function CommandedetailCommerssant($id)
- {
-     $commandes = DB::table('commandes')->where('id', $id)->first();
-     return view('detailsview/{id}', compact('commandes'));
- }
+    //pour details commerçant 
+    public function CommandedetailCommerssant($id)
+    {
+        $commandes = DB::table('commandes')->where('id', $id)->first();
+        return view('detailsview/{id}', compact('commandes'));
+    }
 
 
     //pour notification
@@ -139,46 +135,20 @@ class CommandeController extends Controller
     }
     public function notifAgent()
     {
-       
+        $notif = Notifications::query()->where('type', 'agent')->take(5)->get();
 
-        $commandes = DB::table('commandes')->get();
-        $notif = Notifications::query()->where('type','agent')->take(5)->get();
-
-        return view('Agent', compact('commandes','notif'));
+        return view('Agent', compact('notif'));
     }
     public function notiflivreur()
     {
-       
+
 
         $commandes = DB::table('commandes')->get();
-        $notif = Notifications::query()->where('type','livreur')->take(5)->get();
+        $notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
 
-        return view('Livreur', compact('commandes','notif'));
+        return view('Livreur', compact('commandes', 'notif'));
     }
-    //afficher la liste des notification pour agent
-    
-    public function listenotifagent()
-    {
-        $notifs  = Notifications::where('type','agent')->orderBy('id', 'desc')->get();
 
-     return view('liste-notification-agent', compact('notifs'));
-    }
-      //afficher la liste des notification pour livreur
-    
-      public function listenotiflivreur()
-      {
-          $notifs  = Notifications::where('type','livreur')->orderBy('id', 'desc')->get();
-  
-       return view('liste-notification-livreur', compact('notifs'));
-      }
-    //pour afficher la liste des notifiactions pour admin
-    public function listenotif()
-    {
-        $notif = DB::table('notifications')->orderBy('id', 'desc')->get();
-
-
-        return view('liste-notification', compact('notif'));
-    }
     //pour editer la commande
     public function EditCommande($id)
     {
@@ -191,6 +161,7 @@ class CommandeController extends Controller
         DB::table('commandes')->where('id', $id)->delete();
         return back()->with('commande_delete', 'commande deleted successfuly');
     }
+    //pour supprimer la commande
 
 
     //pour changer l'etat de declaree a validee
@@ -203,8 +174,12 @@ class CommandeController extends Controller
                 'etat' => 'validee',
                 'date_validation' => Carbon::now()
             ]);
+        //pour afficher la liste validee -> a revoir
+        $agents = DB::table('users')->where('role', 'agent')->get();
 
-        return back()->with('commande_valider', 'commande validée successfuly');
+        $commandes = DB::table('commandes')->where('etat', 'validee')->get();
+
+        return view('liste-commande-validee', compact('commandes', 'agents'));
     }
     //pour laffectation des agents
     public function affecteragent(Request $request)
@@ -230,7 +205,6 @@ class CommandeController extends Controller
 
             ]);
             event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), $agentid, $cmd->id]));
-
         }
 
 
@@ -261,7 +235,6 @@ class CommandeController extends Controller
 
             ]);
             event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), $livreurid, $cmd->id]));
-
         }
 
 
@@ -301,6 +274,201 @@ class CommandeController extends Controller
         $commandes = DB::table('commandes')->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
         return view('liste-commande-declare', compact('commandes'));
     }
-    //route pour les views des listes 
 
+
+
+    //les fonctions pour view all notification 
+    //afficher la liste des notification pour agent
+
+    public function listenotifagent()
+    {
+        $notifs  = Notifications::where('type', 'agent')->orderBy('id', 'desc')->get();
+
+        return view('liste-notification-agent', compact('notifs'));
+    }
+    //afficher la liste des notification pour livreur
+
+    public function listenotiflivreur()
+    {
+        $notifs  = Notifications::where('type', 'livreur')->orderBy('id', 'desc')->get();
+
+        return view('liste-notification-livreur', compact('notifs'));
+    }
+    //pour afficher la liste des notifiactions pour admin
+    public function listenotif()
+    {
+        $notif = DB::table('notifications')->orderBy('id', 'desc')->get();
+
+
+        return view('liste-notification', compact('notif'));
+    }
+
+
+
+    //les fonction d'affichage des personnels(sprint2)
+    //pour afficher la liste des agents 
+    public function listeagent()
+    {
+        $agents = DB::table('users')->where('Role', 'agent')->get();
+        return view('ListeAgent', compact('agents'));
+    }
+
+    public function listecommercant()
+    {
+        $comm = DB::table('users')->where('Role', 'commerçant')->get();
+        return view('Listecommercant', compact('comm'));
+    }
+    public function listeLivreur()
+    {
+        $livreur = DB::table('users')->where('Role', 'livreur')->get();
+        return view('ListeLivreur', compact('livreur'));
+    }
+
+
+
+
+
+    //pour la supression de tout personnels
+    public function Deletepersonnel($id)
+    {
+        DB::table('users')->where('id', $id)->delete();
+        return back()->with('agent_delete', 'agent deleted successfuly');
+    }
+    //pour editer les informations d'un agent
+    public function Editagent($id)
+    {
+        $agent = DB::table('users')->where('id', $id)->first();
+        return view('edit-agent', compact('agent'));
+    }
+    //pour editer les informations d'un livreur
+
+    public function Editlivreur($id)
+    {
+        $livreur = DB::table('users')->where('id', $id)->first();
+        return view('edit-livreur', compact('livreur'));
+    }
+    public function Editcommercant($id)
+    {
+        $commercant = DB::table('users')->where('id', $id)->first();
+        return view('edit-commercant', compact('commercant'));
+    }
+
+    //editer agent
+
+    public function updateLivreur(Request $request)
+    {
+        DB::table('users')->where('id', $request->id)->update([
+
+            'name' => $request->name,
+            'prenom' => $request->prenom,
+            'tel' => $request->tel,
+            'email' => $request->email,
+            'adresse' => $request->adresse,
+            'Role' => 'livreur',
+            'password' => Hash::make($request->password),
+        ]);
+        return back()->with('agent_update', 'agent updated succefully');
+    }
+    public function updatecommercant(Request $request)
+    {
+        DB::table('users')->where('id', $request->id)->update([
+
+            'name' => $request->name,
+            'prenom' => $request->prenom,
+            'tel' => $request->tel,
+            'email' => $request->email,
+            'adresse' => $request->adresse,
+            'Role' => 'commerçant',
+            'password' => Hash::make($request->password),
+        ]);
+        return back()->with('commercant_update', 'commerçant updated succefully');
+    }
+    public function updateAgent(Request $request)
+    {
+        DB::table('users')->where('id', $request->id)->update([
+
+            'name' => $request->name,
+            'prenom' => $request->prenom,
+            'tel' => $request->tel,
+            'email' => $request->email,
+            'adresse' => $request->adresse,
+            'Role' => 'agent',
+        ]);
+        return back()->with('agent_update', 'agent updated succefully');
+    }
+
+
+    // profil commerçant 
+    // veiw profil
+
+    public function profilagent()
+    {
+        $agent = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('profilAgent', compact('agent'));
+    }
+    public function EditerprofilAgent($id)
+    {
+        $id = Auth::user()->id;
+        $agent = DB::table('users')->where('id', $id)->first();
+        return view('editer-profil-agent', compact('agent'));
+    }
+    public function profileUpDatAagent(Request $request)
+    {
+
+        DB::table('users')->where('id', Auth::user()->id)->update([
+            'name' => $request->name,
+
+            'prenom' => $request->prenom,
+            'Role' => 'agent',
+            'adresse' => $request->adresse,
+            'email' => $request->email,
+            'tel' => $request->tel,
+
+
+        ]);
+        $agent = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        return view('profilAgent', compact('agent'));
+    }
+    // editert etat a preparee
+    public function preparer(Request $request)
+    {
+
+        $id = $request->id;
+
+        now("Europe/Rome");
+        DB::table('commandes')->where('id', $id)
+            ->update([
+
+                'etat' => 'préparée',
+                'date_preparation' => Carbon::now()
+            ]);
+        $response = array(
+            'status' => 'success',
+            'msg' => 'Setting created successfully',
+        );
+    }
+    public function mdp(Request $request)
+    {
+        return view('MDPagent', ['request' => $request]);
+    }
+    public function updatemdp(Request $request)
+    {
+      
+
+        $oldpassword = Hash::make($request->oldpassword);
+        dd(Auth::user()->password , $oldpassword);
+        if ($oldpassword !== Auth::user()->password) {
+          // dd($request);
+            return back()->with('old password', 'old password');
+        } elseif ($request->password !== $request->password_confirmation) {
+            return back()->with('erreur', 'erreur confirmation');
+        } else {
+            DB::table('users')->where('id',  Auth::user()->password)->first()
+                ->forceFill([
+                    'password' => Hash::make($request->password),
+
+                ]);
+        }
+    }
 }

@@ -11,11 +11,14 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
+    Route::post('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
+    Route::post('registeragent', [RegisteredUserController::class, 'storeagent']);
+    Route::post('registerlivreur', [RegisteredUserController::class, 'storelivreur']);
+    Route::post('registercomm', [RegisteredUserController::class, 'storecom']);
 
+    
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
 
@@ -32,6 +35,8 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.update');
+                Route::post('update', [NewPasswordController::class, 'update'])
+                ->name('update');
 });
 
 Route::middleware('auth')->group(function () {

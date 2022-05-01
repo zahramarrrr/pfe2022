@@ -206,7 +206,7 @@
               @if(Session::has('commandes_update'))
         <span>{{Session::get('commandes_update')}}</span>
         @endif
-						<form method="POST" class="register-form" id="register-form"   method="post" action="{{ route('update.commande') }}">
+						<form  class="register-form" id="register-form"   method="post" action="{{ route('update.commande') }}">
             @csrf
             <input type="hidden" name="id" value="{{$commande->id}}">
 	          <div class="row">

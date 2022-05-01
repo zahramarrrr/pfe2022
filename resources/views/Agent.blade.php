@@ -4,11 +4,8 @@ use App\models\Notifications;
 
 $NotificationsCommandes = Notifications::where('type', 'agent')->get();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
-
 
 <head>
   <meta charset="utf-8">
@@ -17,19 +14,6 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
   <title>Dashboard - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <!-- Script -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
-
-  <!-- Font Awesome JS -->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"> </script>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"> </script>
-
-  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -48,6 +32,9 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.11.5/css/dataTables.semanticui.min.css" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -57,6 +44,13 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
   <script>
     // Enable pusher logging - don't include this in production
@@ -107,105 +101,95 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
 
             </li>
 
-            
 
-  <li>
-    <hr class='dropdown-divider'>
-  </li>
 
-  <div id='notif'>
-  @foreach($notif as $notif)
-  
-    <li class='notification-item'>
+            <li>
+              <hr class='dropdown-divider'>
+            </li>
 
-      <i class='bi bi-exclamation-circle text-warning'></i>
-      <div>
-        <h4>
-        <a href="{{route('commande.details' , ['id' => $notif->id]) }}">
+            <div id='notif'>
+              @foreach($notif as $notif)
 
-          Admin vous a affecté la commande {{$notif->ID_commande}}
+              <li class='notification-item'>
+
+                <i class='bi bi-exclamation-circle text-warning'></i>
+                <div>
+                  <h4>
+                    <a href="{{route('commande.details' , ['id' => $notif->id]) }}">
+
+                      Admin vous a affecté la commande {{$notif->ID_commande}}
+                    </a>
+                  </h4>
+                </div>
+
+              </li>
+              @endforeach
+
+            </div>
+        </li>
+
+
+
+
+      </ul><!-- End Notification Dropdown Items -->
+
+
+      </li><!-- End Notification Nav -->
+      <nav class="header-nav ms-auto">
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+            <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2"> {{$agent->name}} {{$agent->prenom}}</span>
           </a>
-        </h4>
-      </div>
-     
-    </li>
-    @endforeach
+          <!-- End Profile image-->
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+            <li class="dropdown-header">
+              <h6>{{$agent->name}}</h6>
+              <span>Agent d'entrepot</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="profilAgent">
+                <i class="bi bi-person"></i>
+                <span>Mon Profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{$agent->id}}">
+                <i class="bi bi-gear"></i>
+                <span>Editer profil</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="mdp">
+                <i class="bi bi-gear"></i>
+                <span>modifier mot de passe</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Deconnexion</span>
+              </a>
+            </li>
 
-  </div>
-</li>
-
-
-
-
-          </ul><!-- End Notification Dropdown Items -->
-
-
-        </li><!-- End Notification Nav -->
-        <nav class="header-nav ms-auto">
-          <li class="nav-item dropdown pe-3">
-            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-              <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-              <span class="d-none d-md-block dropdown-toggle ps-2">Agent X</span>
-            </a>
-            <!-- End Profile image-->
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
-              <li class="dropdown-header">
-                <h6>Agent X</h6>
-                <span>Agent d'entrepot</span>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
-                  <i class="bi bi-person"></i>
-                  <span>Mon Profil</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
-                  <i class="bi bi-gear"></i>
-                  <span>Editer profil</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
-                  <i class="bi bi-box-arrow-right"></i>
-                  <span>Deconnexion</span>
-                </a>
-              </li>
-
-            </ul>
-            <!-- End Profile -->
+          </ul>
+          <!-- End Profile -->
   </header>
   <!-- End Header -->
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-      <li class="nav-item">
-        <a class="nav-link " href="http://127.0.0.1:8000/Commer%C3%A7ant">
-          <i class="bi bi-grid"></i>
-          <span>Tableaux de bord</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Declarer-commande">
-          <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
-        </a>
-      </li><!-- End declarer commande nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
-          <i class="bi bi-layout-text-window-reverse"></i>
-          <span>la liste des commandes déclarées</span>
-        </a>
-      </li><!-- End liste des commandes nav -->
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
           <i class="bi bi-envelope"></i>
@@ -221,8 +205,74 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
       </form>
     </ul>
   </aside>
+
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Liste des commandes à préparer</h1>
+      <nav>
+        <ol class="breadcrumb">
+        </ol>
+      </nav>
+    </div>
+
+    @if(Session::has('preparer'))
+    <span>{{Session::get('preparer')}}</span>
+    @endif
+    <div id="tablecommandes_wrapper" class="dataTables_wrapper dt-semanticUI no-footer">
+      <div class="ui stackable grid">
+
+      </div>
+      <div class="row dt-table">
+        <div class="sixteen wide column">
+          <table id="tablecommande_agent" class="ui celled table dataTable no-footer" style="width: 100%;" aria-describedby="tablecommandes_info">
+            <thead>
+              <tr>
+                <th class="sorting sorting_asc" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID commande: activer pour trier la colonne par ordre décroissant" style="width: 149px;">ID commande</th>
+                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="Date de commande: activer pour trier la colonne par ordre croissant" style="width: 149px;">Date de commande</th>
+                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="téléphone: activer pour trier la colonne par ordre croissant" style="width: 149px;">téléphone</th>
+                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="Etat actuel: activer pour trier la colonne par ordre croissant" style="width: 149px;">Etat actuel</th>
+                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label=": activer pour trier la colonne par ordre croissant" style="width: 149px;"></th>
+              </tr>
+
+            </thead>
+            <tbody>
+
+              @foreach($commandes as $com)
+              <tr class="odd">
+
+                <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$com->ID_commande}}</td>
+                <td>{{$com->date}}</td>
+                <td>{{$com->telephone}}</td>
+                <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">{{$com->etat}}</button></td>
+
+                <td>
+                  <button class='prep' data-id="{{$com->id}}"><input type="button" value="preparer"></button>
+                </td>
+
+
+              </tr>
+
+
+              @endforeach
+            </tbody>
+
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
+                    <a class="checkbox-wrap checkbox-primary mb-0" href="http://127.0.0.1:8000/forgot-password">
+                        {{ __('Mot de passe oublié ?') }}
+                    </a>
+                @endif
+                </div>
+  </main>
+
   <!-- End Sidebar-->
-  @yield("content")
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!--===============================================================================================-->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -271,7 +321,7 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
   <!--===============================================================================================-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
   <!--===============================================================================================-->
-  
+
   <!--===============================================================================================-->
   <script src="assets/js/main.js"></script>
   <!--===============================================================================================-->
@@ -292,6 +342,48 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
   <!--===============================================================================================-->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
   <!--===============================================================================================-->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#tablecommande_agent').DataTable({
+        language: {
+          url: "{{ asset('assets/datatable-fr-FR.json') }}"
+        },
+        "searching": true
+      });
+    });
+  </script>
+  <script>
+    jQuery(document).ready(function($) {
+
+      $('.prep').on('submit', function(e) {
+        e.preventDefault();
+
+        var id = $(this).attr('data-id');
+
+        $.ajax({
+          type: "POST",
+          url: "{{ route('preparer')}} ",
+          success: function(response) {
+                    console.log(response);
+                    // $("#exampleModal").hide();
+                    alert(response.success);
+
+                },
+                error: function(error) {
+                    console.log(response);
+
+                    alert('erreur');
+                }
+              }).done(function(msg) {
+
+          alert(msg);
+        });
+
+      });
+    });
+  </script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -303,7 +395,7 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
     gtag('config', 'UA-23581568-13');
   </script>
   <!--===============================================================================================-->
-  
+
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -316,7 +408,7 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
     channel.bind('my-event', function(data) {
       idcommande = JSON.stringify(data.message[2]);
       urlcmd = JSON.stringify(data.message[0]);
-     
+
       notifmsg = "Admin vous a affecté la commande " + idcommande;
 
       //alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));

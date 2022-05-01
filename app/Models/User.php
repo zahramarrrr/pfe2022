@@ -17,9 +17,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    use HasFactory;
+
+    protected $table = "users";
+
     protected $fillable = [
         'name',
+        'prenom',
+        'adresse',
+        'tel',
         'email',
+        'Role',
         'password',
     ];
 
@@ -41,4 +49,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+ 
 }
