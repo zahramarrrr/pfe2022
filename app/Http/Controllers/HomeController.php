@@ -20,8 +20,12 @@ class HomeController extends Controller
     public function index()
     {
         $role=Auth::user()->Role;
-        if($role=='Admin')
-        {return view('Admin');
+        if($role=='admin')
+        {
+            $notif = Notifications::query()->where('type','admin')->take(5)->get();
+            $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+
+            return view('Admin',compact('notif','admin'));
         }
         elseif($role=='agent'){
             $agent = DB::table('users')->where('id', Auth::user()->id)->first();
@@ -33,10 +37,15 @@ class HomeController extends Controller
 
         }
         elseif($role=='livreur'){
+            $search_text = isset($_GET['query']);
+
             $notif = Notifications::query()->where('type','livreur')->take(5)->get();
             $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
+            $commandes = DB::table('commandes')->where('livreur',Auth::user()->id)
+            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
 
-            return view('Livreur',compact('notif' , 'livreur'));
+
+            return view('Livreur',compact('notif' , 'livreur','commandes'));
         }
         else{
             $comm = DB::table('users')->where('id', Auth::user()->id)->first();

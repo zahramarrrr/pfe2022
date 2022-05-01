@@ -157,20 +157,22 @@ route::get('Listecommercant', [CommandeController::class, 'listecommercant'])->n
 
 //pour la supression des personnels
 route::get('Deletepersonnel/{id}', [CommandeController::class, 'Deletepersonnel'])->name('personnel.delete');
-// pour editer les informations du personnels
-// editer agent
-route::get('edit-agent/{id}', [CommandeController::class, 'Editagent'])->name('agent.edit');
-route::post('update-agent', [CommandeController::class, 'updateAgent'])->name('update.agent');
-route::get('edit-livreur/{id}', [CommandeController::class, 'Editlivreur'])->name('livreur.edit');
-route::post('update-livreur', [CommandeController::class, 'updateLivreur'])->name('update.livreur');
-route::get('edit-commercant/{id}', [CommandeController::class, 'Editcommercant'])->name('commercant.edit');
-route::post('update-commercant', [CommandeController::class, 'updatecommercant'])->name('update.commercant');
-
 
 //profil
 route::get('profilAgent', [CommandeController::class, 'profilagent'])->name('profilAgent');
+route::get('profilcommercant', [CommandeController::class, 'profilcommercant'])->name('profilcommercant');
+route::get('profillivreur', [CommandeController::class, 'profillivreur'])->name('profillivreur');
+
+// editer agent
+
 route::get('editer-profil-agent/{id}', [CommandeController::class, 'EditerprofilAgent'])->name('editer-profil-agent');
 route::post('update-profilAgent', [CommandeController::class, 'profileUpDatAagent'])->name('update.profilAgent');
+route::get('editer-profil-livreur/{id}', [CommandeController::class, 'EditerprofilLivreur'])->name('Editer-profil-Livreur');
+route::post('update-profillivreur', [CommandeController::class, 'profileUpDateLivreur'])->name('update.profillivreur');
+route::get('editer-profil-commercant/{id}', [CommandeController::class, 'Editerprofilcommercant'])->name('Editer-profil-commercant');
+route::post('update-profilcommercant', [CommandeController::class, 'profileUpDateCommercant'])->name('update.profilcommercant');
+route::get('editer-profil-admin/{id}', [CommandeController::class, 'Editerprofilcommercant'])->name('editer-profil-admin');
+route::post('update-profiladmin', [CommandeController::class, 'profileUpDateadmin'])->name('update.profiladmin');
 
 // preparer commande
 route::post('preparer', [CommandeController::class, 'preparer'])->name('preparer');

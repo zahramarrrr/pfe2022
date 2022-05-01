@@ -92,19 +92,19 @@
         <li class="nav-item dropdown pe-3">
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
   <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-  <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
+  <span class="d-none d-md-block dropdown-toggle ps-2"> {{$comm-> name}}</span>
 </a>
 <!-- End Profile image-->
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
   <li class="dropdown-header">
-    <h6>Commerçant X</h6>
+    <h6>{{$comm-> name}}</h6>
     <span>responsable vente en ligne</span>
   </li>
   <li>
     <hr class="dropdown-divider">
   </li>
   <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+    <a class="dropdown-item d-flex align-items-center" href="profilcommercant">
       <i class="bi bi-person"></i>
       <span>Mon Profil</span>
     </a>
@@ -113,7 +113,7 @@
     <hr class="dropdown-divider">
   </li>
   <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+    <a class="dropdown-item d-flex align-items-center" href="editer-profil-commercant/{{$comm->id}}">
       <i class="bi bi-gear"></i>
       <span>Editer profil</span>
     </a>

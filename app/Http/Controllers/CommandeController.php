@@ -430,6 +430,93 @@ class CommandeController extends Controller
 
         return view('profilAgent', compact('agent'));
     }
+    public function profillivreur()
+    {
+        $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('profilLivreur', compact('livreur'));
+    }
+    public function EditerprofilLivreur($id)
+    {
+        $id = Auth::user()->id;
+        $livreur = DB::table('users')->where('id', $id)->first();
+        return view('editer-profil-livreur', compact('livreur'));
+    }
+    public function profileUpDateLivreur(Request $request)
+    {
+
+        DB::table('users')->where('id', Auth::user()->id)->update([
+            'name' => $request->name,
+
+            'prenom' => $request->prenom,
+            'Role' => 'livreur',
+            'adresse' => $request->adresse,
+            'email' => $request->email,
+            'tel' => $request->tel,
+
+
+        ]);
+        $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        return view('profilLivreur', compact('livreur'));
+    }
+    public function profilcommercant()
+    {
+        $commercant = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('profilCommercant', compact('commercant'));
+    }
+    public function Editerprofilcommercant($id)
+    {
+        $id = Auth::user()->id;
+        $comm = DB::table('users')->where('id', $id)->first();
+        return view('editer-profil-commercant', compact('comm'));
+    }
+    public function profileUpDateCommercant(Request $request)
+    {
+
+        DB::table('users')->where('id', Auth::user()->id)->update([
+            'name' => $request->name,
+
+            'prenom' => $request->prenom,
+            'Role' => 'commerçant',
+            'adresse' => $request->adresse,
+            'email' => $request->email,
+            'tel' => $request->tel,
+
+
+        ]);
+        $commercant = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        return view('profilCommercant', compact('commercant'));
+    }
+      public function profiladmin()
+    {
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('profilAdmin', compact('admin'));
+    }
+    public function Editerprofiladmin($id)
+    {
+        $id = Auth::user()->id;
+        $admin = DB::table('users')->where('id', $id)->first();
+        return view('editer-profil-admin', compact('admin'));
+    }
+    public function profileUpDatAadmin(Request $request)
+    {
+
+        DB::table('users')->where('id', Auth::user()->id)->update([
+            'name' => $request->name,
+
+            'prenom' => $request->prenom,
+            'Role' => 'admin',
+            'adresse' => $request->adresse,
+            'email' => $request->email,
+            'tel' => $request->tel,
+
+
+        ]);
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        return view('profilAdmin', compact('admin'));
+    }
     // editert etat a preparee
     public function preparer(Request $request)
     {

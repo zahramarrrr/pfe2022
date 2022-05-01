@@ -264,12 +264,8 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
 
     </div>
     <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="checkbox-wrap checkbox-primary mb-0" href="http://127.0.0.1:8000/forgot-password">
-                        {{ __('Mot de passe oublié ?') }}
-                    </a>
-                @endif
-                </div>
+    </div>
+    
   </main>
 
   <!-- End Sidebar-->
@@ -366,17 +362,17 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
           type: "POST",
           url: "{{ route('preparer')}} ",
           success: function(response) {
-                    console.log(response);
-                    // $("#exampleModal").hide();
-                    alert(response.success);
+            console.log(response);
+            // $("#exampleModal").hide();
+            alert(response.success);
 
-                },
-                error: function(error) {
-                    console.log(response);
+          },
+          error: function(error) {
+            console.log(response);
 
-                    alert('erreur');
-                }
-              }).done(function(msg) {
+            alert('erreur');
+          }
+        }).done(function(msg) {
 
           alert(msg);
         });
