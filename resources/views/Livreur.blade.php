@@ -163,6 +163,11 @@ $NotificationsCommandes = Notifications::where('type', 'livreur')->get();
               <span>Editer profil</span>
             </a>
           </li>
+          <a class="dropdown-item d-flex align-items-center" href="mdp">
+                <i class="bi bi-gear"></i>
+                <span>modifier mot de passe</span>
+              </a>
+            </li>
           <li>
             <hr class="dropdown-divider">
           </li>

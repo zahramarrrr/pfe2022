@@ -118,6 +118,11 @@
       <span>Editer profil</span>
     </a>
   </li>
+  <a class="dropdown-item d-flex align-items-center" href="mdp">
+                <i class="bi bi-gear"></i>
+                <span>modifier mot de passe</span>
+              </a>
+            </li>
   <li>
     <hr class="dropdown-divider">
   </li>
@@ -143,7 +148,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
     <li class="nav-item">
-        <a class="nav-link collapsed"href="http://127.0.0.1:8000/Declarer-commande">
+        <a class="nav-link collapsed"href="Declarer">
           <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
         </a>
         </li><!-- End declarer commande nav -->

@@ -117,7 +117,6 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
                   <h4>
                     <a href="{{route('commande.details' , ['id' => $notif->id]) }}">
 
-                      Admin vous a affecté la commande {{$notif->ID_commande}}
                     </a>
                   </h4>
                 </div>
@@ -225,9 +224,13 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
       </div>
       <div class="row dt-table">
         <div class="sixteen wide column">
+        <button class='preparation' id="preparer"><input type="button" value="preparer"></button>
+                                preparer </button>
           <table id="tablecommande_agent" class="ui celled table dataTable no-footer" style="width: 100%;" aria-describedby="tablecommandes_info">
             <thead>
               <tr>
+              <th width="50px"><input type="checkbox" id="master"></th>
+
                 <th class="sorting sorting_asc" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID commande: activer pour trier la colonne par ordre décroissant" style="width: 149px;">ID commande</th>
                 <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="Date de commande: activer pour trier la colonne par ordre croissant" style="width: 149px;">Date de commande</th>
                 <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="téléphone: activer pour trier la colonne par ordre croissant" style="width: 149px;">téléphone</th>
@@ -240,6 +243,8 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
 
               @foreach($commandes as $com)
               <tr class="odd">
+              <tr id="tr_{{$com->id}}">
+                    <td><input type="checkbox" class="sub_chk" data-id="{{$com->id}}"></td>
 
                 <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$com->ID_commande}}</td>
                 <td>{{$com->date}}</td>
@@ -350,36 +355,55 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
       });
     });
   </script>
-  <script>
-    jQuery(document).ready(function($) {
+  <script type="text/javascript">
+        $(document).ready(function() {
+            $('#master').on('click', function(e) {
+                if ($(this).is(':checked', true)) {
+                    $(".sub_chk").prop('checked', true);
 
-      $('.prep').on('submit', function(e) {
-        e.preventDefault();
 
-        var id = $(this).attr('data-id');
-
-        $.ajax({
-          type: "POST",
-          url: "{{ route('preparer')}} ",
-          success: function(response) {
-            console.log(response);
-            // $("#exampleModal").hide();
-            alert(response.success);
-
-          },
-          error: function(error) {
-            console.log(response);
-
-            alert('erreur');
-          }
-        }).done(function(msg) {
-
-          alert(msg);
+                } else {
+                    $(".sub_chk").prop('checked', false);
+                }
+            });
         });
+    </script>
+<script>
+        $('.preparation').on('click', function(e) {
+            var allVals = [];
+            $(".sub_chk:checked").each(function(e) {
+                allVals.push($(this).attr('data-id'));
+            });
+            if (allVals.length <= 0) {
+                alert("Please select row.");
+            }
 
-      });
-    });
-  </script>
+
+            $.ajax({
+                url: "{{ route('preparer')}} ",
+                type: "POST",
+                data: {
+
+                    'vals': allVals,
+                    "_token": "{{ csrf_token() }}",
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert(response.success);
+
+                },
+                error: function(error) {
+                    console.log(response);
+
+                    alert('erreur');
+                }
+            });
+
+
+
+
+        });
+    </script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -405,7 +429,7 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
       idcommande = JSON.stringify(data.message[2]);
       urlcmd = JSON.stringify(data.message[0]);
 
-      notifmsg = "Admin vous a affecté la commande " + idcommande;
+      notifmsg = "Admin vous a affecté la  " + idcommande;
 
       //alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
       oldcontent = document.getElementById('notif').innerHTML;

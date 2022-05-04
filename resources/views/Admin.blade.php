@@ -2,7 +2,7 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::all();
+$NotificationsCommandes = Notifications::where('notifiable ', 'admin')->get();
 ?>
 
 <!DOCTYPE html>
@@ -116,7 +116,7 @@ $NotificationsCommandes = Notifications::all();
                   <i class='bi bi-exclamation-circle text-warning'></i>
                   <div>
                     <h4>
-                      {{$notif->ID_personnel}} a déclaré une commande !
+                      {{$notif->ID_personnel}} {{$notif->data}}
                     </h4>
                   </div>
                 </li>
@@ -164,6 +164,11 @@ $NotificationsCommandes = Notifications::all();
               <span>Editer profil</span>
             </a>
           </li>
+          <a class="dropdown-item d-flex align-items-center" href="mdp">
+                <i class="bi bi-gear"></i>
+                <span>modifier mot de passe</span>
+              </a>
+            </li>
           <li>
             <hr class="dropdown-divider">
           </li>
@@ -1044,9 +1049,10 @@ $NotificationsCommandes = Notifications::all();
       comm = JSON.stringify(data.message[1]).replace(/^[\t ]*"[^:\n\r]+(?<!\\)":/gm, function(match) {
         return match.replace(/"/g, "");
       });
-      notifmsg = comm + " a déclaré une commande!";
+      msg= JSON.stringify(data.message[2]);
+      notifmsg = comm + msg;
 
-      //alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
+      alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1])+" | "+JSON.stringify(data.message[2]));
       oldcontent = document.getElementById('notif').innerHTML;
       document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + notifmsg + "</h4></div></li></div></li></a>" + oldcontent;
     });

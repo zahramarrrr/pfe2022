@@ -48,12 +48,8 @@ Route::get('/ajout', function () {
 Route::get('/ajouter-commande', function () {
     return view('ajouter-commande');
 });
-Route::get('/Declarer-commande', function () {
-    return view('Declarer-commande');
-});
-Route::get('/Declarer-commande', function () {
-    return view('Declarer-commande');
-});
+
+
 
 
 Route::get('/liste-commande-declare-admin', function () {
@@ -106,13 +102,13 @@ route::get('liste-notification', [CommandeController::class, 'listenotif'])->nam
 route::get('liste-notification-agent', [CommandeController::class, 'listenotifagent'])->name('listenotifagent');
 route::get('liste-notification-livreur', [CommandeController::class, 'listenotiflivreur'])->name('listenotiflivreur');
 
-route::get('Declarer-commande', [CommandeController::class, 'addCommande'])->name('commande.add');
+route::get('Declarer', [CommandeController::class, 'addCommande'])->name('commande.add');
 route::post('Declarer-commande', [CommandeController::class, 'saveCommande'])->name('save.post');
 route::get('liste-commande-declare', [CommandeController::class, 'CommandeList'])->name('commande.List');
 route::get('edit-commande/{id}', [CommandeController::class, 'EditCommande'])->name('commande.edit');
 route::get('/delete-commande/{id}', [CommandeController::class, 'DeleteCommande'])->name('commande.delete');
 route::post('update-commande', [CommandeController::class, 'updateCommande'])->name('update.commande');
-route::post('valider/{id}', [CommandeController::class, 'valider'])->name('valider');
+route::post('valider', [CommandeController::class, 'valider'])->name('valider');
 
 route::post('affecteragent', [CommandeController::class, 'affecteragent'])->name('affecteragent');
 route::post('affecterlivreur', [CommandeController::class, 'affecterlivreur'])->name('affecterlivreur');

@@ -16,7 +16,9 @@ class CommandeController extends Controller
 {
     public function addCommande()
     {
-        return view('Declarer-commande');
+        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        return view('Declarer-commande', compact('comm'));
     }
     //pour declarer une commande
     public function saveCommande(request $request)
@@ -44,12 +46,14 @@ class CommandeController extends Controller
         ]);
 
         DB::table('Notifications')->insert([
-            'ID_personnel' => $request->ID_personnel,
+            'ID_personnel' =>  Auth::user()->id,
             'type' => 'commerçant',
+            'data' => 'a déclaré une commande',
+            'notifiable_type'=>'admin',
             'ID_commande' => $newcommande->id
         ]);
 
-        event(new MyEvenet([route('commande.details', ['id' => $newcommande->id]), $request->ID_personnel]));
+        event(new MyEvenet([route('commande.details', ['id' => $newcommande->id]), Auth::user()->id,'data']));
         $commandes = DB::table('commandes')->get();
 
         return view('liste-commande-declare', compact('commandes'));
@@ -165,21 +169,19 @@ class CommandeController extends Controller
 
 
     //pour changer l'etat de declaree a validee
-    public function valider($id)
+    public function valider(Request $request)
     {
         now("Europe/Rome");
-        DB::table('commandes')->where('id', $id)
-            ->update([
+        $commandesids = $request->vals;
+        foreach ($commandesids as $commande) {
+            $cmd = Commande::find($commande);
+            $cmd->etat = 'validée';
+            $cmd->date_validation = Carbon::now();
 
-                'etat' => 'validee',
-                'date_validation' => Carbon::now()
-            ]);
-        //pour afficher la liste validee -> a revoir
-        $agents = DB::table('users')->where('role', 'agent')->get();
 
-        $commandes = DB::table('commandes')->where('etat', 'validee')->get();
-
-        return view('liste-commande-validee', compact('commandes', 'agents'));
+            $cmd->save();
+        }
+      
     }
     //pour laffectation des agents
     public function affecteragent(Request $request)
@@ -521,19 +523,18 @@ class CommandeController extends Controller
     public function preparer(Request $request)
     {
 
-        $id = $request->id;
-
         now("Europe/Rome");
-        DB::table('commandes')->where('id', $id)
-            ->update([
+        $commandesids = $request->vals;
+        foreach ($commandesids as $commande) {
+            $cmd = Commande::find($commande);
+            $cmd->etat = 'preparée';
+            $cmd->date_validation = Carbon::now();
 
-                'etat' => 'préparée',
-                'date_preparation' => Carbon::now()
-            ]);
-        $response = array(
-            'status' => 'success',
-            'msg' => 'Setting created successfully',
-        );
+
+            $cmd->save();
+        }
+        event(new MyEvenet([route('commande.details', ['id' => $cmd->id])]));
+
     }
     public function mdp(Request $request)
     {

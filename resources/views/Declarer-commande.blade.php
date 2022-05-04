@@ -271,9 +271,8 @@
                                     </div>
                                     
                                     <div class="col-2">
-                                    <div class="name">ID commerçant</div>
+                                    <div class="name"></div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="ID_personnel" id="ID_personnel">
                                             
                                         </div>
                                     </div>

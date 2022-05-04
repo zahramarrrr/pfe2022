@@ -39,12 +39,12 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-    
+
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
@@ -71,7 +71,7 @@
 
         <li class="nav-item dropdown">
 
-       
+
 
 
 
@@ -80,55 +80,55 @@
 
         <li class="nav-item dropdown pe-3">
 
-<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-  <img src="assets/img/profile-img.png" alt="Profile" >
-  <span class="d-none d-md-block dropdown-toggle ps-2">admin X</span>
-</a><!-- End Profile Iamge Icon -->
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+            <img src="assets/img/profile-img.png" alt="Profile">
+            <span class="d-none d-md-block dropdown-toggle ps-2">admin X</span>
+          </a><!-- End Profile Iamge Icon -->
 
-<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
-  <li class="dropdown-header">
-    <h6>Commerçant X</h6>
-    <span>responsable vente en ligne</span>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+            <li class="dropdown-header">
+              <h6>Commerçant X</h6>
+              <span>responsable vente en ligne</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
-      <i class="bi bi-person"></i>
-      <span>Mon Profil</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
+                <i class="bi bi-person"></i>
+                <span>Mon Profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
-      <i class="bi bi-gear"></i>
-      <span>Editer profil</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil-commer%C3%A7ant">
+                <i class="bi bi-gear"></i>
+                <span>Editer profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
-      <i class="bi bi-box-arrow-right"></i>
-      <span>Deconnexion</span>
-    </a>
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Deconnexion</span>
+              </a>
+            </li>
 
-</ul><!-- End Profile Dropdown Items -->
-  
+          </ul><!-- End Profile Dropdown Items -->
+
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
 
- 
+
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
@@ -152,7 +152,7 @@
             </a>
           </li>
           <li>
-          <a href="http://127.0.0.1:8000/ListeAgent">
+            <a href="http://127.0.0.1:8000/ListeAgent">
               <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
             </a>
           </li>
@@ -185,125 +185,178 @@
               <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
             </a>
           </li>
-         
+
         </ul>
       </li><!-- End commandes Nav -->
-      
-         <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          
-        
-                        @csrf
-                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-          </form>
-          
+
+      <form action="{{ route('logout') }}" method="POST" class="nav-link collapsed" href="pages-login.html">
+        <i class="bi bi-box-arrow-in-right"></i>
+
+
+        @csrf
+        <a class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+          {{ __('Logout') }}
+        </a>
+      </form>
+
       <!-- End Login Page Nav -->
 
     </ul>
 
   </aside><!-- End Sidebar-->
- 
-  <main id="main" class="main" >
-  <div class="pagetitle">
+
+  <main id="main" class="main">
+    <div class="pagetitle">
       <h1>Liste des commandes déclarées</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
-    
-  
+
+
 
     <div class="container">
-      
-    <div class="row">
+
+      <div class="row">
         <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body">
+          <div class="card">
+            <div class="card-body">
+            <button class='validation' id="valider"><input type="button" value="valider"></button>
+                                valider </button>
 
+              <table id="tablecommandes" class="ui celled table" style="width:100%">
+                <thead>
+                  <tr>
+                    <th width="50px"><input type="checkbox" id="master"></th>
+                    <th>ID commande</th>
+                    <th>Date de commande</th>
+                    <th>téléphone</th>
+                    <th>Details</th>
+                    <th>Etat actuel</th>
+                    <th></th>
+                  </tr>
 
-                    <table id="tablecommandes" class="ui celled table" style="width:100%">
-                            <thead>
-                                <tr >
-                                   
-                                    <th>ID commande</th>
-                                    <th>Date de commande</th>
-                                    <th>téléphone</th>
-                                    <th>Details</th>
-                                    <th>Etat actuel</th>
-                                    <th></th>
-                                </tr>
+                </thead>
+                <tbody>
+                  @foreach($commandes as $commande)
 
-                            </thead>
-                            <tbody>
-                            @foreach($commandes as $commande)
+                  <tr>
+                  <tr id="tr_{{$commande->id}}">
+                    <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
 
-                                <tr>
-                                    
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                                    <td>{{$commande->date}}</td>
-                                    <td>{{$commande->telephone}}</td>
-                                    <td> <a href="{{route('commande.details' , ['id' => $commande->id]) }}">Details</a></td>
-                                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
+                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                    <td>{{$commande->date}}</td>
+                    <td>{{$commande->telephone}}</td>
+                    <td> <a href="{{route('commande.details' , ['id' => $commande->id]) }}">Details</a></td>
+                    <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat actuel</button></td>
 
-                                    <td><a href="#" data-toggle="modal" data-target="#infos" ><i class="material-icons"></i></a>
-                                        </td>
-                                        </tr>
-                                        
-                                      @endforeach
-                                </tbody>
-                                
-                        </table>
-     
-      <div class="modal-footer">
-        <em>Informations sous réserve</em>
+                    <td><a href="#" data-toggle="modal" data-target="#infos"><i class="material-icons"></i></a>
+                    </td>
+                  </tr>
+
+                  @endforeach
+                </tbody>
+
+              </table>
+
+              <div class="modal-footer">
+                <em>Informations sous réserve</em>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
-
-                      </div>
-            </div>
-        </div>
     </div>
-</div>
+    </div>
 
 
-</div>
+    </div>
 
 
 
 
 
-      <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.min.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.min.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
-  <script >
-    $(document).ready(function() {
-    $('#tablecommandes').DataTable({
-        language: {
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#tablecommandes').DataTable({
+          language: {
             url: "{{ asset('assets/datatable-fr-FR.json') }}"
-        },
-        "searching": true
-    } );
-} );
+          },
+          "searching": true
+        });
+      });
     </script>
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+            $('#master').on('click', function(e) {
+                if ($(this).is(':checked', true)) {
+                    $(".sub_chk").prop('checked', true);
+
+
+                } else {
+                    $(".sub_chk").prop('checked', false);
+                }
+            });
+        });
+    </script>
+<script>
+        $('.validation').on('click', function(e) {
+            var allVals = [];
+            $(".sub_chk:checked").each(function(e) {
+                allVals.push($(this).attr('data-id'));
+            });
+            if (allVals.length <= 0) {
+                alert("Please select row.");
+            }
+
+
+            $.ajax({
+                url: "{{ route('valider')}} ",
+                type: "POST",
+                data: {
+
+                    'vals': allVals,
+                    "_token": "{{ csrf_token() }}",
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert(response.success);
+
+                },
+                error: function(error) {
+                    console.log(response);
+
+                    alert('erreur');
+                }
+            });
+
+
+
+
+        });
+    </script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 
