@@ -9,23 +9,22 @@ class Commande extends Model
 {
     use HasFactory;
     protected $table = "commandes";
-    protected $fillable=['ID_commande',
+    protected $fillable = [
+        'ID_commande',
 
-    'date',
-    'temps',
-    'nom',
-    'prenom',
-    'telephone',
-    'email',
-    'adresse1',
-    'governorat',
-    'ville',
-    'code_postal',
-    'paiement',
-    'poids',
-    'prix',
-
-    'description'];
-
-   
+        'date',
+        'temps',
+        'nom',
+        'prenom',
+        'telephone',
+        'email',
+        'adresse1',
+        'governorat',
+        'ville',
+        'code_postal',
+        'paiement',
+        'poids',
+        'prix',
+        'description'
+    ];
 }

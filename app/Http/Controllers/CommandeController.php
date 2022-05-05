@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Commande;
+use App\Models\User;
 use  App\Events\MyEvenet;
 use Illuminate\Http\Request;
 use App\Models\Notifications;
@@ -48,12 +49,12 @@ class CommandeController extends Controller
         DB::table('Notifications')->insert([
             'ID_personnel' =>  Auth::user()->id,
             'type' => 'commerçant',
-            'data' => 'a déclaré une commande',
-            'notifiable_type'=>'admin',
-            'ID_commande' => $newcommande->id
+            'texte' => 'a déclaré la commande',
+            'notifiable'=>'admin',
+            'ID_commande' => $newcommande->ID_commande
         ]);
 
-        event(new MyEvenet([route('commande.details', ['id' => $newcommande->id]), Auth::user()->id,'data']));
+        event(new MyEvenet([route('commande.details', ['id' => $newcommande->id]), Auth::user()->id,'a déclaré la commande',$request->ID_commande]));
         $commandes = DB::table('commandes')->get();
 
         return view('liste-commande-declare', compact('commandes'));
@@ -200,14 +201,15 @@ class CommandeController extends Controller
 
 
             $cmd->save();
-            DB::table('Notifications')->updateOrInsert([
-                'ID_personnel' => $agentid,
-                'ID_commande' => $cmd->id,
-                'type' => 'agent',
-
+            DB::table('Notifications')->insert([
+                'ID_personnel' =>  Auth::user()->id,
+                'type' => 'admin',
+                'texte' => 'vous a affecté la commande',
+                'notifiable'=>'agent',
+                'ID_commande' => $cmd->ID_commande
             ]);
-            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), $agentid, $cmd->id]));
-        }
+            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'vous a affecté la commande' ,$cmd->ID_commande]));
+       }
 
 
 
@@ -533,30 +535,44 @@ class CommandeController extends Controller
 
             $cmd->save();
         }
-        event(new MyEvenet([route('commande.details', ['id' => $cmd->id])]));
+        DB::table('Notifications')->insert([
+            'ID_personnel' =>  Auth::user()->id,
+            'type' => 'agent',
+            'texte' => 'a préparée la commande',
+            'notifiable'=>'admin',
+            'ID_commande' => $cmd->ID_commande
+        ]);
+        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a préparée la commande' ,$cmd->ID_commande]));
 
     }
     public function mdp(Request $request)
     {
         return view('MDPagent', ['request' => $request]);
     }
-    public function updatemdp(Request $request)
+    public function updatemdp(Request  $request)
     {
-      
+        $pass=Auth::user()->password;
+     //   dd( password_verify($request->old_password, $pass));
 
-        $oldpassword = Hash::make($request->oldpassword);
-        dd(Auth::user()->password , $oldpassword);
-        if ($oldpassword !== Auth::user()->password) {
+     //   $oldpassword = Hash::make($request->oldpassword);
+     //   dd(Auth::user()->password , $oldpassword);
+        
+        if (! (password_verify($request->old_password, $pass))) {
           // dd($request);
             return back()->with('old password', 'old password');
         } elseif ($request->password !== $request->password_confirmation) {
             return back()->with('erreur', 'erreur confirmation');
         } else {
-            DB::table('users')->where('id',  Auth::user()->password)->first()
-                ->forceFill([
-                    'password' => Hash::make($request->password),
+            /* $user = Auth::user();
+            Auth::user()->fill([
+                'password' => bcrypt($request->Password)
+            ])->save(); */
+            //Change Password
+        $user = Auth::user();
+        $user->password = bcrypt($request->password);
+        $user->save();
 
-                ]);
+        return redirect()->back()->with("success","Password successfully changed!");
         }
     }
 }

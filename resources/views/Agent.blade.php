@@ -2,7 +2,7 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('type', 'agent')->get();
+$NotificationsCommandes = Notifications::where('notifiable', 'agent')->get();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,6 +116,7 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
                 <div>
                   <h4>
                     <a href="{{route('commande.details' , ['id' => $notif->id]) }}">
+                   Admin {{$notif->texte}} {{$notif->ID_commande}}
 
                     </a>
                   </h4>
@@ -426,14 +427,17 @@ $NotificationsCommandes = Notifications::where('type', 'agent')->get();
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      idcommande = JSON.stringify(data.message[2]);
+      idcommande = JSON.stringify(data.message);
       urlcmd = JSON.stringify(data.message[0]);
+      comm = JSON.stringify(data.message[1]);
+      msg= JSON.stringify(data.message[2]);
+      id = JSON.stringify(data.message[3]);
 
-      notifmsg = "Admin vous a affecté la  " + idcommande;
-
-      //alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
+      notifmsg = comm + msg +id;
+      msg=notifmsg.replace(/["']/g, " ");
+      alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
       oldcontent = document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + notifmsg + "</h4></div></li></div></li></a>" + oldcontent;
+      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
 </body>

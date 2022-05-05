@@ -2,7 +2,7 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('notifiable ', 'admin')->get();
+$NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
 ?>
 
 <!DOCTYPE html>
@@ -116,7 +116,7 @@ $NotificationsCommandes = Notifications::where('notifiable ', 'admin')->get();
                   <i class='bi bi-exclamation-circle text-warning'></i>
                   <div>
                     <h4>
-                      {{$notif->ID_personnel}} {{$notif->data}}
+                      {{$notif->ID_personnel}} {{$notif->texte}} {{$notif->ID_commande}}
                     </h4>
                   </div>
                 </li>
@@ -1046,15 +1046,15 @@ $NotificationsCommandes = Notifications::where('notifiable ', 'admin')->get();
     channel.bind('my-event', function(data) {
       idcommande = JSON.stringify(data.message);
       urlcmd = JSON.stringify(data.message[0]);
-      comm = JSON.stringify(data.message[1]).replace(/^[\t ]*"[^:\n\r]+(?<!\\)":/gm, function(match) {
-        return match.replace(/"/g, "");
-      });
+      comm = JSON.stringify(data.message[1]);
       msg= JSON.stringify(data.message[2]);
-      notifmsg = comm + msg;
+      id = JSON.stringify(data.message[3]);
 
+      notifmsg = comm + msg +id;
+      msg=notifmsg.replace(/["']/g, " ");
       alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1])+" | "+JSON.stringify(data.message[2]));
       oldcontent = document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + notifmsg + "</h4></div></li></div></li></a>" + oldcontent;
+      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
 

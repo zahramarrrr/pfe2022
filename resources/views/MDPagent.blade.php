@@ -260,6 +260,10 @@
                 
         @elseif(Session::has('old password'))
         <span>{{Session::get('old password')}} </span>
+    
+        @elseif(Session::has('success'))
+        <span>{{Session::get('success')}} </span>
+    
        
         @endif
                 <form method="POST" action="{{ route('updatemdp') }}">

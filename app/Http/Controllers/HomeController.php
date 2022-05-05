@@ -22,7 +22,7 @@ class HomeController extends Controller
         $role=Auth::user()->Role;
         if($role=='admin')
         {
-            $notif = Notifications::query()->where('notifiable_type','admin')->take(5)->get();
+            $notif = Notifications::query()->where('notifiable','admin')->orderBy('id','DESC')->take(5)->get();
             $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
             return view('Admin',compact('notif','admin'));
@@ -32,7 +32,7 @@ class HomeController extends Controller
             $search_text = isset($_GET['query']);
             $commandes = DB::table('commandes')->where('agent',Auth::user()->id)
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
-            $notif = Notifications::query()->where('type','agent')->take(5)->get();
+            $notif = Notifications::query()->where('notifiable','agent')->take(5)->get();
             return view('Agent',compact('notif','agent','commandes'));
 
         }

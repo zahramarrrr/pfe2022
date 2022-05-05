@@ -20,7 +20,6 @@ class User extends Authenticatable
     use HasFactory;
 
     protected $table = "users";
-
     protected $fillable = [
         'name',
         'prenom',
@@ -49,5 +48,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
- 
+
 }

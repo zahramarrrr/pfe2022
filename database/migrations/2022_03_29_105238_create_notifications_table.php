@@ -18,8 +18,8 @@ class CreateNotificationsTable extends Migration
             
             $table->string('type')->default('');
             $table->string('ID_personnel')->default('');
-            $table->nullableMorphs('notifiable');
-            $table->string('data')->default('');
+            $table->string('notifiable')->default('');
+            $table->string('texte')->default('');
             $table->timestamp('read_at')->nullable();
             $table->unsignedBigInteger('ID_commande');
             $table->timestamps();
