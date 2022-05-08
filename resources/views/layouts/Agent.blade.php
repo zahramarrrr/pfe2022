@@ -2,7 +2,7 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('notifiable', 'agent')->get();
+$NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,12 +96,12 @@ $NotificationsCommandes = Notifications::where('notifiable', 'agent')->get();
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
             <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{$agent-> name}} {{$agent-> prenom}}</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{$agent-> Nom}} {{$agent-> Prenom}}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
             <li class="dropdown-header">
-              <h6> {{$agent-> name}} {{$agent-> prenom}}</h6>
+              <h6> {{$agent-> Nom}} {{$agent-> Prenom}}</h6>
               <span class="h6">Agent d'entrepôt</span>
             </li>
             <li>
@@ -109,7 +109,7 @@ $NotificationsCommandes = Notifications::where('notifiable', 'agent')->get();
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+              <a class="dropdown-item d-flex align-items-center" href="profilAgent">
                 <i class="bi bi-person"></i>
                 <span class="h6">Mon Profil</span>
               </a>
@@ -128,7 +128,7 @@ $NotificationsCommandes = Notifications::where('notifiable', 'agent')->get();
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="">
+              <a class="dropdown-item d-flex align-items-center" href="MDPagent">
                 <i class="bi bi-gear"></i>
                 <span class="h6">Changer mot de passe</span>
               </a>
@@ -150,7 +150,7 @@ $NotificationsCommandes = Notifications::where('notifiable', 'agent')->get();
     <ul class="sidebar-nav" id="sidebar-nav">
    
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
+        <a class="nav-link collapsed" href="contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>

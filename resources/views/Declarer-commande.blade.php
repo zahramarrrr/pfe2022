@@ -42,12 +42,12 @@
 
 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
   <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-  <span class="d-none d-md-block dropdown-toggle ps-2">{{$comm-> name}} {{$comm-> prenom}}</span>
+  <span class="d-none d-md-block dropdown-toggle ps-2">{{$comm-> Nom}} {{$comm-> Prenom}}</span>
 </a><!-- End Profile Iamge Icon -->
 
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
   <li class="dropdown-header">
-  <h6>{{$comm-> name}} {{$comm-> prenom}}</h6>
+  <h6>{{$comm-> Nom}} {{$comm-> Prenom}}</h6>
     <span class="h6" >Commerçant</span>
   </li>
   <li>
@@ -154,7 +154,7 @@
                                     <div class="col-2">
                                     <div class="name">Nom</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="nom"id="nom">
+                                            <input class="input--style-5" type="text" name="Nom"id="Nom">
                                            
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@
                                     <div class="col-2">
                                     <div class="name">Prénom</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="prenom" id="prenom">
+                                            <input class="input--style-5" type="text" name="Prenom" id="Prenom">
                                             
                                         </div>
                                     </div>
@@ -176,7 +176,7 @@
                                     <div class="col-2">
                                     <div class="name">Adresse d'email</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="email"id="email">
+                                            <input class="input--style-5" type="text" name="Email"id="Email">
                                            
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                                     <div class="col-2">
                                     <div class="name" class="label1">Télèphone</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="telephone" id="telephone">
+                                            <input class="input--style-5" type="text" name="Telephone" id="Telephone">
                                             
                                         </div>
                                     </div>
@@ -198,7 +198,7 @@
                                     <div class="col-2">
                                     <div class="name">Adresse</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="adresse1"id="adresse1">
+                                            <input class="input--style-5" type="text" name="Adresse"id="Adresse">
                                            
                                         </div>
                                     </div>
@@ -208,7 +208,7 @@
                                     <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                    <select name="governorat" id="governorat">
+                                    <select name="Governorat" id="Governorat">
                                         <option value="0">Gouvernorat</option>
                                     <option value="ARIANA">ARIANA</option>
                                      <option value="BEJA">BEJA</option>
@@ -253,7 +253,7 @@
                                     <div class="col-2">
                                     <div class="name">Ville</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="ville"id="ville">
+                                            <input class="input--style-5" type="text" name="Ville"id="Ville">
                                            
                                         </div>
                                     </div>
@@ -261,7 +261,7 @@
                                     <div class="col-2">
                                     <div class="name">Code postal</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="code_postal" id="code_postal">
+                                            <input class="input--style-5" type="text" name="Code_postal" id="Code_postal">
                                             
                                         </div>
                                     </div>
@@ -296,7 +296,7 @@
                                     <div class="col-2">
                                     <div class="name">Prix totale</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="prix"id="prix" >
+                                            <input class="input--style-5" type="text" name="Prix"id="Prix" >
                                            
                                         </div>
                                     </div>
@@ -307,7 +307,7 @@
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="paiement">
-                                            <option disabled="disabled" selected="selected" id="paiement">Mode  de paiement</option>
+                                            <option disabled="disabled" selected="selected" id="Paiement">Mode  de paiement</option>
                                             <option value="livraison">a la livraison</option>
                                             <option value="enligne">en ligne</option>
                         
@@ -327,7 +327,7 @@
                                     <div class="col-2">
                                     <div class="name">Poids</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="poids"id="poids">
+                                            <input class="input--style-5" type="text" name="Poids"id="Poids">
                                            
                                         </div>
                                     </div>
@@ -335,7 +335,7 @@
                                     <div class="col-2">
                                     <div class="name">Description</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="description" id="description">
+                                            <input class="input--style-5" type="text" name="Description" id="Description">
                                             
                                         </div>
                                     </div>
@@ -349,7 +349,7 @@
                                     <div class="col-2">
                                     <div class="name">Date</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="date" name="date" id="date" >
+                                            <input class="input--style-5" type="date" name="Date" id="Date" >
                                            
                                         </div>
                                     </div>
@@ -357,7 +357,7 @@
                                     <div class="col-2">
                                     <div class="name">Heure </div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="time" name="temps" id="temps">
+                                            <input class="input--style-5" type="Time" name="Heure" id="Heure">
                                             
                                         </div>
                                     </div>

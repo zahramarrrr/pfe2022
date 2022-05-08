@@ -333,9 +333,9 @@
               </div>
               <div class="grid-list-desc text-center mt-4">
                 <h5 class="mb-1"><a href="#" class="text-dark"><i class="bi bi-grid-3x2-gap"></i></i> 5</a></h5>
-                <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> {{$l->name}} {{$l->prenom}}</p>
+                <p class="text-muted f-14 mb-0"><i class="bi bi-person-fill"></i></i> {{$l->Nom}} {{$l->Prenom}}</p>
                 <p class="text-muted f-14 mb-0"><i class="bi bi-envelope-fill"></i> {{$l->email}}</p>
-                <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> {{$l->tel}}</p>
+                <p class="text-muted f-14 mb-0"><i class="bi bi-telephone-fill"></i> {{$l->telephone}}</p>
 
                 <ul class="employers-icons list-inline mb-1">
                   <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star f-19"></i></a></li>

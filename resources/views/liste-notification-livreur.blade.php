@@ -209,7 +209,7 @@
                   <td> #</td>
 
                   <td> {{$notif->ID_commande}}</td>
-                  <td> {{$notif->ID_personnel}} </td>
+                  <td> {{$notif->ID_Personnel}} </td>
                   <td> <a href="{{route('commande.details' , ['id' => $notif->id]) }}"> details</a></td>
 
                 </tr>

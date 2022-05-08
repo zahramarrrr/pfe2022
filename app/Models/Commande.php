@@ -12,19 +12,19 @@ class Commande extends Model
     protected $fillable = [
         'ID_commande',
 
-        'date',
-        'temps',
-        'nom',
-        'prenom',
-        'telephone',
-        'email',
-        'adresse1',
-        'governorat',
-        'ville',
-        'code_postal',
-        'paiement',
-        'poids',
-        'prix',
-        'description'
+        'Date',
+        'Heure',
+        'Nom',
+        'Prenom',
+        'Telephone',
+        'Email',
+        'Adresse',
+        'Governorat',
+        'Ville',
+        'Code_postal',
+        'Paiement',
+        'Poids',
+        'Prix',
+        'Description'
     ];
 }

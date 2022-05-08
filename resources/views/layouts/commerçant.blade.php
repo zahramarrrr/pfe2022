@@ -92,12 +92,12 @@
         <li class="nav-item dropdown pe-3">
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
   <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
-  <span class="d-none d-md-block dropdown-toggle ps-2"> {{$comm-> name}} {{$comm-> prenom}}</span>
+  <span class="d-none d-md-block dropdown-toggle ps-2"> {{$comm-> Nom}} {{$comm-> Prenom}}</span>
 </a>
 <!-- End Profile image-->
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
   <li class="dropdown-header">
-  <h6>{{$comm-> name}} {{$comm-> prenom}}</h6>
+  <h6>{{$comm-> Nom}} {{$comm-> Prenom}}</h6>
     <span class="h6" >Commerçant</span>
   </li>
   <li>
@@ -136,7 +136,7 @@
 
 
   <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
+    <a class="dropdown-item d-flex align-items-center" href="login">
       <i class="bi bi-box-arrow-right"></i>
       <span class="h6">Deconnexion</span>
     </a>
@@ -157,13 +157,13 @@
         </a>
         </li><!-- End declarer commande nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
+        <a class="nav-link collapsed" href="liste-commande-declare">
           <i class="bi bi-layout-text-window-reverse"></i>
           <span>la liste des commandes déclarées</span>
         </a>
       </li><!-- End liste des commandes nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
+        <a class="nav-link collapsed" href="contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>

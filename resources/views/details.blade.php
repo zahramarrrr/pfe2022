@@ -103,43 +103,43 @@ $NotificationsCommandes = Notifications::all();
           <tbody>
             <tr class="space-row">
               <th>date:</th>
-              <td id="date-val">{{$commande->date}}</td>
+              <td id="date-val">{{$commande->Date}}</td>
             </tr>
             <tr class="space-row">
               <th>temps:</th>
-              <td id="temps-val">{{$commande->temps}}</td>
+              <td id="temps-val">{{$commande->Heure}}</td>
             </tr>
             <tr class="space-row">
               <th>nom:</th>
-              <td id="nom-val">{{$commande->nom}}</td>
+              <td id="nom-val">{{$commande->Nom}}</td>
             <tr class="space-row">
               <th>prénom:</th>
-              <td id="prenom-val">{{$commande->prenom}}</td>
+              <td id="prenom-val">{{$commande->Prenom}}</td>
             </tr>
             <tr class="space-row">
               <th>téléphone:</th>
-              <td id="telephone-val">{{$commande->telephone}}</td>
+              <td id="telephone-val">{{$commande->Telephone}}</td>
             </tr>
             <tr class="space-row">
               <th>Addresse mail:</th>
-              <td id="email-val">{{$commande->email}}</td>
+              <td id="email-val">{{$commande->Email}}</td>
             </tr>
             <tr class="space-row">
               <th>Adresse 1:</th>
-              <td id="adresse1-val">{{$commande->adresse1}}</td>
+              <td id="adresse1-val">{{$commande->Adresse}}</td>
             </tr>
 
             <tr class="space-row">
               <th>Governorat:</th>
-              <td id="governorat-val">{{$commande->governorat}}</td>
+              <td id="governorat-val">{{$commande->Governorat}}</td>
             </tr>
             <tr class="space-row">
               <th>ville</th>
-              <td id="ville-val">{{$commande->ville}}</td>
+              <td id="ville-val">{{$commande->Ville}}</td>
             </tr>
             <tr class="space-row">
               <th>code postal</th>
-              <td id="code_postal-val">{{$commande->code_postal}}</td>
+              <td id="code_postal-val">{{$commande->Code_postal}}</td>
             </tr>
             <tr class="space-row">
               <th>ID Commande:</th>
@@ -147,19 +147,19 @@ $NotificationsCommandes = Notifications::all();
             </tr>
             <tr class="space-row">
               <th>poids:</th>
-              <td id="poids-val">{{$commande->poids}}</td>
+              <td id="poids-val">{{$commande->Poids}}</td>
             </tr>
             <tr class="space-row">
               <th>mode de paiment:</th>
-              <td id="paiment-val">{{$commande->paiement}}</td>
+              <td id="paiment-val">{{$commande->Paiement}}</td>
             </tr>
             <tr class="space-row">
               <th>total prix:</th>
-              <td id="prix-val">{{$commande->prix}}</td>
+              <td id="prix-val">{{$commande->Prix}}</td>
             </tr>
             <tr class="space-row">
               <th>description:</th>
-              <td id="description-val">{{$commande->description}}</td>
+              <td id="description-val">{{$commande->Description}}</td>
             </tr>
 
           </tbody>

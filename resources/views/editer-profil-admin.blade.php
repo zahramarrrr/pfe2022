@@ -19,7 +19,7 @@
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                         <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <h2> {{$admin->name}}</h2>
+                        <h2> {{$admin->Nom}}</h2>
                         <h3>Administrateur depot</h3>
                         <div class="social-links mt-2">
                             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -61,7 +61,7 @@
                                 <div class="row mb-3">
                                     <label for="about" class="col-md-4 col-lg-3 col-form-label">prénom</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="prenom" id="prenom" value="{{$admin->prenom}}" />
+                                        <input type="text" class="form-control" name="Prenom" id="Prenom" value="{{$admin->Prenom}}" />
 
                                     </div>
                                 </div>
@@ -77,14 +77,14 @@
                                 <div class="row mb-3">
                                     <label for="Address" class="col-md-4 col-lg-3 col-form-label">Addresse</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="adresse" id="adresse" value="{{$admin->adresse}}">
+                                        <input type="text" class="form-control" name="Adresse" id="Adresse" value="{{$admin->Adresse}}">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="Phone" class="col-md-4 col-lg-3 col-form-label">téléphone</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="tel" id="tel" value="{{$admin->tel}}">
+                                        <input type="text" class="form-control" name="telephone" id="telephone" value="{{$admin->telephone}}">
                                     </div>
                                 </div>
 

@@ -22,7 +22,7 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <h2>{{$admin-> name}} {{$admin-> prenom}} </h2>
+              <h2>{{$admin-> Nom}} {{$admin-> Prenom}} </h2>
               <h3>{{$admin-> Role}}</h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -56,12 +56,12 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label " class="label">Nom: </div>
-                  <div class="col-lg-9 col-md-8">{{$admin-> name}}</div>
+                  <div class="col-lg-9 col-md-8">{{$admin-> Nom}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label" class="card-title">Prénom:</div>
-                  <div class="col-lg-9 col-md-8">{{$admin-> prenom}}</div>
+                  <div class="col-lg-9 col-md-8">{{$admin-> Prenom}}</div>
                 </div>
 
                 <div class="row">
@@ -77,7 +77,7 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label" class="label">Télèphone:</div>
-                  <div class="col-lg-9 col-md-8">(216) {{$admin-> tel}}</div>
+                  <div class="col-lg-9 col-md-8">(216) {{$admin-> telephone}}</div>
                 </div>
 
                 <div class="row">

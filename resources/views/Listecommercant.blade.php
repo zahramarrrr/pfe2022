@@ -335,7 +335,7 @@
                   <img src="assets/img/avatar2.png" alt="" class="img-fluid mx-auto d-block rounded-circle">
                 </div>
                 <div class="grid-list-desc text-center mt-4">
-                  <h5 class="mb-1"><a href="#" class="text-dark">{{$c->name}} {{$c->prenom}}</a></h5>
+                  <h5 class="mb-1"><a href="#" class="text-dark">{{$c->Nom}} {{$c->Prenom}}</a></h5>
                   <p class="text-muted f-14 mb-0">{{$c->email}}</p>
                   <p class="text-muted f-14 mb-0"><i class="mdi mdi-map-marker mr-2"></i>{{$c->adresse}}</p>
                   <ul class="employers-icons list-inline mb-1">

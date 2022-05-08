@@ -19,7 +19,7 @@
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                         <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
-                        <h2>{{$livreur->name}} {{$livreur->prenom}}</h2>
+                        <h2>{{$livreur->Nom}} {{$livreur->Prenom}}</h2>
                         <h3>Livreur</h3>
                         <div class="social-links mt-2">
                             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -55,14 +55,14 @@
                                 <div class="row mb-3">
                                     <label for="fullName" class="col-lg-3 col-md-4 label " class="label">Nom: </label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="name" id="name" value="{{$livreur->name}}">
+                                        <input type="text" class="form-control" name="Nom" id="Nom" value="{{$livreur->Nom}}">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="about" class="col-lg-3 col-md-4 label " class="label">Prénom:</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="prenom" id="prenom" value="{{$livreur->prenom}}" />
+                                        <input type="text" class="form-control" name="Prenom" id="Prenom" value="{{$livreur->Prenom}}" />
 
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                                 <div class="row mb-3">
                                     <label for="Phone" class="col-lg-3 col-md-4 label " class="label">Téléphone:</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="tel" id="tel" value="{{$livreur->tel}}">
+                                        <input type="text" class="form-control" name="telephone" id="telephone" value="{{$livreur->telephone}}">
                                     </div>
                                 </div>
 

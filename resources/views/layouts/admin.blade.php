@@ -2,7 +2,7 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
+$NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <div href="http://127.0.0.1:8000/Listecommercant" class="logo d-flex align-items-center">
+      <div href="Admin" class="logo d-flex align-items-center">
         <img src='{{asset("assets/img/logo.png") }}'  alt="">
         <span class="d-none d-lg-block">MaCommande</span>
   </div >
@@ -111,7 +111,7 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
                   <i class='bi bi-exclamation-circle text-warning'></i>
                   <div>
                     <h4>
-                      {{$notifs->ID_personnel}} {{$notifs->texte}} {{$notifs->ID_commande}}
+                      {{$notifs->ID_Personnel}} {{$notifs->texte}} {{$notifs->ID_commande}}
                     </h4>
                   </div>
                 </li>
@@ -131,12 +131,12 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
           <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">{{$admin->name}} {{$admin->prenom}}</span>
+          <span class="d-none d-md-block dropdown-toggle ps-2">{{$admin->Nom}} {{$admin->Prenom}}</span>
         </a><!-- End Profile Iamge Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
           <li class="dropdown-header">
-            <h6>{{$admin->name}} {{$admin->prenom}}</h6>
+            <h6>{{$admin->Nom}} {{$admin->Prenom}}</h6>
             <span>Administrateur </span>
           </li>
           <li>
@@ -163,7 +163,7 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
             <hr class="dropdown-divider">
           </li>
           <li>
-          <a class="dropdown-item d-flex align-items-center" href="mdp">
+          <a class="dropdown-item d-flex align-items-center" href="MDPadmin">
                 <i class="bi bi-gear"></i>
                 <span>modifier mot de passe</span>
               </a>

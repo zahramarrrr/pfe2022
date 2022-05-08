@@ -56,12 +56,12 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label " class="label">Nom: </div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> name}}</div>
+                  <div class="col-lg-9 col-md-8">{{$comm-> Nom}}</div>
                 </div>
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label" class="label">Prénom:</div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> prenom}}</div>
+                  <div class="col-lg-9 col-md-8">{{$comm-> Prenom}}</div>
                 </div>
 
                 <div class="row">
@@ -77,7 +77,7 @@
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label" class="label">Télèphone:</div>
-                  <div class="col-lg-9 col-md-8">(+216) {{$comm-> tel}}</div>
+                  <div class="col-lg-9 col-md-8">(+216) {{$comm-> telephone}}</div>
                 </div>
 
                 <div class="row">

@@ -219,11 +219,11 @@
 
                     <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">{{$agent->id}}</td>
                    
-                    <td>{{$agent->name}}</td>
-                    <td>{{$agent->prenom}}</td>
+                    <td>{{$agent->Nom}}</td>
+                    <td>{{$agent->Prenom}}</td>
                     <td>{{$agent->adresse}}</td>
                     <td>{{$agent->email}}</td>
-                    <td>{{$agent->tel}}</td>
+                    <td>{{$agent->telephone}}</td>
                    <!-- <a href="edit-agent/{{$agent->id}}"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>  </span>                                    
 
                     <td><a href="#" data-toggle="modal" data-target="#infos"><i class="material-icons"></i></a>

@@ -69,12 +69,12 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
             <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{$livreur-> name}} {{$livreur-> prenom}}</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{$livreur-> Nom}} {{$livreur-> Prenom}}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
             <li class="dropdown-header">
-              <h6> {{$livreur-> name}} {{$livreur-> prenom}}</h6>
+              <h6> {{$livreur-> Nom}} {{$livreur-> Prenom}}</h6>
               <span class="h6">livreur</span>
             </li>
             <li>
@@ -82,7 +82,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+              <a class="dropdown-item d-flex align-items-center" href="profillivreur">
                 <i class="bi bi-person"></i>
                 <span class="h6">Mon Profil</span>
               </a>
@@ -144,7 +144,7 @@
 
       
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
+        <a class="nav-link collapsed" href="contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>

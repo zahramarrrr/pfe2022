@@ -251,8 +251,8 @@
                                     <tr id="tr_{{$commande->id}}">
                                         <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
                                         <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                                        <td>{{$commande->date}}</td>
-                                        <td>{{$commande->telephone}}</td>
+                                        <td>{{$commande->Date}}</td>
+                                        <td>{{$commande->Telephone}}</td>
                                         <td>
                                             <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details
                                             </button>
@@ -316,7 +316,7 @@
                                 <tr>
 
                                     <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">{{$livreur->id}}</td>
-                                    <td>{{$livreur->name}}</td>
+                                    <td>{{$livreur->Nom}}</td>
                                     <td>{{$livreur->email}}</td>
                                     <td><button class='affectlivreur' data-id="{{$livreur->id}}"><input type="button" value="Affecter"></button></td>
 

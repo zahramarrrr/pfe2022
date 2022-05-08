@@ -21,7 +21,7 @@
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                     <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
-              <h2>{{$comm-> prenom}} {{$comm-> name}} </h2>
+              <h2>{{$comm-> Prenom}} {{$comm-> Nom}} </h2>
               <h3>{{$comm-> Role}}</h3>
                         <div class="social-links mt-2">
                             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -55,14 +55,14 @@
                                 <div class="row mb-3">
                                     <label for="fullName" class="col-lg-3 col-md-4 label " class="label">Nom: </label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="name" id="name" value="{{$comm->name}}">
+                                        <input type="text" class="form-control" name="Nom" id="Nom" value="{{$comm->Nom}}">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="about" class="col-lg-3 col-md-4 label " class="label">Prénom:</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="prenom" id="prenom" value="{{$comm->prenom}}" />
+                                        <input type="text" class="form-control" name="Prenom" id="Prenom" value="{{$comm->Prenom}}" />
 
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                                 <div class="row mb-3">
                                     <label for="Phone" class="col-lg-3 col-md-4 label " class="label">téléphone:</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="tel" id="tel" value="{{$comm->tel}}">
+                                        <input type="text" class="form-control" name="telephone" id="telephone" value="{{$comm->telephone}}">
                                     </div>
                                 </div>
 

@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
+Route::get('login', function () {
     return view('login');
 });
 
@@ -81,6 +81,15 @@ Route::get('/liste-notification', function () {
 
 Route::get('/MDPagent', function () {
     return view('MDPagent');
+});
+Route::get('MDPadmin', function () {
+    return view('MDPadmin');
+});
+Route::get('/MDPcommercant', function () {
+    return view('MDPcommercant');
+});
+Route::get('/MDPlivreur', function () {
+    return view('MDPlivreur');
 });
 
 
@@ -176,16 +185,14 @@ Route::get('/declare', function () {
     return view('declare');
 });
 
-Route::get('/contact', function () {
+Route::get('contact', function () {
     return view('contact');
 });
 Route::get('/contact-admin', function () {
     return view('contact-admin');
 });
 
-Route::get('/Commerçant', function () {
-    return view('Commerçant');
-});
+
 
 
 

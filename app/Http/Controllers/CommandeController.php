@@ -29,47 +29,50 @@ class CommandeController extends Controller
 
             'ID_commande' => $request->ID_commande,
 
-            'date' => $request->date,
-            'temps' => $request->temps,
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'telephone' => $request->telephone,
-            'email' => $request->email,
-            'adresse1' => $request->adresse1,
-            'governorat' => $request->governorat,
-            'ville' => $request->ville,
-            'code_postal' => $request->code_postal,
-            'paiement' => $request->paiement,
-            'poids' => $request->poids,
-            'prix' => $request->prix,
+            'Date' => $request->Date,
+            'Heure' => $request->Heure,
+            'Nom' => $request->Nom,
+            'Prenom' => $request->Prenom,
+            'Telephone' => $request->Telephone,
+            'Email' => $request->Email,
+            'Adresse' => $request->Adresse,
+            'Governorat' => $request->Governorat,
+            'Ville' => $request->Ville,
+            'Code_postal' => $request->Code_postal,
+            'Paiement' => $request->Paiement,
+            'Poids' => $request->Poids,
+            'Prix' => $request->Prix,
 
-            'description' => $request->description,
+            'Description' => $request->Description,
         ]);
 
         DB::table('Notifications')->insert([
-            'ID_personnel' =>  Auth::user()->id,
-            'type' => 'commerçant',
+            'ID_Personnel' =>  Auth::user()->id,
+            'Type' => 'commerçant',
             'texte' => 'a déclaré la commande',
-            'notifiable'=>'admin',
+            'Notifiable' => 'admin',
             'ID_commande' => $newcommande->ID_commande
         ]);
 
-        event(new MyEvenet([route('commande.details', ['id' => $newcommande->id]), Auth::user()->id,'a déclaré la commande',$request->ID_commande]));
+        event(new MyEvenet([route('commande.details', ['id' => $newcommande->id]), Auth::user()->id, 'a déclaré la commande', $request->ID_commande]));
         $commandes = DB::table('commandes')->get();
+        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('liste-commande-declare', compact('commandes'));
+        return view('liste-commande-declare', compact('commandes','comm'));
     }
     public function CommandeList()
     {
         $commandes = DB::table('commandes')->get();
-        return view('liste-commande-declare', compact('commandes'));
+        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        return view('liste-commande-declare', compact('commandes','comm'));
     }
 
 
 
     public function listecommandevalidee()
     {
-        $commandes = DB::table('commandes')->where('etat', 'validee')->get();
+        $commandes = DB::table('commandes')->where('Etat', 'validee')->get();
         $agents = DB::table('users')->where('role', 'agent')->get();
         return view('liste-commande-validee', compact('commandes'),  compact('agents'));
     }
@@ -78,19 +81,19 @@ class CommandeController extends Controller
 
     public function CommandeListAdmin()
     {
-        $commandes = DB::table('commandes')->where('etat', 'declaree')->get();
+        $commandes = DB::table('commandes')->where('Etat', 'declaree')->get();
         return view('liste-commande-declare-admin', compact('commandes'));
     }
 
 
     public function Commandevalider()
     {
-        $commandes = DB::table('commandes')->where('etat', 'validee')->get();
+        $commandes = DB::table('commandes')->where('Etat', 'validee')->get();
         return view('details', compact('commandes'));
     }
     public function ListprepareeAdmin()
     {
-        $commandes = DB::table('commandes')->where('etat', 'preparee')->get();
+        $commandes = DB::table('commandes')->where('Etat', 'preparee')->get();
         $livreurs = DB::table('users')->where('role', 'livreur')->get();
         return view('liste-commandes-preparee', compact('commandes', 'livreurs'));
     }
@@ -115,11 +118,11 @@ class CommandeController extends Controller
     }
 
 
- 
+
     //pour afficher la page details
     public function Commandedetails($id)
     {
-        $commande = DB::table('commandes')->where('id', $id)->first();
+        $commande = DB::table('commandes')->where('ID_commande', $id)->first();
         return view('details', compact('commande'));
     }
     //pour afficher 5 notifications
@@ -134,7 +137,7 @@ class CommandeController extends Controller
     }
     public function notifAgent()
     {
-        $notif = Notifications::query()->where('type', 'agent')->take(5)->get();
+        $notif = Notifications::query()->where('Type', 'agent')->take(5)->get();
 
         return view('Agent', compact('notif'));
     }
@@ -143,7 +146,7 @@ class CommandeController extends Controller
 
 
         $commandes = DB::table('commandes')->get();
-        $notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
+        $notif = Notifications::query()->where('Type', 'livreur')->take(5)->get();
 
         return view('Livreur', compact('commandes', 'notif'));
     }
@@ -163,7 +166,7 @@ class CommandeController extends Controller
     //pour supprimer la commande
 
 
-    //pour changer l'etat de declaree a validee
+    //pour changer l'Etat de declaree a validee
     //pour valider plusieurs commandes
     public function valider(Request $request)
     {
@@ -171,32 +174,29 @@ class CommandeController extends Controller
         $commandesids = $request->vals;
         foreach ($commandesids as $commande) {
             $cmd = Commande::find($commande);
-            $cmd->etat = 'validée';
+            $cmd->Etat = 'validée';
             $cmd->date_validation = Carbon::now();
 
 
             $cmd->save();
         }
-      
     }
     //pour valider depuis la view details
-    public function validercommande( $id)
+    public function validercommande($id)
     {
         now("Europe/Rome");
-       
+
         DB::table('commandes')->where('id', $id)->update([
-            'etat' =>'validée',
+            'Etat' => 'validée',
 
             'date_validation' => Carbon::now(),
-           
+
 
         ]);
-        $notif = Notifications::query()->where('notifiable','admin')->take(5)->get();
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('Admin',compact('notif','admin'));
-
-      
+        return view('Admin', compact('notif', 'admin'));
     }
     //pour laffectation des agents
     public function affecteragent(Request $request)
@@ -209,21 +209,21 @@ class CommandeController extends Controller
         //->where('id',$agentid)->get(['id']);
         foreach ($commandesids as $commande) {
             $cmd = Commande::find($commande);
-            $cmd->agent = $agentid;
-            $cmd->etat = 'affecter a un agent';
-            $cmd->date_affect_agent = Carbon::now();
+            $cmd->ID_Agent = $agentid;
+            $cmd->Etat = 'affecter a un agent';
+            $cmd->Date_Affect_Agent = Carbon::now();
 
 
             $cmd->save();
             DB::table('Notifications')->insert([
-                'ID_personnel' =>  Auth::user()->id,
-                'type' => 'admin',
+                'ID_Personnel' =>  Auth::user()->id,
+                'Type' => 'admin',
                 'texte' => 'vous a affecté la commande',
-                'notifiable'=>'agent',
+                'Notifiable' => 'agent',
                 'ID_commande' => $cmd->ID_commande
             ]);
-            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'vous a affecté la commande' ,$cmd->ID_commande]));
-       }
+            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'vous a affecté la commande', $cmd->ID_commande]));
+        }
 
 
 
@@ -240,16 +240,16 @@ class CommandeController extends Controller
         //->where('id',$agentid)->get(['id']);
         foreach ($commandesids as $commande) {
             $cmd = Commande::find($commande);
-            $cmd->livreur = $livreurid;
-            $cmd->etat = 'affecter a un livreur';
-            $cmd->date_affect_livreur = Carbon::now();
+            $cmd->ID_Livreur = $livreurid;
+            $cmd->Etat = 'affecter a un livreur';
+            $cmd->Date_Affect_Livreur = Carbon::now();
 
 
             $cmd->save();
             DB::table('Notifications')->updateOrInsert([
-                'ID_personnel' => $livreurid,
+                'ID_Personnel' => $livreurid,
                 'ID_commande' => $cmd->id,
-                'type' => 'livreur',
+                'Type' => 'livreur',
 
             ]);
             event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), $livreurid, $cmd->id]));
@@ -266,20 +266,19 @@ class CommandeController extends Controller
             'date' => $request->date,
 
             'temps' => $request->temps,
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'telephone' => $request->telephone,
-            'email' => $request->email,
-            'adresse1' => $request->adresse1,
-            'adresse2' => $request->adresse2,
-            'governorat' => $request->governorat,
-            'ville' => $request->ville,
-            'code_postal' => $request->code_postal,
+            'Nom' => $request->Nom,
+            'Prenom' => $request->Prenom,
+            'Telephone' => $request->Telephone,
+            'Email' => $request->Email,
+            'Adresse' => $request->Adresse,
+            'Governorat' => $request->Governorat,
+            'Ville' => $request->Ville,
+            'Code_postal' => $request->Code_postal,
             'ID_commande' => $request->ID_commande,
-            'paiement' => $request->paiement,
-            'poids' => $request->poids,
-            'prix' => $request->prix,
-            'description' => $request->description,
+            'Paiement' => $request->Paiement,
+            'Poids' => $request->Poids,
+            'Prix' => $request->Prix,
+            'Description' => $request->Description,
 
         ]);
         return back()->with('commandes_update', 'commande updated succefully');
@@ -300,7 +299,7 @@ class CommandeController extends Controller
 
     public function listenotifagent()
     {
-        $notifs  = Notifications::where('type', 'agent')->orderBy('id', 'desc')->get();
+        $notifs  = Notifications::where('Type', 'agent')->orderBy('id', 'desc')->get();
 
         return view('liste-notification-agent', compact('notifs'));
     }
@@ -308,7 +307,7 @@ class CommandeController extends Controller
 
     public function listenotiflivreur()
     {
-        $notifs  = Notifications::where('type', 'livreur')->orderBy('id', 'desc')->get();
+        $notifs  = Notifications::where('Type', 'livreur')->orderBy('id', 'desc')->get();
 
         return view('liste-notification-livreur', compact('notifs'));
     }
@@ -369,7 +368,6 @@ class CommandeController extends Controller
     {
         $comm = DB::table('users')->where('id', $id)->first();
         return view('edit-commercant', compact('comm'));
-
     }
 
     //editer agent
@@ -378,9 +376,9 @@ class CommandeController extends Controller
     {
         DB::table('users')->where('id', $request->id)->update([
 
-            'name' => $request->name,
-            'prenom' => $request->prenom,
-            'tel' => $request->tel,
+            'Nom' => $request->Nom,
+            'Prenom' => $request->Prenom,
+            'telephone' => $request->telephone,
             'email' => $request->email,
             'adresse' => $request->adresse,
             'Role' => 'livreur',
@@ -392,9 +390,9 @@ class CommandeController extends Controller
     {
         DB::table('users')->where('id', $request->id)->update([
 
-            'name' => $request->name,
-            'prenom' => $request->prenom,
-            'tel' => $request->tel,
+            'Nom' => $request->Nom,
+            'Prenom' => $request->Prenom,
+            'telephone' => $request->telephone,
             'email' => $request->email,
             'adresse' => $request->adresse,
             'Role' => 'commerçant',
@@ -406,9 +404,9 @@ class CommandeController extends Controller
     {
         DB::table('users')->where('id', $request->id)->update([
 
-            'name' => $request->name,
-            'prenom' => $request->prenom,
-            'tel' => $request->tel,
+            'Nom' => $request->Nom,
+            'Prenom' => $request->Prenom,
+            'telephone' => $request->telephone,
             'email' => $request->email,
             'adresse' => $request->adresse,
             'Role' => 'agent',
@@ -435,13 +433,13 @@ class CommandeController extends Controller
     {
 
         DB::table('users')->where('id', Auth::user()->id)->update([
-            'name' => $request->name,
+            'Nom' => $request->Nom,
 
-            'prenom' => $request->prenom,
+            'Prenom' => $request->Prenom,
             'Role' => 'agent',
             'adresse' => $request->adresse,
             'email' => $request->email,
-            'tel' => $request->tel,
+            'telephone' => $request->telephone,
 
 
         ]);
@@ -464,13 +462,13 @@ class CommandeController extends Controller
     {
 
         DB::table('users')->where('id', Auth::user()->id)->update([
-            'name' => $request->name,
+            'Nom' => $request->Nom,
 
-            'prenom' => $request->prenom,
+            'Prenom' => $request->Prenom,
             'Role' => 'livreur',
             'adresse' => $request->adresse,
             'email' => $request->email,
-            'tel' => $request->tel,
+            'telephone' => $request->telephone,
 
 
         ]);
@@ -493,13 +491,13 @@ class CommandeController extends Controller
     {
 
         DB::table('users')->where('id', Auth::user()->id)->update([
-            'name' => $request->name,
+            'Nom' => $request->Nom,
 
-            'prenom' => $request->prenom,
+            'Prenom' => $request->Prenom,
             'Role' => 'commerçant',
             'adresse' => $request->adresse,
             'email' => $request->email,
-            'tel' => $request->tel,
+            'telephone' => $request->telephone,
 
 
         ]);
@@ -507,12 +505,12 @@ class CommandeController extends Controller
 
         return view('profilCommercant', compact('commercant'));
     }
-      public function profiladmin()
+    public function profiladmin()
     {
-        $notif = DB::table('notifications')->where('notifiable', 'admin')->get();
+        $notif = DB::table('notifications')->where('Notifiable', 'admin')->get();
 
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        return view('profilAdmin', compact('admin','notif'));
+        return view('profilAdmin', compact('admin', 'notif'));
     }
     public function Editerprofiladmin($id)
     {
@@ -524,13 +522,13 @@ class CommandeController extends Controller
     {
 
         DB::table('users')->where('id', Auth::user()->id)->update([
-            'name' => $request->name,
+            'Nom' => $request->Nom,
 
-            'prenom' => $request->prenom,
+            'Prenom' => $request->Prenom,
             'Role' => 'admin',
             'adresse' => $request->adresse,
             'email' => $request->email,
-            'tel' => $request->tel,
+            'telephone' => $request->telephone,
 
 
         ]);
@@ -538,7 +536,7 @@ class CommandeController extends Controller
 
         return view('profilAdmin', compact('admin'));
     }
-    // editert etat a preparee plusieurs commandes
+    // editert Etat a preparee plusieurs commandes
     public function preparer(Request $request)
     {
 
@@ -546,61 +544,57 @@ class CommandeController extends Controller
         $commandesids = $request->vals;
         foreach ($commandesids as $commande) {
             $cmd = Commande::find($commande);
-            $cmd->etat = 'preparée';
+            $cmd->Etat = 'preparée';
             $cmd->date_validation = Carbon::now();
 
 
             $cmd->save();
         }
         DB::table('Notifications')->insert([
-            'ID_personnel' =>  Auth::user()->id,
-            'type' => 'agent',
+            'ID_Personnel' =>  Auth::user()->id,
+            'Type' => 'agent',
             'texte' => 'a préparée la commande',
-            'notifiable'=>'admin',
+            'Notifiable' => 'admin',
             'ID_commande' => $cmd->ID_commande
         ]);
-        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a préparée la commande' ,$cmd->ID_commande]));
-
+        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a préparée la commande', $cmd->ID_commande]));
     }
-    public function preparercommande( $id)
+    public function preparercommande($id)
     {
         now("Europe/Rome");
-       
-        DB::table('commandes')->where('id', $id)->update([
-            'etat' =>'préparée',
 
-            'date_preparation' => Carbon::now(),
-           
+        DB::table('commandes')->where('id', $id)->update([
+            'Etat' => 'préparée',
+
+            'Date_Preparation' => Carbon::now(),
+
 
         ]);
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
-        $commandes = DB::table('commandes')->where('agent',Auth::user()->id)
-        ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
-        $notif = Notifications::query()->where('notifiable','agent')->take(5)->get();
-        return view('Agent',compact('notif','agent','commandes'));
-      
+        $commandes = DB::table('commandes')->where('agent', Auth::user()->id)
+            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+        $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
+        return view('Agent', compact('notif', 'agent', 'commandes'));
     }
-    public function livrercommande( $id)
+    public function livrercommande($id)
     {
         now("Europe/Rome");
-       
-        DB::table('commandes')->where('id', $id)->update([
-            'etat' =>'livrée',
 
-            'date_livraison' => Carbon::now(),
-           
+        DB::table('commandes')->where('id', $id)->update([
+            'Etat' => 'livrée',
+
+            'Date_Livraison' => Carbon::now(),
+
 
         ]);
         $search_text = isset($_GET['query']);
-        $notif = Notifications::query()->where('type','livreur')->take(5)->get();
+        $notif = Notifications::query()->where('Type', 'livreur')->take(5)->get();
         $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-        $commandes = DB::table('commandes')->where('livreur',Auth::user()->id)
-        ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+        $commandes = DB::table('commandes')->where('livreur', Auth::user()->id)
+            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
 
-        return view('Livreur',compact('commandes','livreur','notif'));
-
-      
+        return view('Livreur', compact('commandes', 'livreur', 'notif'));
     }
     public function mdp(Request $request)
     {
@@ -608,14 +602,14 @@ class CommandeController extends Controller
     }
     public function updatemdp(Request  $request)
     {
-        $pass=Auth::user()->password;
-     //   dd( password_verify($request->old_password, $pass));
+        $pass = Auth::user()->password;
+        //   dd( password_verify($request->old_password, $pass));
 
-     //   $oldpassword = Hash::make($request->oldpassword);
-     //   dd(Auth::user()->password , $oldpassword);
-        
-        if (! (password_verify($request->old_password, $pass))) {
-          // dd($request);
+        //   $oldpassword = Hash::make($request->oldpassword);
+        //   dd(Auth::user()->password , $oldpassword);
+
+        if (!(password_verify($request->old_password, $pass))) {
+            // dd($request);
             return back()->with('old password', 'old password');
         } elseif ($request->password !== $request->password_confirmation) {
             return back()->with('erreur', 'erreur confirmation');
@@ -625,14 +619,14 @@ class CommandeController extends Controller
                 'password' => bcrypt($request->Password)
             ])->save(); */
             //Change Password
-        $user = Auth::user();
-        $user->password = bcrypt($request->password);
-        $user->save();
+            $user = Auth::user();
+            $user->password = bcrypt($request->password);
+            $user->save();
 
-        return redirect()->back()->with("success","Password successfully changed!");
+            return redirect()->back()->with("success", "Password successfully changed!");
         }
     }
-   /*  @if(Session::has('commande_valider'))
+    /*  @if(Session::has('commande_valider'))
     <span>{{Session::get('commande_valider')}} </span>
     @endif
     <form method="post" action="{{ route('valider' , ['id' => $commande->id])}}">
