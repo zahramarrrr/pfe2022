@@ -73,10 +73,10 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="http://127.0.0.1:8000/Listecommercant" class="logo d-flex align-items-center">
+      <div href="http://127.0.0.1:8000/Listecommercant" class="logo d-flex align-items-center">
         <img src='{{asset("assets/img/logo.png") }}'  alt="">
         <span class="d-none d-lg-block">MaCommande</span>
-      </a>
+  </div >
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
@@ -159,6 +159,10 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
               <span>Editer profil</span>
             </a>
           </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
           <a class="dropdown-item d-flex align-items-center" href="mdp">
                 <i class="bi bi-gear"></i>
                 <span>modifier mot de passe</span>
@@ -166,14 +170,6 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
             </li>
           <li>
             <hr class="dropdown-divider">
-          </li>
-
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>Deconnexion</span>
-            </a>
           </li>
 
         </ul>

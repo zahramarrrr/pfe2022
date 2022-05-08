@@ -1,3 +1,9 @@
+<?php
+
+use App\models\Notifications;
+
+$NotificationsCommandes = Notifications::where('notifiable', 'agent')->get();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +11,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>page liste</title>
+  <title>Espace livreur</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -29,12 +35,28 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <!-- =======================================================
-  * Template Name: NiceAdmin - v2.2.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('d76c5db9b1fa63985fd9', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
+    });
+  </script>
 </head>
 
 <body>
@@ -45,7 +67,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+        <span class="d-none d-lg-block">MaCommande</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -73,14 +95,14 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{$agent-> name}}</span>
+            <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{$agent-> name}} {{$agent-> prenom}}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
             <li class="dropdown-header">
-              <h6> {{$agent-> name}}</h6>
-              <span>responsable vente en ligne</span>
+              <h6> {{$agent-> name}} {{$agent-> prenom}}</h6>
+              <span class="h6">Agent d'entrepôt</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -89,7 +111,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
                 <i class="bi bi-person"></i>
-                <span>Mon Profil</span>
+                <span class="h6">Mon Profil</span>
               </a>
             </li>
             <li>
@@ -99,7 +121,16 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
                 <i class="bi bi-gear"></i>
-                <span>Editer profil</span>
+                <span class="h6">Editer profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="">
+                <i class="bi bi-gear"></i>
+                <span class="h6">Changer mot de passe</span>
               </a>
             </li>
             <li>
@@ -107,14 +138,8 @@
             </li>
 
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Deconnexion</span>
-              </a>
-            </li>
-
-          </ul><!-- End Profile Dropdown Items -->
+            
+<!-- End Profile Dropdown Items -->
 
     </nav><!-- End Icons Navigation -->
 
@@ -123,24 +148,7 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Declarer-commande">
-          <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
-        </a>
-
-      </li><!-- End declarer commande nav -->
-      <!-- End declarer commande nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/liste-commande-declare">
-          <i class="bi bi-layout-text-window-reverse"></i>
-          <span>la liste des commandes déclarées</span>
-        </a>
-
-      </li><!-- End liste des commandes nav -->
-
-      <li class="nav-heading">contact</li>
+   
       <li class="nav-item">
         <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
           <i class="bi bi-envelope"></i>
@@ -150,12 +158,13 @@
       <!-- END contact -->
 
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Commer%C3%A7ant">
+      <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>retour</span>
-        </a>
-      </li><!-- End retour Nav -->
+                        @csrf
+                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Déconnexion') }}
+                        </a>
+      </form>
 
     </ul>
 
@@ -182,7 +191,118 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script>
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script>
+  <!--===============================================================================================-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <!--===============================================================================================-->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <!--===============================================================================================-->
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#tablecommande_agent').DataTable({
+        language: {
+          url: "{{ asset('assets/datatable-fr-FR.json') }}"
+        },
+        "searching": true
+      });
+    });
+  </script>
+  <script type="text/javascript">
+        $(document).ready(function() {
+            $('#master').on('click', function(e) {
+                if ($(this).is(':checked', true)) {
+                    $(".sub_chk").prop('checked', true);
 
+
+                } else {
+                    $(".sub_chk").prop('checked', false);
+                }
+            });
+        });
+    </script>
+<script>
+        $('.preparation').on('click', function(e) {
+            var allVals = [];
+            $(".sub_chk:checked").each(function(e) {
+                allVals.push($(this).attr('data-id'));
+            });
+            if (allVals.length <= 0) {
+                alert("Please select row.");
+            }
+
+
+            $.ajax({
+                url: "{{ route('preparer')}} ",
+                type: "POST",
+                data: {
+
+                    'vals': allVals,
+                    "_token": "{{ csrf_token() }}",
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert(response.success);
+
+                },
+                error: function(error) {
+                    console.log(response);
+
+                    alert('erreur');
+                }
+            });
+
+
+
+
+        });
+    </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+  </script>
+  <!--===============================================================================================-->
+
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('d76c5db9b1fa63985fd9', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      idcommande = JSON.stringify(data.message);
+      urlcmd = JSON.stringify(data.message[0]);
+      comm = JSON.stringify(data.message[1]);
+      msg= JSON.stringify(data.message[2]);
+      id = JSON.stringify(data.message[3]);
+
+      notifmsg = comm + msg +id;
+      msg=notifmsg.replace(/["']/g, " ");
+      alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
+      oldcontent = document.getElementById('notif').innerHTML;
+      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
+    });
+  </script>
+  
 </body>
 
 </html>

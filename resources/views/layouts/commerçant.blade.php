@@ -150,12 +150,7 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-    <li class="nav-item">
-        <a class="nav-link " href="http://127.0.0.1:8000/Commer%C3%A7ant">
-          <i class="bi bi-grid"></i>
-          <span>Tableaux de bord</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+    
     <li class="nav-item">
         <a class="nav-link collapsed"href="Declarer">
           <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>

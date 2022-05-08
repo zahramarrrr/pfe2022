@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>page liste</title>
+  <title>Espace livreur</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -75,7 +75,7 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
             <li class="dropdown-header">
               <h6> {{$livreur-> name}} {{$livreur-> prenom}}</h6>
-              <span>Livreur</span>
+              <span class="h6">livreur</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -84,7 +84,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
                 <i class="bi bi-person"></i>
-                <span>Mon Profil</span>
+                <span class="h6">Mon Profil</span>
               </a>
             </li>
             <li>
@@ -94,7 +94,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="">
                 <i class="bi bi-gear"></i>
-                <span >Editer profil</span>
+                <span class="h6">Editer profil</span>
               </a>
             </li>
             <li>
@@ -104,7 +104,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="">
                 <i class="bi bi-gear"></i>
-                <span>Changer mot de passe</span>
+                <span class="h6">Changer mot de passe</span>
               </a>
             </li>
             <li>
@@ -112,12 +112,7 @@
             </li>
 
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Deconnexion</span>
-              </a>
-            </li>
+            
 
           </ul><!-- End Profile Dropdown Items -->
 
@@ -127,12 +122,7 @@
 
   <aside id="sidebar" class="sidebar">
      
-  <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/page-contact">
-          <i class="bi bi-envelope"></i>
-          <span>Liste des commandes à livrées</span>
-        </a>
-      </li>
+ 
 
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
@@ -141,7 +131,13 @@
         </a>
 
       </li><!-- End declarer commande nav -->
-      <!-- End declarer commande nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Declarer-commande">
+          <i class="bi bi-journal-text"></i><span>Liste des commandes retournées</span>
+        </a>
+
+      </li>
+     
 
 
       </li><!-- End liste des commandes nav -->
@@ -158,7 +154,7 @@
           <i class="bi bi-box-arrow-in-right"></i>
                         @csrf
                         <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Déconnexion') }}
                         </a>
       </form>
       <!-- END contact -->

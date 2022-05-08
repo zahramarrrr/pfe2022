@@ -2186,3 +2186,13 @@ body{
   position: relative;
 top: -0.8em; left:788px;
 }
+.preparation {
+  color: #fff;
+  border-color: #6082B6;
+  background: #6082B6;
+  position: relative;
+top: -0.8em; left:788px;
+border-radius: 100px;
+font-family: "Poppins", sans-serif;
+
+}

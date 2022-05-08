@@ -1,6 +1,4 @@
 
-
-
 @extends("layouts.livreur")
  @section("content")
   <main id="main" class="main">
