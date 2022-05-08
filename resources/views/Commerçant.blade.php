@@ -179,8 +179,7 @@
     </section>
 
   </main><!-- End #main -->
-  @endsection
-
+@endsection
 
 
   

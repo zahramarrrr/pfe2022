@@ -41,23 +41,23 @@
         <li class="nav-item dropdown pe-3">
 
 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-  <span class="d-none d-md-block dropdown-toggle ps-2">Commerçant X</span>
+  <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+  <span class="d-none d-md-block dropdown-toggle ps-2">{{$comm-> name}} {{$comm-> prenom}}</span>
 </a><!-- End Profile Iamge Icon -->
 
 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
   <li class="dropdown-header">
-    <h6>Commerçant X</h6>
-    <span>responsable vente en ligne</span>
+  <h6>{{$comm-> name}} {{$comm-> prenom}}</h6>
+    <span class="h6" >Commerçant</span>
   </li>
   <li>
     <hr class="dropdown-divider">
   </li>
 
   <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+    <a class="dropdown-item d-flex align-items-center" href="profilcommercant">
       <i class="bi bi-person"></i>
-      <span>Mon Profil</span>
+      <span class="h6">Mon Profil</span>
     </a>
   </li>
   <li>
@@ -65,9 +65,19 @@
   </li>
 
   <li>
-    <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/profil">
+    <a class="dropdown-item d-flex align-items-center" href="editer-profil-commercant/{{$comm->id}}">
       <i class="bi bi-gear"></i>
-      <span>Editer profil</span>
+      <span class="h6">Editer profil</span>
+    </a>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
+
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="mdp">
+      <i class="bi bi-gear"></i>
+      <span class="h6">Changer mot de passe</span>
     </a>
   </li>
   <li>
@@ -78,7 +88,7 @@
   <li>
     <a class="dropdown-item d-flex align-items-center" href="http://127.0.0.1:8000/login">
       <i class="bi bi-box-arrow-right"></i>
-      <span>Deconnexion</span>
+      <span class="h6">Deconnexion</span>
     </a>
   </li>
 
@@ -172,7 +182,7 @@
                                     </div>
                                     
                                     <div class="col-2">
-                                    <div class="name">Télèphone</div>
+                                    <div class="name" class="label1">Télèphone</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="telephone" id="telephone">
                                             

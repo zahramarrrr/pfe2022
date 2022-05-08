@@ -158,6 +158,7 @@ route::get('Deletepersonnel/{id}', [CommandeController::class, 'Deletepersonnel'
 route::get('profilAgent', [CommandeController::class, 'profilagent'])->name('profilAgent');
 route::get('profilcommercant', [CommandeController::class, 'profilcommercant'])->name('profilcommercant');
 route::get('profillivreur', [CommandeController::class, 'profillivreur'])->name('profillivreur');
+route::get('profilAdmin', [CommandeController::class, 'profiladmin'])->name('profiladmin');
 
 // editer agent
 

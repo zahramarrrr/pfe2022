@@ -2,7 +2,7 @@
 @extends("layouts.index")
 @section("content")
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero d-flex align-items-center">
+  <section id="Macommande" class="Macommande d-flex align-items-center">
 
     <div class="container">
       <div class="row">
@@ -18,8 +18,8 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-          <img src="assetswelcome/img/hero-img.png" class="img-fluid" alt="">
+        <div class="col-lg-6 Macommande-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="assetswelcome/img/Macommande-img.png" class="img-fluid" alt="">
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
   <main id="main">
     
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features hero d-flex align-items-center"> 
+    <section id="features" class="features Macommande d-flex align-items-center"> 
       
 
       <div class="container" data-aos="fade-up">

@@ -32,25 +32,20 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="assetslogin1/css/style.css">
+	<link rel="stylesheet" href="assets/login/css/style.css">
 
-  <!-- =======================================================
-  * Template Name: FlexStart - v1.9.0
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
-<body>
+<body style="background-image: url(assets/login/images/bg.png);">
         <!-- ======= Header ======= -->
      <header id="header" class="header fixed-top">
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <div href="index.html" class="logo d-flex align-items-center">
         <img src="assetswelcome/img/logo.png" alt="">
         <span>MaCommande</span>
-      </a>
+</div>
 
       <nav id="navbar" class="navbar">
       <ul>
@@ -67,12 +62,12 @@
      <!-- End Header -->
      
 
-
+  
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">&mdash; Connexion &mdash;</h2>
+					<h2 class="heading-section"> Se connecter </h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -92,18 +87,18 @@
             <!-- Email Address -->
             <div> 
             
-            <div class="form-group mb-3">
-                <x-label for="email" :value="__('Adresse mail:')" />
+            <div class="form-group mb-3"  >
+                <x-label class="labellogin" for="email" :value="__('Adresse mail:')" />
 
-                <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input  id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
+            <div>
             
             
-            <div class="form-group mb-3">
-                <x-label for="password" :value="__('Mot de passe: ')" />
+            <div class="form-group mb-3"  class="labellogin">
+                <x-label class="labellogin" for="password" :value="__('Mot de passe: ')" />
 
                 <x-input id="password"  class="form-control" 
                                 type="password"
@@ -111,23 +106,14 @@
                                 required autocomplete="current-password" />
             </div>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center" >
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            
-
+           
                 <x-button class="ml-3"  class="form-control btn btn-primary rounded submit px-3">
                     {{ __('Connecter') }}
                 </x-button>
                 <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="checkbox-wrap checkbox-primary mb-0" href="{{ route('password.request') }}">
-                        {{ __('Mot de passe oublié ?') }}
+                    <a class="labellogin" href="{{ route('password.request') }}">
+                        {{ __('Reinitialiser mot de passe ?') }}
                     </a>
                 @endif
                 </div>
@@ -149,10 +135,10 @@
   <!-- Template Main JS File -->
   <script src="assetswelcome/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="assetslogin1/js/jquery.min.js"></script>
-  <script src="assetslogin1/js/popper.js"></script>
-  <script src="assetslogin1/js/bootstrap.min.js"></script>
-  <script src="assetslogin1/js/main.js"></script>
+  <script src="assets/login/js/jquery.min.js"></script>
+  <script src="assets/login/js/popper.js"></script>
+  <script src="assets/login/js/bootstrap.min.js"></script>
+  <script src="assets/login/js/main.js"></script>
 
 </body>
 

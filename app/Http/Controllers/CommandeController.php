@@ -353,8 +353,9 @@ class CommandeController extends Controller
     }
     public function Editcommercant($id)
     {
-        $commercant = DB::table('users')->where('id', $id)->first();
-        return view('edit-commercant', compact('commercant'));
+        $comm = DB::table('users')->where('id', $id)->first();
+        return view('edit-commercant', compact('comm'));
+
     }
 
     //editer agent
@@ -465,8 +466,8 @@ class CommandeController extends Controller
     }
     public function profilcommercant()
     {
-        $commercant = DB::table('users')->where('id', Auth::user()->id)->first();
-        return view('profilCommercant', compact('commercant'));
+        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('profilCommercant', compact('comm'));
     }
     public function Editerprofilcommercant($id)
     {
@@ -494,8 +495,10 @@ class CommandeController extends Controller
     }
       public function profiladmin()
     {
+        $notif = DB::table('notifications')->where('notifiable', 'admin')->get();
+
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        return view('profilAdmin', compact('admin'));
+        return view('profilAdmin', compact('admin','notif'));
     }
     public function Editerprofiladmin($id)
     {

@@ -48,8 +48,14 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/contact/css/main.css">
 <!--===============================================================================================-->
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="assets/login/css/style.css">
+
 </head>
-<body>     
+<body >     
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -61,7 +67,7 @@
 
       <nav id="navbar" class="navbar">
       <ul>
-          <li><a class="nav-link scrollto active" href="#hero">A propos</a></li>
+          
           <li><a class="nav-link scrollto active" href="#about">Contact</a></li>
       </ul>
       @if (Route::has('login'))
@@ -76,7 +82,7 @@
       </form>
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
 
                     @endauth
                 </div>
@@ -123,7 +129,11 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	<script src="assets/contact/js/main.js"></script>
+	
+  <script src="assets/login/js/jquery.min.js"></script>
+  <script src="assets/login/js/popper.js"></script>
+  <script src="assets/login/js/bootstrap.min.js"></script>
+  <script src="assets/login/js/main.js"></script>
 </body>
 
 </html>
