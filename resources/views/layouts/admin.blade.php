@@ -102,7 +102,7 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
             </li>
             @foreach($notif as $notifs)
 
-            <a href="{{route('commande.details' , ['id' => $notif->id]) }}">
+            <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
               <li>
                 <hr class='dropdown-divider'>
               </li>
@@ -184,84 +184,83 @@ $NotificationsCommandes = Notifications::where('notifiable', 'admin')->get();
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+<ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link " href="http://127.0.0.1:8000/Admin">
-          <i class="bi bi-grid"></i>
-          <span>Tableaux de bord</span>
+    <li class="nav-item">
+        <a class="nav-link " href="">
+            <i class="bi bi-grid"></i>
+            <span>Tableaux de bord</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+    </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="http://127.0.0.1:8000/Listecommercant">
-              <i class="bi bi-circle"></i><span>Commerçants</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://127.0.0.1:8000/ListeAgent">
-              <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://127.0.0.1:8000/ListeLivreur">
-              <i class="bi bi-circle"></i><span>Livreurs</span>
-            </a>
-          </li>
+            <li>
+                <a href="Listecommercant">
+                    <i class="bi bi-circle"></i><span>Commerçants</span>
+                </a>
+            </li>
+            <li>
+                <a href="ListeAgent">
+                    <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
+                </a>
+            </li>
+            <li>
+                <a href="ListeLivreur">
+                    <i class="bi bi-circle"></i><span>Livreurs</span>
+                </a>
+            </li>
 
         </ul>
-      </li><!-- End Personnels Nav -->
+    </li><!-- End Personnels Nav -->
 
-      <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="http://127.0.0.1:8000/liste-commande-declare-admin">
-              <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://127.0.0.1:8000/liste-commande-validee">
-              <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
-            </a>
-          </li>
-          <li>
-          <li>
-            <a href="http://127.0.0.1:8000/liste-commandes-preparee">
-              <i class="bi bi-circle"></i><span>Liste des commandes préparées</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
-            </a>
-          </li>
+            <li>
+                <a href="liste_commande_declare_admin">
+                    <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
+                </a>
+            </li>
+            <li>
+                <a href="liste-validee">
+                    <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
+                </a>
+            </li>
+            <li>
+            <li>
+                <a href="liste-commandes-preparee">
+                    <i class="bi bi-circle"></i><span>Liste des commandes préparées</span>
+                </a>
+            </li>
+                <a href="forms-elements.html">
+                    <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
+                </a>
+            </li>
 
         </ul>
-      </li><!-- End commandes Nav -->
+    </li><!-- End commandes Nav -->
 
-      <form action="{{ route('logout') }}" method="POST" class="nav-link collapsed" href="pages-login.html">
+    <form action="{{ route('logout') }}" method="POST" class="nav-link collapsed" href="pages-login.html">
         <i class="bi bi-box-arrow-in-right"></i>
 
 
         @csrf
         <a class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-          {{ __('Logout') }}
+            {{ __('Logout') }}
         </a>
-      </form>
+    </form>
 
-      <!-- End Login Page Nav -->
+    <!-- End Login Page Nav -->
 
-    </ul>
+</ul>
 
-  </aside><!-- End Sidebar-->
+</aside><!-- End Sidebar-->
 
 
   @yield("content")

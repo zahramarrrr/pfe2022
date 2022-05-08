@@ -22,7 +22,7 @@ class HomeController extends Controller
         $role=Auth::user()->Role;
         if($role=='admin')
         {
-            $notif = Notifications::query()->where('notifiable','admin')->orderBy('id','DESC')->take(5)->get();
+            $notif = Notifications::query()->where('notifiable','admin')->take(5)->get();
             $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
             return view('Admin',compact('notif','admin'));
