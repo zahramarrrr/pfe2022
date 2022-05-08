@@ -48,9 +48,12 @@ class HomeController extends Controller
             return view('Livreur',compact('notif' , 'livreur','commandes'));
         }
         else{
-            $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+            $search_text = isset($_GET['query']);
 
-            return view('Commerçant',compact('comm'));
+            $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+            $commandes = DB::table('commandes')->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+
+            return view('Commerçant',compact('comm','commandes'));
         }
     }
 }

@@ -31,13 +31,13 @@
 
             </thead>
             <tbody>
-              @foreach($commandes as $comm)
+              @foreach($commandes as $commande)
               <tr class="odd">
 
-                <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$com->ID_commande}}</td>
-                <td>{{$comm->date}}</td>
-                <td>{{$comm->telephone}}</td>
-                <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">{{$com->etat}}</button></td>
+                <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                <td>{{$commande->date}}</td>
+                <td>{{$commande->telephone}}</td>
+                <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">{{$commande->etat}}</button></td>
 
                 <td><a href="#" data-toggle="modal" data-target="#infos"><i class="material-icons"></i></a>
 
