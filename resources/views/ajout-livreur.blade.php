@@ -330,7 +330,7 @@
 								</div>
 							</div>
 							<div class="col-lg-6 d-flex align-items-stretch">
-								<div class="info-wrap w-100 p-5 img" style="background-image: url(assetsajout/images/img.png);">
+								<div class="info-wrap w-100 p-5 img" style="background-image: url(assetsajout/images/livreur.png);">
 			          </div>
 							</div>
 						</div>

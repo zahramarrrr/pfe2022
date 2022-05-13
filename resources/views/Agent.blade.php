@@ -44,9 +44,9 @@
                     <td><input type="checkbox" class="sub_chk" data-id="{{$com->id}}"></td>
 
                 <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$com->ID_commande}}</td>
-                <td>{{$com->date}}</td>
-                <td>{{$com->telephone}}</td>
-                <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">{{$com->etat}}</button></td>
+                <td>{{$com->Date}}</td>
+                <td>{{$com->Telephone}}</td>
+                <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">{{$com->Etat}}</button></td>
 
                 <td>
                   <button class='prep' data-id="{{$com->id}}"><input type="button" value="preparer"></button>

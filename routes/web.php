@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-
-
-
+use App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,9 +66,7 @@ Route::get('/ajout-agent', function () {
 Route::get('/ajout-livreur', function () {
     return view('ajout-livreur');
 });
-Route::get('/ajout-commerçant', function () {
-    return view('ajout-commerçant');
-});
+
 Route::get('/Statut', function () {
     return view('Statut');
 });
@@ -91,13 +87,15 @@ Route::get('/MDPcommercant', function () {
 Route::get('/MDPlivreur', function () {
     return view('MDPlivreur');
 });
-
+Route::get('/liste-commande-declare-admin', function () {
+    return view('liste-commande-declare-admin');
+});
 
 //route pour voir tout les notifications 
 route::get('liste-notification', [CommandeController::class, 'listenotif'])->name('listenotif');
 route::get('liste-notification-agent', [CommandeController::class, 'listenotifagent'])->name('listenotifagent');
 route::get('liste-notification-livreur', [CommandeController::class, 'listenotiflivreur'])->name('listenotiflivreur');
-
+//pour afficher le formulaire de declaration pour le commerçant
 route::get('Declarer', [CommandeController::class, 'addCommande'])->name('commande.add');
 route::post('Declarer-commande', [CommandeController::class, 'saveCommande'])->name('save.post');
 route::get('liste-commande-declare', [CommandeController::class, 'CommandeList'])->name('commande.List');
@@ -114,7 +112,7 @@ route::post('affecterlivreur', [CommandeController::class, 'affecterlivreur'])->
 
 route::get('liste-commandes-preparee', [CommandeController::class, 'ListprepareeAdmin'])->name('commande.preparee');
 
-route::get('liste_commande_declare_admin', [CommandeController::class, 'CommandeListAdmin'])->name('commande.ListAdmin');
+route::get('commande_declaree_admin', [CommandeController::class, 'CommandeListAdmin'])->name('commande_declaree_admin');
 route::get('Admin', [CommandeController::class, 'Commandenotif'])->name('Commande.notif');
 route::get('details', [CommandeController::class, 'Commandevalider'])->name('Commande.valider');
 route::get('Agent', [CommandeController::class, 'notifAgent'])->name('notif.Agent');
@@ -135,11 +133,18 @@ route::get('liste-validee', [CommandeController::class, 'listecommandevalidee'])
 route::post('liste-commande-validee', [CommandeController::class, 'maj'])->name('maj.validee');
 
 
+route::post('savemessage', [ContactsController::class, 'store'])->name('savemessage');
+route::get('contactview', [ContactsController::class, 'create'])->name('contactview');
 
 
 
 
 //pour l'ajout des agents livreurs et commerçants ( les fonctions)
+route::get('ajoutcom', [RegisteredUserController::class, 'ajoutcom'])->name('ajoutcom');
+route::get('ajoutagent', [RegisteredUserController::class, 'ajoutagent'])->name('ajoutagent');
+
+route::get('ajoutlivreur', [RegisteredUserController::class, 'ajoutlivreur'])->name('ajoutlivreur');
+
 route::post('ajouter-agent', [RegisteredUserController::class, 'storeagent'])->name('create.agent');
 route::post('ajouter-livreur', [RegisteredUserController::class, 'storelivreur'])->name('create.livreur');
 route::post('ajouter-comm', [RegisteredUserController::class, 'storecom'])->name('create.com');
@@ -185,9 +190,7 @@ Route::get('/declare', function () {
     return view('declare');
 });
 
-Route::get('contact', function () {
-    return view('contact');
-});
+
 Route::get('/contact-admin', function () {
     return view('contact-admin');
 });
@@ -207,6 +210,13 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 Route::get('redirects', 'HomeController@index');
 // route pour mail
+Route::get('/contact', function () {
+    return new App\Mail\Contact([
+      'nom' => 'Durand',
+      'email' => 'durand@chezlui.com',
+      'message' => 'Je voulais vous dire que votre site est magnifique !'
+      ]);
+});
 /*
 Route::get('send-mail', function () {
    

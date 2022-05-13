@@ -24,13 +24,13 @@ class CreateCommandesTable extends Migration
             $table->string('Nom')->default('');
             $table->string('Prenom')->default('');
             $table->integer('Telephone')->default(0);
-            $table->string('Email')->default('');
+            $table->string('Email')->default('')->nullable();
             $table->string('Adresse')->default('');
             $table->string('Governorat')->default('');
             $table->string('Ville')->default('');
             $table->integer('Code_postal')->default(0);
             $table->string('Paiement')->default('');
-            $table->integer('Poids')->default(0);
+            $table->integer('Poids')->default(0)->nullable();
             $table->integer('Prix')->default(0);
             $table->string('Description')->default('')->nullable();
             $table->string('Etat')->default('declaree');

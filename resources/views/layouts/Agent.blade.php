@@ -77,19 +77,49 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End espace-->
+   
 
-        <li class="nav-item dropdown">
+            <li class="nav-item dropdown">
+
+              <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-bell"></i>
+                <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
+              </a><!-- End Notification Icon -->
+
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
+                <li class="dropdown-header">
+                  Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
+                  <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                </li>
+                @foreach($notif as $notifs)
+
+                <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
+                  <li>
+                    <hr class='dropdown-divider'>
+                  </li>
+                  <div id='notif'>
+                    <li class='notification-item'>
+                      <i class='bi bi-exclamation-circle text-warning'></i>
+                      <div>
+                        <h4>
+                          {{$notifs->ID_Personnel}} {{$notifs->texte}} {{$notifs->ID_commande}}
+                        </h4>
+                      </div>
+                    </li>
+                  </div>
+            </li></a>
+            @endforeach
 
 
 
+          </ul><!-- End Notification Dropdown Items -->
 
 
         </li><!-- End Notification Nav -->
+
+
+
+
 
 
         <li class="nav-item dropdown pe-3">
@@ -150,7 +180,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
     <ul class="sidebar-nav" id="sidebar-nav">
    
       <li class="nav-item">
-        <a class="nav-link collapsed" href="contact">
+        <a class="nav-link collapsed" href="contactview">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -278,7 +308,6 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
     gtag('config', 'UA-23581568-13');
   </script>
   <!--===============================================================================================-->
-
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -297,7 +326,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 
       notifmsg = comm + msg +id;
       msg=notifmsg.replace(/["']/g, " ");
-      alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
+   //   alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
       oldcontent = document.getElementById('notif').innerHTML;
       document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });

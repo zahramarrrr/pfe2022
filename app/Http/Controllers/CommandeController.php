@@ -24,13 +24,12 @@ class CommandeController extends Controller
     //pour declarer une commande
     public function saveCommande(request $request)
     {
+       
         //dd($request);
         $newcommande = Commande::create([
 
-            'ID_commande' => $request->ID_commande,
+            'ID_commande' => $request->ID_commande->validate(),
 
-            'Date' => $request->Date,
-            'Heure' => $request->Heure,
             'Nom' => $request->Nom,
             'Prenom' => $request->Prenom,
             'Telephone' => $request->Telephone,
@@ -58,45 +57,56 @@ class CommandeController extends Controller
         $commandes = DB::table('commandes')->get();
         $comm = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('liste-commande-declare', compact('commandes','comm'));
+        return view('liste-commande-declare', compact('commandes', 'comm'));
     }
     public function CommandeList()
     {
         $commandes = DB::table('commandes')->get();
         $comm = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('liste-commande-declare', compact('commandes','comm'));
+        return view('liste-commande-declare', compact('commandes', 'comm'));
     }
 
 
+    //affichage des listes des commandes pour admin
+    //pour afficher la liste des commandes declarees 
+    public function CommandeListAdmin()
+    {
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        $commandes = DB::table('commandes')->where('Etat', 'declaree')->get();
+        return view('liste-commande-declare-admin', compact('commandes', 'admin', 'notif'));
+    }
+
+    //pour afficher la liste des commandes validées
 
     public function listecommandevalidee()
     {
         $commandes = DB::table('commandes')->where('Etat', 'validee')->get();
         $agents = DB::table('users')->where('role', 'agent')->get();
-        return view('liste-commande-validee', compact('commandes'),  compact('agents'));
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        return view('liste-commande-validee', compact('commandes', 'agents', 'notif', 'admin'));
     }
-
-
-
-    public function CommandeListAdmin()
-    {
-        $commandes = DB::table('commandes')->where('Etat', 'declaree')->get();
-        return view('liste-commande-declare-admin', compact('commandes'));
-    }
-
+       //pour afficher la liste des commandes preparées
+       public function ListprepareeAdmin()
+       {
+           $commandes = DB::table('commandes')->where('Etat', 'preparee')->get();
+           $livreurs = DB::table('users')->where('role', 'livreur')->get();
+           $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+           $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+   
+           return view('liste-commande-preparee', compact('commandes', 'livreurs','admin','notif'));
+       }
 
     public function Commandevalider()
     {
         $commandes = DB::table('commandes')->where('Etat', 'validee')->get();
         return view('details', compact('commandes'));
     }
-    public function ListprepareeAdmin()
-    {
-        $commandes = DB::table('commandes')->where('Etat', 'preparee')->get();
-        $livreurs = DB::table('users')->where('role', 'livreur')->get();
-        return view('liste-commandes-preparee', compact('commandes', 'livreurs'));
-    }
+ 
     public function CommandeListAgent()
     {
         $agents = DB::table('users')->where('role', 'agent')->get();
@@ -196,7 +206,9 @@ class CommandeController extends Controller
         $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('Admin', compact('notif', 'admin'));
+       // return view('Admin', compact('notif', 'admin'));
+
+        return redirect()->route('commande.validee');
     }
     //pour laffectation des agents
     public function affecteragent(Request $request)
@@ -326,19 +338,32 @@ class CommandeController extends Controller
     //pour afficher la liste des agents 
     public function listeagent()
     {
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        $search_text = isset($_GET['query']);
+        $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
+            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+        $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
         $agents = DB::table('users')->where('Role', 'agent')->get();
-        return view('ListeAgent', compact('agents'));
+        return view('ListeAgent', compact('agents', 'notif', 'commandes', 'admin'));
     }
 
     public function listecommercant()
     {
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+
         $comm = DB::table('users')->where('Role', 'commerçant')->get();
-        return view('Listecommercant', compact('comm'));
+        return view('Listecommercant', compact('comm', 'notif', 'admin'));
     }
+
     public function listeLivreur()
     {
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+
         $livreur = DB::table('users')->where('Role', 'livreur')->get();
-        return view('ListeLivreur', compact('livreur'));
+        return view('ListeLivreur', compact('livreur', 'admin', 'notif'));
     }
 
 
@@ -349,7 +374,7 @@ class CommandeController extends Controller
     public function Deletepersonnel($id)
     {
         DB::table('users')->where('id', $id)->delete();
-        return back()->with('agent_delete', 'agent deleted successfuly');
+        return back()->with('delete', ' deleted successfuly');
     }
     //pour editer les informations d'un agent
     public function Editagent($id)

@@ -135,13 +135,7 @@
   </li>
 
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="login">
-      <i class="bi bi-box-arrow-right"></i>
-      <span class="h6">Deconnexion</span>
-    </a>
-  </li>
-
+  
 </ul>
 <!-- End Profile -->
   </header>
@@ -172,7 +166,7 @@
           <i class="bi bi-box-arrow-in-right"></i>
                         @csrf
                         <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Déconnexion') }}
                         </a>
       </form>
     </ul>

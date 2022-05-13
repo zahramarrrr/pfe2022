@@ -75,6 +75,17 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Contact
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact query()
+ */
+	class Contact extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Notifications
  *
  * @property int $id
@@ -110,7 +121,7 @@ namespace App\Models{
  * @property string $Nom
  * @property string $Prenom
  * @property string $email
- * @property string $password
+ * @property string|null $password
  * @property string $Role
  * @property string $adresse
  * @property string $telephone

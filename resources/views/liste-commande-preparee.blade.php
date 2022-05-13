@@ -2,7 +2,7 @@
 @section("content")
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Liste des commandes validées</h1>
+        <h1>Liste des commandes préparées</h1>
         <nav>
             <ol class="breadcrumb">
             </ol>
@@ -15,19 +15,18 @@
 
 
     <div class="container">
-        <div class="height d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                affecter un agent
-              </button>
-        </div>
+
         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
-
+                    <div class="height d-flex justify-content-center align-items-center">
+                        <button type="button" class="btn btn-primary" id="affecter" data-toggle="modal" data-target="#exampleModal">
+                            affecter livreur</button>
+                    </div>
                     <div class="card-body">
 
 
-                        <table id="table" class="ui celled table" style="width:100%">
+                    <table id="table" class="ui celled table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th width="50px"><input type="checkbox" id="master"></th>
@@ -43,7 +42,7 @@
                             <tbody>
                                 @if($commandes->count())
 
-                                @foreach($commandes as $key => $commande)
+                                @foreach($commandes as $commande)
 
                                 <tr id="tr_{{$commande->id}}">
                                     <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
@@ -61,9 +60,11 @@
                                     </td>
 
 
+                                    </td>
                                 </tr>
 
                                 @endforeach
+
                                 @endif
 
                             </tbody>
@@ -76,16 +77,19 @@
             </div>
         </div>
     </div>
-  <!-- Modal -->
-              <div class="modal fade" id="basicModal" tabindex="-1">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Basic Modal</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    @if(Session::has('affecter'))
+
+
+</main>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header float-right">
+                <h5>User details</h5>
+                <div class="text-right"><i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i></div>
+            </div>
+            <div class="modal-body">
+                @if(Session::has('affecter'))
                 <span>{{Session::get('affecter')}} </span>
                 @endif
 
@@ -103,14 +107,14 @@
                         </thead>
                         <tbody>
 
-                            @foreach($agents as $agent)
+                            @foreach($livreurs as $livreur)
 
                             <tr>
 
-                                <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">{{$agent->id}}</td>
-                                <td>{{$agent->Nom}}</td>
-                                <td>{{$agent->email}}</td>
-                                <td><button class='affectagent' data-id="{{$agent->id}}"><input type="button" value="Affecter"></button></td>
+                                <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">{{$livreur->id}}</td>
+                                <td>{{$livreur->Nom}}</td>
+                                <td>{{$livreur->email}}</td>
+                                <td><button class='affectlivreur' data-id="{{$livreur->id}}"><input type="button" value="Affecter"></button></td>
 
 
                             </tr>
@@ -120,17 +124,15 @@
 
                         </tbody>
                     </table>
-                </div>                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
                 </div>
-              </div><!-- End Basic Modal-->
 
-            </main>
+            </div>
+        </div>
 
-
-
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">fermer</button>
+        </div>
+    </div>
+</div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Notifications;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -42,15 +43,15 @@ class RegisteredUserController extends Controller
         // need to show to the user. Finally, we'll send out a proper response.
        
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'Nom' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'prenom' => $request->prenom,
+            'Nom' => $request->Nom,
+            'Prenom' => $request->Prenom,
             'adresse' => $request->adresse,
-            'tel' => $request->tel,
+            'telephone' => $request->telephone,
             'email' => $request->email,
             'Role' => 'agent',
         ]);
@@ -58,8 +59,10 @@ class RegisteredUserController extends Controller
             $request->only('email')
         );
         $agents = DB::table('users')->where('Role','agent')->get();
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return  view('ListeAgent', compact('agents'));
+        return  view('ListeAgent', compact('agents','notif','admin'));
          $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))
                     : back()->withInput($request->only('email'))
@@ -74,15 +77,15 @@ class RegisteredUserController extends Controller
     public function storelivreur(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'Nom' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'prenom' => $request->prenom,
+            'Nom' => $request->Nom,
+            'Prenom' => $request->Prenom,
             'adresse' => $request->adresse,
-            'tel' => $request->tel,
+            'telephone' => $request->telephone,
             'email' => $request->email,
             'Role' => 'livreur',
         ]);
@@ -90,8 +93,10 @@ class RegisteredUserController extends Controller
             $request->only('email')
         );
         $livreur = DB::table('users')->where('Role', 'livreur')->get();
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return  view('ListeLivreur', compact('livreur'));
+        return  view('ListeLivreur', compact('livreur','notif','admin'));
          $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))
                     : back()->withInput($request->only('email'))
@@ -106,15 +111,15 @@ class RegisteredUserController extends Controller
     public function storecom(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'Nom' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'prenom' => $request->prenom,
+            'Nom' => $request->Nom,
+            'Prenom' => $request->Prenom,
             'adresse' => $request->adresse,
-            'tel' => $request->tel,
+            'telephone' => $request->telephone,
             'email' => $request->email,
             'Role' => 'commerçant',
         ]);
@@ -122,8 +127,10 @@ class RegisteredUserController extends Controller
             $request->only('email')
         );
         $comm = DB::table('users')->where('Role', 'commerçant')->get();
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return  view('Listecommercant', compact('comm'));
+        return  view('Listecommercant', compact('comm','admin','notif'));
          $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))
                     : back()->withInput($request->only('email'))
@@ -135,6 +142,33 @@ class RegisteredUserController extends Controller
 
       //  return redirect(RouteServiceProvider::HOME);
     }
-    
+    public function ajoutcom()
+    {
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        $search_text = isset($_GET['query']);
+
+        $comm = DB::table('users')->where('Role', 'commerçant')
+        ->where('id', 'LIKE', '%' . $search_text . '%')->get();
+      return view('ajout-commerçant', compact('comm','notif','admin'));
+    }
+    public function ajoutagent()
+    {
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        $search_text = isset($_GET['query']);
+        $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
+            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+        $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
+      return view('ajout-agent', compact('commandes','notif','admin'));
+    }
+    public function ajoutlivreur()
+    {
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        $search_text = isset($_GET['query']);
+        $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
+            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+        $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
+      return view('ajout-livreur', compact('commandes','notif','admin'));
+    }
 }
 

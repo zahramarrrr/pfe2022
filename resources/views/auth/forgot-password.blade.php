@@ -31,15 +31,15 @@
 
 </head>
 
-<body>
+<body style="background-image: url('{{asset('assets/login/images/bg.png')}}')" >
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
+            <div href="index.html" class="logo d-flex align-items-center">
                 <img src="assetswelcome/img/logo.png" alt="">
                 <span>MaCommande</span>
-            </a>
+</div>
 
             <nav id="navbar" class="navbar">
                 <ul>
