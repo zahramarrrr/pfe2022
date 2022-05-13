@@ -104,10 +104,9 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-              
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
+
+                <x-button class="ml-3"  class="form-control btn btn-primary rounded submit px-3">
+                    {{ __('Reinitialiser mot de passe') }}
                 </x-button>
             </div>
         </form>

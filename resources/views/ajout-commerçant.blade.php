@@ -12,7 +12,9 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6 text-center mb-5">
+
             <h2 class="heading-section">Ajouter un commerçant:</h2>
+
           </div>
         </div>
         <div class="row justify-content-center">
@@ -69,7 +71,8 @@
 								</div>
 							</div>
 							<div class="col-lg-6 d-flex align-items-stretch">
-								<div class="info-wrap w-100 p-5 img" src='{{asset("assetsajout/images/commerçant.png") }}'>
+								<div class="info-wrap w-100 p-5 img" style="background-image: url(assetsajout/images/commerçant.png);">
+
 			          </div>
 							</div>
 						</div>
@@ -80,7 +83,5 @@
 	
 
   </main><!-- End #main -->
-
+  @endsection
 	
-
-@endsection

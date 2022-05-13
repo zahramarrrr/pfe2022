@@ -252,6 +252,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
       <a class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
         {{ __('Déconnexion') }}
       </a>
+
     </form>
 
     <!-- End Login Page Nav -->
@@ -290,6 +291,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
   <script src='{{asset("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js") }}' type='text/javascript'></script>
 
   <script>
+    <script src="assetsajout/js/jquery.min.js"></script>
+  <script src="assetsajout/js/popper.js"></script>
+  <script src="assetsajout/js/bootstrap.min.js"></script>
+  <script src="assetsajout/js/jquery.validate.min.js"></script>
+  <script src="assetsajout/js/main.js"></script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 

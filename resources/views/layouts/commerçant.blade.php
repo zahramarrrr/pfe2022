@@ -135,7 +135,15 @@
   </li>
 
 
-  
+
+  <li>
+    <a class="dropdown-item d-flex align-items-center" href="login">
+      <i class="bi bi-box-arrow-right"></i>
+      <span class="h6">Deconnexion</span>
+    </a>
+  </li>
+
+
 </ul>
 <!-- End Profile -->
   </header>
