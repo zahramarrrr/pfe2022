@@ -11,7 +11,7 @@ use App\Models\Notifications;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Validator;
 
 class CommandeController extends Controller
 {
@@ -24,12 +24,43 @@ class CommandeController extends Controller
     //pour declarer une commande
     public function saveCommande(request $request)
     {
-       
-        //dd($request);
+        $request->validate(
+            [
+                'Code_postal' => 'required|alpha_num',
+                'ID_commande' => 'required|unique:commandes,ID_commande',
+                'Nom' => 'required|alpha',
+                'Prenom' => 'required|alpha',
+                'Telephone' => 'required|alpha_num',
+                'Adresse' => 'required',
+                'Governorat' => 'required',
+                'Ville' => 'required',
+               // 'Email' => 'email:rfc,dns',
+                'Prix' => 'required_if:Paiement,livraison',
+
+ ],
+            [
+                'Nom.required' => 'le nom du client est obligatoir',
+                'Nom.alpha' => 'Le nom ne doit contenir que des lettres.',
+                'Prenom.required' => 'le Prenom du client est obligatoir',
+                'Prenom.alpha' => 'le Prenom ne doit contenir que des lettres.',
+                'Telephone.required' => 'le numéro du téléphone est obligatoire',
+                'Telephone.digits_between' => 'le numéro du téléphone est invalide',
+
+                'Adresse.required' => ' Adresse du client est obligatoir',
+                'Governorat.required' => ' Governorat du client est obligatoir',
+                'Ville.required' => ' Ville du client est obligatoir',
+                'Prix.required_if' => ' le prix est obligatoire car le paiement est a la livraison',
+               // 'Email.email' => 'email invalide',
+                'Code_postal.required' => 'le code postal doit etre de 4 chiffre',
+                'Code_postal.digits_between' => 'le code postal  est obligatoir',
+
+                'ID_commande.required' => 'la références du commande est obligatoire',
+                'ID_commande.unique' => 'la références du commande doit etre unique'
+            ]
+        );
+        $id=Auth::user()->id;
         $newcommande = Commande::create([
-
-            'ID_commande' => $request->ID_commande->validate(),
-
+            'ID_commande' => $request->ID_commande,
             'Nom' => $request->Nom,
             'Prenom' => $request->Prenom,
             'Telephone' => $request->Telephone,
@@ -43,28 +74,29 @@ class CommandeController extends Controller
             'Prix' => $request->Prix,
 
             'Description' => $request->Description,
+            'commercant' => $id,
         ]);
+        $newcommande->save();
 
         DB::table('Notifications')->insert([
             'ID_Personnel' =>  Auth::user()->id,
             'Type' => 'commerçant',
             'texte' => 'a déclaré la commande',
             'Notifiable' => 'admin',
-            'ID_commande' => $newcommande->ID_commande
+            'ID_commande' => $newcommande->id
         ]);
 
-        event(new MyEvenet([route('commande.details', ['id' => $newcommande->id]), Auth::user()->id, 'a déclaré la commande', $request->ID_commande]));
-        $commandes = DB::table('commandes')->get();
-        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+        event(new MyEvenet([route('commande.details', ['id' => $newcommande->id]), Auth::user()->Nom, 'a déclaré la commande',  $newcommande->id]));
+        return redirect()->route('commande.declaree');
 
-        return view('liste-commande-declare', compact('commandes', 'comm'));
     }
-    public function CommandeList()
+    //pour afficher la liste des commandes déclarées par commerçant
+    public function commande_declare()
     {
-        $commandes = DB::table('commandes')->get();
+        $commandes = DB::table('commandes')->where('commercant', Auth::user()->id)->get();
         $comm = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('liste-commande-declare', compact('commandes', 'comm'));
+        return view('Commerçant', compact('commandes', 'comm'));
     }
 
 
@@ -74,9 +106,11 @@ class CommandeController extends Controller
     {
         $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+        ->first(['users.*', 'notifications.*']);
 
         $commandes = DB::table('commandes')->where('Etat', 'declaree')->get();
-        return view('liste-commande-declare-admin', compact('commandes', 'admin', 'notif'));
+        return view('liste-commande-declare-admin', compact('commandes', 'admin', 'notif','user'));
     }
 
     //pour afficher la liste des commandes validées
@@ -87,26 +121,28 @@ class CommandeController extends Controller
         $agents = DB::table('users')->where('role', 'agent')->get();
         $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+        ->first(['users.*', 'notifications.*']);
 
-        return view('liste-commande-validee', compact('commandes', 'agents', 'notif', 'admin'));
+        return view('liste-commande-validee', compact('commandes', 'agents', 'notif', 'admin','user'));
     }
-       //pour afficher la liste des commandes preparées
-       public function ListprepareeAdmin()
-       {
-           $commandes = DB::table('commandes')->where('Etat', 'preparee')->get();
-           $livreurs = DB::table('users')->where('role', 'livreur')->get();
-           $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
-           $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-   
-           return view('liste-commande-preparee', compact('commandes', 'livreurs','admin','notif'));
-       }
+    //pour afficher la liste des commandes preparées
+    public function ListprepareeAdmin()
+    {
+        $commandes = DB::table('commandes')->where('Etat', 'preparee')->get();
+        $livreurs = DB::table('users')->where('role', 'livreur')->get();
+        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        return view('liste-commande-preparee', compact('commandes', 'livreurs', 'admin', 'notif'));
+    }
 
     public function Commandevalider()
     {
         $commandes = DB::table('commandes')->where('Etat', 'validee')->get();
         return view('details', compact('commandes'));
     }
- 
+
     public function CommandeListAgent()
     {
         $agents = DB::table('users')->where('role', 'agent')->get();
@@ -132,7 +168,7 @@ class CommandeController extends Controller
     //pour afficher la page details
     public function Commandedetails($id)
     {
-        $commande = DB::table('commandes')->where('ID_commande', $id)->first();
+        $commande = DB::table('commandes')->where('id', $id)->first();
         return view('details', compact('commande'));
     }
     //pour afficher 5 notifications
@@ -203,11 +239,7 @@ class CommandeController extends Controller
 
 
         ]);
-        $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
-        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-
-       // return view('Admin', compact('notif', 'admin'));
-
+     
         return redirect()->route('commande.validee');
     }
     //pour laffectation des agents
@@ -624,6 +656,10 @@ class CommandeController extends Controller
     public function mdp(Request $request)
     {
         return view('MDPagent', ['request' => $request]);
+    }
+    public function mdp_commercant(Request $request)
+    {
+        return view('MDPcommercant');
     }
     public function updatemdp(Request  $request)
     {

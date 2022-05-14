@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Notifications;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,10 +23,15 @@ class HomeController extends Controller
     {
         $role = Auth::user()->Role;
         if ($role == 'admin') {
-            $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
+            $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)
+            ->orderBy('id', 'desc')
+            ->get();
+            $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+            ->first(['users.*', 'notifications.*']);
+
             $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
-            return view('Admin', compact('notif', 'admin'));
+            return view('Admin', compact('notif', 'admin','user'));
         } elseif ($role == 'agent') {
             $agent = DB::table('users')->where('id', Auth::user()->id)->first();
             $search_text = isset($_GET['query']);

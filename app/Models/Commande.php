@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Commande extends Model
 {
+
+
     use HasFactory;
     protected $table = "commandes";
     protected $fillable = [
         'ID_commande',
-
-        'Date',
-        'Heure',
+     
+   
         'Nom',
         'Prenom',
         'Telephone',

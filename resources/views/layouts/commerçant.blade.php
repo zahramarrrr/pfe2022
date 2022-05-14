@@ -75,6 +75,8 @@
 <!--===============================================================================================-->
 <link href="assets/declaration/css/main.css" rel="stylesheet" media="all">
 <!--===============================================================================================-->
+<link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+
 </head>
 <body>
   <!-- ======= Header ======= -->
@@ -125,7 +127,7 @@
   </li>
 
   <li>
-    <a class="dropdown-item d-flex align-items-center" href="mdp">
+    <a class="dropdown-item d-flex align-items-center" href="mdpcommercant">
       <i class="bi bi-gear"></i>
       <span class="h6">Changer mot de passe</span>
     </a>
@@ -139,7 +141,13 @@
   <li>
     <a class="dropdown-item d-flex align-items-center" href="login">
       <i class="bi bi-box-arrow-right"></i>
-      <span class="h6">Deconnexion</span>
+      <span class="h6">      <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+                        @csrf
+                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Déconnexion') }}
+                        </a>
+      </form></span>
     </a>
   </li>
 
@@ -264,5 +272,17 @@
   </script>
 <!--===============================================================================================-->
 	<script src='{{asset("assets/contact/js/main.js") }}'></script>
+  <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+ </script>
+       <script>
+       $(document).ready( function () {
+    $('#table').DataTable({
+      language: {
+                    url: "{{ asset('assets/datatable-fr-FR.json') }}"
+                },
+                "searching": true
+            });
+} );
+</script>
  </body>
 </html>

@@ -48,7 +48,7 @@
                                 <tr id="tr_{{$commande->id}}">
                                     <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                                    <td>{{$commande->Date}}</td>
+                                    <td></td>
                                     <td>{{$commande->Telephone}}</td>
                                     <td>
                                         <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details

@@ -5,13 +5,7 @@
 
     <div class="pagetitle">
   <h1>profile</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/Commer%C3%A7ant">Page d'accueil</a></li>
-
-          <li class="breadcrumb-item active">Profile</li>
-        </ol>
-      </nav>
+    
     </div><!-- End Page Title -->
 
     <section class="section profile">
@@ -22,7 +16,7 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-              <h2>{{$comm-> prenom}} {{$comm-> name}} </h2>
+              <h2>{{$comm-> Prenom}} {{$comm-> Nom}} </h2>
               <h3>{{$comm-> Role}}</h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>

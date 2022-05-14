@@ -103,11 +103,11 @@ $NotificationsCommandes = Notifications::all();
           <tbody>
             <tr class="space-row">
               <th>date:</th>
-              <td id="date-val">{{$commande->Date}}</td>
+              <td id="date-val"></td>
             </tr>
             <tr class="space-row">
               <th>temps:</th>
-              <td id="temps-val">{{$commande->Heure}}</td>
+              <td id="temps-val"></td>
             </tr>
             <tr class="space-row">
               <th>nom:</th>

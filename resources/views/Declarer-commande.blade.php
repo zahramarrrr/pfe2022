@@ -16,8 +16,19 @@
                     @if(Session::has('post_add'))
                     <span>{{Session::get('post_add')}} </span>
                     @endif
+                     
+<!-- @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif -->
                     <form class="register-form" id="register-form" method="post" action="{{ route('save.post') }}">
                         @csrf
+                       
                         <div class="form-row m-b-55">
 
                             <div class="value">
@@ -27,7 +38,9 @@
                                         <div class="name">Nom</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Nom" id="Nom">
-
+                                            @if ($errors->has('Nom'))
+                                    <span class="text-danger">{{ $errors->first('Nom') }}</span>
+                                @endif
                                         </div>
                                     </div>
 
@@ -35,7 +48,9 @@
                                         <div class="name">Prénom</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Prenom" id="Prenom"  >
-
+                                            @if ($errors->has('Prenom'))
+                                    <span class="text-danger">{{ $errors->first('Prenom') }}</span>
+                                @endif
                                         </div>
                                     </div>
                                 </div>
@@ -49,7 +64,7 @@
                                         <div class="name">Adresse d'email</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Email" id="Email">
-
+                                            
                                         </div>
                                     </div>
 
@@ -57,7 +72,9 @@
                                         <div class="name" class="label1">Télèphone</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Telephone" id="Telephone"  >
-
+                                            @if ($errors->has('Telephone'))
+                                    <span class="text-danger">{{ $errors->first('Telephone') }}</span>
+                                @endif
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +88,9 @@
                                         <div class="name">Adresse</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Adresse" id="Adresse"  >
-
+                                            @if ($errors->has('Adresse'))
+                                    <span class="text-danger">{{ $errors->first('Adresse') }}</span>
+                                @endif
                                         </div>
                                     </div>
 
@@ -80,8 +99,8 @@
                                         <div class="value">
                                             <div class="input-group">
                                                 <div class="rs-select2 js-select-simple select--no-search">
-                                                    <select   name="Governorat" id="Governorat" >
-                                                        <option value="0">Gouvernorat</option>
+                                                    <select  name="Governorat" id="Governorat" class="form-control" >
+                                                        <option value="" disabled selected>Gouvernorat</option>
                                                         <option value="ARIANA">ARIANA</option>
                                                         <option value="BEJA">BEJA</option>
                                                         <option value="BEN AROUS">BEN AROUS</option>
@@ -107,6 +126,9 @@
                                                         <option value="TUNIS">TUNIS</option>
                                                         <option value="ZAGHOUAN">ZAGHOUAN</option>
                                                     </select>
+                                                    @if ($errors->has('Governorat'))
+                                    <span class="text-danger">{{ $errors->first('Governorat') }}</span>
+                                @endif
                                                     <div class="select-dropdown"></div>
                                                 </div>
                                             </div>
@@ -126,7 +148,9 @@
                                         <div class="name">Ville</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Ville" id="Ville"  >
-
+                                            @if ($errors->has('Ville'))
+                                    <span class="text-danger">{{ $errors->first('Ville') }}</span>
+                                @endif
                                         </div>
                                     </div>
 
@@ -134,7 +158,9 @@
                                         <div class="name">Code postal</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Code_postal" id="Code_postal"  >
-
+                                            @if ($errors->has('Code_postal'))
+                                    <span class="text-danger">{{ $errors->first('Code_postal') }}</span>
+                                @endif
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +174,9 @@
                                         <div class="name">ID commande</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text"  name="ID_commande" id="ID_commande"  >
-
+                                            @if ($errors->has('ID_commande'))
+                                    <span class="text-danger">{{ $errors->first('ID_commande') }}</span>
+                                @endif
                                         </div>
                                     </div>
 
@@ -169,7 +197,9 @@
                                         <div class="name">Prix totale</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Prix" id="Prix"  >
-
+                                            @if ($errors->has('Prix'))
+                                    <span class="text-danger">{{ $errors->first('Prix') }}</span>
+                                @endif
                                         </div>
                                     </div>
 
@@ -178,12 +208,19 @@
                                         <div class="value">
                                             <div class="input-group">
                                                 <div class="rs-select2 js-select-simple select--no-search">
-                                                    <select name="Paiement">
+                                                <input type="radio" name="Paiement" value="livraison" id="livraison"/>      <label for="Paiement">livraison</label>
+
+                                                <input type="radio" name="Paiement" checked value="enligne" id='enligne'/>  <label for="Paiement">enligne</label>
+
+                                                <!--     <select name="Paiement" class="form-control">
                                                         <option disabled="disabled" selected="selected" id="Paiement">Mode de paiement</option>
                                                         <option value="livraison">a la livraison</option>
                                                         <option value="enligne">en ligne</option>
 
-                                                    </select>
+                                                    </select> -->
+                                                    @if ($errors->has('Paiement'))
+                                    <span class="text-danger">{{ $errors->first('Paiement') }}</span>
+                                @endif
                                                     <div class="select-dropdown"></div>
                                                 </div>
                                             </div>
@@ -200,7 +237,7 @@
                                         <div class="name">Poids</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Poids" id="Poids">
-
+                                           
                                         </div>
                                     </div>
 
@@ -218,10 +255,12 @@
                         <div>
                             <a href="{{route('list')}}"> <input class="btn btn--radius-2 btn--red" type="submit" value="Déclarer" id="submit" name="submit"> </a>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
+                         
 
     @endsection

@@ -54,5 +54,6 @@ class CreateCommandesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('commandes');
+     
     }
 }

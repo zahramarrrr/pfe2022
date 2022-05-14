@@ -42,6 +42,7 @@ return array(
     'App\\Http\\Middleware\\UserAuthenticated' => $baseDir . '/app/Http/Middleware/UserAuthenticated.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
+    'App\\Http\\Requests\\StorePostRequest' => $baseDir . '/app/Http/Requests/StorePostRequest.php',
     'App\\Mail\\Contact' => $baseDir . '/app/Mail/Contact.php',
     'App\\Models\\Commande' => $baseDir . '/app/Models/Commande.php',
     'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',

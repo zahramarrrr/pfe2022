@@ -113,7 +113,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
                       <i class='bi bi-exclamation-circle text-warning'></i>
                       <div>
                         <h4>
-                          {{$notifs->ID_Personnel}} {{$notifs->texte}} {{$notifs->ID_commande}}
+                       {{$user->Nom}}  {{$notifs->texte}} {{$notifs->ID_commande}}
                         </h4>
                       </div>
                     </li>
@@ -290,12 +290,12 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
   <script src='{{asset("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js") }}'></script>
   <script src='{{asset("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js") }}' type='text/javascript'></script>
 
-  <script>
     <script src="assetsajout/js/jquery.min.js"></script>
   <script src="assetsajout/js/popper.js"></script>
   <script src="assetsajout/js/bootstrap.min.js"></script>
   <script src="assetsajout/js/jquery.validate.min.js"></script>
   <script src="assetsajout/js/main.js"></script>
+  <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
@@ -486,9 +486,14 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
 
         });
     </script>
-       <script>
+      <script>
        $(document).ready( function () {
-    $('#table').DataTable();
+    $('#table').DataTable({
+      language: {
+                    url: "{{ asset('assets/datatable-fr-FR.json') }}"
+                },
+                "searching": true
+            });
 } );
 </script>
 <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

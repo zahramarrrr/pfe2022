@@ -15,19 +15,17 @@ namespace App\Models{
  * App\Models\Commande
  *
  * @property int $id
- * @property string $Date
- * @property string $Heure
  * @property int $ID_commande
  * @property string $Nom
  * @property string $Prenom
  * @property int $Telephone
- * @property string $Email
+ * @property string|null $Email
  * @property string $Adresse
  * @property string $Governorat
  * @property string $Ville
  * @property int $Code_postal
  * @property string $Paiement
- * @property int $Poids
+ * @property int|null $Poids
  * @property int $Prix
  * @property string|null $Description
  * @property string $Etat
@@ -46,7 +44,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereAdresse($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereCodePostal($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Commande whereDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereDateAffectAgent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereDateAffectLivreur($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereDateLivraison($value)
@@ -56,7 +53,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereEtat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereGovernorat($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Commande whereHeure($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereIDAgent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereIDCommande($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereIDLivreur($value)
@@ -121,7 +117,7 @@ namespace App\Models{
  * @property string $Nom
  * @property string $Prenom
  * @property string $email
- * @property string|null $password
+ * @property string $password
  * @property string $Role
  * @property string $adresse
  * @property string $telephone

@@ -626,6 +626,7 @@ class ComposerStaticInit957ae71b2ccf96a84a067844617e0023
         'App\\Http\\Middleware\\UserAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/UserAuthenticated.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
+        'App\\Http\\Requests\\StorePostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StorePostRequest.php',
         'App\\Mail\\Contact' => __DIR__ . '/../..' . '/app/Mail/Contact.php',
         'App\\Models\\Commande' => __DIR__ . '/../..' . '/app/Models/Commande.php',
         'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',

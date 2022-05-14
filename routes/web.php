@@ -98,7 +98,7 @@ route::get('liste-notification-livreur', [CommandeController::class, 'listenotif
 //pour afficher le formulaire de declaration pour le commerçant
 route::get('Declarer', [CommandeController::class, 'addCommande'])->name('commande.add');
 route::post('Declarer-commande', [CommandeController::class, 'saveCommande'])->name('save.post');
-route::get('liste-commande-declare', [CommandeController::class, 'CommandeList'])->name('commande.List');
+route::get('liste-commande-declare', [CommandeController::class, 'commande_declare'])->name('commande.declaree');
 route::get('edit-commande/{id}', [CommandeController::class, 'EditCommande'])->name('commande.edit');
 route::get('/delete-commande/{id}', [CommandeController::class, 'DeleteCommande'])->name('commande.delete');
 route::post('update-commande', [CommandeController::class, 'updateCommande'])->name('update.commande');
@@ -180,6 +180,7 @@ route::post('preparer', [CommandeController::class, 'preparer'])->name('preparer
 
 route::post('updatemdp', [CommandeController::class, 'updatemdp'])->name('updatemdp');
 
+route::get('mdpcommercant', [CommandeController::class, 'mdp_commercant'])->name('mdp_commercant');
 
 route::get('mdp', [CommandeController::class, 'mdp'])->name('mdp');
 Route::get('/index', function () {
