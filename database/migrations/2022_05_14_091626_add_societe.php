@@ -13,13 +13,7 @@ class AddSociete extends Migration
      */
     public function up()
     {
-        Schema::table('commandes', function (Blueprint $table) {
-
-            $table->string('societe');
-
-
-          
-        });
+        
         Schema::table('users', function (Blueprint $table) {
             $table->string('societe');
 

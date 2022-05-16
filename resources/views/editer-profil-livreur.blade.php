@@ -8,7 +8,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="Livreur">page d'accueil</a></li>
 
-                    <li class="breadcrumb-item active">Profil</li>
+                    <li class="breadcrumb-item active">Editer le profile</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -39,10 +39,7 @@
                         <!-- Bordered Tabs -->
                         <ul class="nav nav-tabs nav-tabs-bordered">
 
-                            <li class="nav-item">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Editer Profil</button>
-                            </li>
-
+                           
                         </ul>
                         <!-- Profile Edit Form -->
                         <form method="POST" action="{{ route('update.profillivreur') }}">
@@ -99,7 +96,7 @@
 
                                 <div class="text-center">
                                     
-                                <button type="submit" class="btn-primary1">Enregistrer les modifications</button>
+                                <button type="submit" class="btn2">Enregistrer les modifications</button>
                                     
                                 </div>
                         </form><!-- End Profile Edit Form -->

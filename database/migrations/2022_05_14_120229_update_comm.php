@@ -15,7 +15,7 @@ class UpdateComm extends Migration
     {
         Schema::table('commandes', function (Blueprint $table) {
 
-            $table->unsignedBigInteger('commercant')->default(0)->nullable()->change();
+            $table->unsignedBigInteger('commercant')->default(0)->nullable();
 
 
           

@@ -97,8 +97,25 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
   </li><!-- End Notification Nav -->
 
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="editer-profil-livreur/{{Auth::user()->id}}">
+                <i class="bi bi-gear"></i>
+                <span class="h6">Editer profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="mdplivreur">
+                <i class="bi bi-gear"></i>
+                <span class="h6">Changer mot de passe</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
 
 
@@ -162,13 +179,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
         <a class="nav-link collapsed" href="http://127.0.0.1:8000/Declarer-commande">
-          <i class="bi bi-journal-text"></i><span>Déclarer une commande rétournée</span>
+        <i class="bi bi-bag-plus"></i><span>Déclarer une commande rétournée</span>
         </a>
 
       </li><!-- End declarer commande nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="http://127.0.0.1:8000/Declarer-commande">
-          <i class="bi bi-journal-text"></i><span>Liste des commandes retournées</span>
+        <i class="bi bi-bag"></i><span>Liste des commandes retournées</span>
         </a>
 
       </li>
@@ -191,7 +208,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
         <a class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
           {{ __('Déconnexion') }}
         </a>
+
       </form>
+      
       <!-- END contact -->
 
 

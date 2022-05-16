@@ -19,6 +19,7 @@ $agent = DB::table('users')->where('id', Auth::user()->id)->first();
 
         return view('contactadmin',compact('user','notif','agent'));
     }
+
  
     public function store(Request $request)
     {

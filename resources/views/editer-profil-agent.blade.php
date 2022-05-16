@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
                         <h2>{{$agent-> Nom}} {{$agent-> Prenom}} </h2>
                         <h3>{{$agent-> Role}}</h3>
                         <div class="social-links mt-2">
@@ -40,13 +40,11 @@
 
 
 
-                     <h5 class="card-title">Informations personnelles:</h5>
+                     
                         <!-- Bordered Tabs -->
                         <ul class="nav nav-tabs nav-tabs-bordered">
 
-                            <li class="nav-item">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Editer Profil</button>
-                            </li>
+                           
 
                         </ul>
                         <!-- Profile Edit Form -->
@@ -55,23 +53,24 @@
                             <div class="row mb-3">
 
 
-
+                            <div class="tab-content pt-2">
+                                <h5 class="card-title">Informations personnelles:</h5>
                                 <div class="row mb-3">
-                                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nom </label>
+                                    <label for="fullName" class="col-lg-3 col-md-4 label ">Nom: </label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="Nom" id="Nom" value="{{$agent->Nom}}">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="about" class="col-md-4 col-lg-3 col-form-label">prénom</label>
+                                    <label for="about" class="col-lg-3 col-md-4 label ">Prénom:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="Prenom" id="Prenom" value="{{$agent->Prenom}}" />
 
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Poste</label>
+                                    <label for="Job" class="col-lg-3 col-md-4 label ">Poste:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="Role" id="Role" value="{{$agent->Role}}">
                                     </div>
@@ -80,21 +79,21 @@
 
 
                                 <div class="row mb-3">
-                                    <label for="Address" class="col-md-4 col-lg-3 col-form-label">Addresse</label>
+                                    <label for="Address" class="col-lg-3 col-md-4 label ">Adresse:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="adresse" id="adresse" value="{{$agent->adresse}}">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">téléphone</label>
+                                    <label for="Phone" class="col-lg-3 col-md-4 label ">Téléphone:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="telephone" id="telephone" value="{{$agent->telephone}}">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                                    <label for="Email" class="col-lg-3 col-md-4 label ">Adresse d'email:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="email" class="form-control" name="email" id="email" value="{{$agent->email}}">
                                     </div>
@@ -103,7 +102,7 @@
 
                                 <div class="text-center">
                                     
-                                        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                                        <button type="submit" class="btn2">Enregistrer les modifications</button>
                                     
                                 </div>
                         </form><!-- End Profile Edit Form -->

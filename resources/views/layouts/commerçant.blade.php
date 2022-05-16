@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Espace commerçant</title>
+  <title>Commerçant</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
    <!--===============================================================================================-->
@@ -60,22 +60,11 @@
 <!--===============================================================================================-->
 <link rel="icon" type="image/png" href='{{asset("images/icons/favicon.ico") }}'/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href='{{asset("assets/contactadmin/vendor/bootstrap/css/bootstrap.min.css") }}'>
+
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href='{{asset("assets/contactadmin/fonts/font-awesome-4.7.0/css/font-awesome.min.css") }}'>
+<link href='{{asset("assets/declaration/css/main.css") }}' rel="stylesheet" media="all">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href='{{asset("assets/contactadmin/vendor/animate/animate.css") }}'>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href='{{asset("assets/contactadmin/vendor/css-hamburgers/hamburgers.min.css") }}'>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href='{{asset("assets/contactadmin/vendor/select2/select2.min.css") }}'>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href='{{asset("assets/contactadmin/css/util.css") }}'>
-	<link rel="stylesheet" type="text/css" href='{{asset("assets/contactadmin/css/main.css") }}'>
-<!--===============================================================================================-->
-<link href="assets/declaration/css/main.css" rel="stylesheet" media="all">
-<!--===============================================================================================-->
-<link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href='{{asset("//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css") }}' rel="stylesheet">
 
 </head>
 <body>
@@ -103,56 +92,37 @@
     <span class="h6" >Commerçant</span>
   </li>
   <li>
-    <hr class="dropdown-divider">
-  </li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="profilcommercant">
-      <i class="bi bi-person"></i>
-      <span class="h6">Mon Profil</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="profilAgent">
+                <i class="bi bi-person"></i>
+                <span class="h6">Mon Profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="editer-profil-commercant/{{$comm->id}}">
-      <i class="bi bi-gear"></i>
-      <span class="h6">Editer profil</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="mdpcommercant">
-      <i class="bi bi-gear"></i>
-      <span class="h6">Changer mot de passe</span>
-    </a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-
-
-
-  <li>
-    <a class="dropdown-item d-flex align-items-center" href="login">
-      <i class="bi bi-box-arrow-right"></i>
-      <span class="h6">      <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-                        @csrf
-                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Déconnexion') }}
-                        </a>
-      </form></span>
-    </a>
-  </li>
-
-
-</ul>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
+                <i class="bi bi-gear"></i>
+                <span class="h6">Editer profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="mdpagent">
+                <i class="bi bi-gear"></i>
+                <span>Changer mot de passe</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 <!-- End Profile -->
   </header>
   <!-- End Header -->
@@ -163,12 +133,12 @@
     
     <li class="nav-item">
         <a class="nav-link collapsed"href="Declarer">
-          <i class="bi bi-journal-text"></i><span>Déclarer une commande</span>
+        <i class="bi bi-bag-plus"></i><span>Déclarer une commande</span>
         </a>
         </li><!-- End declarer commande nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="liste-commande-declare">
-          <i class="bi bi-layout-text-window-reverse"></i>
+        <i class="bi bi-bag"></i>
           <span>la liste des commandes déclarées</span>
         </a>
       </li><!-- End liste des commandes nav -->
@@ -178,14 +148,20 @@
           <span>Contact</span>
         </a>
       </li><!-- End Contact Page Nav -->
-      <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
+      <li class="nav-item">
+      <form action="{{ route('logout') }}" method="POST"   href="pages-login.html">
+         
                         @csrf
-                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                        <a class="nav-link collapsed bi bi-arrow-left"  href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                             {{ __('Déconnexion') }}
-                        </a>
+</a>
       </form>
-    </ul>
+      
+      <!-- END contact -->
+
+
+    
+      </li>
   </aside>
   <!-- End Sidebar-->
 @yield("content")
@@ -245,17 +221,7 @@
     </script>
    <!--===============================================================================================-->
   <script src='{{asset("assets/js/main.js") }}'></script>
-  <!--===============================================================================================-->
-	<script src='{{asset("assets/contactadmin/vendor/jquery/jquery-3.2.1.min.js") }}'></script>
-  <!--===============================================================================================-->
-	<script src='{{asset("assets/contactadmin/vendor/bootstrap/js/popper.js") }}'></script>
-	<script src='{{asset("assets/contactadmin/vendor/bootstrap/js/bootstrap.min.js") }}'></script>
-  <!--===============================================================================================-->
-	<script src='{{asset("assets/contactadmin/vendor/select2/select2.min.js") }}' }}></script>
-  <!--===============================================================================================-->
-	<script src='{{asset("assets/contactadmin/vendor/tilt/tilt.jquery.min.js") }}'></script>
-  <!--===============================================================================================-->
-  <script >
+<script>
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})
@@ -271,8 +237,8 @@
   gtag('config', 'UA-23581568-13');
   </script>
 <!--===============================================================================================-->
-	<script src='{{asset("assets/contact/js/main.js") }}'></script>
-  <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+  <script src='{{asset("//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js") }}'></script>
  </script>
        <script>
        $(document).ready( function () {

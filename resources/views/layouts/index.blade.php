@@ -68,21 +68,21 @@
       <nav id="navbar" class="navbar">
       <ul>
           
-          <li><a class="nav-link scrollto active" href="#about">Contact</a></li>
+          <li><a class="getstarted scrollto" href="#about">Contact</a></li>
       </ul>
       @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                    <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
+                    <form action="{{ route('logout') }}" method="POST"  class="getstarted scrollto" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
                         @csrf
                         <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                             {{ __('Logout') }}
                         </a>
       </form>
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a href="{{ url('/home') }}" class="getstarted scrollto">Home</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
+                        <a href="{{ route('login') }}" class="getstarted scrollto">Se connecter</a>
 
                     @endauth
                 </div>

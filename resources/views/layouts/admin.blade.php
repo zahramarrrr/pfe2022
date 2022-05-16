@@ -14,7 +14,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Administrateur</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -165,7 +165,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="MDPadmin">
+              <a class="dropdown-item d-flex align-items-center" href="mdpadmin">
                 <i class="bi bi-gear"></i>
                 <span>modifier mot de passe</span>
               </a>
@@ -249,20 +249,20 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
     </ul>
     </li><!-- End commandes Nav -->
 
-    <form action="{{ route('logout') }}" method="POST" class="nav-link collapsed" href="pages-login.html">
-      <i class="bi bi-box-arrow-in-right"></i>
+    <li class="nav-item">
+      <form action="{{ route('logout') }}" method="POST"   href="pages-login.html">
+         
+                        @csrf
+                        <a class="nav-link collapsed bi bi-arrow-left"  href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Déconnexion') }}
+</a>
+      </form>
+      
+      <!-- END contact -->
 
 
-      @csrf
-      <a class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-        {{ __('Déconnexion') }}
-      </a>
-
-    </form>
-
-    <!-- End Login Page Nav -->
-
-    </ul>
+    
+      </li>
 
   </aside><!-- End Sidebar-->
 

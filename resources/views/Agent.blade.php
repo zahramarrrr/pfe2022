@@ -49,6 +49,7 @@ commande(s) préparée(s) avec succée(s)</div>
                     <td>{{$commercant->societe}}</td>
                     <td><span class="badge bg-success">{{$com->Etat}}</span></td>
 
+
                     <td>
                       <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="material-icons"></i></a>
                     </td>

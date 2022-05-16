@@ -12,16 +12,17 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Espace Agent</title>
+
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href='{{asset("assets/img/favicon.png") }}' rel="icon">
+  <link href='{{asset("assets/img/apple-touch-icon.png") }}' rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href='{{asset("https://fonts.gstatic.com") }}' rel="preconnect">
+  <link href='{{asset("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i") }}' rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,6 +46,26 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
+  <link href='{{asset("assets/vendor/bootstrap/css/bootstrap.min.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/boxicons/css/boxicons.min.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/quill/quill.snow.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/quill/quill.bubble.css" ) }}'rel="stylesheet">
+  <link href='{{asset("assets/vendor/remixicon/remixicon.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/simple-datatables/style.css") }}' rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href='{{asset("assets/css/style.css" ) }}'rel="stylesheet">
+  <link href='{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css") }}' rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href='{{asset("https://fonts.googleapis.com/css?family=Roboto|Varela+Round") }}'>
+  <link rel="stylesheet" href='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css") }}'>
+  <link rel="stylesheet" href='{{asset("https://fonts.googleapis.com/icon?family=Material+Icons") }}'>
+  <link rel="stylesheet" href='{{asset("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css") }}'>
+  <script src='{{asset("https://code.jquery.com/jquery-3.5.1.min.js") }}'></script>
+  <script src='{{asset("https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js") }}'></script>
+  <script src='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js") }}'></script>
+  <script src='{{asset("https://js.pusher.com/7.0/pusher.min.js") }}'></script>
+  
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -125,10 +146,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 
       <li class="nav-item dropdown pe-3">
 
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-          <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">{{$agent-> Nom}} {{$agent-> Prenom}}</span>
-        </a><!-- End Profile Iamge Icon -->
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+            <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{$agent-> Nom}} {{$agent-> Prenom}}</span>
+          </a><!-- End Profile Iamge Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
           <li class="dropdown-header">
@@ -169,6 +191,25 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
           </li>
 
 
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
+                <i class="bi bi-gear"></i>
+                <span class="h6">Editer profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="mdpagent">
+                <i class="bi bi-gear"></i>
+                <span class="h6">Changer mot de passe</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
 
           <!-- End Profile Dropdown Items -->
 
@@ -189,16 +230,21 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
       <!-- END contact -->
 
 
-      <form action="{{ route('logout') }}" method="POST" class="nav-link collapsed" href="pages-login.html">
-        <i class="bi bi-box-arrow-in-right"></i>
-        @csrf
-        <a class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-          {{ __('Déconnexion') }}
-        </a>
+
+      <li class="nav-item">
+      <form action="{{ route('logout') }}" method="POST"   href="pages-login.html">
+         
+                        @csrf
+                        <a class="nav-link collapsed bi bi-arrow-left"  href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Déconnexion') }}
+</a>
       </form>
+      
+      <!-- END contact -->
 
-    </ul>
 
+    
+      </li>
   </aside><!-- End Sidebar-->
 
 
@@ -208,39 +254,39 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src='{{asset("assets/vendor/apexcharts/apexcharts.min.js") }}'></script>
+  <script src='{{asset("assets/vendor/bootstrap/js/bootstrap.bundle.min.js") }}'></script>
+  <script src='{{asset("assets/vendor/bootstrap/js/bootstrap.bundle.js") }}'></script>
 
-  <script src="assets/vendor/chart.js/chart.min.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src='{{asset("assets/vendor/chart.js/chart.min.js") }}'></script>
+  <script src='{{asset("assets/vendor/echarts/echarts.min.js") }}'></script>
+  <script src='{{asset("assets/vendor/quill/quill.min.js") }}'></script>
+  <script src='{{asset("assets/vendor/simple-datatables/simple-datatables.js") }}'></script>
+  <script src='{{asset("assets/vendor/tinymce/tinymce.min.js") }}'></script>
+  <script src='{{asset("assets/vendor/php-email-form/validate.js") }}'></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src='{{asset("assets/js/main.js") }}'></script>
+  <script src='{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js") }}' integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script>
     $('.js-tilt').tilt({
       scale: 1.1
     })
   </script>
   <!--===============================================================================================-->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <script async src='{{asset("https://www.googletagmanager.com/gtag/js?id=UA-23581568-13") }}'></script>
   <!--===============================================================================================-->
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src='{{asset("https://code.jquery.com/jquery-3.5.1.js") }}'></script>
+  <script src='{{asset("https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js") }}'></script>
+  <script src='{{asset("https://code.jquery.com/jquery-3.5.1.js") }}'></script>
   <!--===============================================================================================-->
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src='{{asset("https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js") }}'></script>
   <!--===============================================================================================-->
-  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+  <script src='{{asset("https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js") }}'></script>
   <!--===============================================================================================-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
 
-  <script type="text/javascript">
+  <script src='{{asset("https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js") }}'></script>
+  <script>
     $(document).ready(function() {
       $('#master').on('click', function(e) {
         if ($(this).is(':checked', true)) {

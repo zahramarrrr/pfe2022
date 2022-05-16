@@ -75,9 +75,6 @@ Route::get('/liste-notification', function () {
     return view('liste-notification');
 });
 
-Route::get('/MDPagent', function () {
-    return view('MDPagent');
-});
 Route::get('MDPadmin', function () {
     return view('MDPadmin');
 });
@@ -184,8 +181,11 @@ route::post('livrer', [CommandeController::class, 'livrer'])->name('livrer');
 route::post('updatemdp', [CommandeController::class, 'updatemdp'])->name('updatemdp');
 
 route::get('mdpcommercant', [CommandeController::class, 'mdp_commercant'])->name('mdp_commercant');
+route::get('mdpagent', [CommandeController::class, 'mdpagent'])->name('mdpagent');
 
-route::get('mdp', [CommandeController::class, 'mdp'])->name('mdp');
+route::get('mdpadmin', [CommandeController::class, 'mdpadmin'])->name('mdpadmin');
+route::get('mdplivreur', [CommandeController::class, 'mdplivreur'])->name('mdplivreur');
+
 Route::get('/index', function () {
     return view('index');
 });
