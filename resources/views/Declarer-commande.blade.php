@@ -32,6 +32,7 @@
                         <div class="form-row m-b-55">
 
                             <div class="value">
+                            <input class="input--style-5" type="text"  name="commercant" style="display:none" value="Auth::user()->id" >
 
                                 <div class="row row-space">
                                     <div class="col-2">

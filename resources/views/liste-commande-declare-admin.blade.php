@@ -10,17 +10,19 @@
   </div>
 
 
+  <div id="err_validation" class="alert alert-danger" role="alert" style="display:none">
+selectionner une commande</div>
 
 
-
-
+  <div id="valider" class="alert alert-success" role="alert" style="display:none">
+commande(s) validée(s) avec succée(s)</div>
 
   <button class='validation' id="valider"><input type="button" value="valider"></button>
   </button>
 
 
 
-  <div class="container">
+  <div class="container" id="reload_declaree">
     <div class="row">
       <div class="col-xl-12">
         <div class="card">
@@ -33,6 +35,8 @@
                   <th width="50px"><input type="checkbox" id="master"></th>
                   <th>ID commande</th>
                   <th>Date de commande</th>
+                  <th>Societe commerçante</th>
+
                   <th>téléphone</th>
                   <th>Details</th>
                   <th>Etat actuel</th>
@@ -48,7 +52,9 @@
                 <tr id="tr_{{$commande->id}}">
                   <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
                   <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                  <td></td>
+                  <td>{{$commande->created_at}}</td>
+                  <td>{{$commercant->societe}}</td>
+
                   <td>{{$commande->Telephone}}</td>
                   <td>
                   <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons"></i></a>

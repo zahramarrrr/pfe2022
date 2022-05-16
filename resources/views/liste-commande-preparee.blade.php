@@ -9,10 +9,6 @@
         </nav>
     </div>
 
-    @if(Session::has('commande_delete'))
-    <span>{{Session::get('commande_delete')}}</span>
-    @endif
-
 
     <div class="container">
 
@@ -20,8 +16,9 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="height d-flex justify-content-center align-items-center">
-                        <button type="button" class="btn btn-primary" id="affecter" data-toggle="modal" data-target="#exampleModal">
-                            affecter livreur</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                affecter un livreur
+            </button>
                     </div>
                     <div class="card-body">
 
@@ -31,7 +28,9 @@
                                 <tr>
                                     <th width="50px"><input type="checkbox" id="master"></th>
                                     <th>ID commande</th>
-                                    <th>Date de commande</th>
+                                    <th>Date de preparation</th>
+                                    <th>Societe commerçante</th>
+
                                     <th>téléphone</th>
                                     <th>Details</th>
                                     <th>Etat actuel</th>
@@ -44,23 +43,22 @@
 
                                 @foreach($commandes as $commande)
 
+                             
                                 <tr id="tr_{{$commande->id}}">
                                     <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                                    <td>{{$commande->Date}}</td>
+                                    <td>{{$commande->Date_Preparation}}</td>
+                                    <td>{{$commercant->societe}}</td>
+
                                     <td>{{$commande->Telephone}}</td>
                                     <td>
-                                        <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Details
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">Etat
-                                            actuel
-                                        </button>
+                                        <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons"></i></a>
                                     </td>
 
+                                    <td><span class="badge bg-success">{{$commande->Etat}}</span></td>
 
-                                    </td>
+
+
                                 </tr>
 
                                 @endforeach
@@ -81,58 +79,59 @@
 
 </main>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header float-right">
-                <h5>User details</h5>
-                <div class="text-right"><i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i></div>
-            </div>
-            <div class="modal-body">
-                @if(Session::has('affecter'))
-                <span>{{Session::get('affecter')}} </span>
-                @endif
 
-                <div>
-                    <table class="ui celled table">
-                        <thead>
-                            <tr>
-                                <th>ID agent</th>
-                                <th>Nom</th>
-                                <th>email</th>
-                                <th></th>
+<div class="modal fade" id="basicModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         
+                </div>
+                <div class="modal-body">
 
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach($livreurs as $livreur)
-
-                            <tr>
-
-                                <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">{{$livreur->id}}</td>
-                                <td>{{$livreur->Nom}}</td>
-                                <td>{{$livreur->email}}</td>
-                                <td><button class='affectlivreur' data-id="{{$livreur->id}}"><input type="button" value="Affecter"></button></td>
+                <div id="err_effect_livreur" class="alert alert-danger" role="alert" style="display:none">
+selectionner une commande</div>
+<div id="affecter_livreur" class="alert alert-success" role="alert" style="display:none">
+commande(s) validée(s) avec succée(s)</div>
+                    <div>
+                        <table class="ui celled table">
+                            <thead>
+                                <tr>
+                                    <th>ID livreur</th>
+                                    <th>Nom</th>
+                                    <th>commandes affectées</th>
+                                    <th></th>
 
 
-                            </tr>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                            @endforeach
+                                @foreach($livreurs as $livreur)
+                                <?php
+                                $cmd = DB::table('commandes')->where('ID_livreur', $livreur->id)->whereDay('Date_Affect_livreur', now())->get();
+
+                                ?>
+                                <tr>
+
+                                    <td>{{$livreur->id}}</td>
+                                    <td>{{$livreur->Nom}}</td>
+                                    <td>{{count($cmd)}}</td>
+
+                                    <td><button class='affectlivreur' data-id="{{$livreur->id}}"><input type="button" value="Affecter"></button></td>
 
 
-                        </tbody>
-                    </table>
+                                </tr>
+
+                                @endforeach
+
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>
         </div>
-
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">fermer</button>
-        </div>
-    </div>
-</div>
+    </div><!-- End Basic Modal-->
 @endsection

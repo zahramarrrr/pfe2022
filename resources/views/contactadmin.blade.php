@@ -1,4 +1,4 @@
-@extends("layouts.index")
+@extends("layouts.Agent")
 @section("content")
 <div class="container-contact100">
 	<div class="contact100-pic js-tilt" data-tilt>

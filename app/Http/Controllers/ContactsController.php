@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
  
 use App\Mail\Contact;
 use Illuminate\Http\Request;
+use App\Models\Notifications;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -13,8 +14,10 @@ class ContactsController extends Controller
     public function create()
     {
         $user = DB::table('users')->where('id', Auth::user()->id)->first();
+$notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
+$agent = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('contactadmin',compact('user'));
+        return view('contactadmin',compact('user','notif','agent'));
     }
  
     public function store(Request $request)

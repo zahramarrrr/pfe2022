@@ -23,22 +23,25 @@ class HomeController extends Controller
     {
         $role = Auth::user()->Role;
         if ($role == 'admin') {
-            $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)
-            ->orderBy('id', 'desc')
+            $notif = Notifications::query()->where('Notifiable', 'admin')
+            ->orderBy('id', 'desc')->take(5)
             ->get();
             $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
             ->first(['users.*', 'notifications.*']);
 
             $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-
+           
             return view('Admin', compact('notif', 'admin','user'));
         } elseif ($role == 'agent') {
             $agent = DB::table('users')->where('id', Auth::user()->id)->first();
             $search_text = isset($_GET['query']);
             $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
-                ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
-            $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
-            return view('Agent', compact('notif', 'agent', 'commandes'));
+                ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
+                ->orderBy('created_at', 'desc')->get();
+            $notif = Notifications::query()->where('Notifiable', 'agent')->orderBy('id', 'desc')->take(5)->get();
+                  $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
+            ->first(['users.*', 'commandes.*']);
+            return view('Agent', compact('notif', 'agent', 'commandes','commercant'));
         } elseif ($role == 'livreur') {
             $search_text = isset($_GET['query']);
 
@@ -46,9 +49,9 @@ class HomeController extends Controller
             $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
             $commandes = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
                 ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
-
-
-            return view('Livreur', compact('notif', 'livreur', 'commandes'));
+                $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
+                ->first(['users.*', 'commandes.*']);
+            return view('Livreur', compact('notif', 'livreur', 'commandes','commercant'));
         } else {
             $search_text = isset($_GET['query']);
             $comm = DB::table('users')->where('id', Auth::user()->id)->first();

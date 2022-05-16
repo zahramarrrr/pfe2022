@@ -11,7 +11,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Espace livreur</title>
+  <title>Espace Agent</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -31,6 +31,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -43,7 +44,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-  
+
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -77,99 +78,99 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-   
-
-            <li class="nav-item dropdown">
-
-              <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-bell"></i>
-                <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
-              </a><!-- End Notification Icon -->
-
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
-                <li class="dropdown-header">
-                  Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-                  <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                </li>
-                @foreach($notif as $notifs)
-
-                <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
-                  <li>
-                    <hr class='dropdown-divider'>
-                  </li>
-                  <div id='notif'>
-                    <li class='notification-item'>
-                      <i class='bi bi-exclamation-circle text-warning'></i>
-                      <div>
-                        <h4>
-                          {{$notifs->ID_Personnel}} {{$notifs->texte}} {{$notifs->ID_commande}}
-                        </h4>
-                      </div>
-                    </li>
-                  </div>
-            </li></a>
-            @endforeach
 
 
+        <li class="nav-item dropdown">
 
-          </ul><!-- End Notification Dropdown Items -->
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
+          </a><!-- End Notification Icon -->
 
-
-        </li><!-- End Notification Nav -->
-
-
-
-
-
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-            <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{$agent-> Nom}} {{$agent-> Prenom}}</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
             <li class="dropdown-header">
-              <h6> {{$agent-> Nom}} {{$agent-> Prenom}}</h6>
-              <span class="h6">Agent d'entrepôt</span>
+              Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
+              <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            @foreach($notif as $notifs)
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="profilAgent">
-                <i class="bi bi-person"></i>
-                <span class="h6">Mon Profil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
-                <i class="bi bi-gear"></i>
-                <span class="h6">Editer profil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="MDPagent">
-                <i class="bi bi-gear"></i>
-                <span class="h6">Changer mot de passe</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
+              <li>
+                <hr class='dropdown-divider'>
+              </li>
+              <div id='notif'>
+                <li class='notification-item'>
+                  <i class='bi bi-exclamation-circle text-warning'></i>
+                  <div>
+                    <h4>
+                      Admin {{$notifs->texte}} {{$notifs->ID_commande}}
+                    </h4>
+                  </div>
+                </li>
+              </div>
+        </li></a>
+        @endforeach
 
 
-            
-<!-- End Profile Dropdown Items -->
+
+      </ul><!-- End Notification Dropdown Items -->
+
+
+      </li><!-- End Notification Nav -->
+
+
+
+
+
+
+      <li class="nav-item dropdown pe-3">
+
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+          <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">{{$agent-> Nom}} {{$agent-> Prenom}}</span>
+        </a><!-- End Profile Iamge Icon -->
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+          <li class="dropdown-header">
+            <h6> {{$agent-> Nom}} {{$agent-> Prenom}}</h6>
+            <span class="h6">Agent d'entrepôt</span>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="profilAgent">
+              <i class="bi bi-person"></i>
+              <span class="h6">Mon Profil</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
+              <i class="bi bi-gear"></i>
+              <span class="h6">Editer profil</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="MDPagent">
+              <i class="bi bi-gear"></i>
+              <span class="h6">Changer mot de passe</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+
+
+          <!-- End Profile Dropdown Items -->
 
     </nav><!-- End Icons Navigation -->
 
@@ -178,7 +179,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-   
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="contactview">
           <i class="bi bi-envelope"></i>
@@ -188,12 +189,12 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
       <!-- END contact -->
 
 
-      <form action="{{ route('logout') }}" method="POST"  class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-                        @csrf
-                        <a  class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Déconnexion') }}
-                        </a>
+      <form action="{{ route('logout') }}" method="POST" class="nav-link collapsed" href="pages-login.html">
+        <i class="bi bi-box-arrow-in-right"></i>
+        @csrf
+        <a class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+          {{ __('Déconnexion') }}
+        </a>
       </form>
 
     </ul>
@@ -238,65 +239,60 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
   <!--===============================================================================================-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
-  <script>
+
+  <script type="text/javascript">
     $(document).ready(function() {
-      $('#tablecommande_agent').DataTable({
-        language: {
-          url: "{{ asset('assets/datatable-fr-FR.json') }}"
-        },
-        "searching": true
+      $('#master').on('click', function(e) {
+        if ($(this).is(':checked', true)) {
+          $(".sub_chk").prop('checked', true);
+
+
+        } else {
+          $(".sub_chk").prop('checked', false);
+        }
       });
     });
   </script>
-  <script type="text/javascript">
-        $(document).ready(function() {
-            $('#master').on('click', function(e) {
-                if ($(this).is(':checked', true)) {
-                    $(".sub_chk").prop('checked', true);
+  <script>
+    $('.preparation').on('click', function(e) {
+      var allVals = [];
+      $(".sub_chk:checked").each(function(e) {
+        allVals.push($(this).attr('data-id'));
+      });
+      if (allVals.length <= 0) {
+        alert("Please select row.");
+      }
 
 
-                } else {
-                    $(".sub_chk").prop('checked', false);
-                }
-            });
-        });
-    </script>
-<script>
-        $('.preparation').on('click', function(e) {
-            var allVals = [];
-            $(".sub_chk:checked").each(function(e) {
-                allVals.push($(this).attr('data-id'));
-            });
-            if (allVals.length <= 0) {
-                alert("Please select row.");
-            }
+      $.ajax({
+        url: "{{ route('preparer')}} ",
+        type: "POST",
+        data: {
 
+          'vals': allVals,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+         // location.reload();
 
-            $.ajax({
-                url: "{{ route('preparer')}} ",
-                type: "POST",
-                data: {
+          $("#prep").show();
 
-                    'vals': allVals,
-                    "_token": "{{ csrf_token() }}",
-                },
-                success: function(response) {
-                    console.log(response);
-                    alert(response.success);
+          //  console.log(response);
+          // alert(response.success);
 
-                },
-                error: function(error) {
-                    console.log(response);
+        },
+        error: function(error) {
+          console.log(response);
 
-                    alert('erreur');
-                }
-            });
+          alert('erreur');
+        }
+      });
 
 
 
 
-        });
-    </script>
+    });
+  </script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -307,6 +303,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 
     gtag('config', 'UA-23581568-13');
   </script>
+
   <!--===============================================================================================-->
   <script>
     // Enable pusher logging - don't include this in production
@@ -320,18 +317,29 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
     channel.bind('my-event', function(data) {
       idcommande = JSON.stringify(data.message);
       urlcmd = JSON.stringify(data.message[0]);
-      comm = JSON.stringify(data.message[1]);
-      msg= JSON.stringify(data.message[2]);
-      id = JSON.stringify(data.message[3]);
+      msg = JSON.stringify(data.message[1]);
+      id = JSON.stringify(data.message[2]);
 
-      notifmsg = comm + msg +id;
-      msg=notifmsg.replace(/["']/g, " ");
-   //   alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
+      notifmsg = msg + id;
+      msg = notifmsg.replace(/["']/g, " ");
+      //   alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
       oldcontent = document.getElementById('notif').innerHTML;
       document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
-  
+  <script>
+    $(document).ready(function() {
+      $('#table').DataTable({
+        language: {
+          url: "{{ asset('assets/datatable-fr-FR.json') }}"
+        },
+        "searching": true
+      });
+    });
+  </script>
+  <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
 </body>
 
 </html>

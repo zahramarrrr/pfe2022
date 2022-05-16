@@ -111,6 +111,8 @@ route::post('affecteragent', [CommandeController::class, 'affecteragent'])->name
 route::post('affecterlivreur', [CommandeController::class, 'affecterlivreur'])->name('affecterlivreur');
 
 route::get('liste-commandes-preparee', [CommandeController::class, 'ListprepareeAdmin'])->name('commande.preparee');
+route::get('liste-commandes-livree', [CommandeController::class, 'ListlivreeAdmin'])->name('commande.livree');
+route::get('liste-commandes-retournee', [CommandeController::class, 'ListretourneeAdmin'])->name('commande.retournee');
 
 route::get('commande_declaree_admin', [CommandeController::class, 'CommandeListAdmin'])->name('commande_declaree_admin');
 route::get('Admin', [CommandeController::class, 'Commandenotif'])->name('Commande.notif');
@@ -175,8 +177,9 @@ route::post('update-profilcommercant', [CommandeController::class, 'profileUpDat
 route::get('editer-profil-admin/{id}', [CommandeController::class, 'Editerprofilcommercant'])->name('editer-profil-admin');
 route::post('update-profiladmin', [CommandeController::class, 'profileUpDateadmin'])->name('update.profiladmin');
 
-// preparer commande
+// preparer et livrer plusieurs commandes
 route::post('preparer', [CommandeController::class, 'preparer'])->name('preparer');
+route::post('livrer', [CommandeController::class, 'livrer'])->name('livrer');
 
 route::post('updatemdp', [CommandeController::class, 'updatemdp'])->name('updatemdp');
 

@@ -231,12 +231,17 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
             </a>
           </li>
           <li>
-          <li>
             <a href="liste-commandes-preparee">
               <i class="bi bi-circle"></i><span>Liste des commandes préparées</span>
             </a>
           </li>
-          <a href="forms-elements.html">
+          <li>
+            <a href="liste-commandes-livree">
+              <i class="bi bi-circle"></i><span>Liste des commandes livrées</span>
+            </a>
+          </li>
+          <li>
+          <a href="liste-commandes-retournee">
             <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
           </a>
       </li>
@@ -338,8 +343,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
                 allVals.push($(this).attr('data-id'));
             });
             if (allVals.length <= 0) {
-                alert("Please select row.");
-            }
+              $("#err_validation").show();
+              location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);            }
 
 
             $.ajax({
@@ -351,8 +359,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
                     "_token": "{{ csrf_token() }}",
                 },
                 success: function(response) {
-                    console.log(response);
-                    alert(response.success);
+                 //   console.log(response);
+                  //  alert(response.success);
+                  $("#valider").show();
+
+                  setTimeout(function(){
+           location.reload(); 
+        }, 1600);
 
                 },
                 error: function(error) {
@@ -378,19 +391,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
             });
         });
     </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#master').on('click', function(e) {
-                if ($(this).is(':checked', true)) {
-                    $(".sub_chk").prop('checked', true);
 
-
-                } else {
-                    $(".sub_chk").prop('checked', false);
-                }
-            });
-        });
-    </script>
 
 
     <script>
@@ -401,7 +402,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
                 allVals.push($(this).attr('data-id'));
             });
             if (allVals.length <= 0) {
-                alert("Please select row.");
+              $("#erreur").show();
+              location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);
             }
 
 
@@ -415,9 +420,16 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
                     "_token": "{{ csrf_token() }}",
                 },
                 success: function(response) {
-                    console.log(response);
-                    // $("#exampleModal").hide();
-                    alert(response.success);
+                  $("#basicModal").modal('hide');
+                  $("#affected").show();
+
+                  location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);
+                    //console.log(response);
+                  
+                    //alert(response.success);
 
                 },
                 error: function(error) {
@@ -434,19 +446,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
     </script>
     
  
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#master').on('click', function(e) {
-                if ($(this).is(':checked', true)) {
-                    $(".sub_chk").prop('checked', true);
-
-
-                } else {
-                    $(".sub_chk").prop('checked', false);
-                }
-            });
-        });
-    </script>
+ 
 
 
     <script>
@@ -457,8 +457,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
                 allVals.push($(this).attr('data-id'));
             });
             if (allVals.length <= 0) {
-                alert("Please select row.");
-            }
+              $("#err_effect_livreur").show();
+              location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);            }
 
 
             $.ajax({
@@ -471,13 +474,20 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
                     "_token": "{{ csrf_token() }}",
                 },
                 success: function(response) {
-                    console.log(response);
+                   // console.log(response);
                     // $("#exampleModal").hide();
-                    alert(response.success);
+                    //alert(response.success);
+                    $("#basicModal").modal('hide');
+                  $("#affecter_livreur").show();
+
+                  location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);
 
                 },
                 error: function(error) {
-                    alert('erreur');
+                  $("#err_effect_livreur").show();
                 }
             });
 

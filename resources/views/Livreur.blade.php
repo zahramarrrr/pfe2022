@@ -3,63 +3,72 @@
  @section("content")
   <main id="main" class="main">
     <div class="pagetitle">
-      <h1>Liste des commandes à préparer</h1>
+      <h1>Liste des commandes à livrée</h1>
       <nav>
         <ol class="breadcrumb">
         </ol>
       </nav>
     </div>
 
-    @if(Session::has('preparer'))
-    <span>{{Session::get('preparer')}}</span>
-    @endif
-    <div id="tablecommandes_wrapper" class="dataTables_wrapper dt-semanticUI no-footer">
-      <div class="ui stackable grid">
+ 
+    <div id="livree" class="alert alert-success" role="alert" style="display:none">
+commande(s) livrée(s) avec succée(s)</div>
+  <div class="container">
+  <button class='preparation' id="livrer">livraison</button>
+  <div class="height d-flex justify-content-center align-items-center">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
 
-      </div>
-      <div class="row dt-table">
-        <div class="sixteen wide column">
-          <table id="tablecommande_agent" class="ui celled table dataTable no-footer" style="width: 100%;" aria-describedby="tablecommandes_info">
-            <thead>
-              <tr>
-                <th class="sorting sorting_asc" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID commande: activer pour trier la colonne par ordre décroissant" style="width: 149px;">ID commande</th>
-                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="Date de commande: activer pour trier la colonne par ordre croissant" style="width: 149px;">Date de commande</th>
-                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="téléphone: activer pour trier la colonne par ordre croissant" style="width: 149px;">téléphone</th>
-                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="Etat actuel: activer pour trier la colonne par ordre croissant" style="width: 149px;">Etat actuel</th>
-                <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label=": activer pour trier la colonne par ordre croissant" style="width: 149px;"></th>
-              </tr>
+            <div class="card-body">
 
-            </thead>
-            <tbody>
+              <table id="table" class="ui celled table" style="width:100%">
+                <thead>
+                  <tr>
+                    <th width="50px"><input type="checkbox" id="master"></th>
+                    <th>ID commande</th>
+                    <th>Date d'affectation</th>
+                    <th>Description</th>
+                    <th>Société commerçante</th>
 
-              @foreach($commandes as $com)
-              <tr class="odd">
+                    <th>Etat actuel</th>
+                    <th>Details</th>
 
-                <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$com->ID_commande}}</td>
-                <td>{{$com->Date}}</td>
-                <td>{{$com->Telephone}}</td>
-                <td> <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-sm btn-tag mr-4">{{$com->Etat}}</button></td>
+                  </tr>
 
-                <td>
-                  <button class='prep' data-id="{{$com->id}}"><input type="button" value="preparer"></button>
-                </td>
+                </thead>
+                <tbody>
+
+                  @foreach($commandes as $com)
+                  <tr class="odd">
+                  <tr id="tr_{{$com->id}}">
+                    <td><input type="checkbox" class="sub_chk" data-id="{{$com->id}}"></td>
+
+                    <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$com->ID_commande}}</td>
+                    <td>{{$com->Date_Affect_Agent}}</td>
+                    <td>{{$com->Description}}</td>
+
+                    <td>{{$commercant->societe}}</td>
+                    <td><span class="badge bg-success">{{$com->Etat}}</span></td>
+
+                    <td>
+                      <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="material-icons"></i></a>
+                    </td>
 
 
-              </tr>
 
 
-              @endforeach
-            </tbody>
+                    @endforeach
+                </tbody>
+              </table>
 
-          </table>
 
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
-    <div class="flex items-center justify-end mt-4">
+  </div>
+</main>
 
-
-  </main>
 @endsection
- 
