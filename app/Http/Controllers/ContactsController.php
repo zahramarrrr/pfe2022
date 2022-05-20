@@ -16,17 +16,26 @@ class ContactsController extends Controller
         $user = DB::table('users')->where('id', Auth::user()->id)->first();
 $notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
 $agent = DB::table('users')->where('id', Auth::user()->id)->first();
-
-        return view('contactadmin',compact('user','notif','agent'));
+$comm = DB::table('users')->where('id', Auth::user()->id)->first();
+if(Auth::user()->Role=='agent')
+$type = "layouts.Agent" ;
+else if(Auth::User()->Role == 'admin')
+$type = "layouts.admin" ;
+else if(Auth::User()->Role == 'livreur')
+$type = "layouts.livreur"; 
+else
+$type = "layouts.commerçant" 
+;
+        return view('contactadmin',compact('user','notif','agent','comm','type'));
     }
 
  
     public function store(Request $request)
     {
   
-        $email= Auth::user()->email;
+ 
      
-          Mail::to($email)->send(new Contact($request));
+          Mail::to('commandetrack2022@gmail.com')->send(new Contact($request));
      
           return back()->with('email', 'message envoyée');
         }

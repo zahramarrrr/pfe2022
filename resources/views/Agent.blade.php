@@ -8,8 +8,10 @@
   @if(Session::has('preparer'))
   <span>{{Session::get('preparer')}}</span>
   @endif
-  <div id="prep" class="alert alert-success" role="alert" style="display:none">
+  <div id="err_preparation" class="alert alert-danger" role="alert" style="display:none">erreur</div>
+<div id="prep" class="alert alert-success" role="alert" style="display:none">
 commande(s) préparée(s) avec succée(s)</div>
+
   <div class="container">
   <button class='preparation' id="preparer">Préparation</button>
 

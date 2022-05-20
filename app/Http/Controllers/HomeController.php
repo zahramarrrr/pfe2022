@@ -55,7 +55,8 @@ class HomeController extends Controller
         } else {
             $search_text = isset($_GET['query']);
             $comm = DB::table('users')->where('id', Auth::user()->id)->first();
-            $commandes = DB::table('commandes')->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+            $commandes = DB::table('commandes')->where('commercant', Auth::user()->id)
+            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
 
             return view('Commerçant', compact('comm', 'commandes'));
         }

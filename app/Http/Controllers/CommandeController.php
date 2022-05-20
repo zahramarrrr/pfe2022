@@ -171,12 +171,12 @@ class CommandeController extends Controller
         return view('liste-commande-retournee', compact('commandes', 'livreurs', 'admin', 'notif','user','commercant'));
     }
 
-    public function Commandevalider()
+ /*    public function Commandevalider()
     {
         $commandes = DB::table('commandes')->where('Etat', 'validee')->get();
         return view('details', compact('commandes'));
     }
-
+ */
     public function CommandeListAgent()
     {
         $agents = DB::table('users')->where('role', 'agent')->get();
@@ -190,20 +190,29 @@ class CommandeController extends Controller
     }
 
 
-    //pour details commerçant 
+ /*    //pour details commerçant 
     public function CommandedetailCommerssant($id)
     {
         $commandes = DB::table('commandes')->where('id', $id)->first();
         return view('detailsview/{id}', compact('commandes'));
     }
-
+ */
 
 
     //pour afficher la page details
     public function Commandedetails($id)
     {
         $commande = DB::table('commandes')->where('id', $id)->first();
-        return view('details', compact('commande'));
+        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+        $notif = Notifications::query()->where('Notifiable', 'admin')
+        ->orderBy('id', 'desc')->take(5)
+        ->get();
+        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+        ->first(['users.*', 'notifications.*']);
+
+        $agent = DB::table('users')->where('id', Auth::user()->id)->first();
+       
+        return view('details', compact('commande','comm','notif','user','agent'));
     }
     //pour afficher 5 notifications
 
@@ -406,31 +415,34 @@ class CommandeController extends Controller
     public function listeagent()
     {
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-
+        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+        ->first(['users.*', 'notifications.*']);
         $search_text = isset($_GET['query']);
         $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
         $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
         $agents = DB::table('users')->where('Role', 'agent')->get();
-        return view('ListeAgent', compact('agents', 'notif', 'commandes', 'admin'));
+        return view('ListeAgent', compact('agents', 'notif', 'commandes', 'admin','user'));
     }
 
     public function listecommercant()
     {
         $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-
+        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+        ->first(['users.*', 'notifications.*']);
         $comm = DB::table('users')->where('Role', 'commerçant')->get();
-        return view('Listecommercant', compact('comm', 'notif', 'admin'));
+        return view('Listecommercant', compact('comm', 'notif', 'admin','user'));
     }
 
     public function listeLivreur()
     {
         $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-
+        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+        ->first(['users.*', 'notifications.*']);
         $livreur = DB::table('users')->where('Role', 'livreur')->get();
-        return view('ListeLivreur', compact('livreur', 'admin', 'notif'));
+        return view('ListeLivreur', compact('livreur', 'admin', 'notif','user'));
     }
 
 
@@ -677,13 +689,15 @@ class CommandeController extends Controller
         ]);
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
-        $commandes = DB::table('commandes')->where('agent', Auth::user()->id)
+        $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
+        ->first(['users.*', 'commandes.*']);
+        $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
         $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
         $cmd= DB::table('commandes')->where('id', $id)->first();
         event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
 
-        return view('Agent', compact('notif', 'agent', 'commandes'));
+        return view('Agent', compact('notif', 'agent', 'commandes','commercant'));
     }
     public function livrercommande($id)
     {
@@ -748,7 +762,7 @@ class CommandeController extends Controller
         $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('MDPagent',compact('notif','admin'));
+        return view('MDPadmin',compact('notif','admin'));
     }
     public function mdp_commercant(Request $request)
     {
@@ -782,9 +796,26 @@ class CommandeController extends Controller
             return redirect()->back()->with("success", "Password successfully changed!");
         }
     }
-    /*  @if(Session::has('commande_valider'))
-    <span>{{Session::get('commande_valider')}} </span>
-    @endif
-    <form method="post" action="{{ route('valider' , ['id' => $commande->id])}}">
-      @csrf */
+    public function client()
+    {
+
+            
+        $commandes = DB::table('commandes')->where('id_commande', 'ID_commande')->get();
+        return view('client',compact('commandes'));
+    }
+    public function chercher(Request $request){
+
+        $ID = $request->ID;
+
+
+ 
+  $data = DB::table('commandes')->where('ID_commande', $ID)->first();
+
+$etat=$data->Etat;  
+  
+     return response()->json(['etat'=>$etat]);
+
+return view('client', compact('etat'));
+
+}
 }

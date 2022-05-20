@@ -9,8 +9,8 @@
             </ol>
         </nav>
     </div>
- 
-  
+
+
 
     <div class="container">
         <div class="height d-flex justify-content-center align-items-center">
@@ -49,7 +49,7 @@
                                     <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
                                     <td>{{$commande->Date_Validation}}</td>
-                                    
+
                                     <td>{{$commercant->societe}}</td>
                                     <td>{{$commande->Telephone}}</td>
                                     <td>
@@ -81,15 +81,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         
+
                 </div>
                 <div class="modal-body">
-                <div id="affected" class="alert alert-success" role="alert" style="display:none">
-commande(s) affectée(s) avec succée(s)</div>
+                    <div id="affected" class="alert alert-success" role="alert" style="display:none">
+                        commande(s) affectée(s) avec succée(s)</div>
 
-                <div id="erreur" class="alert alert-danger" role="alert" style="display:none">
-  This is a danger alert—check it out!
-</div>
+                    <div id="erreur" class="alert alert-danger" role="alert" style="display:none">
+                        erreur</div>
                     <div>
                         <table class="ui celled table">
                             <thead>

@@ -137,13 +137,13 @@
         </a>
         </li><!-- End declarer commande nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="liste-commande-declare">
+        <a class="nav-link collapsed" href="">
         <i class="bi bi-bag"></i>
           <span>la liste des commandes déclarées</span>
         </a>
       </li><!-- End liste des commandes nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="contact">
+        <a class="nav-link collapsed" href="contactview">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>

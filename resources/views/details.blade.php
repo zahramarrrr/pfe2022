@@ -2,8 +2,8 @@
 
 
 
-@extends("layouts.admin")
- @section("content")
+
+
   <main id="main" class="main">
     <div class="pagetitle">
       <h1>Liste des commandes déclarées</h1>
@@ -118,5 +118,4 @@ echo '';
     </form>
 
   </main>
-  @endsection
  

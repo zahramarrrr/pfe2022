@@ -53,6 +53,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="assets/login/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 
 </head>
 <body >     
@@ -112,8 +115,6 @@
   <!--===============================================================================================-->
   <script src="assetswelcome/js/main.js"></script>
   <!--===============================================================================================-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <!--===============================================================================================-->
   <script src="assets/contact/vendor/jquery/jquery-3.2.1.min.js"></script>
   <!--===============================================================================================-->
 	<script src="assets/contact/vendor/bootstrap/js/popper.js"></script>
@@ -129,11 +130,135 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	
-  <script src="assets/login/js/jquery.min.js"></script>
-  <script src="assets/login/js/popper.js"></script>
-  <script src="assets/login/js/bootstrap.min.js"></script>
-  <script src="assets/login/js/main.js"></script>
+<script type="text/javascript">
+      $('.verifier').on('click', function(e) {
+        var ID_cmd = $('input[name="idcommande"]').val();
+        console.log(ID_cmd)
+
+        if (ID_cmd) {
+          $.ajax({
+            type: 'post',
+            url: "{{ route('chercher')}} ",
+            data: {
+
+              'ID': ID_cmd,
+              "_token": "{{ csrf_token() }}",
+            },
+            success: function(response) {
+              $("#res").show();
+
+              console.log(response);
+              marker = JSON.stringify(response.etat);
+
+              if (marker == '"declaree"') {
+                $('#declarer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  .html(marker);
+              } else if (marker == '"validee"') {
+                //  $('#progressbar').append( '<li id="declarer" class="active step0"></li><li id="valider" class="active step0"></li><li id="affecter_agent" class=" step0"></li><li id="preparer" class="step0"></li><li id="affecter_livreur" class="step0"></li><li id="livrer" class="step0"></li>');
+
+                $('#declarer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                 ;
+                $('#valider')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  .html(marker);
+              }
+              else if (marker == '"affecter a un agent"') {
+                $('#declarer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  ;
+                $('#valider')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                ;
+                  $('#affecter_agent')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  .html(marker);
+              }
+              else if (marker == '"preparee"') {
+                $('#declarer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  ;
+                $('#valider')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                ;
+                  $('#affecter_agent')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                ;
+                  $('#preparer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  .html(marker);
+              }
+              else if (marker == '"affecter a un livreur"') {
+                $('#declarer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  ;
+                $('#valider')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                ;
+                  $('#affecter_agent')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                ;
+                  $('#preparer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                 ;
+                  $('#affecter_livreur')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  .html(marker);
+              }
+              else if (marker == '"livree"') {
+                $('#declarer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  ;
+                $('#valider')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                ;
+                  $('#affecter_agent')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                ;
+                  $('#preparer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                 ;
+                  $('#affecter_livreur')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                ;
+                  $('#livrer')
+                  .removeClass('step0')
+                  .addClass('active step0')
+                  .html(marker);
+              }
+            }
+          });
+        } else {
+
+          $('#res')
+            .removeClass('font-weight-bold')
+            .addClass('text-nowrap')
+            .html("Entrez le nom de l'utilisateur");;
+        }
+      });
+    </script>
+
 </body>
 
 </html>

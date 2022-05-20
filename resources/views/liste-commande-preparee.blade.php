@@ -90,7 +90,7 @@
                 <div class="modal-body">
 
                 <div id="err_effect_livreur" class="alert alert-danger" role="alert" style="display:none">
-selectionner une commande</div>
+erreur</div>
 <div id="affecter_livreur" class="alert alert-success" role="alert" style="display:none">
 commande(s) validée(s) avec succée(s)</div>
                     <div>

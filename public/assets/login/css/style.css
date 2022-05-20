@@ -190,7 +190,7 @@ h1, h2, h3, h4, h5,
     /* Firefox 18- */
     color: rgba(255, 255, 255, 0.8) !important; }
   .form-control:hover, .form-control:focus {
-    background: transparent;
+   /* background: transparent;*/
     outline: none;
     -webkit-box-shadow: none;
     box-shadow: none;

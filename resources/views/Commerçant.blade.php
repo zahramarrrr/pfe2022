@@ -32,7 +32,7 @@
             @foreach($commandes as $commande)
             <tr class="odd">
 
-              <td class="sorting_1"><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+              <td class="sorting_1"><img src="assets/img/comm.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
               <td>{{$commande->Nom}} {{$commande->Prenom}}</td>
               <td>{{$commande->Telephone}}</td>
               <td>{{$commande->Governorat}}</td>

@@ -306,7 +306,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
         allVals.push($(this).attr('data-id'));
       });
       if (allVals.length <= 0) {
-        alert("Please select row.");
+        $("#err_preparation").show();
+        location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
       }
 
 
@@ -322,7 +326,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
          // location.reload();
 
           $("#prep").show();
-
+          location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);      
           //  console.log(response);
           // alert(response.success);
 
@@ -330,7 +337,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
         error: function(error) {
           console.log(response);
 
-          alert('erreur');
+          $("#err_preparation").show();
+          location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
         }
       });
 

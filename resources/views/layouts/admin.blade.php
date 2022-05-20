@@ -88,93 +88,93 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-   
-
-            <li class="nav-item dropdown">
-
-              <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-bell"></i>
-                <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
-              </a><!-- End Notification Icon -->
-
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
-                <li class="dropdown-header">
-                  Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-                  <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                </li>
-                @foreach($notif as $notifs)
-
-                <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
-                  <li>
-                    <hr class='dropdown-divider'>
-                  </li>
-                  <div id='notif'>
-                    <li class='notification-item'>
-                      <i class='bi bi-exclamation-circle text-warning'></i>
-                      <div>
-                        <h4>
-                       {{$user->Nom}}  {{$notifs->texte}} {{$notifs->ID_commande}}
-                        </h4>
-                      </div>
-                    </li>
-                  </div>
-            </li></a>
-            @endforeach
 
 
+        <li class="nav-item dropdown">
 
-          </ul><!-- End Notification Dropdown Items -->
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
+          </a><!-- End Notification Icon -->
 
-
-        </li><!-- End Notification Nav -->
-
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-            <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{$admin->Nom}} {{$admin->Prenom}}</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
             <li class="dropdown-header">
-              <h6>{{$admin->Nom}} {{$admin->Prenom}}</h6>
-              <span>Administrateur </span>
+              Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
+              <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            @foreach($notif as $notifs)
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="profilAdmin">
-                <i class="bi bi-person"></i>
-                <span>Mon Profil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            <a href="{{route('commande.details' , ['id' => $notifs->id]) }}">
+              <li>
+                <hr class='dropdown-divider'>
+              </li>
+              <div id='notif'>
+                <li class='notification-item'>
+                  <i class='bi bi-exclamation-circle text-warning'></i>
+                  <div>
+                    <h4>
+                      {{$user->Nom}} {{$notifs->texte}} {{$notifs->ID_commande}}
+                    </h4>
+                  </div>
+                </li>
+              </div>
+        </li></a>
+        @endforeach
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="editer-profil-admin/{{$admin->id}}">
-                <i class="bi bi-gear"></i>
-                <span>Editer profil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="mdpadmin">
-                <i class="bi bi-gear"></i>
-                <span>modifier mot de passe</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
-          </ul>
+
+      </ul><!-- End Notification Dropdown Items -->
+
+
+      </li><!-- End Notification Nav -->
+
+
+      <li class="nav-item dropdown pe-3">
+
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+          <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">{{$admin->Nom}} {{$admin->Prenom}}</span>
+        </a><!-- End Profile Iamge Icon -->
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+          <li class="dropdown-header">
+            <h6>{{$admin->Nom}} {{$admin->Prenom}}</h6>
+            <span>Administrateur </span>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="profilAdmin">
+              <i class="bi bi-person"></i>
+              <span>Mon Profil</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="editer-profil-admin/{{$admin->id}}">
+              <i class="bi bi-gear"></i>
+              <span>Editer profil</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="mdpadmin">
+              <i class="bi bi-gear"></i>
+              <span>modifier mot de passe</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+        </ul>
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
@@ -241,27 +241,27 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
             </a>
           </li>
           <li>
-          <a href="liste-commandes-retournee">
-            <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
+            <a href="liste-commandes-retournee">
+              <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End commandes Nav -->
+
+      <li class="nav-item">
+        <form action="{{ route('logout') }}" method="POST" href="pages-login.html">
+
+          @csrf
+          <a class="nav-link collapsed bi bi-arrow-left" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+            {{ __('Déconnexion') }}
           </a>
-      </li>
+        </form>
 
-    </ul>
-    </li><!-- End commandes Nav -->
-
-    <li class="nav-item">
-      <form action="{{ route('logout') }}" method="POST"   href="pages-login.html">
-         
-                        @csrf
-                        <a class="nav-link collapsed bi bi-arrow-left"  href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Déconnexion') }}
-</a>
-      </form>
-      
-      <!-- END contact -->
+        <!-- END contact -->
 
 
-    
+
       </li>
 
   </aside><!-- End Sidebar-->
@@ -295,7 +295,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
   <script src='{{asset("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js") }}'></script>
   <script src='{{asset("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js") }}' type='text/javascript'></script>
 
-    <script src="assetsajout/js/jquery.min.js"></script>
+  <script src="assetsajout/js/jquery.min.js"></script>
   <script src="assetsajout/js/popper.js"></script>
   <script src="assetsajout/js/bootstrap.min.js"></script>
   <script src="assetsajout/js/jquery.validate.min.js"></script>
@@ -313,200 +313,204 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
       idcommande = JSON.stringify(data.message);
       urlcmd = JSON.stringify(data.message[0]);
       comm = JSON.stringify(data.message[1]);
-      msg= JSON.stringify(data.message[2]);
+      msg = JSON.stringify(data.message[2]);
       id = JSON.stringify(data.message[3]);
 
-      notifmsg = comm + msg +id;
-      msg=notifmsg.replace(/["']/g, " ");
-     // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1])+" | "+JSON.stringify(data.message[2]));
+      notifmsg = comm + msg + id;
+      msg = notifmsg.replace(/["']/g, " ");
+      // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1])+" | "+JSON.stringify(data.message[2]));
       oldcontent = document.getElementById('notif').innerHTML;
       document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
- <script type="text/javascript">
-        $(document).ready(function() {
-            $('#master').on('click', function(e) {
-                if ($(this).is(':checked', true)) {
-                    $(".sub_chk").prop('checked', true);
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#master').on('click', function(e) {
+        if ($(this).is(':checked', true)) {
+          $(".sub_chk").prop('checked', true);
 
 
-                } else {
-                    $(".sub_chk").prop('checked', false);
-                }
-            });
-        });
-    </script>
-<script>
-        $('.validation').on('click', function(e) {
-            var allVals = [];
-            $(".sub_chk:checked").each(function(e) {
-                allVals.push($(this).attr('data-id'));
-            });
-            if (allVals.length <= 0) {
-              $("#err_validation").show();
-              location.reload();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);            }
-
-
-            $.ajax({
-                url: "{{ route('valider')}} ",
-                type: "POST",
-                data: {
-
-                    'vals': allVals,
-                    "_token": "{{ csrf_token() }}",
-                },
-                success: function(response) {
-                 //   console.log(response);
-                  //  alert(response.success);
-                  $("#valider").show();
-
-                  setTimeout(function(){
-           location.reload(); 
+        } else {
+          $(".sub_chk").prop('checked', false);
+        }
+      });
+    });
+  </script>
+  <script>
+    $('.validation').on('click', function(e) {
+      var allVals = [];
+      $(".sub_chk:checked").each(function(e) {
+        allVals.push($(this).attr('data-id'));
+      });
+      if (allVals.length <= 0) {
+        $("#err_validation").show();
+        //    location.reload();
+        setTimeout(function() {
+          location.reload();
         }, 1600);
-
-                },
-                error: function(error) {
-                    console.log(response);
-
-                    alert('erreur');
-                }
-            });
+      }
 
 
+      $.ajax({
+        url: "{{ route('valider')}} ",
+        type: "POST",
+        data: {
 
+          'vals': allVals,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+          //   console.log(response);
+          //  alert(response.success);
+          $("#valider").show();
 
-        });
-    </script>
-    
-    <script>
-        $(document).ready(function() {
-            $('.tablecommercant').DataTable({
-                language: {
-                    url: "{{ asset('assets/datatable-fr-FR.json') }}"
-                },
-                "searching": true
-            });
-        });
-    </script>
+          setTimeout(function() {
+            location.reload();
+          }, 1600);
 
-
-
-    <script>
-        $('.affectagent').on('click', function(e) {
-            var allVals = [];
-            agentid = $(this).attr('data-id');
-            $(".sub_chk:checked").each(function(e) {
-                allVals.push($(this).attr('data-id'));
-            });
-            if (allVals.length <= 0) {
-              $("#erreur").show();
-              location.reload();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);
-            }
-
-
-            $.ajax({
-                url: "{{ route('affecteragent')}} ",
-                type: "POST",
-                data: {
-                    'agentid': agentid,
-
-                    'vals': allVals,
-                    "_token": "{{ csrf_token() }}",
-                },
-                success: function(response) {
-                  $("#basicModal").modal('hide');
-                  $("#affected").show();
-
-                  location.reload();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);
-                    //console.log(response);
-                  
-                    //alert(response.success);
-
-                },
-                error: function(error) {
-                    console.log(response);
-
-                    alert('erreur');
-                }
-            });
+        },
+        error: function(error) {
+          $("#err_validation").show();
+          //    location.reload();
+          setTimeout(function() {
+            location.reload();
+          }, 2500);
+        }
+      });
 
 
 
 
-        });
-    </script>
-    
- 
- 
-
-
-    <script>
-        $('.affectlivreur').on('click', function(e) {
-            var allVals = [];
-            livreurid = $(this).attr('data-id');
-            $(".sub_chk:checked").each(function(e) {
-                allVals.push($(this).attr('data-id'));
-            });
-            if (allVals.length <= 0) {
-              $("#err_effect_livreur").show();
-              location.reload();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);            }
-
-
-            $.ajax({
-                url: "{{ route('affecterlivreur')}} ",
-                type: "POST",
-                data: {
-                    'livreurid': livreurid,
-
-                    'vals': allVals,
-                    "_token": "{{ csrf_token() }}",
-                },
-                success: function(response) {
-                   // console.log(response);
-                    // $("#exampleModal").hide();
-                    //alert(response.success);
-                    $("#basicModal").modal('hide');
-                  $("#affecter_livreur").show();
-
-                  location.reload();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);
-
-                },
-                error: function(error) {
-                  $("#err_effect_livreur").show();
-                }
-            });
+    });
+  </script>
 
 
 
 
-        });
-    </script>
-      <script>
-       $(document).ready( function () {
-    $('#table').DataTable({
-      language: {
-                    url: "{{ asset('assets/datatable-fr-FR.json') }}"
-                },
-                "searching": true
-            });
-} );
-</script>
-<script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    $('.affectagent').on('click', function(e) {
+      var allVals = [];
+      agentid = $(this).attr('data-id');
+      $(".sub_chk:checked").each(function(e) {
+        allVals.push($(this).attr('data-id'));
+      });
+      if (allVals.length <= 0) {
+        $("#erreur").show();
+        //location.reload();
+        setTimeout(function() {
+          location.reload();
+        }, 1600);
+      }
+
+
+      $.ajax({
+        url: "{{ route('affecteragent')}} ",
+        type: "POST",
+        data: {
+          'agentid': agentid,
+
+          'vals': allVals,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+          $("#affected").show();
+
+          // location.reload();
+          setTimeout(function() {
+
+            $("#basicModal").modal('hide');
+
+            location.reload();
+          }, 1600);
+          //console.log(response);
+
+          //alert(response.success);
+
+        },
+        error: function(error) {
+          $("#erreur").show();
+          //location.reload();
+          setTimeout(function() {
+            location.reload();
+          }, 1600);
+        }
+      });
+
+
+
+
+    });
+  </script>
+
+
+
+
+
+  <script>
+    $('.affectlivreur').on('click', function(e) {
+      var allVals = [];
+      livreurid = $(this).attr('data-id');
+      $(".sub_chk:checked").each(function(e) {
+        allVals.push($(this).attr('data-id'));
+      });
+      if (allVals.length <= 0) {
+        $("#err_effect_livreur").show();
+        //location.reload();
+        setTimeout(function() {
+          location.reload();
+        }, 1600);
+      }
+
+
+      $.ajax({
+        url: "{{ route('affecterlivreur')}} ",
+        type: "POST",
+        data: {
+          'livreurid': livreurid,
+
+          'vals': allVals,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+          // console.log(response);
+          // $("#exampleModal").hide();
+          //alert(response.success);
+          $("#affecter_livreur").show();
+
+          //location.reload();
+          setTimeout(function() {
+            $("#basicModal").modal('hide');
+
+            location.reload();
+          }, 1600);
+
+        },
+        error: function(error) {
+
+          $("#err_effect_livreur").show();
+          setTimeout(function() {
+          location.reload();
+        }, 1600);
+        }
+      });
+
+
+
+
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('#table').DataTable({
+        language: {
+          url: "{{ asset('assets/datatable-fr-FR.json') }}"
+        },
+        "searching": true
+      });
+    });
+  </script>
+  <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 
 </body>

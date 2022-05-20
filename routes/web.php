@@ -189,10 +189,10 @@ route::get('mdplivreur', [CommandeController::class, 'mdplivreur'])->name('mdpli
 Route::get('/index', function () {
     return view('index');
 });
+//pour afficher view recherche commande(client)
+route::get('client', [CommandeController::class, 'client'])->name('client');
 
-Route::get('/declare', function () {
-    return view('declare');
-});
+route::post('chercher', [CommandeController::class, 'chercher'])->name('chercher');
 
 
 Route::get('/contact-admin', function () {
@@ -214,13 +214,13 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 Route::get('redirects', 'HomeController@index');
 // route pour mail
-Route::get('/contact', function () {
+/* Route::get('/contact', function () {
     return new App\Mail\Contact([
       'nom' => 'Durand',
       'email' => 'durand@chezlui.com',
       'message' => 'Je voulais vous dire que votre site est magnifique !'
       ]);
-});
+}); */
 /*
 Route::get('send-mail', function () {
    
