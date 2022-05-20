@@ -14,18 +14,17 @@
     @endif
 
     <div class="container">
-
-      <div class="row">
+    <button type="button" class="btn4" onclick="window.location.href ='ajoutagent'" ></i> Ajouter</button>
+</div>
+<div class="row">
         <div class="col-xl-12">
           <div class="card">
+           
+            
             <div class="card-body">
-              <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-sm btn-round mr-3" onclick="window.location.href ='ajoutagent'"></i> Ajouter</button>
-
-
-              <table id="tablecommandes" class="ui celled table" style="width:100%">
-                <thead>
+            <table id="table" class="ui celled table" style="width:100%">
+                              <thead>
                   <tr>
-
                     <th>ID Agent d'entrepot</th>
                     <th>Nom</th>
                     <th>Prénom</th>

@@ -9,7 +9,9 @@
       </ol>
     </nav>
   </div>
-  <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter</button>
+  <div class="container">
+    <button type="button" class="btn4" onclick="window.location.href ='ajoutagent'" ></i> Ajouter</button>
+</div>
 
   <div class="dataTable-top">
     <div class="dataTable-dropdown" style="float:right">
@@ -41,9 +43,10 @@
 
 
 
-            <table id="tablecommercant" class="ui celled table" style="width:100%">
-              <thead>
-                <tr>
+            
+          <div class="card-body">
+            <table id="table" class="ui celled table" style="width:100%">
+                              <thead>
 
                   <th>ID commerçant</th>
                   <th>Nom</th>

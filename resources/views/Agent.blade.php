@@ -13,7 +13,7 @@
 commande(s) préparée(s) avec succée(s)</div>
 
   <div class="container">
-  <button class='preparation' id="preparer">Préparation</button>
+  <button class='btn4' id="preparer">Préparation</button>
 
     <div class="height d-flex justify-content-center align-items-center">
       <div class="row">

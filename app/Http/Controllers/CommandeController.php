@@ -19,7 +19,7 @@ class CommandeController extends Controller
     {
         $comm = DB::table('users')->where('id', Auth::user()->id)->first();
 
-        return view('Declarer-commande', compact('comm'));
+        return view('Declar', compact('comm'));
     }
     //pour declarer une commande
     public function saveCommande(request $request)

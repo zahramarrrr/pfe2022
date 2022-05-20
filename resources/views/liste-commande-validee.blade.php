@@ -13,8 +13,8 @@
 
 
     <div class="container">
-        <div class="height d-flex justify-content-center align-items-center">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+        
+            <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
                 affecter un agent
             </button>
         </div>

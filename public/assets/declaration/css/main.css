@@ -50,14 +50,14 @@
 }
 
 .col-2 {
-  width: -webkit-calc((100% - 30px) / 2);
-  width: -moz-calc((100% - 30px) / 2);
-  width: calc((100% - 30px) / 2);
+  width: -webkit-calc((100% - 50px) / 2);
+  width: -moz-calc((100% - 50px) / 2);
+  width: calc((100% - 50px) / 2);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 500px) {
   .col-2 {
-    width: 100%;
+    width: 80%;
   }
 }
 
@@ -75,12 +75,12 @@
   -moz-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .form-row .name {
   width: 125px;
-  color: #004AAD;
+  color: #6d0aca;
   font-size: 15px;
   font-weight: 700;
 }
@@ -153,13 +153,6 @@
   }
 }
 
-/* ==========================================================================
-   #BOX-SIZING
-   ========================================================================== */
-/**
- * More sensible default box-sizing:
- * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
- */
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -414,15 +407,15 @@ h6 {
 
 
 .btn--blue:hover {
-  background: #3868cd;
+  background: #6d0aca;
 }
 
 .btn--red {
-  background: #004AAD;
+  background: #6d0aca;
 }
 
 .btn--red:hover {
-  background: #004AAD;
+  background: #6d0aca;
 }
 
 /* ==========================================================================
@@ -568,12 +561,20 @@ input {
   padding: 0 22px;
   font-size: 20px;
   color: #555;
-  width: 155px;
+  width: 240px;
+}
+.input--style-desc {
+  background: #e5e5e5;
+  line-height: 55px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 15px;
+  padding: 0 22px;
+  font-size: 20px;
+  color: #555;
+  width: 600px;
 }
 
-.input-group-desc {
-  position: relative;
-}
 
 @media (max-width: 767px) {
   .input-group-desc {
@@ -704,7 +705,7 @@ input {
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
-  color: #004AAD;
+  color: #6d0aca;
 }
 
 /* ==========================================================================

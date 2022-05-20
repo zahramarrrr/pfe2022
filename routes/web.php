@@ -198,6 +198,10 @@ route::post('chercher', [CommandeController::class, 'chercher'])->name('chercher
 Route::get('/contact-admin', function () {
     return view('contact-admin');
 });
+Route::get('/declar', function () {
+    return view('declar');
+});
+
 
 
 

@@ -11,14 +11,15 @@
 
 
     <div class="container">
-
+    <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
+                affecter un livreur
+            </button>
+</div>
         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
                     <div class="height d-flex justify-content-center align-items-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                affecter un livreur
-            </button>
+                
                     </div>
                     <div class="card-body">
 

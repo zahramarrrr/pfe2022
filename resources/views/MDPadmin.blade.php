@@ -97,7 +97,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
+              <a class="dropdown-item d-flex align-items-center" href="editer-profil-admin/{{Auth::user()->id}}">
                 <i class="bi bi-gear"></i>
                 <span>Editer profil</span>
               </a>

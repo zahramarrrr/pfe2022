@@ -35,7 +35,7 @@
                             <input class="input--style-5" type="text"  name="commercant" style="display:none" value="Auth::user()->id" >
 
                                 <div class="row row-space">
-                                    <div class="col-2">
+                                    <div class="col-4">
                                         <div class="name">Nom</div>
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="Nom" id="Nom">
@@ -182,12 +182,15 @@
                                     </div>
 
                                     <div class="col-2">
-                                        <div class="name"></div>
+                                        <div class="name">Prix totale</div>
                                         <div class="input-group-desc">
-
+                                            <input class="input--style-5" type="text" name="Prix" id="Prix" >
+                                            @if ($errors->has('Prix'))
+                                    <span class="text-danger">{{ $errors->first('Prix') }}</span>
+                                @endif
                                         </div>
                                     </div>
-                                </div>
+                                    </div>
                             </div>
                         </div>
                         <div class="form-row m-b-55">
@@ -195,9 +198,9 @@
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
-                                        <div class="name">Prix totale</div>
+                                        <div class="name">Poids</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="Prix" id="Prix"  >
+                                            <input class="input--style-5" type="text" name="Poids" id="Poids" >
                                             @if ($errors->has('Prix'))
                                     <span class="text-danger">{{ $errors->first('Prix') }}</span>
                                 @endif
@@ -205,13 +208,13 @@
                                     </div>
 
                                     <div class="col-2">
-                                        <div class="name"  >Paiemenent</div>
+                                        <div class="name">Paiemenent</div>
                                         <div class="value">
                                             <div class="input-group">
                                                 <div class="rs-select2 js-select-simple select--no-search">
-                                                <input type="radio" name="Paiement" value="livraison" id="livraison"/>      <label for="Paiement">livraison</label>
+                                                <input type="radio" name="Paiement" value="livraison" id="livraison"/><label for="Paiement">livraison</label>
 
-                                                <input type="radio" name="Paiement" checked value="enligne" id='enligne'/>  <label for="Paiement">enligne</label>
+                                                <input type="radio" name="Paiement" checked value="En ligne" id='enligne'/><label for="Paiement">enligne</label>
 
                                                 <!--     <select name="Paiement" class="form-control">
                                                         <option disabled="disabled" selected="selected" id="Paiement">Mode de paiement</option>
@@ -234,18 +237,11 @@
 
                             <div class="value">
                                 <div class="row row-space">
-                                    <div class="col-2">
-                                        <div class="name">Poids</div>
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="Poids" id="Poids">
-                                           
-                                        </div>
-                                    </div>
-
+                                   
                                     <div class="col-2">
                                         <div class="name">Description</div>
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="Description" id="Description">
+                                            <input class="input--style-desc" type="text" name="Description" id="Description">
 
                                         </div>
                                     </div>
@@ -254,7 +250,7 @@
                         </div>
                     
                         <div>
-                            <a href="{{route('list')}}"> <input class="btn btn--radius-2 btn--red" type="submit" value="Déclarer" id="submit" name="submit"> </a>
+                            <a href="{{route('list')}}"> <input class="btn2 type="submit" value="Déclarer" id="submit" name="submit"> </a>
                         </div>
 
                     </form>

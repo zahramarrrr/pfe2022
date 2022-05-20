@@ -298,6 +298,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
     });
   </script>
+  
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -332,6 +333,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
     });
   </script>
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript">
 
 </body>
 

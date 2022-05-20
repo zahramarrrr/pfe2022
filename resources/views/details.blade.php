@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
 
 
 
@@ -12,6 +13,43 @@
         </ol>
       </nav>
     </div>
+=======
+@extends("layouts.admin")
+ @section("content")
+<div class="col-md-12">   
+ <div class="row">
+		
+        <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+    			<div class="receipt-header">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="receipt-left">
+							<img alt="iamgurdeeposahan"  src='{{asset("assets/img/commande.png") }}' style="width: 71px; border-radius: 43px;">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 text-right">
+						<div class="receipt-right">
+							<h5>Company Name.</h5>
+							<p>+1 3649-6589 <i class="fa fa-phone"></i></p>
+							<p>company@gmail.com <i class="fa fa-envelope-o"></i></p>
+							<p>USA <i class="fa fa-location-arrow"></i></p>
+						</div>
+					</div>
+				</div>
+            </div>
+			
+			<div class="row">
+				<div class="receipt-header receipt-header-mid">
+					<div class="col-xs-8 col-sm-8 col-md-8 text-left">
+						
+					</div>
+					
+				</div>
+            </div>
+			
+            <div>
+  
+>>>>>>> Stashed changes
     <?php // dd($commandes); 
     ?>
    
@@ -25,18 +63,10 @@
               @endif 
  
 @csrf
-      <div class="form-row table-responsive">
-        <table class="table">
-  
-          <tbody>
-            <tr class="space-row">
-              <th>date:</th>
-              <td id="date-val"></td>
-            </tr>
-            <tr class="space-row">
-              <th>temps:</th>
-              <td id="temps-val"></td>
-            </tr>
+      <div class="tab-content pt-2">
+      <table class="table table-bordered">
+                    
+                    <tbody>
             <tr class="space-row">
               <th>nom:</th>
               <td id="nom-val">{{$commande->Nom}}</td>
@@ -53,7 +83,7 @@
               <td id="email-val">{{$commande->Email}}</td>
             </tr>
             <tr class="space-row">
-              <th>Adresse 1:</th>
+              <th>Adresse:</th>
               <td id="adresse1-val">{{$commande->Adresse}}</td>
             </tr>
 
@@ -118,4 +148,8 @@ echo '';
     </form>
 
   </main>
+<<<<<<< Updated upstream
  
+=======
+  @endsection
+>>>>>>> Stashed changes
