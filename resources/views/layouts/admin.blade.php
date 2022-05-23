@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Contact;
 use App\models\Notifications;
 
 $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
@@ -35,8 +34,8 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
   <link href='{{asset("assets/img/favicon.png") }}' rel="icon">
   <link href='{{asset("assets/img/apple-touch-icon.png") }}' rel="apple-touch-icon">
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!-- Google Fonts -->
   <link href='{{asset("https://fonts.gstatic.com") }}' rel="preconnect">
   <link href='{{asset("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i") }}' rel="stylesheet">
@@ -94,7 +93,6 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
 
         <li class="nav-item dropdown">
 
-<<<<<<< Updated upstream
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-bell"></i>
             <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
@@ -107,7 +105,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
             </li>
             @foreach($notif as $notifs)
 
-            <a href="{{route('commande.details' , ['id' => $notifs->id]) }}">
+            <a href="{{route('commande.details' , ['id' => $commandes->id]) }}">
               <li>
                 <hr class='dropdown-divider'>
               </li>
@@ -118,31 +116,12 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
                     <h4>
                       {{$user->Nom}} {{$notifs->texte}} {{$notifs->ID_commande}}
                     </h4>
-=======
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
-                <li class="dropdown-header">
-                  Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-                  <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                </li>
-                @foreach($notif as $notifs)
 
-                <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
-                  <li>
-                    <hr class='dropdown-divider'>
-                  </li>
-                  <div id='notif'>
-                    <li class='notification-item'>
-                      <i class='bi bi-exclamation-circle text-w'></i>
-                      <div>
-                        <h4 class="card-title">
-                       {{$user->Nom}}  {{$notifs->texte}} {{$notifs->ID_commande}}
-                        </h4>
-                      </div>
-                    </li>
->>>>>>> Stashed changes
                   </div>
                 </li>
               </div>
+        </li>
+        </div>
         </li></a>
         @endforeach
 
@@ -515,13 +494,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
 
           $("#err_effect_livreur").show();
           setTimeout(function() {
-          location.reload();
-        }, 1600);
+            location.reload();
+          }, 1600);
         }
       });
-
-
-
 
     });
   </script>
@@ -536,8 +512,6 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
     });
   </script>
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
-<script type="text/javascript">
 
 </body>
 

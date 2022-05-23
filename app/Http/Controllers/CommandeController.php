@@ -15,12 +15,84 @@ use Validator;
 
 class CommandeController extends Controller
 {
-    public function addCommande()
+  
+    //admin ajoute une cmd 
+    public function ajoutCommande()
     {
-        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+        $notif = Notifications::query()->where('Notifiable', 'admin')
+        ->orderBy('id', 'desc')->take(5)
+        ->get();
+        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+        ->first(['users.*', 'notifications.*']);
 
-        return view('Declar', compact('comm'));
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('ajouter-commande', compact('notif','user','admin'));
     }
+    public function adminajoutCommande(request $request)
+{
+    $request->validate(
+        [
+            'Code_postal' => 'required|alpha_num',
+            'ID_commande' => 'required|unique:commandes,ID_commande',
+            'Nom' => 'required|alpha',
+            'Prenom' => 'required|alpha',
+            'Telephone' => 'required|alpha_num',
+            'Adresse' => 'required',
+            'Governorat' => 'required',
+            'Ville' => 'required',
+           // 'Email' => 'email:rfc,dns',
+            'Prix' => 'required_if:Paiement,livraison',
+
+],
+        [
+            'Nom.required' => 'le nom du client est obligatoir',
+            'Nom.alpha' => 'Le nom ne doit contenir que des lettres.',
+            'Prenom.required' => 'le Prenom du client est obligatoir',
+            'Prenom.alpha' => 'le Prenom ne doit contenir que des lettres.',
+            'Telephone.required' => 'le numéro du téléphone est obligatoire',
+            'Telephone.digits_between' => 'le numéro du téléphone est invalide',
+
+            'Adresse.required' => ' Adresse du client est obligatoir',
+            'Governorat.required' => ' Governorat du client est obligatoir',
+            'Ville.required' => ' Ville du client est obligatoir',
+            'Prix.required_if' => ' le prix est obligatoire car le paiement est a la livraison',
+           // 'Email.email' => 'email invalide',
+            'Code_postal.required' => 'le code postal doit etre de 4 chiffre',
+            'Code_postal.digits_between' => 'le code postal  est obligatoir',
+
+            'ID_commande.required' => 'la références du commande est obligatoire',
+            'ID_commande.unique' => 'la références du commande doit etre unique'
+        ]
+    );
+    $newcommande = Commande::create([
+        'ID_commande' => $request->ID_commande,
+        'Nom' => $request->Nom,
+        'Prenom' => $request->Prenom,
+        'Telephone' => $request->Telephone,
+        'Email' => $request->Email,
+        'Adresse' => $request->Adresse,
+        'Governorat' => $request->Governorat,
+        'Ville' => $request->Ville,
+        'Code_postal' => $request->Code_postal,
+        'Paiement' => $request->Paiement,
+        'Poids' => $request->Poids,
+        'Prix' => $request->Prix,
+
+        'Description' => $request->Description,
+    ]);
+ 
+    return redirect()->route('commande_declaree_admin');
+
+
+}
+//afficher form declaration commerçant
+public function addCommande()
+{
+    $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+
+    return view('Declar', compact('comm'));
+}
+
     //pour declarer une commande
     public function saveCommande(request $request)
     {
@@ -211,8 +283,20 @@ class CommandeController extends Controller
         ->first(['users.*', 'notifications.*']);
 
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
-       
-        return view('details', compact('commande','comm','notif','user','agent'));
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
+
+        if(Auth::user()->Role=='agent')
+        $type = "layouts.Agent" ;
+        else if(Auth::User()->Role == 'admin')
+        $type = "layouts.admin" ;
+        else if(Auth::User()->Role == 'livreur')
+        $type = "layouts.livreur"; 
+        else
+        $type = "layouts.commerçant" 
+        ;
+        return view('details', compact('commande','comm','notif','user','agent','admin','type','livreur'));
+        
     }
     //pour afficher 5 notifications
 
@@ -334,13 +418,14 @@ class CommandeController extends Controller
 
 
             $cmd->save();
-            DB::table('Notifications')->updateOrInsert([
-                'ID_Personnel' => $livreurid,
-                'ID_commande' => $cmd->id,
-                'Type' => 'livreur',
-
+            DB::table('Notifications')->insert([
+                'ID_Personnel' =>  Auth::user()->id,
+                'Type' => 'admin',
+                'texte' => 'Admin vous a affecté la commande',
+                'Notifiable' => 'livreur',
+                'ID_commande' => $cmd->ID_commande
             ]);
-            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), $livreurid, $cmd->id]));
+            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), 'Admin vous a affecté la commande', $cmd->ID_commande]));
         }
 
 
@@ -652,7 +737,7 @@ class CommandeController extends Controller
 
         return view('profilAdmin', compact('admin','notif'));
     }
-    // editert Etat a preparee plusieurs commandes
+    // editert Etat a preparee pour  plusieurs commandes
     public function preparer(Request $request)
     {
 
@@ -676,6 +761,28 @@ class CommandeController extends Controller
         event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a préparée la commande', $cmd->ID_commande]));
     }
 }
+public function preparation(Request $request)
+{
+
+    now("Europe/Rome");
+    $commande = $request->vals;
+        $cmd = Commande::find($commande);
+        $cmd->Etat = 'preparée';
+        $cmd->date_validation = Carbon::now();
+
+
+        $cmd->save();
+    
+    DB::table('Notifications')->insert([
+        'ID_Personnel' =>  Auth::user()->id,
+        'Type' => 'agent',
+        'texte' => 'a préparée la commande',
+        'Notifiable' => 'admin',
+        'ID_commande' => $cmd->ID_commande
+    ]);
+    event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a préparée la commande', $cmd->ID_commande]));
+}
+
     public function preparercommande($id)
     {
         now("Europe/Rome");
@@ -687,7 +794,9 @@ class CommandeController extends Controller
 
 
         ]);
-        $agent = DB::table('users')->where('id', Auth::user()->id)->first();
+        event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
+
+       /*  $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
         $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
         ->first(['users.*', 'commandes.*']);
@@ -695,10 +804,12 @@ class CommandeController extends Controller
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
         $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
         $cmd= DB::table('commandes')->where('id', $id)->first();
-        event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
 
-        return view('Agent', compact('notif', 'agent', 'commandes','commercant'));
+        return view('Agent', compact('notif', 'agent', 'commandes','commercant')); */
+        return redirect()->route('agent');
+
     }
+    //livrer page details
     public function livrercommande($id)
     {
         now("Europe/Rome");
@@ -710,16 +821,48 @@ class CommandeController extends Controller
 
 
         ]);
-        $cmd= DB::table('commandes')->where('id', $id)->first();
+        event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
+
+   /*      $cmd= DB::table('commandes')->where('id', $id)->first();
         $search_text = isset($_GET['query']);
         $notif = Notifications::query()->where('Type', 'livreur')->take(5)->get();
         $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-        $commandes = DB::table('commandes')->where('livreur', Auth::user()->id)
+        $commandes = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
-            event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
+            $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
+            ->first(['users.*', 'commandes.*']);
+        return view('Livreur', compact('commandes', 'livreur', 'notif','commercant')); */
+        return redirect()->route('livreur');
 
-        return view('Livreur', compact('commandes', 'livreur', 'notif'));
     }
+    //retournee de page details
+    
+public function retourner(Request $request)
+{
+
+    now("Europe/Rome");
+    $commande = $request->vals;
+        $cmd = Commande::find($commande);
+        $cmd->Etat = 'retournée';
+       // $cmd->date_retour = Carbon::now();
+
+
+        $cmd->save();
+    
+    DB::table('Notifications')->insert([
+        'ID_Personnel' =>  Auth::user()->id,
+        'Type' => 'livreur',
+        'texte' => 'a retournée la commande',
+        'Notifiable' => 'admin',
+        'ID_commande' => $cmd->ID_commande
+    ]);
+   event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a retournée la commande', $cmd->ID_commande]));
+
+   return response()->json(["redirect_url"=>url('livreur')]);
+
+}
+
+    //livreur plusieurs
     public function livrer(Request $request)
     {
 
@@ -741,7 +884,28 @@ class CommandeController extends Controller
             'ID_commande' => $cmd->ID_commande
         ]);
         event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
-    }
+        }}
+        //livrer 1 seul
+    public function livraison(Request $request){
+
+        now("Europe/Rome");
+        $commande = $request->vals;
+            $cmd = Commande::find($commande);
+            $cmd->Etat = 'livree';
+            $cmd->Date_Livraison = Carbon::now();
+
+
+            $cmd->save();
+        
+        DB::table('Notifications')->insert([
+            'ID_Personnel' =>  Auth::user()->id,
+            'Type' => 'livreur',
+            'texte' => 'a livré la commande',
+            'Notifiable' => 'admin',
+            'ID_commande' => $cmd->ID_commande
+        ]);
+        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
+    
 }
     public function mdpagent(Request $request)
     {
@@ -817,5 +981,18 @@ $etat=$data->Etat;
 
 return view('client', compact('etat'));
 
+}
+public function cmd_retournee(Request $request)
+{
+    $search_text = isset($_GET['query']);
+
+    $notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
+    $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
+    $commandes = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
+        ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
+        ->where('Etat', 'retournee')->get();
+        $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
+        ->first(['users.*', 'commandes.*']);
+    return view('retourne_livreur',compact('commercant','commandes','livreur','notif'));
 }
 }

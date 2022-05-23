@@ -268,11 +268,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
   <!-- Template Main JS File -->
   <script src='{{asset("assets/js/main.js") }}'></script>
   <script src='{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js") }}' integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script>
+<!--   <script>
     $('.js-tilt').tilt({
       scale: 1.1
     })
-  </script>
+  </script> -->
   <!--===============================================================================================-->
   <script async src='{{asset("https://www.googletagmanager.com/gtag/js?id=UA-23581568-13") }}'></script>
   <!--===============================================================================================-->
@@ -299,8 +299,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
       });
     });
   </script>
+  <!-- pour preparer plusieurs cmd-->
   <script>
-    $('.preparation').on('click', function(e) {
+    $('#preparation').on('click', function(e) {
       var allVals = [];
       $(".sub_chk:checked").each(function(e) {
         allVals.push($(this).attr('data-id'));
@@ -326,11 +327,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
          // location.reload();
 
           $("#prep").show();
-          location.reload();
                   setTimeout(function(){
            location.reload(); 
         }, 2500);      
-          //  console.log(response);
+           console.log(response);
           // alert(response.success);
 
         },
@@ -338,7 +338,45 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
           console.log(response);
 
           $("#err_preparation").show();
-          location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
+        }
+      });
+
+
+
+
+    });
+  </script>
+
+  <!-- pour preparer 1 seul cmd-->
+  <script>
+    $('#preparer').on('click', function(e) {
+     cmdid = $(this).attr('data-id');
+ $.ajax({
+        url: "{{ route('preparation')}} ",
+        type: "POST",
+        data: {
+
+          'vals': cmdid,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+         // location.reload();
+
+          $("#prep").show();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);      
+          // console.log(response);
+          // alert(response.success);
+
+        },
+        error: function(error) {
+       //   console.log(response);
+
+          $("#err_preparation").show();
                   setTimeout(function(){
            location.reload(); 
         }, 2500);  
@@ -395,7 +433,6 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
     });
   </script>
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript">
 
 
 </body>

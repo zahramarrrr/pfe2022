@@ -14,7 +14,7 @@
     @endif
 
     <div class="container">
-    <button type="button" class="btn4" onclick="window.location.href ='ajoutagent'" ></i> Ajouter</button>
+    <button type="button" class="btn4" onclick="window.location.href ='ajoutlivreur'" ></i> Ajouter</button>
 </div>
       <div class="row">
         <div class="col-xl-12">

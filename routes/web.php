@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,63 +31,22 @@ Route::get('login', function () {
 
 
 
-Route::get('/Admin', function () {
-    return view('Admin');
-});
-Route::get('/ajout', function () {
-    return view('ajout');
-});
-Route::get('/ajouter-commande', function () {
-    return view('ajouter-commande');
-});
-
-
-
-
-
-
-
-Route::get('/liste-personnels-Agent', function () {
-    return view('liste-personnels-Agent');
-});
-
-
-Route::get('/notification', function () {
-    return view('notification');
-});
-Route::get('/edit-commande', function () {
-    return view('edit-commande');
-});
 
 Route::get('/list', 'CommandeController@list')->name('list');
 //pour laffichage de view form
-Route::get('/ajout-agent', function () {
-    return view('ajout-agent');
-});
-Route::get('/ajout-livreur', function () {
-    return view('ajout-livreur');
-});
 
 Route::get('/Statut', function () {
     return view('Statut');
 });
 
-Route::get('/liste-notification', function () {
-    return view('liste-notification');
-});
+//pour afficher les espaces 
+route::get('livreur', [HomeController::class, 'livreur'])->name('livreur');
+route::get('agent', [HomeController::class, 'agent'])->name('agent');
+route::get('admin', [HomeController::class, 'admin'])->name('admin');
 
-Route::get('MDPadmin', function () {
-    return view('MDPadmin');
-});
-Route::get('/MDPcommercant', function () {
-    return view('MDPcommercant');
-});
-Route::get('/MDPlivreur', function () {
-    return view('MDPlivreur');
-});
-Route::get('/liste-commande-declare-admin', function () {
-    return view('liste-commande-declare-admin');
-});
+// declarer cmd retournee
+route::get('retournee', [CommandeController::class, 'cmd_retournee'])->name('retournee');
+
 
 //route pour voir tout les notifications 
 route::get('liste-notification', [CommandeController::class, 'listenotif'])->name('listenotif');
@@ -103,6 +63,7 @@ route::post('valider', [CommandeController::class, 'valider'])->name('valider');
 route::post('validercommande/{id}', [CommandeController::class, 'validercommande'])->name('validercommande');
 route::post('preparercommande/{id}', [CommandeController::class, 'preparercommande'])->name('preparercommande');
 route::post('livrercommande/{id}', [CommandeController::class, 'livrercommande'])->name('livrercommande');
+route::post('retournercommande', [CommandeController::class, 'retourner'])->name('retourner');
 
 route::post('affecteragent', [CommandeController::class, 'affecteragent'])->name('affecteragent');
 route::post('affecterlivreur', [CommandeController::class, 'affecterlivreur'])->name('affecterlivreur');
@@ -121,8 +82,11 @@ route::get('details/{id}', [CommandeController::class, 'Commandedetails'])->name
 route::get('detailsview', [CommandeController::class, 'CommandedetailCommerssant'])->name('details');
 route::get('/search', 'CommandeController@search');
 
+//admin ajout une commande
+route::get('ajoutCommande', [CommandeController::class, 'ajoutCommande'])->name('ajoutCommande');
+route::post('adminajoutCommande', [CommandeController::class, 'adminajoutCommande'])->name('ajouter.commande');
 
-
+route::get('livreurs', [CommandeController::class, 'livreurs'])->name('livreurs');
 
 
 
@@ -177,6 +141,8 @@ route::post('update-profiladmin', [CommandeController::class, 'profileUpDateadmi
 // preparer et livrer plusieurs commandes
 route::post('preparer', [CommandeController::class, 'preparer'])->name('preparer');
 route::post('livrer', [CommandeController::class, 'livrer'])->name('livrer');
+route::post('preparation', [CommandeController::class, 'preparation'])->name('preparation');
+route::post('livraisontion', [CommandeController::class, 'livraison'])->name('livraison');
 
 route::post('updatemdp', [CommandeController::class, 'updatemdp'])->name('updatemdp');
 
@@ -195,15 +161,8 @@ route::get('client', [CommandeController::class, 'client'])->name('client');
 route::post('chercher', [CommandeController::class, 'chercher'])->name('chercher');
 
 
-Route::get('/contact-admin', function () {
-    return view('contact-admin');
-});
-Route::get('/declar', function () {
-    return view('declar');
-});
-
-
-
+// afficher liste retournee pour livreur
+route::get('cmd_retournee', [CommandeController::class, 'cmd_retournee'])->name('cmd_retournee');
 
 
 

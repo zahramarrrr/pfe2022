@@ -27,11 +27,17 @@
                         <div class="form-group">
                           <x-label class="col-lg-3 col-md-4 label " for="name" :value="__('Nom:')" />
 
-                          <x-input id="Nom" class="form-control" type="text" name="Nom" :value="old('Nom')" required autofocus />
+                          <x-input id="Nom" class="form-control" type="text" name="Nom" :value="old('Nom')"  />
+                          @if ($errors->has('Nom'))
+                                    <span class="text-danger">{{ $errors->first('Nom') }}</span>
+                                @endif
                         </div>
                         <div class="form-group">
                           <x-label class="col-lg-3 col-md-4 label " for="Prenom" :value="__('Prénom:')" />
                           <input type="text" class="form-control" name="Prenom" id="Prenom">
+                          @if ($errors->has('Prenom'))
+                                    <span class="text-danger">{{ $errors->first('Prenom') }}</span>
+                                @endif
                         </div>
                         <div class="form-group">
                           <x-label class="col-lg-3 col-md-4 label "  for="adresse" :value="__('Adresse:')" />
@@ -50,6 +56,9 @@
                         <x-label class="col-lg-3 col-md-4 label "  for="email" :value="__('Adresse mail:')" />
 
                         <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
+                        @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
                       </div>
 
                  

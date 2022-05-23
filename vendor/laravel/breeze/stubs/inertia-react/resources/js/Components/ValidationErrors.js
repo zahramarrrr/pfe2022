@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ValidationErrors({ errors }) {
+/* export default function ValidationErrors({ errors }) {
     return (
         Object.keys(errors).length > 0 && (
             <div className="mb-4">
@@ -13,5 +13,5 @@ export default function ValidationErrors({ errors }) {
                 </ul>
             </div>
         )
-    );
-}
+    ); 
+}*/

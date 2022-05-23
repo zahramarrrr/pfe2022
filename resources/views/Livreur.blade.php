@@ -1,22 +1,20 @@
-
 @extends("layouts.livreur")
- @section("content")
-  <main id="main" class="main">
-    <div class="pagetitle">
-      <h1>Liste des commandes à livrée</h1>
+@section("content")
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Liste des commandes à livrée</h1>
 
-      <nav>
-        <ol class="breadcrumb">
-        </ol>
-      </nav>
-    </div>
 
- 
-    <div id="livree" class="alert alert-success" role="alert" style="display:none">
-commande(s) livrée(s) avec succée(s)</div>
+  </div>
+
+
+  <div id="livree" class="alert alert-success" role="alert" style="display:none">
+    commande(s) livrée(s) avec succée(s)</div>
+  <div id="erreur" class="alert alert-danger" role="alert" style="display:none">
+    erreur(s)</div>
   <div class="container">
-  <button class='preparation' id="livrer">livraison</button>
-  <div class="height d-flex justify-content-center align-items-center">
+    <button class='btn4' id="livrer">livraison</button>
+    <div class="height d-flex justify-content-center align-items-center">
       <div class="row">
         <div class="col-xl-12">
           <div class="card">
@@ -34,14 +32,13 @@ commande(s) livrée(s) avec succée(s)</div>
 
                     <th>Etat actuel</th>
                     <th>Details</th>
-
+                    <th></th>
                   </tr>
 
                 </thead>
                 <tbody>
 
                   @foreach($commandes as $com)
-                  <tr class="odd">
                   <tr id="tr_{{$com->id}}">
                     <td><input type="checkbox" class="sub_chk" data-id="{{$com->id}}"></td>
 
@@ -56,10 +53,11 @@ commande(s) livrée(s) avec succée(s)</div>
                       <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="material-icons"></i></a>
                     </td>
 
+                    <td> <button data-id="{{$com->id}}" id="livraison" type="button">livrer</button>
+                    </td>
 
-
-
-                    @endforeach
+                  </tr>
+                  @endforeach
                 </tbody>
               </table>
 

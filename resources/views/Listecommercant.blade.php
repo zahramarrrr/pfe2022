@@ -10,7 +10,7 @@
     </nav>
   </div>
   <div class="container">
-    <button type="button" class="btn4" onclick="window.location.href ='ajoutagent'" ></i> Ajouter</button>
+    <button type="button" class="btn4" onclick="window.location.href ='ajoutcom'" ></i> Ajouter</button>
 </div>
 
   <div class="dataTable-top">
@@ -64,7 +64,7 @@
                 @foreach($comm as $c)
                 <tr>
 
-                  <td>{{$c->id}}</td>
+                  <td><img src="assets/img/avatar.png" alt="" class="thumb-sm rounded-circle mr-2">{{$c->id}}</td>
 
                   <td>{{$c->Nom}}</td>
                   <td>{{$c->Prenom}}</td>

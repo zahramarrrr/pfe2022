@@ -11,7 +11,8 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Espace livreur</title>
+  <title>Espace Agent</title>
+
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -24,19 +25,60 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
   <link href='{{asset("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i") }}' rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
   <link href='{{asset("assets/vendor/bootstrap/css/bootstrap.min.css") }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/boxicons/css/boxicons.min.css") }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/quill/quill.snow.css") }}' rel="stylesheet">
-  <link href='{{asset("assets/vendor/quill/quill.bubble.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/quill/quill.bubble.css" ) }}'rel="stylesheet">
   <link href='{{asset("assets/vendor/remixicon/remixicon.css") }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/simple-datatables/style.css") }}' rel="stylesheet">
-  <link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href='{{asset("assets/css/style.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/css/style.css" ) }}'rel="stylesheet">
   <link href='{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css") }}' rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href='{{asset("https://fonts.googleapis.com/css?family=Roboto|Varela+Round") }}'>
+  <link rel="stylesheet" href='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css") }}'>
+  <link rel="stylesheet" href='{{asset("https://fonts.googleapis.com/icon?family=Material+Icons") }}'>
+  <link rel="stylesheet" href='{{asset("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css") }}'>
+  <script src='{{asset("https://code.jquery.com/jquery-3.5.1.min.js") }}'></script>
+  <script src='{{asset("https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js") }}'></script>
+  <script src='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js") }}'></script>
+  <script src='{{asset("https://js.pusher.com/7.0/pusher.min.js") }}'></script>
+  
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
 
+    var pusher = new Pusher('d76c5db9b1fa63985fd9', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1]));
+    });
+  </script>
 </head>
 
 <body>
@@ -73,7 +115,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
         </li>
         @foreach($notif as $notifs)
 
-        <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
+        <a href="{{route('commande.details' , ['id' => {{$url}}]) }}">
           <li>
             <hr class='dropdown-divider'>
           </li>
@@ -82,7 +124,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
               <i class='bi bi-exclamation-circle text-warning'></i>
               <div>
                 <h4>
-                  {{$notifs->ID_Personnel}} {{$notifs->texte}} {{$notifs->ID_commande}}
+                 {{$notifs->texte}} {{$notifs->ID_commande}}
                 </h4>
               </div>
             </li>
@@ -97,25 +139,6 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
   </li><!-- End Notification Nav -->
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="editer-profil-livreur/{{Auth::user()->id}}">
-                <i class="bi bi-gear"></i>
-                <span class="h6">Editer profil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="mdplivreur">
-                <i class="bi bi-gear"></i>
-                <span class="h6">Changer mot de passe</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
 
 
@@ -178,13 +201,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Declarer-commande">
-        <i class="bi bi-bag-plus"></i><span>Déclarer une commande rétournée</span>
+      <a class="nav-link collapsed" href="livreurs">        <i class="bi bi-bag-plus"></i>
+        <i class="bi bi-bag"></i><span>Mes commandes</span>
         </a>
 
       </li><!-- End declarer commande nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="http://127.0.0.1:8000/Declarer-commande">
+        <a class="nav-link collapsed" href="cmd_retournee">
         <i class="bi bi-bag"></i><span>Liste des commandes retournées</span>
         </a>
 
@@ -196,7 +219,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="contact">
+        <a class="nav-link collapsed" href="contactview">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -244,8 +267,26 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
   <!-- Template Main JS File -->
   <script src='{{asset("assets/js/main.js") }}'></script>
-  <script src='{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ) }}' integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" ) }}' crossorigin="anonymous"></script>
-  <script type="text/javascript">
+  <script src='{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js") }}' integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!--   <script>
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script> -->
+  <!--===============================================================================================-->
+  <script async src='{{asset("https://www.googletagmanager.com/gtag/js?id=UA-23581568-13") }}'></script>
+  <!--===============================================================================================-->
+  <script src='{{asset("https://code.jquery.com/jquery-3.5.1.js") }}'></script>
+  <script src='{{asset("https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js") }}'></script>
+  <script src='{{asset("https://code.jquery.com/jquery-3.5.1.js") }}'></script>
+  <!--===============================================================================================-->
+  <script src='{{asset("https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js") }}'></script>
+  <!--===============================================================================================-->
+  <script src='{{asset("https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js") }}'></script>
+  <!--===============================================================================================-->
+
+  <script src='{{asset("https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js") }}'></script>
+  <script>
     $(document).ready(function() {
       $('#master').on('click', function(e) {
         if ($(this).is(':checked', true)) {
@@ -258,14 +299,18 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
       });
     });
   </script>
-  <script>
-    $('.preparationv').on('click', function(e) {
+  <script type="text/javascript">
+    $('#livrer').on('click', function(e) {
       var allVals = [];
       $(".sub_chk:checked").each(function(e) {
         allVals.push($(this).attr('data-id'));
       });
       if (allVals.length <= 0) {
-        alert("Please select row.");
+        $("#erreur").show();
+        location.reload();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
       }
 
 
@@ -281,7 +326,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
           // location.reload();
 
           $("#livree").show();
-
+          setTimeout(function(){
+           location.reload(); 
+        }, 2500);      
+           console.log(response);
           //  console.log(response);
           // alert(response.success);
 
@@ -289,7 +337,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
         error: function(error) {
           console.log(response);
 
-          alert('erreur');
+          $("#erreur").show();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
         }
       });
 
@@ -298,8 +349,100 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
     });
   </script>
-  
+  <!-- pour livrer une seule cmd-->
   <script>
+    $('#livraison').on('click', function(e) {
+      
+     cmdid = $(this).attr('data-id');
+ $.ajax({
+        url: "{{ route('livraison')}} ",
+        type: "POST",
+        data: {
+
+          'vals': cmdid,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+         // location.reload();
+
+          $("#livree").show();
+          setInterval(function(){
+           location.reload(); 
+        }, 2500);      
+          console.log(response);
+          // alert(response.success);
+
+        },
+        error: function(error) {
+        console.log(response);
+
+          $("#erreur").show();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
+        }
+      });
+
+
+
+
+    });
+  </script>
+  <!-- retournee cmd -->
+  <script>
+    $('#retourner').on('click', function(e) {
+     cmdid = $(this).attr('data-id');
+     console.log(cmdid);
+ $.ajax({
+        url: "{{ route('retourner')}} ",
+        type: "POST",
+        data: {
+
+          'vals': cmdid,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+          $("#succ").show();
+         // location.reload();
+         if(response.redirect_url){
+       window.location=data.redirect_url; 
+       return redirect()->route('commande_declaree_admin');
+    }
+         /* 
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);      
+        console.log(response); */
+          // alert(response.success);
+
+        },
+        error: function(error) {
+       //  console.log(response);
+
+          $("#err").show();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
+        }
+      });
+
+
+
+
+    });
+  </script>
+   <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+  </script>
+
+  <script type="text/javascript">
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
@@ -311,11 +454,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
     channel.bind('my-event', function(data) {
       idcommande = JSON.stringify(data.message);
       urlcmd = JSON.stringify(data.message[0]);
-      comm = JSON.stringify(data.message[1]);
-      msg = JSON.stringify(data.message[2]);
-      id = JSON.stringify(data.message[3]);
+      msg = JSON.stringify(data.message[1]);
+      id = JSON.stringify(data.message[2]);
 
-      notifmsg = comm + msg + id;
+      notifmsg = msg + id;
       msg = notifmsg.replace(/["']/g, " ");
       //   alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
       oldcontent = document.getElementById('notif').innerHTML;
@@ -333,7 +475,6 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
     });
   </script>
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript">
 
 </body>
 

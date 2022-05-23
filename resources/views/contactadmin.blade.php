@@ -60,12 +60,12 @@
 						<div class="row gy-4">
 
 							<div class="col-md-6">
-								<input type="text" name="name" class="form-control" placeholder="Your Name" value={{$agent->Prenom}} required>
+								<input type="text" name="Prenom" class="form-control" placeholder="Your Name" value={{$agent->Prenom}} required>
 							</div>
 
 
 							<div class="col-md-6">
-								<input type="text" name="name" class="form-control" placeholder="Your Name" value={{$agent->Nom}} required>
+								<input type="text" name="Nom" class="form-control" placeholder="Your Name" value={{$agent->Nom}} required>
 							</div>
 							<div class="col-md-12">
 								<input type="text" class="form-control" name="email" placeholder="email" value={{$agent->email}} required>
