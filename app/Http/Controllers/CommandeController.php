@@ -279,6 +279,7 @@ public function addCommande()
         $comm = DB::table('users')->where('id', Auth::user()->id)->first();
         $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
             ->first(['commandes.*', 'notifications.*']);
+
         $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
         ->first(['users.*', 'notifications.*']);
         $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
@@ -307,7 +308,7 @@ public function addCommande()
         $type = "layouts.commerçant" 
         ;
         return view('details', compact('cmd','commande','comm','notif','user','agent','admin','type','livreur','commandes'));
-        
+   
     }
     //pour afficher 5 notifications
 

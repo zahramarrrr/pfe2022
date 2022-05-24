@@ -52,7 +52,7 @@
                 <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="labellogin" href="{{ route('password.request') }}">
-                        {{ __('Reinitialiser mot de passe ?') }}
+                        {{ __('Mot de passe oublié ?') }}
                     </a>
                 @endif
                 </div>

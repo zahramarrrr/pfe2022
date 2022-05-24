@@ -1,9 +1,4 @@
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -2122,11 +2117,11 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #28a745;
+  background-color: #3f28a7;
   border-color: #28a745; }
   .btn-success:hover {
     color: #fff;
-    background-color: #218838;
+    background-color: #5f2188;
     border-color: #1e7e34; }
   .btn-success:focus, .btn-success.focus {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
@@ -2477,9 +2472,9 @@ fieldset:disabled a.btn {
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
+  font-size: 10px;
   line-height: 1.5;
-  border-radius: 0.2rem; }
+  border-radius: 0.1rem; }
 
 .btn-block {
   display: block;
@@ -8326,4 +8321,6 @@ textarea.form-control {
   element.style{
     background-image: url(images/img.jpg);
 }
+
+
   

@@ -3,13 +3,14 @@
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Liste des commandes à préparer</h1>
+  
   </div>
 
   
     <div id="err_preparation" class="alert alert-danger" role="alert" style="display:none">erreur</div>
     <div id="prep" class="alert alert-success" role="alert" style="display:none">
       commande(s) préparée(s) avec succée(s)</div>
-    <button class='btn4' id="preparation">Préparation</button>
+      <button class='btn4' id="preparation">Préparation</button>
 
   <div class="row">
     <div>

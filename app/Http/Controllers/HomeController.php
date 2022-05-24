@@ -27,12 +27,14 @@ class HomeController extends Controller
             ->get();
             $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
             ->first(['users.*', 'notifications.*']);
+            $search_text = isset($_GET['query']);
 
             $admin = DB::table('users')->where('id', Auth::user()->id)->first();
             $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
             ->first(['commandes.*', 'notifications.*']);
     
             return view('Admin', compact('notif', 'admin','user','cmd'));
+
         } elseif ($role == 'agent') {
             $agent = DB::table('users')->where('id', Auth::user()->id)->first();
             $search_text = isset($_GET['query']);
@@ -129,4 +131,3 @@ class HomeController extends Controller
     {
         return view('home');
     }
-}*/

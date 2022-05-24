@@ -4,6 +4,7 @@
   <div class="pagetitle">
     <h1>Liste des commandes à livrée</h1>
 
+    <button class='btn4' id="livrer">livraison</button>
 
   </div>
 
@@ -13,7 +14,6 @@
   <div id="erreur" class="alert alert-danger" role="alert" style="display:none">
     erreur(s)</div>
   <div class="container">
-    <button class='btn4' id="livrer">livraison</button>
     <div class="height d-flex justify-content-center align-items-center">
       <div class="row">
         <div class="col-xl-12">
@@ -31,8 +31,8 @@
                     <th>Société commerçante</th>
 
                     <th>Etat actuel</th>
-                    <th>Details</th>
-                    <th></th>
+                    <th>Détails</th>
+                    <th >Action</th>
                   </tr>
 
                 </thead>
@@ -47,15 +47,18 @@
                     <td>{{$com->Description}}</td>
 
                     <td>{{$commercant->societe}}</td>
-                    <td><span class="badge bg-success">{{$com->Etat}}</span></td>
+                    <td><span class="badge bg-success" style="font-size:0.8rem;">{{$com->Etat}}</span></a>
+                  </td>
 
                     <td>
-                      <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="material-icons"></i></a>
+                    <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="bi bi-eye" style="font-size:2rem;"></i>
                     </td>
-                    <td>    <i class="bi bi-truck" onclick="getId(this);"  id="{{$com->id}}"  type="button"></i>
+                    <td>    <span><i class="bi bi-truck" onclick="getId(this);"  id="{{$com->id}}"  type="button" style="font-size:2rem;"></i>
 
                    
-                    </td>
+</span></td>
+
+                    
 
                   </tr>
                   @endforeach

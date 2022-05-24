@@ -1,6 +1,12 @@
 @extends("layouts.commerçant")
 @section("content")
 <main id="main" class="main">
+<nav>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">Acceuil</a></li>
+				<li class="breadcrumb-item active">Déclaration</li>
+			</ol>
+		</nav>
     <section class="section">
       <div class="row">
         <div class="col-lg-15">

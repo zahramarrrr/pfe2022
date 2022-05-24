@@ -3,7 +3,14 @@
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Liste des commandes déclarées</h1>
+    <nav>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">Acceuil</a></li>
+				<li class="breadcrumb-item active">liste des commandes déclarées</li>
+			</ol>
+		</nav>
   </div>
+  
 
   @if(Session::has('commande_delete'))
   <span>{{Session::get('commande_delete')}}</span>
@@ -12,10 +19,11 @@
     <div class="ui stackable grid">
 
     </div>
-    <div class="row dt-table">
-      <div class="sixteen wide column">
-        <table id="table" class="ui celled table" style="width:100%">
-          <thead>
+   
+    <div class="card-body">
+
+      <table id="table" class="ui celled table" style="width:100%">
+                              <thead>
             <tr>
               <th class="sorting sorting_asc" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID commande: activer pour trier la colonne par ordre décroissant" style="width: 149px;">ID commande</th>
               <th class="sorting" tabindex="0" aria-controls="tablecommandes" rowspan="1" colspan="1" aria-label="Date de commande: activer pour trier la colonne par ordre croissant" style="width: 149px;">Nom et prénom</th>
@@ -32,14 +40,14 @@
             @foreach($commandes as $commande)
             <tr class="odd">
 
-              <td class="sorting_1"><img src="assets/img/comm.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+              <td class="sorting_1"><img src="assets/img/comm.png" alt="" class="thumb-sm rounded-circle ">{{$commande->ID_commande}}</td>
               <td>{{$commande->Nom}} {{$commande->Prenom}}</td>
               <td>{{$commande->Telephone}}</td>
               <td>{{$commande->Governorat}}</td>
               <td>{{$commande->created_at}}</td>
-              <td><span class="badge bg-success">{{$commande->Etat}}</span></td>
+              <td><span class="badge bg-success" style="font-size:0.8rem;">{{$commande->Etat}}</span></td>
 
-              <td><a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons"></i></a>
+              <td><a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons " style="font-size:2rem;" ></i></a>
 
               </td>
             </tr>
