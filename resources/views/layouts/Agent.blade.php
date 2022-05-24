@@ -115,7 +115,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
             </li>
             @foreach($notif as $notifs)
 
-            <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
+            <a href="{{route('commande.details' , ['id' => $commandes->id]) }}">
               <li>
                 <hr class='dropdown-divider'>
               </li>
@@ -352,8 +352,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 
   <!-- pour preparer 1 seul cmd-->
   <script>
-    $('#preparer').on('click', function(e) {
-     cmdid = $(this).attr('data-id');
+    function getId(monId)
+{
+  cmdid=monId.id;
  $.ajax({
         url: "{{ route('preparation')}} ",
         type: "POST",
@@ -386,7 +387,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 
 
 
-    });
+    };
   </script>
   <script>
     window.dataLayer = window.dataLayer || [];

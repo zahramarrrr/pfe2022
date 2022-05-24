@@ -115,7 +115,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
         </li>
         @foreach($notif as $notifs)
 
-        <a href="{{route('commande.details' , ['id' => {{$url}}]) }}">
+        <a href="{{route('commande.details' , ['id' => $commandes->id]) }}">
           <li>
             <hr class='dropdown-divider'>
           </li>
@@ -351,9 +351,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
   </script>
   <!-- pour livrer une seule cmd-->
   <script>
-    $('#livraison').on('click', function(e) {
-      
-     cmdid = $(this).attr('data-id');
+    function getId(monId)
+{
+  cmdid=monId.id;
  $.ajax({
         url: "{{ route('livraison')}} ",
         type: "POST",
@@ -386,7 +386,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
 
 
-    });
+    };
   </script>
   <!-- retournee cmd -->
   <script>

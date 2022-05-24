@@ -112,7 +112,6 @@
 
                 </table>
               </div>
-              <button id="retourner" data-id="{{$commande->id}}" type="button">retournée</button>
 
 
               <?php
@@ -122,7 +121,8 @@
                 echo ' <button type="submit">preparer</button>';
               } elseif (Auth::user()->Role == 'livreur') {
                 echo ' <button type="submit">livrer</button>';
-                echo '';
+                echo '              <button id="retourner" data-id="'.$commande->id.'" type="button">retournée</button>
+                ';
 
               } else {
                 echo '';

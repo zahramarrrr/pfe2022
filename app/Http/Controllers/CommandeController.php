@@ -182,11 +182,12 @@ public function addCommande()
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
         ->first(['users.*', 'notifications.*']);
-
+        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        ->first(['commandes.*', 'notifications.*']);
         $commandes = DB::table('commandes')->where('Etat', 'declaree')->get();
         $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
         ->first(['users.*', 'commandes.*']);
-        return view('liste-commande-declare-admin', compact('commandes', 'admin', 'notif','user','commercant'));
+        return view('liste-commande-declare-admin', compact('cmd','commandes', 'admin', 'notif','user','commercant'));
     }
 
     //pour afficher la liste des commandes validées
@@ -276,26 +277,36 @@ public function addCommande()
     {
         $commande = DB::table('commandes')->where('id', $id)->first();
         $comm = DB::table('users')->where('id', Auth::user()->id)->first();
-        $notif = Notifications::query()->where('Notifiable', 'admin')
-        ->orderBy('id', 'desc')->take(5)
-        ->get();
+        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+            ->first(['commandes.*', 'notifications.*']);
         $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
         ->first(['users.*', 'notifications.*']);
+        $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        ->first(['commandes.*', 'notifications.*']);
 
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
 
         if(Auth::user()->Role=='agent')
-        $type = "layouts.Agent" ;
-        else if(Auth::User()->Role == 'admin')
-        $type = "layouts.admin" ;
+{        $type = "layouts.Agent" ;
+    $notif = Notifications::query()->where('Notifiable', 'agent')
+    ->orderBy('id', 'desc')->take(5)
+    ->get();
+}        else if(Auth::User()->Role == 'admin')
+       { $type = "layouts.admin" ;
+        $notif = Notifications::query()->where('Notifiable', 'admin')
+        ->orderBy('id', 'desc')->take(5)
+        ->get();}
         else if(Auth::User()->Role == 'livreur')
-        $type = "layouts.livreur"; 
+    {    $type = "layouts.livreur";
+        $notif = Notifications::query()->where('Notifiable', 'livreur')
+        ->orderBy('id', 'desc')->take(5)
+        ->get(); }
         else
         $type = "layouts.commerçant" 
         ;
-        return view('details', compact('commande','comm','notif','user','agent','admin','type','livreur'));
+        return view('details', compact('cmd','commande','comm','notif','user','agent','admin','type','livreur','commandes'));
         
     }
     //pour afficher 5 notifications
@@ -794,6 +805,7 @@ public function preparation(Request $request)
 
 
         ]);
+        $cmd= DB::table('commandes')->where('id', $id)->first();
         event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
 
        /*  $agent = DB::table('users')->where('id', Auth::user()->id)->first();

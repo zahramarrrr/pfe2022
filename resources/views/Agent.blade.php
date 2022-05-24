@@ -35,7 +35,7 @@
             </thead>
             <tbody>
 
-              @foreach($commandes as $com)
+              @foreach($commande as $com)
               <tr id="tr_{{$com->id}}">
                 <td><input type="checkbox" class="sub_chk" data-id="{{$com->id}}"></td>
 
@@ -45,7 +45,7 @@
 
                 <td>{{$commercant->societe}}</td>
                 <td><span class="badge bg-success">{{$com->Etat}}</span></td>
-                <td> <button  data-id="{{$com->id}}" id="preparer" type="button">preparer</button>
+                <td> <button onclick="getId(this);"  id="{{$com->id}}" type="button">preparer</button>
                 </td>
 
                 <td>

@@ -38,7 +38,7 @@
                 </thead>
                 <tbody>
 
-                  @foreach($commandes as $com)
+                  @foreach($commande as $com)
                   <tr id="tr_{{$com->id}}">
                     <td><input type="checkbox" class="sub_chk" data-id="{{$com->id}}"></td>
 
@@ -52,8 +52,9 @@
                     <td>
                       <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="material-icons"></i></a>
                     </td>
+                    <td>    <i class="bi bi-truck" onclick="getId(this);"  id="{{$com->id}}"  type="button"></i>
 
-                    <td> <button data-id="{{$com->id}}" id="livraison" type="button">livrer</button>
+                   
                     </td>
 
                   </tr>

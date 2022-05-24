@@ -105,7 +105,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
             </li>
             @foreach($notif as $notifs)
 
-            <a href="{{route('commande.details' , ['id' => $commandes->id]) }}">
+            <a href="{{route('commande.details' , ['id' => $cmd->id]) }}">
               <li>
                 <hr class='dropdown-divider'>
               </li>
@@ -201,17 +201,17 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="Listecommercant">
+            <a href="{{ url('Listecommercant') }}">
               <i class="bi bi-circle"></i><span>Commerçants</span>
             </a>
           </li>
           <li>
-            <a href="ListeAgent">
+            <a href="{{ url('ListeAgent') }}">
               <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
             </a>
           </li>
           <li>
-            <a href="ListeLivreur">
+            <a href="{{ url('ListeLivreur') }}">
               <i class="bi bi-circle"></i><span>Livreurs</span>
             </a>
           </li>
@@ -225,27 +225,27 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="commande_declaree_admin">
+            <a href="{{ url('commande_declaree_admin') }}">
               <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
             </a>
           </li>
           <li>
-            <a href="liste-validee">
+            <a href="{{ url('liste-validee') }}">
               <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
             </a>
           </li>
           <li>
-            <a href="liste-commandes-preparee">
+            <a href="{{ url('liste-commandes-preparee') }}">
               <i class="bi bi-circle"></i><span>Liste des commandes préparées</span>
             </a>
           </li>
           <li>
-            <a href="liste-commandes-livree">
+            <a href="{{ url('liste-commandes-livree') }}">
               <i class="bi bi-circle"></i><span>Liste des commandes livrées</span>
             </a>
           </li>
           <li>
-            <a href="liste-commandes-retournee">
+            <a href="{{ url('liste-commandes-retournee') }}">
               <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
             </a>
           </li>
