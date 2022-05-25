@@ -162,7 +162,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="profilAgent">
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('profilAgent') }}">
               <i class="bi bi-person"></i>
               <span class="h6">Mon Profil</span>
             </a>
@@ -172,7 +172,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('editer-profil-agent',['id' => $agent->id]) }}">
               <i class="bi bi-gear"></i>
               <span class="h6">Editer profil</span>
             </a>
@@ -181,7 +181,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
             <hr class="dropdown-divider">
           </li>
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="MDPagent">
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('mdpagent') }}">
               <i class="bi bi-gear"></i>
               <span class="h6">Changer mot de passe</span>
             </a>
@@ -191,24 +191,6 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
           </li>
 
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
-                <i class="bi bi-gear"></i>
-                <span class="h6">Editer profil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="mdpagent">
-                <i class="bi bi-gear"></i>
-                <span class="h6">Changer mot de passe</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
 
           <!-- End Profile Dropdown Items -->

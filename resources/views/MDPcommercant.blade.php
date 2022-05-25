@@ -81,13 +81,13 @@
                 </form> -->
                 <!-- End Change Password Form -->
                 @if(Session::has('erreur'))
-        <span>{{Session::get('erreur')}} </span>
+                <div class="alert alert-danger" role="alert">{{Session::get('erreur')}} </div>
                 
         @elseif(Session::has('old password'))
-        <span>{{Session::get('old password')}} </span>
+        <div class="alert alert-danger" role="alert">{{Session::get('old password')}} </div>
     
         @elseif(Session::has('success'))
-        <span>{{Session::get('success')}} </span>
+        <div class="alert alert-success" role="alert">{{Session::get('success')}} </div>
     
        
         @endif

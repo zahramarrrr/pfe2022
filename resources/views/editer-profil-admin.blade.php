@@ -51,7 +51,10 @@
                                 <div class="row mb-3">
                                     <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nom </label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="name" id="name" value="{{$admin->name}}">
+                                        <input type="text" class="form-control" name="Nom"  value="{{$admin->Nom}}">
+                                        @if ($errors->has('Nom'))
+                                    <span class="text-danger">{{ $errors->first('Nom') }}</span>
+                                @endif
                                     </div>
                                 </div>
 
@@ -59,7 +62,9 @@
                                     <label for="about" class="col-md-4 col-lg-3 col-form-label">prénom</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="Prenom" id="Prenom" value="{{$admin->Prenom}}" />
-
+                                        @if ($errors->has('Prenom'))
+                                    <span class="text-danger">{{ $errors->first('Prenom') }}</span>
+                                @endif
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -74,7 +79,7 @@
                                 <div class="row mb-3">
                                     <label for="Address" class="col-md-4 col-lg-3 col-form-label">Addresse</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="Adresse" id="Adresse" value="{{$admin->Adresse}}">
+                                        <input type="text" class="form-control" name="adresse" id="Adresse" value="{{$admin->adresse}}">
                                     </div>
                                 </div>
 
@@ -82,6 +87,9 @@
                                     <label for="Phone" class="col-md-4 col-lg-3 col-form-label">téléphone</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="telephone" id="telephone" value="{{$admin->telephone}}">
+                                        @if ($errors->has('telephone'))
+                                    <span class="text-danger">{{ $errors->first('telephone') }}</span>
+                                @endif
                                     </div>
                                 </div>
 
@@ -89,7 +97,10 @@
                                     <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="email" class="form-control" name="email" id="email" value="{{$admin->email}}">
-                                    </div>
+                                        @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
+                             </div>
                                 </div>
 
 

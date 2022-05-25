@@ -159,7 +159,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
       </li>
 
       <li>
-        <a class="dropdown-item d-flex align-items-center" href="profillivreur">
+        <a class="dropdown-item d-flex align-items-center" href="{{ url('profillivreur') }}">
           <i class="bi bi-person"></i>
           <span class="h6">Mon Profil</span>
         </a>
@@ -169,7 +169,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
       </li>
 
       <li>
-        <a class="dropdown-item d-flex align-items-center" href="editer-profil-livreur/{{Auth::user()->id}}">
+        <a class="dropdown-item d-flex align-items-center" href="{{ url('editer-profil-livreur',['id' => $livreur->id]) }}">
           <i class="bi bi-gear"></i>
           <span class="h6">Editer profil</span>
         </a>
@@ -178,7 +178,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
         <hr class="dropdown-divider">
       </li>
       <li>
-        <a class="dropdown-item d-flex align-items-center" href="MDPlivreur">
+        <a class="dropdown-item d-flex align-items-center" href="{{ url('mdplivreur') }}">
           <i class="bi bi-gear"></i>
           <span class="h6">Changer mot de passe</span>
         </a>
@@ -201,13 +201,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-      <a class="nav-link collapsed" href="livreurs">        <i class="bi bi-bag-plus"></i>
+      <a class="nav-link collapsed" href="{{ url('livreur') }}">        <i class="bi bi-bag-plus"></i>
         <i class="bi bi-bag"></i><span>Mes commandes</span>
         </a>
 
       </li><!-- End declarer commande nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="cmd_retournee">
+        <a class="nav-link collapsed" href="{{ url('cmd_retournee') }}">
         <i class="bi bi-bag"></i><span>Liste des commandes retournées</span>
         </a>
 
@@ -219,7 +219,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="contactview">
+        <a class="nav-link collapsed" href="{{ url('contactview') }}">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>

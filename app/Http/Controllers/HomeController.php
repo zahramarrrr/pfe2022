@@ -115,6 +115,15 @@ class HomeController extends Controller
             ->first(['users.*', 'commandes.*']);
         return view('Livreur', compact('notif', 'livreur', 'commandes','commercant','commande'));
     }
+    public function commercant()
+    {
+        $search_text = isset($_GET['query']);
+        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+        $commandes = DB::table('commandes')->where('commercant', Auth::user()->id)
+        ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+
+        return view('Commerçant', compact( 'commandes','comm'));
+    }
     public function livreurs(){
         return redirect()->route('livreur');
 

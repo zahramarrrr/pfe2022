@@ -96,7 +96,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="profilAgent">
+              <a class="dropdown-item d-flex align-items-center" href="{{ url('profilcommercant') }}">
                 <i class="bi bi-person"></i>
                 <span class="h6">Mon Profil</span>
               </a>
@@ -106,7 +106,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="editer-profil-agent/{{Auth::user()->id}}">
+              <a class="dropdown-item d-flex align-items-center" href="{{ url('editer-profil-commercant',['id' => $comm->id]) }}">
                 <i class="bi bi-gear"></i>
                 <span class="h6">Editer profil</span>
               </a>
@@ -115,7 +115,7 @@
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="mdpagent">
+              <a class="dropdown-item d-flex align-items-center" href="{{ url('mdpcommercant') }}">
                 <i class="bi bi-gear"></i>
                 <span>Changer mot de passe</span>
               </a>
@@ -132,18 +132,18 @@
     <ul class="sidebar-nav" id="sidebar-nav">
     
     <li class="nav-item">
-        <a class="nav-link collapsed"href="Declarer">
+        <a class="nav-link collapsed"href="{{ url('Declarer') }}">
         <i class="bi bi-bag-plus"></i><span>Déclarer une commande</span>
         </a>
         </li><!-- End declarer commande nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{ url('commercant') }}">
         <i class="bi bi-bag"></i>
           <span>la liste des commandes déclarées</span>
         </a>
       </li><!-- End liste des commandes nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="contactview">
+        <a class="nav-link collapsed" href="{{ url('contactview') }}">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -221,11 +221,7 @@
     </script>
    <!--===============================================================================================-->
   <script src='{{asset("assets/js/main.js") }}'></script>
-<script>
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
+
   <!--===============================================================================================-->
   <script async src='{{asset("https://www.googletagmanager.com/gtag/js?id=UA-23581568-13") }}'></script>
   <!--===============================================================================================-->
@@ -249,8 +245,6 @@
                 "searching": true
             });
 } );
-<script type="text/javascript">
-
 </script>
  </body>
 </html>

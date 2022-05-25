@@ -45,7 +45,17 @@
               <td>{{$commande->Telephone}}</td>
               <td>{{$commande->Governorat}}</td>
               <td>{{$commande->created_at}}</td>
-              <td><span class="badge bg-success" style="font-size:0.8rem;">{{$commande->Etat}}</span></td>
+              <td><span class="<?php if ($commande->Etat == "declaree") echo 'badge badge-secondary' ;
+              else if ($commande->Etat == "validee") echo 'badge badge-primary' ; 
+              else if ($commande->Etat == "affecter a un agent") echo 'badge badge-warning' ;
+              else if ($commande->Etat == "preparee") echo 'badge badge-danger' ;
+
+              else if ($commande->Etat == "affecter a un livreur") echo 'badge badge-info' ;
+              else if ($commande->Etat == "livree") echo 'badge badge-success' ;
+              else if ($commande->Etat == "retournee") echo 'badge badge-dark' ;
+
+
+               ?>" style="font-size:0.8rem;">{{$commande->Etat}}</span></td>
 
               <td><a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons " style="font-size:2rem;" ></i></a>
 

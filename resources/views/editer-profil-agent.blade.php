@@ -59,14 +59,19 @@
                                     <label for="fullName" class="col-lg-3 col-md-4 label ">Nom: </label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="Nom" id="Nom" value="{{$agent->Nom}}">
-                                    </div>
+                                        @if ($errors->has('Nom'))
+                                    <span class="text-danger">{{ $errors->first('Nom') }}</span>
+                                @endif
+                               </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="about" class="col-lg-3 col-md-4 label ">Prénom:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="Prenom" id="Prenom" value="{{$agent->Prenom}}" />
-
+                                        @if ($errors->has('Prenom'))
+                                    <span class="text-danger">{{ $errors->first('Prenom') }}</span>
+                                @endif
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -89,13 +94,19 @@
                                     <label for="Phone" class="col-lg-3 col-md-4 label ">Téléphone:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="telephone" id="telephone" value="{{$agent->telephone}}">
-                                    </div>
+                                        @if ($errors->has('telephone'))
+                                    <span class="text-danger">{{ $errors->first('telephone') }}</span>
+                                @endif
+                             </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="Email" class="col-lg-3 col-md-4 label ">Adresse d'email:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="email" class="form-control" name="email" id="email" value="{{$agent->email}}">
+                                        @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
                                     </div>
                                 </div>
 

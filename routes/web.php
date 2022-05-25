@@ -6,6 +6,7 @@ use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\profilcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::get('/Statut', function () {
 route::get('livreur', [HomeController::class, 'livreur'])->name('livreur');
 route::get('agent', [HomeController::class, 'agent'])->name('agent');
 route::get('admin', [HomeController::class, 'admin'])->name('admin');
+route::get('commercant', [HomeController::class, 'commercant'])->name('commercant');
 
 // declarer cmd retournee
 route::get('retournee', [CommandeController::class, 'cmd_retournee'])->name('retournee');
@@ -55,7 +57,6 @@ route::get('liste-notification-livreur', [CommandeController::class, 'listenotif
 //pour afficher le formulaire de declaration pour le commerçant
 route::get('Declarer', [CommandeController::class, 'addCommande'])->name('commande.add');
 route::post('Declarer-commande', [CommandeController::class, 'saveCommande'])->name('save.post');
-route::get('liste-commande-declare', [CommandeController::class, 'commande_declare'])->name('commande.declaree');
 route::get('edit-commande/{id}', [CommandeController::class, 'EditCommande'])->name('commande.edit');
 route::get('/delete-commande/{id}', [CommandeController::class, 'DeleteCommande'])->name('commande.delete');
 route::post('update-commande', [CommandeController::class, 'updateCommande'])->name('update.commande');
@@ -121,23 +122,6 @@ route::get('Listecommercant', [CommandeController::class, 'listecommercant'])->n
 //pour la supression des personnels
 route::get('Deletepersonnel/{id}', [CommandeController::class, 'Deletepersonnel'])->name('personnel.delete');
 
-//profil
-route::get('profilAgent', [CommandeController::class, 'profilagent'])->name('profilAgent');
-route::get('profilcommercant', [CommandeController::class, 'profilcommercant'])->name('profilcommercant');
-route::get('profillivreur', [CommandeController::class, 'profillivreur'])->name('profillivreur');
-route::get('profilAdmin', [CommandeController::class, 'profiladmin'])->name('profiladmin');
-
-// editer agent
-
-route::get('editer-profil-agent/{id}', [CommandeController::class, 'EditerprofilAgent'])->name('editer-profil-agent');
-route::post('update-profilAgent', [CommandeController::class, 'profileUpDatAagent'])->name('update.profilAgent');
-route::get('editer-profil-livreur/{id}', [CommandeController::class, 'EditerprofilLivreur'])->name('Editer-profil-Livreur');
-route::post('update-profillivreur', [CommandeController::class, 'profileUpDateLivreur'])->name('update.profillivreur');
-route::get('editer-profil-commercant/{id}', [CommandeController::class, 'Editerprofilcommercant'])->name('Editer-profil-commercant');
-route::post('update-profilcommercant', [CommandeController::class, 'profileUpDateCommercant'])->name('update.profilcommercant');
-route::get('editer-profil-admin/{id}', [CommandeController::class, 'Editerprofilcommercant'])->name('editer-profil-admin');
-route::post('update-profiladmin', [CommandeController::class, 'profileUpDateadmin'])->name('update.profiladmin');
-
 // preparer et livrer plusieurs commandes
 route::post('preparer', [CommandeController::class, 'preparer'])->name('preparer');
 route::post('livrer', [CommandeController::class, 'livrer'])->name('livrer');
@@ -176,23 +160,23 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 Route::get('redirects', 'HomeController@index');
-// route pour mail
-/* Route::get('/contact', function () {
-    return new App\Mail\Contact([
-      'nom' => 'Durand',
-      'email' => 'durand@chezlui.com',
-      'message' => 'Je voulais vous dire que votre site est magnifique !'
-      ]);
-}); */
-/*
-Route::get('send-mail', function () {
-   
-    $details = [
-        'title' => 'Mail from ItSolutionStuff.com',
-        'body' => 'This is for testing email using smtp'
-    ];
-   
-   Mail::to('Manager@rmdp.tn')->send(new \App\Mail\testmail($details));
-    dd("Email is Sent.");
-});
-*/
+// 
+// la gestion du profil 
+
+//afficher view profil
+route::get('profilAgent', [profilcontroller::class, 'profilagent'])->name('profilAgent');
+route::get('profilcommercant', [profilcontroller::class, 'profilcommercant'])->name('profilcommercant');
+route::get('profillivreur', [profilcontroller::class, 'profillivreur'])->name('profillivreur');
+route::get('profilAdmin', [profilcontroller::class, 'profiladmin'])->name('profiladmin');
+
+// afficher page edit et fonction update
+
+route::get('editer-profil-agent/{id}', [profilcontroller::class, 'EditerprofilAgent'])->name('editer-profil-agent');
+route::post('update-profilAgent', [profilcontroller::class, 'profileUpDatAagent'])->name('update.profilAgent');
+route::get('editer-profil-livreur/{id}', [profilcontroller::class, 'EditerprofilLivreur'])->name('Editer-profil-Livreur');
+route::post('update-profillivreur', [profilcontroller::class, 'profileUpDateLivreur'])->name('update.profillivreur');
+route::get('editer-profil-commercant/{id}', [profilcontroller::class, 'Editerprofilcommercant'])->name('Editer-profil-commercant');
+route::post('update-profilcommercant', [profilcontroller::class, 'profileUpDateCommercant'])->name('update.profilcommercant');
+route::get('editer-profil-admin/{id}', [profilcontroller::class, 'Editerprofiladmin'])->name('editer-profil-admin');
+route::post('update-profiladmin', [profilcontroller::class, 'profileUpDatAadmin'])->name('update.profiladmin');
+

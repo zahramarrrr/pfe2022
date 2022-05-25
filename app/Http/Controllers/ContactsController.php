@@ -18,6 +18,8 @@ $notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
 $agent = DB::table('users')->where('id', Auth::user()->id)->first();
 $comm = DB::table('users')->where('id', Auth::user()->id)->first();
 $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
+$commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+->first(['commandes.*', 'notifications.*']);
 
 if(Auth::user()->Role=='agent')
 $type = "layouts.Agent" ;
@@ -28,7 +30,7 @@ $type = "layouts.livreur";
 else
 $type = "layouts.commerçant" 
 ;
-        return view('contactadmin',compact('user','notif','agent','comm','type','livreur'));
+        return view('contactadmin',compact('commandes','user','notif','agent','comm','type','livreur'));
     }
 
  

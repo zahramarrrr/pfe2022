@@ -164,15 +164,7 @@ public function addCommande()
         return redirect()->route('commande.declaree');
 
     }
-    //pour afficher la liste des commandes déclarées par commerçant
-    public function commande_declare()
-    {
-        $commandes = DB::table('commandes')->where('commercant', Auth::user()->id)->get();
-        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
-
-        return view('Commerçant', compact('commandes', 'comm'));
-    }
-
+   
 
     //affichage des listes des commandes pour admin
     //pour afficher la liste des commandes declarees 
@@ -232,7 +224,7 @@ public function addCommande()
     }
        public function ListretourneeAdmin()
     {
-        $commandes = DB::table('commandes')->where('Etat', 'retournee')->get();
+        $commande = DB::table('commandes')->where('Etat', 'retournee')->get();
         $livreurs =User::join('commandes', 'commandes.ID_Livreur', '=', 'users.id')
         ->first(['users.*', 'commandes.*']);
         $notif = Notifications::query()->where('Notifiable', 'admin')->orderBy('id', 'desc')->take(5)->get();
@@ -241,7 +233,7 @@ public function addCommande()
         ->first(['users.*', 'notifications.*']);
         $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
         ->first(['users.*', 'commandes.*']);
-        return view('liste-commande-retournee', compact('commandes', 'livreurs', 'admin', 'notif','user','commercant'));
+        return view('liste-commande-retournee', compact('commande', 'livreurs', 'admin', 'notif','user','commercant'));
     }
 
  /*    public function Commandevalider()
@@ -553,42 +545,34 @@ public function addCommande()
         return back()->with('delete', ' deleted successfuly');
     }
     //pour editer les informations d'un agent
-    public function Editagent($id)
-    {
-        $agent = DB::table('users')->where('id', $id)->first();
-        return view('edit-agent', compact('agent'));
-    }
-    //pour editer les informations d'un livreur
+   
 
-    public function Editlivreur($id)
-    {
-        $livreur = DB::table('users')->where('id', $id)->first();
-        return view('edit-livreur', compact('livreur'));
-    }
-    public function Editcommercant($id)
-    {
-        $comm = DB::table('users')->where('id', $id)->first();
-        return view('edit-commercant', compact('comm'));
-    }
-
-    //editer agent
-
-    public function updateLivreur(Request $request)
-    {
-        DB::table('users')->where('id', $request->id)->update([
-
-            'Nom' => $request->Nom,
-            'Prenom' => $request->Prenom,
-            'telephone' => $request->telephone,
-            'email' => $request->email,
-            'adresse' => $request->adresse,
-            'Role' => 'livreur',
-            'password' => Hash::make($request->password),
-        ]);
-        return back()->with('agent_update', 'agent updated succefully');
-    }
+   
+    
     public function updatecommercant(Request $request)
     {
+        $request->validate(
+            [
+               
+                'Nom' => 'required|regex:/^[\pL\s\-]+$/u',
+                'Prenom' => 'required|regex:/^[\pL\s\-]+$/u',
+                'telephone' => 'required|numeric',
+               'email' => 'email:rfc,dns',
+               
+    ],
+            [
+                'Nom.required' => 'le nom du client est obligatoir',
+                'Nom.regex' => 'Le nom ne doit contenir que des lettres.',
+                'Prenom.required' => 'le Prenom du client est obligatoir',
+                'Prenom.regex' => 'le Prenom ne doit contenir que des lettres.',
+                'telephone.required' => 'le numéro du téléphone est obligatoire',
+                'telephone.numeric' => 'le numéro du téléphone est invalide',
+    
+                 'email.email' => 'email invalide',
+
+               
+            ]
+        );
         DB::table('users')->where('id', $request->id)->update([
 
             'Nom' => $request->Nom,
@@ -601,154 +585,12 @@ public function addCommande()
         ]);
         return back()->with('commercant_update', 'commerçant updated succefully');
     }
-    public function updateAgent(Request $request)
-    {
-        DB::table('users')->where('id', $request->id)->update([
-
-            'Nom' => $request->Nom,
-            'Prenom' => $request->Prenom,
-            'telephone' => $request->telephone,
-            'email' => $request->email,
-            'adresse' => $request->adresse,
-            'Role' => 'agent',
-        ]);
-        return back()->with('agent_update', 'agent updated succefully');
-    }
-
-
-    // profil commerçant 
+  
+    // profil agent 
     // veiw profil
 
-    public function profilagent()
-    {
-        $agent = DB::table('users')->where('id', Auth::user()->id)->first();
-        $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
-
-        return view('profilAgent', compact('agent','notif'));
-    }
-    public function EditerprofilAgent($id)
-    {
-        $id = Auth::user()->id;
-        $agent = DB::table('users')->where('id', $id)->first();
-        $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
-
-        return view('editer-profil-agent', compact('agent','notif'));
-    }
-    public function profileUpDatAagent(Request $request)
-    {
-
-        DB::table('users')->where('id', Auth::user()->id)->update([
-            'Nom' => $request->Nom,
-
-            'Prenom' => $request->Prenom,
-            'Role' => 'agent',
-            'adresse' => $request->adresse,
-            'email' => $request->email,
-            'telephone' => $request->telephone,
-
-
-        ]);
-        $agent = DB::table('users')->where('id', Auth::user()->id)->first();
-        $notif = Notifications::query()->where('type', 'agent')->take(5)->get();
-
-        return view('profilAgent', compact('agent','notif'));
-    }
-    public function profillivreur()
-    {
-        $notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
-
-        $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-        return view('profilLivreur', compact('livreur','notif'));
-    }
-    public function EditerprofilLivreur($id)
-    {
-        $id = Auth::user()->id;
-        $livreur = DB::table('users')->where('id', $id)->first();
-        return view('editer-profil-livreur', compact('livreur'));
-    }
-    public function profileUpDateLivreur(Request $request)
-    {
-
-        DB::table('users')->where('id', Auth::user()->id)->update([
-            'Nom' => $request->Nom,
-
-            'Prenom' => $request->Prenom,
-            'Role' => 'livreur',
-            'adresse' => $request->adresse,
-            'email' => $request->email,
-            'telephone' => $request->telephone,
-
-
-        ]);
-        $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-        $notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
-
-        return view('profilLivreur', compact('livreur','notif'));
-    }
-    public function profilcommercant()
-    {
-
-        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
-        return view('profilCommercant', compact('comm'));
-    }
-    public function Editerprofilcommercant($id)
-    {
-        $id = Auth::user()->id;
-        $comm = DB::table('users')->where('id', $id)->first();
-        return view('editer-profil-commercant', compact('comm'));
-    }
-    public function profileUpDateCommercant(Request $request)
-    {
-
-        DB::table('users')->where('id', Auth::user()->id)->update([
-            'Nom' => $request->Nom,
-
-            'Prenom' => $request->Prenom,
-            'Role' => 'commerçant',
-            'adresse' => $request->adresse,
-            'email' => $request->email,
-            'telephone' => $request->telephone,
-
-
-        ]);
-        $commercant = DB::table('users')->where('id', Auth::user()->id)->first();
-
-        return view('profilCommercant', compact('commercant'));
-    }
-    public function profiladmin()
-    {
-        $notif = DB::table('notifications')->where('Notifiable', 'admin')->get();
-
-        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        return view('profilAdmin', compact('admin', 'notif'));
-    }
-    public function Editerprofiladmin($id)
-    {
-        $id = Auth::user()->id;
-        $admin = DB::table('users')->where('id', $id)->first();
-        $notif = Notifications::query()->where('type', 'admin')->take(5)->get();
-
-        return view('editer-profil-admin', compact('admin','notif'));
-    }
-    public function profileUpDatAadmin(Request $request)
-    {
-
-        DB::table('users')->where('id', Auth::user()->id)->update([
-            'Nom' => $request->Nom,
-
-            'Prenom' => $request->Prenom,
-            'Role' => 'admin',
-            'adresse' => $request->adresse,
-            'email' => $request->email,
-            'telephone' => $request->telephone,
-
-
-        ]);
-        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        $notif = Notifications::query()->where('type', 'admin')->take(5)->get();
-
-        return view('profilAdmin', compact('admin','notif'));
-    }
+   
+   
     // editert Etat a preparee pour  plusieurs commandes
     public function preparer(Request $request)
     {
@@ -834,6 +676,8 @@ public function preparation(Request $request)
 
 
         ]);
+        $cmd= DB::table('commandes')->where('id', $id)->first();
+
         event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
 
    /*      $cmd= DB::table('commandes')->where('id', $id)->first();
@@ -922,24 +766,48 @@ public function retourner(Request $request)
 }
     public function mdpagent(Request $request)
     {
-        $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
-
-        return view('MDPagent',compact('notif','agent'));
+        $search_text = isset($_GET['query']);
+        $commande= DB::table('commandes')->where('ID_Agent', Auth::user()->id)
+            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
+            ->orderBy('created_at', 'desc')->get();
+        $notif = Notifications::query()->where('Notifiable', 'agent')->orderBy('id', 'desc')->take(5)->get();
+              $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
+        ->first(['users.*', 'commandes.*']);
+        $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        ->first(['commandes.*', 'notifications.*']);
+      
+        return view('MDPagent',compact('notif','agent','commandes','commande'));
     }
     public function mdplivreur(Request $request)
     {
-        $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
-        $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
+        $search_text = isset($_GET['query']);
 
-        return view('MDPlivreur',compact('notif','livreur'));
+            $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
+            $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
+            $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+            ->first(['commandes.*', 'notifications.*']);
+    
+            $commande = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
+                ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+                $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
+                ->first(['users.*', 'commandes.*']);
+        return view('MDPlivreur',compact('notif','livreur','commandes','commande','commercant'));
     }
     public function mdpadmin(Request $request)
     {
-        $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
-        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        $notif = Notifications::query()->where('Notifiable', 'admin')
+        ->orderBy('id', 'desc')->take(5)
+        ->get();
+        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+        ->first(['users.*', 'notifications.*']);
+        $search_text = isset($_GET['query']);
 
-        return view('MDPadmin',compact('notif','admin'));
+        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        ->first(['commandes.*', 'notifications.*']);
+
+        return view('MDPadmin',compact('notif','admin','user','cmd'));
     }
     public function mdp_commercant(Request $request)
     {
@@ -998,14 +866,15 @@ return view('client', compact('etat'));
 public function cmd_retournee(Request $request)
 {
     $search_text = isset($_GET['query']);
-
+    $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+    ->first(['commandes.*', 'notifications.*']);
     $notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
     $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-    $commandes = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
+    $commande = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
         ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
         ->where('Etat', 'retournee')->get();
         $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
         ->first(['users.*', 'commandes.*']);
-    return view('retourne_livreur',compact('commercant','commandes','livreur','notif'));
+    return view('retourne_livreur',compact('commercant','commande','livreur','notif','commandes'));
 }
 }

@@ -39,23 +39,23 @@
 
                             </thead>
                             <tbody>
-                                @if($commandes->count())
+                                @if($commande->count())
 
-                                @foreach($commandes as $commande)
+                                @foreach($commande as $cmd)
 
                              
-                                <tr id="tr_{{$commande->id}}">
-                                    <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
-                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
-                                    <td>{{$commande->created_at}}</td>
+                                <tr id="tr_{{$cmd->id}}">
+                                    <td><input type="checkbox" class="sub_chk" data-id="{{$cmd->id}}"></td>
+                                    <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$cmd->ID_commande}}</td>
+                                    <td>{{$cmd->created_at}}</td>
                                     <td>{{$commercant->societe}}</td>
 
-                                    <td>{{$commande->ID_Livreur}}</td>
+                                    <td>{{$cmd->ID_Livreur}}</td>
                                     <td>
-                                        <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons"></i></a>
+                                        <a href="{{route('commande.details' , ['id' => $cmd->id]) }}"><i class="material-icons"></i></a>
                                     </td>
 
-                                    <td><span class="badge bg-success">{{$commande->Etat}}</span></td>
+                                    <td><span class="badge bg-success">{{$cmd->Etat}}</span></td>
 
 
 

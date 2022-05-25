@@ -150,7 +150,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="profilAdmin">
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('profilAdmin') }}">
               <i class="bi bi-person"></i>
               <span>Mon Profil</span>
             </a>
@@ -160,7 +160,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="editer-profil-admin/{{$admin->id}}">
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('editer-profil-admin',['id' => $admin->id]) }}">
               <i class="bi bi-gear"></i>
               <span>Editer profil</span>
             </a>
@@ -169,7 +169,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
             <hr class="dropdown-divider">
           </li>
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="mdpadmin">
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('mdpadmin') }}">
               <i class="bi bi-gear"></i>
               <span>modifier mot de passe</span>
             </a>
