@@ -24,9 +24,15 @@
           </div>
         </div>
         <div id="succ" class="alert alert-success" role="alert" style="display:none">
-    commande(s) retournée(s) avec succée(s)</div>
-  <div id="err" class="alert alert-danger" role="alert" style="display:none">
-    erreur(s)</div>
+          commande(s) retournée(s) avec succée(s)</div>
+          <div id="validee" class="alert alert-success" role="alert" style="display:none">
+          commande(s) validée(s) avec succée(s)</div>
+          <div id="preparee" class="alert alert-success" role="alert" style="display:none">
+          commande(s) preparee(s) avec succée(s)</div>
+          <div id="livree" class="alert alert-success" role="alert" style="display:none">
+          commande(s) livree(s) avec succée(s)</div>
+        <div id="err" class="alert alert-danger" role="alert" style="display:none">
+          erreur(s)</div>
         <div class="row">
           <div class="receipt-header receipt-header-mid">
             <div class="col-xs-8 col-sm-8 col-md-8 text-left">
@@ -42,13 +48,13 @@
           ?>
 
         </div>
-        @if(Auth::user()->Role =='admin')
+       <!--  @if(Auth::user()->Role =='admin')
         <form method="post" action="{{ route('validercommande' ,  ['id' => $commande->id])}}">
           @elseif(Auth::user()->Role =='agent')
           <form method="post" action="{{ route('preparercommande' ,  ['id' => $commande->id])}}">
             @elseif(Auth::user()->Role =='livreur')
             <form method="post" action="{{ route('livrercommande' ,  ['id' => $commande->id])}}">
-              @endif
+              @endif -->
 
               @csrf
               <div class="tab-content pt-2">
@@ -116,14 +122,21 @@
 
               <?php
               if (Auth::user()->Role == 'admin') {
-                echo ' <button type="submit">valider</button>';
-              } elseif (Auth::user()->Role == 'agent') {
-                echo ' <button type="submit">preparer</button>';
-              } elseif (Auth::user()->Role == 'livreur') {
-                echo ' <button type="submit">livrer</button>';
-                echo '              <button id="retourner" data-id="'.$commande->id.'" type="button">retournée</button>
+                echo '                 
+                   <button id="valider" data-id="' . $commande->id . '" type="button">valider</button>
                 ';
+              } elseif (Auth::user()->Role == 'agent') {
+                echo ' 
+                <button id="preparer" data-id="' . $commande->id . '" type="button">preparer</button>
+                ';
+              } elseif (Auth::user()->Role == 'livreur') {
+                echo ' 
+                <button id="livrer" data-id="' . $commande->id . '" type="button">livrer</button>
 
+                ';
+                echo '           
+                   <button id="retourner" data-id="' . $commande->id . '" type="button">retournée</button>
+                ';
               } else {
                 echo '';
               }

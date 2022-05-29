@@ -115,7 +115,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
             </li>
             @foreach($notif as $notifs)
 
-            <a href="{{route('commande.details' , ['id' => $commandes->id]) }}">
+            <a href="{{route('commande.details' , ['id' => $cmd->id]) }}">
               <li>
                 <hr class='dropdown-divider'>
               </li>
@@ -370,6 +370,49 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 
 
     };
+  </script>
+   <!-- preparer commande page details -->
+   <script>
+    $('#preparer').on('click', function(e) {
+     cmdid = $(this).attr('data-id');
+     console.log(cmdid);
+ $.ajax({
+        url: "{{ route('preparercommande')}} ",
+        type: "POST",
+        data: {
+
+          'vals': cmdid,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+          $("#preparee").show();
+         // location.reload();
+         /* if(response.redirect_url){
+       window.location=data.redirect_url; 
+       return redirect()->route('commande_declaree_admin'); */
+  //  }
+         /* 
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);      
+        console.log(response); */
+          // alert(response.success);
+
+        },
+        error: function(error) {
+        console.log(response);
+
+          $("#err").show();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
+        }
+      });
+
+
+
+
+    });
   </script>
   <script>
     window.dataLayer = window.dataLayer || [];

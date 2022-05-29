@@ -111,11 +111,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
         <li class="dropdown-header">
           Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-          <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+          <a href="{{route('listenotiflivreur')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
         </li>
         @foreach($notif as $notifs)
 
-        <a href="{{route('commande.details' , ['id' => $commandes->id]) }}">
+        <a href="{{route('commande.details' , ['id' => $cmd->id]) }}">
           <li>
             <hr class='dropdown-divider'>
           </li>
@@ -388,6 +388,49 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
     };
   </script>
+   <!-- livrer commande page details -->
+   <script>
+    $('#livrer').on('click', function(e) {
+     cmdid = $(this).attr('data-id');
+     console.log(cmdid);
+ $.ajax({
+        url: "{{ route('livrercommande')}} ",
+        type: "POST",
+        data: {
+
+          'vals': cmdid,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+          $("#livree").show();
+         // location.reload();
+         /* if(response.redirect_url){
+       window.location=data.redirect_url; 
+       return redirect()->route('commande_declaree_admin'); */
+  //  }
+         /* 
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);      
+        console.log(response); */
+          // alert(response.success);
+
+        },
+        error: function(error) {
+        console.log(response);
+
+        /*   $("#err").show();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);   */
+        }
+      });
+
+
+
+
+    });
+  </script>
   <!-- retournee cmd -->
   <script>
     $('#retourner').on('click', function(e) {
@@ -402,12 +445,14 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
           "_token": "{{ csrf_token() }}",
         },
         success: function(response) {
+          console.log(response);
+
           $("#succ").show();
          // location.reload();
-         if(response.redirect_url){
+        /*  if(response.redirect_url){
        window.location=data.redirect_url; 
        return redirect()->route('commande_declaree_admin');
-    }
+    } */
          /* 
                   setTimeout(function(){
            location.reload(); 
@@ -417,7 +462,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
         },
         error: function(error) {
-       //  console.log(response);
+       console.log(response);
 
           $("#err").show();
                   setTimeout(function(){

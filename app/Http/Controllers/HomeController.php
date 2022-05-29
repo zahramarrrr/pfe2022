@@ -23,7 +23,8 @@ class HomeController extends Controller
         $role = Auth::user()->Role;
         if ($role == 'admin') {
             $notif = Notifications::query()->where('Notifiable', 'admin')
-            ->orderBy('id', 'desc')->take(5)
+            ->orderBy('read_at', 'asc')
+           ->take(5)
             ->get();
             $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
             ->first(['users.*', 'notifications.*']);
@@ -53,14 +54,14 @@ class HomeController extends Controller
 
             $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
             $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-            $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+            $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
             ->first(['commandes.*', 'notifications.*']);
     
             $commande = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
                 ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
                 $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
                 ->first(['users.*', 'commandes.*']);
-            return view('Livreur', compact('notif', 'livreur', 'commandes','commercant','commande'));
+            return view('Livreur', compact('notif', 'livreur', 'cmd','commercant','commande'));
         } else {
             $search_text = isset($_GET['query']);
             $comm = DB::table('users')->where('id', Auth::user()->id)->first();
@@ -72,16 +73,18 @@ class HomeController extends Controller
     }
     public function admin()
     {
+
         $notif = Notifications::query()->where('Notifiable', 'admin')
-            ->orderBy('id', 'desc')->take(5)
-            ->get();
+        ->orderBy('read_at', 'asc')
+        ->take(5)
+         ->get();
             $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
             ->first(['users.*', 'notifications.*']);
 
             $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-            $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+            $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
             ->first(['commandes.*', 'notifications.*']);
-            return view('Admin', compact('notif', 'admin','user','commandes'));
+            return view('Admin', compact('notif', 'admin','user','cmd'));
 
     }
 
@@ -106,14 +109,14 @@ class HomeController extends Controller
 
         $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
         $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-        $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
         ->first(['commandes.*', 'notifications.*']);
 
         $commande = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
             $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
             ->first(['users.*', 'commandes.*']);
-        return view('Livreur', compact('notif', 'livreur', 'commandes','commercant','commande'));
+        return view('Livreur', compact('notif', 'livreur', 'cmd','commercant','commande'));
     }
     public function commercant()
     {
@@ -124,8 +127,9 @@ class HomeController extends Controller
 
         return view('Commerçant', compact( 'commandes','comm'));
     }
-    public function livreurs(){
-        return redirect()->route('livreur');
+  
+    public function contact_client(){
+        return view('contactclient');
 
 
     }

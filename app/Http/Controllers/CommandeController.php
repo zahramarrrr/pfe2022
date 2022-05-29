@@ -19,6 +19,9 @@ class CommandeController extends Controller
     //admin ajoute une cmd 
     public function ajoutCommande()
     {
+        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        ->first(['commandes.*', 'notifications.*']);
+
         $notif = Notifications::query()->where('Notifiable', 'admin')
         ->orderBy('id', 'desc')->take(5)
         ->get();
@@ -26,7 +29,7 @@ class CommandeController extends Controller
         ->first(['users.*', 'notifications.*']);
 
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        return view('ajouter-commande', compact('notif','user','admin'));
+        return view('ajouter-commande', compact('cmd','notif','user','admin'));
     }
     public function adminajoutCommande(request $request)
 {
@@ -274,23 +277,26 @@ public function addCommande()
 
         $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
         ->first(['users.*', 'notifications.*']);
-        $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-        ->first(['commandes.*', 'notifications.*']);
-
+      
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-
+        DB::table('notifications')->where('id',$id)->update([
+            'read_at' => now()
+        ]);
         if(Auth::user()->Role=='agent')
 {        $type = "layouts.Agent" ;
     $notif = Notifications::query()->where('Notifiable', 'agent')
     ->orderBy('id', 'desc')->take(5)
     ->get();
+
 }        else if(Auth::User()->Role == 'admin')
        { $type = "layouts.admin" ;
         $notif = Notifications::query()->where('Notifiable', 'admin')
         ->orderBy('id', 'desc')->take(5)
-        ->get();}
+        ->get();
+    
+    }
         else if(Auth::User()->Role == 'livreur')
     {    $type = "layouts.livreur";
         $notif = Notifications::query()->where('Notifiable', 'livreur')
@@ -299,7 +305,7 @@ public function addCommande()
         else
         $type = "layouts.commerçant" 
         ;
-        return view('details', compact('cmd','commande','comm','notif','user','agent','admin','type','livreur','commandes'));
+        return view('details', compact('cmd','commande','comm','notif','user','agent','admin','type','livreur'));
    
     }
     //pour afficher 5 notifications
@@ -359,9 +365,20 @@ public function addCommande()
         }
     }
     //pour valider depuis la view details
-    public function validercommande($id)
+    public function validercommande(Request $request)
     {
-        now("Europe/Rome");
+        
+    now("Europe/Rome");
+    $commande = $request->vals;
+        $cmd = Commande::find($commande);
+        $cmd->Etat = 'validee';
+       $cmd->Date_Validation = Carbon::now();
+
+
+        $cmd->save();
+   
+   return response()->json(["redirect_url"=>url('admin')]);
+        /* now("Europe/Rome");
 
         DB::table('commandes')->where('id', $id)->update([
             'Etat' => 'validée',
@@ -371,7 +388,7 @@ public function addCommande()
 
         ]);
      
-        return redirect()->route('commande.validee');
+        return redirect()->route('commande.validee'); */
     }
     //pour laffectation des agents
     public function affecteragent(Request $request)
@@ -491,10 +508,21 @@ public function addCommande()
     //pour afficher la liste des notifiactions pour admin
     public function listenotif()
     {
-        $notif = DB::table('notifications')->orderBy('id', 'desc')->get();
+        $notif = Notifications::query()->where('Notifiable', 'admin')
+        ->orderBy('read_at', 'asc')
+        ->take(5)
+         ->get();
+            $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
+            ->first(['users.*', 'notifications.*']);
+
+            $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+            $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+            ->first(['commandes.*', 'notifications.*']);
+        $notification = DB::table('notifications')->where('Notifiable', 'admin')
+        ->orderBy('read_at', 'asc')->get();
 
 
-        return view('liste-notification', compact('notif'));
+        return view('liste-notification', compact('notif','notification','user','admin','cmd'));
     }
 
 
@@ -502,7 +530,9 @@ public function addCommande()
     //les fonction d'affichage des personnels(sprint2)
     //pour afficher la liste des agents 
     public function listeagent()
-    {
+    {   $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        ->first(['commandes.*', 'notifications.*']);
+
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
         ->first(['users.*', 'notifications.*']);
@@ -511,7 +541,7 @@ public function addCommande()
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
         $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
         $agents = DB::table('users')->where('Role', 'agent')->get();
-        return view('ListeAgent', compact('agents', 'notif', 'commandes', 'admin','user'));
+        return view('ListeAgent', compact('cmd','agents', 'notif', 'commandes', 'admin','user'));
     }
 
     public function listecommercant()
@@ -521,17 +551,23 @@ public function addCommande()
         $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
         ->first(['users.*', 'notifications.*']);
         $comm = DB::table('users')->where('Role', 'commerçant')->get();
-        return view('Listecommercant', compact('comm', 'notif', 'admin','user'));
+        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        ->first(['commandes.*', 'notifications.*']);
+
+        return view('Listecommercant', compact('comm', 'notif', 'admin','user','cmd'));
     }
 
     public function listeLivreur()
     {
+        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
+        ->first(['commandes.*', 'notifications.*']);
+
         $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
         ->first(['users.*', 'notifications.*']);
         $livreur = DB::table('users')->where('Role', 'livreur')->get();
-        return view('ListeLivreur', compact('livreur', 'admin', 'notif','user'));
+        return view('ListeLivreur', compact('livreur', 'admin', 'notif','user','cmd'));
     }
 
 
@@ -637,19 +673,19 @@ public function preparation(Request $request)
     event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a préparée la commande', $cmd->ID_commande]));
 }
 
-    public function preparercommande($id)
+    public function preparercommande(Request $request)
     {
         now("Europe/Rome");
-
-        DB::table('commandes')->where('id', $id)->update([
-            'Etat' => 'préparée',
-
-            'Date_Preparation' => Carbon::now(),
-
-
-        ]);
-        $cmd= DB::table('commandes')->where('id', $id)->first();
-        event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
+        $commande = $request->vals;
+            $cmd = Commande::find($commande);
+            $cmd->Etat = 'preparee';
+           $cmd->Date_Preparation = Carbon::now();
+    
+    
+            $cmd->save();
+       
+       return response()->json(["redirect_url"=>url('admin')]);
+        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a preparer la commande', $cmd->ID_commande]));
 
        /*  $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
@@ -665,9 +701,19 @@ public function preparation(Request $request)
 
     }
     //livrer page details
-    public function livrercommande($id)
+    public function livrercommande(Request $request)
     {
         now("Europe/Rome");
+        $commande = $request->vals;
+            $cmd = Commande::find($commande);
+            $cmd->Etat = 'preparee';
+           $cmd->Date_Preparation = Carbon::now();
+    
+    
+            $cmd->save();
+       
+       return response()->json(["redirect_url"=>url('livreur')]);
+       /*  now("Europe/Rome");
 
         DB::table('commandes')->where('id', $id)->update([
             'Etat' => 'livrée',
@@ -676,9 +722,9 @@ public function preparation(Request $request)
 
 
         ]);
-        $cmd= DB::table('commandes')->where('id', $id)->first();
+        $cmd= DB::table('commandes')->where('id', $id)->first(); */
 
-        event(new MyEvenet([route('commande.details', ['id' => $id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
+        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
 
    /*      $cmd= DB::table('commandes')->where('id', $id)->first();
         $search_text = isset($_GET['query']);
@@ -689,7 +735,6 @@ public function preparation(Request $request)
             $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
             ->first(['users.*', 'commandes.*']);
         return view('Livreur', compact('commandes', 'livreur', 'notif','commercant')); */
-        return redirect()->route('livreur');
 
     }
     //retournee de page details
@@ -701,7 +746,7 @@ public function retourner(Request $request)
     $commande = $request->vals;
         $cmd = Commande::find($commande);
         $cmd->Etat = 'retournée';
-       // $cmd->date_retour = Carbon::now();
+       // $cmd->Date_Retour = Carbon::now();
 
 
         $cmd->save();
@@ -860,9 +905,11 @@ $etat=$data->Etat;
   
      return response()->json(['etat'=>$etat]);
 
-return view('client', compact('etat'));
+return view('client', compact('etat'));}
 
-}
+
+
+
 public function cmd_retournee(Request $request)
 {
     $search_text = isset($_GET['query']);

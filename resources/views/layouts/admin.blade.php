@@ -2,7 +2,7 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
+$NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('read_at',null)->get();
 
 ?>
 
@@ -101,9 +101,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
             <li class="dropdown-header">
               Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-              <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              <a href="{{url('liste-notification')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
-            @foreach($notif as $notifs)
+        @foreach($notif as $notifs)
 
             <a href="{{route('commande.details' , ['id' => $cmd->id]) }}">
               <li>
@@ -123,7 +123,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
         </li>
         </div>
         </li></a>
-        @endforeach
+        @endforeach 
 
 
 
@@ -189,7 +189,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="">
+        <a class="nav-link " href="{{ url('admin') }}">
           <i class="bi bi-grid"></i>
           <span>Tableaux de bord</span>
         </a>
@@ -498,6 +498,49 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->get();
           }, 1600);
         }
       });
+
+    });
+  </script>
+  <!-- valider commande page details -->
+  <script>
+    $('#valider').on('click', function(e) {
+     cmdid = $(this).attr('data-id');
+     console.log(cmdid);
+ $.ajax({
+        url: "{{ route('validercommande')}} ",
+        type: "POST",
+        data: {
+
+          'vals': cmdid,
+          "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+          $("#validee").show();
+         // location.reload();
+         /* if(response.redirect_url){
+       window.location=data.redirect_url; 
+       return redirect()->route('commande_declaree_admin'); */
+  //  }
+         /* 
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);      
+        console.log(response); */
+          // alert(response.success);
+
+        },
+        error: function(error) {
+        console.log(response);
+
+          $("#err").show();
+                  setTimeout(function(){
+           location.reload(); 
+        }, 2500);  
+        }
+      });
+
+
+
 
     });
   </script>

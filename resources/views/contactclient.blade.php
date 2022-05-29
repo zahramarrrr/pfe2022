@@ -1,16 +1,7 @@
-@extends($type)
-@section("content")
-<<main id="main" class="main">
 
-	<div class="pagetitle">
-		<h1>Contact</h1>
-		<nav>
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.html">Acceuil</a></li>
-				<li class="breadcrumb-item active">Contact</li>
-			</ol>
-		</nav>
-	</div><!-- End Page Title -->
+
+<main id="main" class="main">
+
 
 	<section class="section contact">
 
@@ -59,25 +50,25 @@
 						<div class="row gy-4">
 
 							<div class="col-md-6">
-								<input type="text" name="Prenom" class="form-control" placeholder="Your Name" value={{$agent->Prenom}} required>
-								@if ($errors->has('Prenom'))
-								<span class="text-danger">{{ $errors->first('Prenom') }}</span>
-								@endif
-							</div>
+								<input type="text" name="Prenom" class="form-control" placeholder="Prenom"  required>
+                                @if ($errors->has('Prenom'))
+                                    <span class="text-danger">{{ $errors->first('Prenom') }}</span>
+                                @endif
+                            	</div>
 
 
 							<div class="col-md-6">
-								<input type="text" name="Nom" class="form-control" placeholder="Your Name" value={{$agent->Nom}} required>
-								@if ($errors->has('Nom'))
-								<span class="text-danger">{{ $errors->first('Nom') }}</span>
-								@endif
-							</div>
+								<input type="text" name="Nom" class="form-control" placeholder="Nom"  required>
+                                @if ($errors->has('Nom'))
+                                    <span class="text-danger">{{ $errors->first('Nom') }}</span>
+                                @endif
+                            </div>
 							<div class="col-md-12">
-								<input type="text" class="form-control" name="email" placeholder="email" value={{$agent->email}} required>
-								@if ($errors->has('email'))
-								<span class="text-danger">{{ $errors->first('email') }}</span>
-								@endif
-							</div>
+								<input type="text" class="form-control" name="email" placeholder="email"  required>
+                                @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
+                            </div>
 
 							<div class="col-md-12">
 								<textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
@@ -101,5 +92,3 @@
 
 	</main><!-- End #main -->
 
-
-	@endsection

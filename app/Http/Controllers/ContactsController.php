@@ -37,7 +37,20 @@ $type = "layouts.commerçant"
     public function store(Request $request)
     {
   
- 
+        $request->validate(
+            [
+                  'Nom' => 'alpha',
+                'Prenom' => 'alpha',
+                
+               'email' => 'email:rfc,dns',
+    
+    ],
+            [
+                'Nom.alpha' => 'Le nom ne doit contenir que des lettres.',
+                'Prenom.alpha' => 'le Prenom ne doit contenir que des lettres.',
+                'email.email' => 'email invalide',
+                 ]
+        );
      
           Mail::to('commandetrack2022@gmail.com')->send(new Contact($request));
      

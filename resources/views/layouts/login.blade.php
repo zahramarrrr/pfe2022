@@ -32,16 +32,16 @@
    <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-    <div href="index.html" class="logo d-flex align-items-center">
+    <a href="index" class="logo d-flex align-items-center">
       <img src="assetswelcome/img/logo.png" alt="">
       <span>MaCommande</span>
-</div>
+</a>
 
     <nav id="navbar" class="navbar">
     <ul>
         
-        <li><div class="getstarted scrollto" href="#about">Contact</div></li>
-        <li><div class="getstarted scrollto" href="http://127.0.0.1:8000/">Retoure</div></li>
+        <li><a class="getstarted scrollto" href="{{ url('contact_client') }}">Contact</a></li>
+        <li><a class="getstarted scrollto" href="index">Retoure</a></li>
     </ul>
          
       <i class="bi bi-list mobile-nav-toggle"></i>

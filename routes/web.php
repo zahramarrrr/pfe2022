@@ -61,11 +61,12 @@ route::get('edit-commande/{id}', [CommandeController::class, 'EditCommande'])->n
 route::get('/delete-commande/{id}', [CommandeController::class, 'DeleteCommande'])->name('commande.delete');
 route::post('update-commande', [CommandeController::class, 'updateCommande'])->name('update.commande');
 route::post('valider', [CommandeController::class, 'valider'])->name('valider');
-route::post('validercommande/{id}', [CommandeController::class, 'validercommande'])->name('validercommande');
-route::post('preparercommande/{id}', [CommandeController::class, 'preparercommande'])->name('preparercommande');
-route::post('livrercommande/{id}', [CommandeController::class, 'livrercommande'])->name('livrercommande');
+// les fonctions de la pagee details
+route::post('validercommande', [CommandeController::class, 'validercommande'])->name('validercommande');
+route::post('preparercommande', [CommandeController::class, 'preparercommande'])->name('preparercommande');
+route::post('livrercommande', [CommandeController::class, 'livrercommande'])->name('livrercommande');
 route::post('retournercommande', [CommandeController::class, 'retourner'])->name('retourner');
-
+// les fonctions d'addectation
 route::post('affecteragent', [CommandeController::class, 'affecteragent'])->name('affecteragent');
 route::post('affecterlivreur', [CommandeController::class, 'affecterlivreur'])->name('affecterlivreur');
 
@@ -143,6 +144,9 @@ Route::get('/index', function () {
 route::get('client', [CommandeController::class, 'client'])->name('client');
 
 route::post('chercher', [CommandeController::class, 'chercher'])->name('chercher');
+//page contact pour client
+
+route::get('contact_client', [HomeController::class, 'contact_client'])->name('contact_client');
 
 
 // afficher liste retournee pour livreur
