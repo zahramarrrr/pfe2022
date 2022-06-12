@@ -70,12 +70,12 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Adresse:</div>
-                  <div class="col-lg-9 col-md-8">{{$admin-> adresse}}</div>
+                  <div class="col-lg-9 col-md-8">{{$admin-> Adresse}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label" >Télèphone:</div>
-                  <div class="col-lg-9 col-md-8">(216) {{$admin-> telephone}}</div>
+                  <div class="col-lg-9 col-md-8">(216) {{$admin-> Telephone}}</div>
                 </div>
 
                 <div class="row">

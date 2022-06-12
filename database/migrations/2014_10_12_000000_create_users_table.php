@@ -18,13 +18,24 @@ class CreateUsersTable extends Migration
             $table->string('Nom')->default('');
             $table->string('Prenom')->default('');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('Role')->default('');
-            $table->string('adresse')->default('');
-            $table->string('telephone')->default('');
+            $table->string('Adresse')->default('');
+            $table->string('Telephone')->default('');
+            $table->string('TelephoneSociete')->default('');
+            $table->string('EmailSociete')->default('');
+            $table->string('RaisonSociale')->default('');
+            $table->string('NomSociete')->default('');
+            $table->float('Salaire')->default(0);
+            $table->date('DateNaiss')->useCurrent();
+            $table->string('TypePermis')->default('');
+            $table->string('TypeVehicule')->default('');
+
+
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            
         });
     }
 

@@ -77,16 +77,16 @@
                                 <div class="row mb-3">
                                     <label for="Address" class="col-lg-3 col-md-4 label " class="label">Adresse:</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="adresse" id="adresse" value="{{$comm->adresse}}">
+                                        <input type="text" class="form-control" name="Adresse" id="Adresse" value="{{$comm->Adresse}}">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="Phone" class="col-lg-3 col-md-4 label " class="label">téléphone:</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="telephone" id="telephone" value="{{$comm->telephone}}">
-                                        @if ($errors->has('telephone'))
-                                    <span class="text-danger">{{ $errors->first('telephone') }}</span>
+                                        <input type="text" class="form-control" name="Telephone" id="Telephone" value="{{$comm->Telephone}}">
+                                        @if ($errors->has('Telephone'))
+                                    <span class="text-danger">{{ $errors->first('Telephone') }}</span>
                                 @endif
                              </div>
                                 </div>

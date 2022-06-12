@@ -69,12 +69,12 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Addresse</div>
-                  <div class="col-lg-9 col-md-8">{{$agent-> adresse}}</div>
+                  <div class="col-lg-9 col-md-8">{{$agent-> Adresse}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Phone</div>
-                  <div class="col-lg-9 col-md-8">(216) {{$agent-> telephone}}</div>
+                  <div class="col-lg-9 col-md-8">(216) {{$agent-> Telephone}}</div>
                 </div>
 
                 <div class="row">

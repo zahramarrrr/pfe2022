@@ -2,7 +2,7 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
+$NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('read_at', null)->get();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,12 +50,12 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
   <link href='{{asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/boxicons/css/boxicons.min.css") }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/quill/quill.snow.css") }}' rel="stylesheet">
-  <link href='{{asset("assets/vendor/quill/quill.bubble.css" ) }}'rel="stylesheet">
+  <link href='{{asset("assets/vendor/quill/quill.bubble.css" ) }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/remixicon/remixicon.css") }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/simple-datatables/style.css") }}' rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href='{{asset("assets/css/style.css" ) }}'rel="stylesheet">
+  <link href='{{asset("assets/css/style.css" ) }}' rel="stylesheet">
   <link href='{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css") }}' rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href='{{asset("https://fonts.googleapis.com/css?family=Roboto|Varela+Round") }}'>
   <link rel="stylesheet" href='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css") }}'>
@@ -65,7 +65,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
   <script src='{{asset("https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js") }}'></script>
   <script src='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js") }}'></script>
   <script src='{{asset("https://js.pusher.com/7.0/pusher.min.js") }}'></script>
-  
+
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -83,117 +83,124 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
 <body>
 
- <!-- ======= Header ======= -->
- <header id="header" class="header fixed-top d-flex align-items-center">
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
 
-<div class="d-flex align-items-center justify-content-between">
-  <a href="index.html" class="logo d-flex align-items-center">
-    <img src="assets/img/logo.png" alt="">
-    <span class="d-none d-lg-block">MaCommande</span>
-  </a>
-  <i class="bi bi-list toggle-sidebar-btn"></i>
-</div><!-- End Logo -->
-
-
-
-<nav class="header-nav ms-auto">
-  <ul class="d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">MaCommande</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
 
 
 
-    <li class="nav-item dropdown">
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
 
-      <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-bell"></i>
-        <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
-      </a><!-- End Notification Icon -->
 
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
-        <li class="dropdown-header">
-          Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-          <a href="{{route('listenotiflivreur')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-        </li>
-        @foreach($notif as $notifs)
 
-        <a href="{{route('commande.details' , ['id' => $cmd->id]) }}">
-          <li>
-            <hr class='dropdown-divider'>
-          </li>
-          <div id='notif'>
-            <li class='notification-item'>
-              <i class='bi bi-exclamation-circle text-warning'></i>
-              <div>
-                <h4>
-                 {{$notifs->texte}} {{$notifs->ID_commande}}
-                </h4>
-              </div>
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">{{count($NotificationsCommandes)}}</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
+            <li class="dropdown-header">
+              Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
+              <a href="{{route('listenotiflivreur')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
-          </div>
-    </li></a>
-    @endforeach
+            @foreach($notif as $notifs)
+
+            <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
+              <li>
+                <hr class='dropdown-divider'>
+              </li>
+              <?php
+              if (($notifs->read_at) == null)
+
+                echo ' <div id="notif" style="background-color:grey;" >';
+              else
+                echo ' <div id="notif" style="background-color:white;" >';
+
+              ?>
+              <li class='notification-item'>
+                <i class='bi bi-exclamation-circle text-warning'></i>
+                <div>
+                  <h4>
+                    {{$notifs->Text_Notif}} {{$notifs->ID_commande}}
+                  </h4>
+                </div>
+              </li>
+              </div>
+        </li></a>
+        @endforeach
 
 
 
-  </ul><!-- End Notification Dropdown Items -->
+      </ul><!-- End Notification Dropdown Items -->
 
 
-  </li><!-- End Notification Nav -->
-
-
-
-
-  <li class="nav-item dropdown pe-3">
-
-    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-      <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-      <span class="d-none d-md-block dropdown-toggle ps-2">{{$livreur-> Nom}} {{$livreur-> Prenom}}</span>
-    </a><!-- End Profile Iamge Icon -->
-
-    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
-      <li class="dropdown-header">
-        <h6> {{$livreur-> Nom}} {{$livreur-> Prenom}}</h6>
-        <span class="h6">livreur d'entrepôt</span>
-      </li>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
-
-      <li>
-        <a class="dropdown-item d-flex align-items-center" href="{{ url('profillivreur') }}">
-          <i class="bi bi-person"></i>
-          <span class="h6">Mon Profil</span>
-        </a>
-      </li>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
-
-      <li>
-        <a class="dropdown-item d-flex align-items-center" href="{{ url('editer-profil-livreur',['id' => $livreur->id]) }}">
-          <i class="bi bi-gear"></i>
-          <span class="h6">Editer profil</span>
-        </a>
-      </li>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
-      <li>
-        <a class="dropdown-item d-flex align-items-center" href="{{ url('mdplivreur') }}">
-          <i class="bi bi-gear"></i>
-          <span class="h6">Changer mot de passe</span>
-        </a>
-      </li>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
+      </li><!-- End Notification Nav -->
 
 
 
-      <!-- End Profile Dropdown Items -->
 
-</nav><!-- End Icons Navigation -->
+      <li class="nav-item dropdown pe-3">
 
-</header><!-- End Header -->
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
+          <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">{{$livreur-> Nom}} {{$livreur-> Prenom}}</span>
+        </a><!-- End Profile Iamge Icon -->
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-16px, 54px);">
+          <li class="dropdown-header">
+            <h6> {{$livreur-> Nom}} {{$livreur-> Prenom}}</h6>
+            <span class="h6">livreur d'entrepôt</span>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('profillivreur') }}">
+              <i class="bi bi-person"></i>
+              <span class="h6">Mon Profil</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('editer-profil-livreur',['id' => $livreur->id]) }}">
+              <i class="bi bi-gear"></i>
+              <span class="h6">Editer profil</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="{{ url('mdplivreur') }}">
+              <i class="bi bi-gear"></i>
+              <span class="h6">Changer mot de passe</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+
+
+          <!-- End Profile Dropdown Items -->
+
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
 
   <aside id="sidebar" class="sidebar">
 
@@ -201,14 +208,14 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-      <a class="nav-link collapsed" href="{{ url('livreur') }}">        <i class="bi bi-bag-plus"></i>
-        <i class="bi bi-bag"></i><span>Mes commandes</span>
+        <a class="nav-link collapsed" href="{{ url('livreur') }}"> <i class="bi bi-bag-plus"></i>
+          <i class="bi bi-bag"></i><span>Mes commandes</span>
         </a>
 
       </li><!-- End declarer commande nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('cmd_retournee') }}">
-        <i class="bi bi-bag"></i><span>Liste des commandes retournées</span>
+          <i class="bi bi-bag"></i><span>Liste des commandes retournées</span>
         </a>
 
       </li>
@@ -233,7 +240,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
         </a>
 
       </form>
-      
+
       <!-- END contact -->
 
 
@@ -268,7 +275,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
   <!-- Template Main JS File -->
   <script src='{{asset("assets/js/main.js") }}'></script>
   <script src='{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js") }}' integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<!--   <script>
+  <!--   <script>
     $('.js-tilt').tilt({
       scale: 1.1
     })
@@ -308,9 +315,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
       if (allVals.length <= 0) {
         $("#erreur").show();
         location.reload();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);  
+        setTimeout(function() {
+          location.reload();
+        }, 2500);
       }
 
 
@@ -326,10 +333,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
           // location.reload();
 
           $("#livree").show();
-          setTimeout(function(){
-           location.reload(); 
-        }, 2500);      
-           console.log(response);
+          setTimeout(function() {
+            location.reload();
+          }, 2500);
+          console.log(response);
           //  console.log(response);
           // alert(response.success);
 
@@ -338,9 +345,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
           console.log(response);
 
           $("#erreur").show();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);  
+          setTimeout(function() {
+            location.reload();
+          }, 2500);
         }
       });
 
@@ -351,10 +358,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
   </script>
   <!-- pour livrer une seule cmd-->
   <script>
-    function getId(monId)
-{
-  cmdid=monId.id;
- $.ajax({
+    function getId(monId) {
+      cmdid = monId.id;
+      $.ajax({
         url: "{{ route('livraison')}} ",
         type: "POST",
         data: {
@@ -363,23 +369,22 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
           "_token": "{{ csrf_token() }}",
         },
         success: function(response) {
-         // location.reload();
-
+          //  location.reload();
           $("#livree").show();
-          setInterval(function(){
-           location.reload(); 
-        }, 2500);      
-          console.log(response);
+          setInterval(function() {
+            location.reload();
+          }, 2500);
+          // console.log(response);
           // alert(response.success);
 
         },
         error: function(error) {
-        console.log(response);
+          console.log(response);
 
           $("#erreur").show();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);  
+          setTimeout(function() {
+            location.reload();
+          }, 2500);
         }
       });
 
@@ -388,12 +393,12 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
     };
   </script>
-   <!-- livrer commande page details -->
-   <script>
+  <!-- livrer commande page details -->
+  <script>
     $('#livrer').on('click', function(e) {
-     cmdid = $(this).attr('data-id');
-     console.log(cmdid);
- $.ajax({
+      cmdid = $(this).attr('data-id');
+      console.log(cmdid);
+      $.ajax({
         url: "{{ route('livrercommande')}} ",
         type: "POST",
         data: {
@@ -403,26 +408,17 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
         },
         success: function(response) {
           $("#livree").show();
-         // location.reload();
-         /* if(response.redirect_url){
-       window.location=data.redirect_url; 
-       return redirect()->route('commande_declaree_admin'); */
-  //  }
-         /* 
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);      
-        console.log(response); */
-          // alert(response.success);
+          top.location.href = "{{url('livreur')}}";
+
 
         },
         error: function(error) {
-        console.log(response);
+          console.log(response);
 
-        /*   $("#err").show();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);   */
+          /*   $("#err").show();
+                    setTimeout(function(){
+             location.reload(); 
+          }, 2500);   */
         }
       });
 
@@ -434,9 +430,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
   <!-- retournee cmd -->
   <script>
     $('#retourner').on('click', function(e) {
-     cmdid = $(this).attr('data-id');
-     console.log(cmdid);
- $.ajax({
+      cmdid = $(this).attr('data-id');
+      console.log(cmdid);
+      $.ajax({
         url: "{{ route('retourner')}} ",
         type: "POST",
         data: {
@@ -448,26 +444,16 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
           console.log(response);
 
           $("#succ").show();
-         // location.reload();
-        /*  if(response.redirect_url){
-       window.location=data.redirect_url; 
-       return redirect()->route('commande_declaree_admin');
-    } */
-         /* 
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);      
-        console.log(response); */
-          // alert(response.success);
+          top.location.href = "{{url('livreur')}}";
 
         },
         error: function(error) {
-       console.log(response);
+          console.log(response);
 
           $("#err").show();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);  
+          setTimeout(function() {
+            location.reload();
+          }, 2500);
         }
       });
 
@@ -476,7 +462,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
 
     });
   </script>
-   <script>
+  <script>
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -506,7 +492,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->get();
       msg = notifmsg.replace(/["']/g, " ");
       //   alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
       oldcontent = document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
+      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif' style='background-color:grey;'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
   <script>

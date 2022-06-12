@@ -13,7 +13,7 @@
 
 					<div class="col-lg-6">
 						<div class="info-box card">
-							<i class="bi bi-telephone"></i>
+							<i class="bi bi-Telephone"></i>
 							<h3>Télèphone</h3>
 							<p>+1 5589 55488 55<br>+1 6678 254445 41</p>
 						</div>

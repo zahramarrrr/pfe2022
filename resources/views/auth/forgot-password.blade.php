@@ -9,7 +9,7 @@
                             <h3 class="label">Problèmes de connexion ?</h3>
                             <div class="mb-4 text-sm text-gray-600">
                                 <div class="form-group" class="form-control">
-                                    {{ __('Mot de passe oublié? Pas de probléme. Entrez votre adresse e-mail et nous vous enverrons un lien pour récupérer votre compte..') }}
+                                    {{ __('Mot de passe oublié? Pas de probléme. Entrez votre Adresse e-mail et nous vous enverrons un lien pour récupérer votre compte..') }}
                                 </div>
 
                                 <!-- Session Status -->

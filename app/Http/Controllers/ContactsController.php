@@ -14,7 +14,7 @@ class ContactsController extends Controller
     public function create()
     {
         $user = DB::table('users')->where('id', Auth::user()->id)->first();
-$notif = Notifications::query()->where('type', 'livreur')->take(5)->get();
+$notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
 $agent = DB::table('users')->where('id', Auth::user()->id)->first();
 $comm = DB::table('users')->where('id', Auth::user()->id)->first();
 $livreur = DB::table('users')->where('id', Auth::user()->id)->first();

@@ -26,6 +26,13 @@ class Commande extends Model
         'Paiement',
         'Poids',
         'Prix',
-        'Description'
+        'Description',
+        'ID_Commercant',
+        'ID_Livreur',
+        'ID_Agent'
+
     ];
+    public function notif_cmd() {
+        return $this->hasMany(Notifications::class);
+    }
 }

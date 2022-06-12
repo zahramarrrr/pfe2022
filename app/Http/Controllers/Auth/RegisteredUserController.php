@@ -82,7 +82,7 @@ class RegisteredUserController extends Controller
             ->first(['users.*', 'notifications.*']);
 
         return  view('ListeAgent', compact('agents', 'notif', 'admin', 'user')); */
-        return redirect()->route('ListeAgent');
+        return redirect()->route('listeagent');
 
         $status == Password::RESET_LINK_SENT
             ? back()->with('status', __($status))
@@ -194,7 +194,7 @@ class RegisteredUserController extends Controller
             ->first(['users.*', 'notifications.*']);
 
         return  view('Listecommercant', compact('comm', 'admin', 'notif', 'user')); */
-        return redirect()->route('Listecommercant');
+        return redirect()->route('listecommercant');
 
         $status == Password::RESET_LINK_SENT
             ? back()->with('status', __($status))
@@ -210,44 +210,31 @@ class RegisteredUserController extends Controller
     }
     public function ajoutcom()
     {
-        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-        ->first(['commandes.*', 'notifications.*']);
-
+     
         $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
-        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
-            ->first(['users.*', 'notifications.*']);
+       
         $comm = DB::table('users')->where('Role', 'commerçant')
             ->where('id', 'LIKE', '%' . $search_text . '%')->get();
-        return view('ajout-commerçant', compact('comm', 'notif', 'admin', 'user','cmd'));
+        return view('ajout-commerçant', compact('comm', 'notif', 'admin'));
     }
     public function ajoutagent()
     {
-        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-        ->first(['commandes.*', 'notifications.*']);
-
-        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
-            ->first(['users.*', 'notifications.*']);
-        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+       $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
         $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
         $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
-        return view('ajout-agent', compact('commandes', 'notif', 'admin', 'user','cmd'));
+        return view('ajout-agent', compact('commandes', 'notif', 'admin'));
     }
     public function ajoutlivreur()
     {
-        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-        ->first(['commandes.*', 'notifications.*']);
-
-        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
-            ->first(['users.*', 'notifications.*']);
-        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
         $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
         $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
-        return view('ajout-livreur', compact('commandes', 'notif', 'admin', 'user','cmd'));
+        return view('ajout-livreur', compact('commandes', 'notif', 'admin'));
     }
 }

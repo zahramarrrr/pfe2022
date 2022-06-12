@@ -1,3 +1,8 @@
+<?php
+
+use App\Models\User;
+
+?>
 @extends("layouts.admin")
 @section("content")
 <main id="main" class="main">
@@ -19,7 +24,7 @@ commande(s) validée(s) avec succée(s)</div>
 
 
   <div class="container" id="reload_declaree">
-  <input class='btn4'type="button" value="valider"></button>
+  <input class='btn4'type="button" id="validation" value="valider"></button>
   <button type="button" class="btn4" onclick="window.location.href ='ajoutCommande'" ></i> Ajouter</button>
 
 </div>
@@ -45,7 +50,6 @@ commande(s) validée(s) avec succée(s)</div>
 
               </thead>
               <tbody>
-                @if($commandes->count())
 
                 @foreach($commandes as $key => $commande)
 
@@ -53,7 +57,19 @@ commande(s) validée(s) avec succée(s)</div>
                   <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
                   <td><img src="assets/img/comm.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
                   <td>{{$commande->created_at}}</td>
-                  <td>{{$commercant->societe}}</td>
+                  <?php
+                                         $commercant = User::where('id', $commande->ID_Commercant)->first();
+
+                         if (is_null($commande->ID_Commercant)){
+                           $societe="admin";
+                         
+                         }
+                         else        $societe=$commercant->NomSociete;
+
+                         
+                         
+                                           ?>
+                                    <td>{{$societe}}</td>
 
                   <td>{{$commande->Telephone}}</td>
                   <td>
@@ -68,7 +84,6 @@ commande(s) validée(s) avec succée(s)</div>
                 </tr>
 
                 @endforeach
-                @endif
 
               </tbody>
 

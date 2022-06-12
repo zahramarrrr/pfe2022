@@ -16123,10 +16123,611 @@
         class Str {
          
     }
+            /**
+     * 
+     *
+     */ 
+        class Collection {
+                    /**
+         * 
+         *
+         * @see \Maatwebsite\Excel\Mixins\DownloadCollection::downloadExcel()
+         * @param string $fileName
+         * @param string|null $writerType
+         * @param mixed $withHeadings
+         * @param array $responseHeaders
+         * @static 
+         */ 
+        public static function downloadExcel($fileName, $writerType = null, $withHeadings = false, $responseHeaders = [])
+        {
+                        return \Illuminate\Support\Collection::downloadExcel($fileName, $writerType, $withHeadings, $responseHeaders);
+        }
+                    /**
+         * 
+         *
+         * @see \Maatwebsite\Excel\Mixins\StoreCollection::storeExcel()
+         * @param string $filePath
+         * @param string|null $disk
+         * @param string|null $writerType
+         * @param mixed $withHeadings
+         * @static 
+         */ 
+        public static function storeExcel($filePath, $disk = null, $writerType = null, $withHeadings = false)
+        {
+                        return \Illuminate\Support\Collection::storeExcel($filePath, $disk, $writerType, $withHeadings);
+        }
+         
+    }
      
 }
 
-        namespace Facade\Ignition\Facades { 
+        namespace ArielMejiaDev\LarapexCharts\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class LarapexChart {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function pieChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->pieChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function donutChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->donutChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function radialChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->radialChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function polarAreaChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->polarAreaChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function lineChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->lineChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function areaChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->areaChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function barChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->barChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function horizontalBarChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->horizontalBarChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function heatMapChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->heatMapChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function radarChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->radarChart();
+        }
+                    /**
+         * 
+         *
+         * @deprecated deprecated since version 2.0
+         * @param null $type
+         * @return \ArielMejiaDev\LarapexCharts\LarapexChart 
+         * @static 
+         */ 
+        public static function setType($type = null)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setType($type);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setFontFamily($fontFamily)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setFontFamily($fontFamily);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setFontColor($fontColor)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setFontColor($fontColor);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setDataset($dataset)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setDataset($dataset);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setHeight($height)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setHeight($height);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setWidth($width)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setWidth($width);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setColors($colors)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setColors($colors);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setHorizontal($horizontal)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setHorizontal($horizontal);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setTitle($title)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setTitle($title);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setSubtitle($subtitle, $position = 'left')
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setSubtitle($subtitle, $position);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setLabels($labels)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setLabels($labels);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setXAxis($categories)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setXAxis($categories);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setGrid($transparent = true, $color = '#e5e5e5', $opacity = 0.1)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setGrid($transparent, $color, $opacity);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setMarkers($colors = [], $width = 4, $hoverSize = 7)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setMarkers($colors, $width, $hoverSize);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setStroke($width, $colors = [])
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setStroke($width, $colors);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setToolbar($show, $zoom = true)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setToolbar($show, $zoom);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setDataLabels($enabled = true)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setDataLabels($enabled);
+        }
+                    /**
+         * 
+         *
+         * @param array $array
+         * @return array|false|string 
+         * @static 
+         */ 
+        public static function transformLabels($array)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->transformLabels($array);
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function container()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->container();
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function script()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->script();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function cdn()
+        {
+                        return \ArielMejiaDev\LarapexCharts\LarapexChart::cdn();
+        }
+                    /**
+         * 
+         *
+         * @return false|string 
+         * @static 
+         */ 
+        public static function id()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->id();
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function title()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->title();
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function subtitle()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->subtitle();
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function subtitlePosition()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->subtitlePosition();
+        }
+                    /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function type()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->type();
+        }
+                    /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function fontFamily()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->fontFamily();
+        }
+                    /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function foreColor()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->foreColor();
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function labels()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->labels();
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function dataset()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->dataset();
+        }
+                    /**
+         * 
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function height()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->height();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function width()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->width();
+        }
+                    /**
+         * 
+         *
+         * @return false|string 
+         * @static 
+         */ 
+        public static function colors()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->colors();
+        }
+                    /**
+         * 
+         *
+         * @return false|string 
+         * @static 
+         */ 
+        public static function horizontal()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->horizontal();
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function xAxis()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->xAxis();
+        }
+                    /**
+         * 
+         *
+         * @return false|string 
+         * @static 
+         */ 
+        public static function grid()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->grid();
+        }
+                    /**
+         * 
+         *
+         * @return false|string 
+         * @static 
+         */ 
+        public static function markers()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->markers();
+        }
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function stroke()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->stroke();
+        }
+                    /**
+         * 
+         *
+         * @return true|boolean 
+         * @static 
+         */ 
+        public static function toolbar()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->toolbar();
+        }
+                    /**
+         * 
+         *
+         * @return true|boolean 
+         * @static 
+         */ 
+        public static function zoom()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->zoom();
+        }
+                    /**
+         * 
+         *
+         * @return true|boolean 
+         * @static 
+         */ 
+        public static function dataLabels()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->dataLabels();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function toJson()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->toJson();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function toVue()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->toVue();
+        }
+         
+    }
+     
+}
+
+    namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
      *
@@ -16412,6 +17013,250 @@
         {
                         /** @var \Facade\FlareClient\Flare $instance */
                         return $instance->group($groupName, $properties);
+        }
+         
+    }
+     
+}
+
+    namespace Maatwebsite\Excel\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Excel {
+                    /**
+         * 
+         *
+         * @param object $export
+         * @param string|null $fileName
+         * @param string $writerType
+         * @param array $headers
+         * @return \Symfony\Component\HttpFoundation\BinaryFileResponse 
+         * @throws \PhpOffice\PhpSpreadsheet\Exception
+         * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+         * @static 
+         */ 
+        public static function download($export, $fileName, $writerType = null, $headers = [])
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->download($export, $fileName, $writerType, $headers);
+        }
+                    /**
+         * 
+         *
+         * @param object $export
+         * @param string $filePath
+         * @param string|null $disk
+         * @param string $writerType
+         * @param mixed $diskOptions
+         * @return bool 
+         * @throws \PhpOffice\PhpSpreadsheet\Exception
+         * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+         * @static 
+         */ 
+        public static function store($export, $filePath, $diskName = null, $writerType = null, $diskOptions = [])
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->store($export, $filePath, $diskName, $writerType, $diskOptions);
+        }
+                    /**
+         * 
+         *
+         * @param object $export
+         * @param string $filePath
+         * @param string|null $disk
+         * @param string $writerType
+         * @param mixed $diskOptions
+         * @return \Illuminate\Foundation\Bus\PendingDispatch 
+         * @static 
+         */ 
+        public static function queue($export, $filePath, $disk = null, $writerType = null, $diskOptions = [])
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->queue($export, $filePath, $disk, $writerType, $diskOptions);
+        }
+                    /**
+         * 
+         *
+         * @param object $export
+         * @param string $writerType
+         * @return string 
+         * @static 
+         */ 
+        public static function raw($export, $writerType)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->raw($export, $writerType);
+        }
+                    /**
+         * 
+         *
+         * @param object $import
+         * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $filePath
+         * @param string|null $disk
+         * @param string|null $readerType
+         * @return \Maatwebsite\Excel\Reader|\Illuminate\Foundation\Bus\PendingDispatch 
+         * @static 
+         */ 
+        public static function import($import, $filePath, $disk = null, $readerType = null)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->import($import, $filePath, $disk, $readerType);
+        }
+                    /**
+         * 
+         *
+         * @param object $import
+         * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $filePath
+         * @param string|null $disk
+         * @param string|null $readerType
+         * @return array 
+         * @static 
+         */ 
+        public static function toArray($import, $filePath, $disk = null, $readerType = null)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->toArray($import, $filePath, $disk, $readerType);
+        }
+                    /**
+         * 
+         *
+         * @param object $import
+         * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $filePath
+         * @param string|null $disk
+         * @param string|null $readerType
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function toCollection($import, $filePath, $disk = null, $readerType = null)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->toCollection($import, $filePath, $disk, $readerType);
+        }
+                    /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Queue\ShouldQueue $import
+         * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $filePath
+         * @param string|null $disk
+         * @param string $readerType
+         * @return \Illuminate\Foundation\Bus\PendingDispatch 
+         * @static 
+         */ 
+        public static function queueImport($import, $filePath, $disk = null, $readerType = null)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->queueImport($import, $filePath, $disk, $readerType);
+        }
+                    /**
+         * 
+         *
+         * @param string $concern
+         * @param callable $handler
+         * @param string $event
+         * @static 
+         */ 
+        public static function extend($concern, $handler, $event = 'Maatwebsite\\Excel\\Events\\BeforeWriting')
+        {
+                        return \Maatwebsite\Excel\Excel::extend($concern, $handler, $event);
+        }
+                    /**
+         * When asserting downloaded, stored, queued or imported, use regular expression
+         * to look for a matching file path.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function matchByRegex()
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        $instance->matchByRegex();
+        }
+                    /**
+         * When asserting downloaded, stored, queued or imported, use regular string
+         * comparison for matching file path.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function doNotMatchByRegex()
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        $instance->doNotMatchByRegex();
+        }
+                    /**
+         * 
+         *
+         * @param string $fileName
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertDownloaded($fileName, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertDownloaded($fileName, $callback);
+        }
+                    /**
+         * 
+         *
+         * @param string $filePath
+         * @param string|callable|null $disk
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertStored($filePath, $disk = null, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertStored($filePath, $disk, $callback);
+        }
+                    /**
+         * 
+         *
+         * @param string $filePath
+         * @param string|callable|null $disk
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertQueued($filePath, $disk = null, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertQueued($filePath, $disk, $callback);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function assertQueuedWithChain($chain)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertQueuedWithChain($chain);
+        }
+                    /**
+         * 
+         *
+         * @param string $classname
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertExportedInRaw($classname, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertExportedInRaw($classname, $callback);
+        }
+                    /**
+         * 
+         *
+         * @param string $filePath
+         * @param string|callable|null $disk
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertImported($filePath, $disk = null, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertImported($filePath, $disk, $callback);
         }
          
     }
@@ -20062,7 +20907,9 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
+            class LarapexChart extends \ArielMejiaDev\LarapexCharts\Facades\LarapexChart {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
+            class Excel extends \Maatwebsite\Excel\Facades\Excel {}
      
 }
 

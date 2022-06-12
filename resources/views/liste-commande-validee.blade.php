@@ -1,3 +1,8 @@
+<?php
+
+use App\Models\User;
+
+?>
 @extends("layouts.admin")
 @section("content")
 
@@ -11,6 +16,9 @@
     </div>
 
 
+   
+
+  
 
     <div class="container">
         
@@ -49,8 +57,19 @@
                                     <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
                                     <td>{{$commande->Date_Validation}}</td>
+                                    <?php
+                                         $commercant = User::where('id', $commande->ID_Commercant)->first();
 
-                                    <td>{{$commercant->societe}}</td>
+                         if (is_null($commande->ID_Commercant)){
+                           $societe="admin";
+                         
+                         }
+                         else        $societe=$commercant->NomSociete;
+
+                         
+                         
+                                           ?>
+                                    <td>{{$societe}}</td>
                                     <td>{{$commande->Telephone}}</td>
                                     <td>
                                         <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons"></i></a>

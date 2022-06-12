@@ -70,7 +70,7 @@
                     </tr>
                     <tr class="space-row">
                       <th>téléphone:</th>
-                      <td id="telephone-val">{{$commande->Telephone}}</td>
+                      <td id="Telephone-val">{{$commande->Telephone}}</td>
                     </tr>
                     <tr class="space-row">
                       <th>Addresse mail:</th>
@@ -78,7 +78,7 @@
                     </tr>
                     <tr class="space-row">
                       <th>Adresse:</th>
-                      <td id="adresse1-val">{{$commande->Adresse}}</td>
+                      <td id="Adresse1-val">{{$commande->Adresse}}</td>
                     </tr>
 
                     <tr class="space-row">
@@ -121,15 +121,15 @@
 
 
               <?php
-              if (Auth::user()->Role == 'admin') {
+              if ((Auth::user()->Role == 'admin') &&(($commande->Etat)=='declaree')) {
                 echo '                 
                    <button id="valider" data-id="' . $commande->id . '" type="button">valider</button>
                 ';
-              } elseif (Auth::user()->Role == 'agent') {
+              } elseif ((Auth::user()->Role == 'agent') &&(($commande->Etat)=='affecter a un agent')){
                 echo ' 
                 <button id="preparer" data-id="' . $commande->id . '" type="button">preparer</button>
                 ';
-              } elseif (Auth::user()->Role == 'livreur') {
+              } elseif ((Auth::user()->Role == 'livreur')&&(($commande->Etat)=='affecter a un livreur')) {
                 echo ' 
                 <button id="livrer" data-id="' . $commande->id . '" type="button">livrer</button>
 

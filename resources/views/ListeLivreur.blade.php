@@ -48,9 +48,9 @@
                    
                     <td>{{$l->Nom}}</td>
                     <td>{{$l->Prenom}}</td>
-                    <td>{{$l->adresse}}</td>
+                    <td>{{$l->Adresse}}</td>
                     <td>{{$l->email}}</td>
-                    <td>{{$l->telephone}}</td>
+                    <td>{{$l->Telephone}}</td>
 
                   <td>  <a href="Deletepersonnel/{{$l->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
 

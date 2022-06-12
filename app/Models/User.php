@@ -23,8 +23,8 @@ class User extends Authenticatable
     protected $fillable = [
         'Nom',
         'Prenom',
-        'adresse',
-        'telephone',
+        'Adresse',
+        'Telephone',
         'email',
         'Role',
         'password',
@@ -48,5 +48,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    public function usernotif() {
+        return $this->belongsTo(Notifications::class);
+    }
 }

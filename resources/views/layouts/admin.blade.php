@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\User;
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('read_at',null)->get();
+$NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('read_at', null)->get();
 
 ?>
 
@@ -101,29 +102,40 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
             <li class="dropdown-header">
               Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-              <a href="{{url('liste-notification')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              <a href="{{url('liste-notification')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">Afficher toutes</span></a>
             </li>
-        @foreach($notif as $notifs)
+            @foreach($notif as $notifs)
 
-            <a href="{{route('commande.details' , ['id' => $cmd->id]) }}">
+            <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
               <li>
                 <hr class='dropdown-divider'>
               </li>
-              <div id='notif'>
-                <li class='notification-item'>
-                  <i class='bi bi-exclamation-circle text-warning'></i>
-                  <div>
-                    <h4>
-                      {{$user->Nom}} {{$notifs->texte}} {{$notifs->ID_commande}}
-                    </h4>
+              <?php
+              if (($notifs->read_at) == null)
 
-                  </div>
-                </li>
+                echo ' <div id="notif" style="background-color:grey;" >';
+              else
+                echo ' <div id="notif" style="background-color:white;" >';
+
+              ?>
+              <li class='notification-item'>
+                <i class='bi bi-exclamation-circle text-warning'></i>
+                <div>
+                  <h4>
+                    <?php
+                    $user = User::where('id', $notifs->ID_Notifieur)->first();
+
+                    ?>
+                    {{$user->Nom}} {{$notifs->Text_Notif}} {{$notifs->ID_commande}}
+                  </h4>
+
+                </div>
+              </li>
               </div>
         </li>
         </div>
         </li></a>
-        @endforeach 
+        @endforeach
 
 
 
@@ -187,13 +199,28 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item"> 
+        <a class="nav-link" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="{{ url('admin') }}" aria-expanded="true">
+           <i class="bi bi-bar-chart"></i><span>Tableaux de bord</span><i class="bi bi-chevron-down ms-auto"></i> 
+          </a>
+        <ul id="charts-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav" style="">
+        <li> <a href="{{ url('admin') }}"> <i class="bi bi-circle"></i><span>commande</span> </a></li>
+       <ul> <li> <a href="{{ url('jour_bat') }}"> <i class="bi bi-circle"></i><span>cmd livré ret par nom du jour en baton</span> </a></li>
 
-      <li class="nav-item">
-        <a class="nav-link " href="{{ url('admin') }}">
-          <i class="bi bi-grid"></i>
-          <span>Tableaux de bord</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+          <li> <a href="{{url('cmd_jour')}}"> <i class="bi bi-circle"></i><span>toute les commandes par date</span> </a></li>
+          <li> <a href="{{url('cmd_societe')}}"> <i class="bi bi-circle"></i><span> tt commande par societe</span> </a></li>
+          <li> <a href="{{url('cmd_region')}}"> <i class="bi bi-circle"></i><span>tt commande par region</span> </a></li>
+       </ul>
+       <li> <a href="{{ url('employee') }}"> <i class="bi bi-circle"></i><span>employee</span> </a></li>
+       <ul>
+          <li> <a href="{{url('cmd_agent')}}"> <i class="bi bi-circle"></i><span>cmd par agent</span> </a></li>
+          <li> <a href="{{url('cmd_livreur')}}"> <i class="bi bi-circle"></i><span>cmd par livreur</span> </a></li>
+          <li> <a href="{{url('moyenne')}}"> <i class="bi bi-circle"></i><span>moyenne</span> </a></li>
+
+       </ul>
+      </ul>
+      </li>
+     <!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -324,7 +351,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
       msg = notifmsg.replace(/["']/g, " ");
       // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1])+" | "+JSON.stringify(data.message[2]));
       oldcontent = document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
+      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif' style='background-color:grey;'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
   <script type="text/javascript">
@@ -341,7 +368,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
     });
   </script>
   <script>
-    $('.validation').on('click', function(e) {
+    $('#validation').on('click', function(e) {
       var allVals = [];
       $(".sub_chk:checked").each(function(e) {
         allVals.push($(this).attr('data-id'));
@@ -409,7 +436,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
 
 
       $.ajax({
-        url: "{{ route('affecteragent')}} ",
+        url: "{{route('affecteragent')}}",
         type: "POST",
         data: {
           'agentid': agentid,
@@ -418,21 +445,25 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
           "_token": "{{ csrf_token() }}",
         },
         success: function(response) {
-          $("#affected").show();
 
+          // alert(response.success);
           // location.reload();
           setTimeout(function() {
+            $("#affected").show();
 
             $("#basicModal").modal('hide');
 
             location.reload();
           }, 1600);
-          //console.log(response);
+          //   console.log(response);
 
           //alert(response.success);
 
         },
         error: function(error) {
+          console.log(response);
+          alert(response.success);
+
           $("#erreur").show();
           //location.reload();
           setTimeout(function() {
@@ -504,9 +535,9 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
   <!-- valider commande page details -->
   <script>
     $('#valider').on('click', function(e) {
-     cmdid = $(this).attr('data-id');
-     console.log(cmdid);
- $.ajax({
+      cmdid = $(this).attr('data-id');
+      console.log(cmdid);
+      $.ajax({
         url: "{{ route('validercommande')}} ",
         type: "POST",
         data: {
@@ -516,26 +547,26 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
         },
         success: function(response) {
           $("#validee").show();
-         // location.reload();
-         /* if(response.redirect_url){
+          // location.reload();
+          /* if(response.redirect_url){
        window.location=data.redirect_url; 
        return redirect()->route('commande_declaree_admin'); */
-  //  }
-         /* 
+          //  }
+          /* 
                   setTimeout(function(){
            location.reload(); 
         }, 2500);      
         console.log(response); */
           // alert(response.success);
-
+          top.location.href = "{{url('liste-validee')}}";
         },
         error: function(error) {
-        console.log(response);
+          console.log(response);
 
           $("#err").show();
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);  
+          setTimeout(function() {
+            location.reload();
+          }, 2500);
         }
       });
 

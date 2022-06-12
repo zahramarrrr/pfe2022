@@ -194,7 +194,7 @@
             </div>
             <div class="col-lg-6">
               <div class="info-box card">
-                <i class="bi bi-telephone"></i>
+                <i class="bi bi-Telephone"></i>
                 <h3>appelez-nous</h3>
                 <p>+216 5589 55488 55<br>+216 6678 254445 41</p>
               </div>

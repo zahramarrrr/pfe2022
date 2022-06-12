@@ -17,15 +17,12 @@ class profilcontroller extends Controller
         $notif = Notifications::query()->where('Notifiable', 'admin')
             ->orderBy('id', 'desc')->take(5)
             ->get();
-            $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
-            ->first(['users.*', 'notifications.*']);
+          
             $search_text = isset($_GET['query']);
 
             $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-            $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-            ->first(['commandes.*', 'notifications.*']);
-    
-        return view('profilAdmin', compact('admin', 'notif','user','cmd'));
+          
+        return view('profilAdmin', compact('admin', 'notif'));
     }
     public function Editerprofiladmin($id)
     {
@@ -33,15 +30,13 @@ class profilcontroller extends Controller
         $notif = Notifications::query()->where('Notifiable', 'admin')
         ->orderBy('id', 'desc')->take(5)
         ->get();
-        $user = User::join('notifications', 'notifications.ID_Personnel', '=', 'users.id')
-        ->first(['users.*', 'notifications.*']);
+       
         $search_text = isset($_GET['query']);
 
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        $cmd = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-        ->first(['commandes.*', 'notifications.*']);
+      
 
-        return view('editer-profil-admin', compact('admin','notif','cmd','user'));
+        return view('editer-profil-admin', compact('admin','notif'));
     }
     public function profileUpDatAadmin(Request $request)
     {
@@ -92,11 +87,9 @@ class profilcontroller extends Controller
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
             ->orderBy('created_at', 'desc')->get();
         $notif = Notifications::query()->where('Notifiable', 'agent')->orderBy('id', 'desc')->take(5)->get();
-              $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
-        ->first(['users.*', 'commandes.*']);
-        $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-        ->first(['commandes.*', 'notifications.*']);
-        return view('profilAgent', compact('agent','notif','commandes','commande','commercant'));
+            
+      
+        return view('profilAgent', compact('agent','notif','commande'));
     }
     public function EditerprofilAgent($id)
     {
@@ -107,12 +100,9 @@ class profilcontroller extends Controller
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
             ->orderBy('created_at', 'desc')->get();
         $notif = Notifications::query()->where('Notifiable', 'agent')->orderBy('id', 'desc')->take(5)->get();
-              $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
-        ->first(['users.*', 'commandes.*']);
-        $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-        ->first(['commandes.*', 'notifications.*']);
-      
-        return view('editer-profil-agent', compact('agent','notif','commandes','commande','commercant'));
+            
+       
+        return view('editer-profil-agent', compact('agent','notif','commande'));
     }
     public function profileUpDatAagent(Request $request)
     {
@@ -161,14 +151,12 @@ class profilcontroller extends Controller
     
                 $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
                 $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-                $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-                ->first(['commandes.*', 'notifications.*']);
+              
         
                 $commande = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
                     ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
-                    $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
-                    ->first(['users.*', 'commandes.*']);
-            return view('profilLivreur', compact('livreur','notif','commandes','commande','commercant'));
+                  
+            return view('profilLivreur', compact('livreur','notif','commande'));
         }
         public function EditerprofilLivreur($id)
         {
@@ -177,14 +165,11 @@ class profilcontroller extends Controller
     
             $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
             $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-            $commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-            ->first(['commandes.*', 'notifications.*']);
-    
+         
             $commande = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
                 ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
-                $commercant = User::join('commandes', 'commandes.commercant', '=', 'users.id')
-                ->first(['users.*', 'commandes.*']);
-            return view('editer-profil-livreur', compact('livreur','notif','commandes','commande','commercant'));
+              
+            return view('editer-profil-livreur', compact('livreur','notif','commande'));
         }
         public function profileUpDateLivreur(Request $request)
         {

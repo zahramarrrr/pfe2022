@@ -79,12 +79,10 @@
                                                         <option class="form-check-label"value="KEBILI">KEBILI</option>
                                                         <option class="form-check-label"  value="KEF">KEF</option>
                                                         <option class="form-check-label" value="MAHDIA">MAHDIA</option>
-                                                        <option class="form-check-label" value="MAHDIA">MAHDIA</option>
                                                         <option class="form-check-label" value="MANOUBA">MANOUBA</option>
                                                         <option class="form-check-label" value="MEDENINE">MEDENINE</option>
                                                         <option class="form-check-label" value="MONASTIR">MONASTIR</option>
                                                         <option class="form-check-label" value="NABEUL">NABEUL</option>
-                                                        <option class="form-check-label" value="SFAX">SFAX</option>
                                                         <option class="form-check-label" value="SFAX">SFAX</option>
                                                         <option class="form-check-label" value="SIDI BOUZID">SIDI BOUZID</option>
                                                         <option class="form-check-label" value="SILIANA">SILIANA</option>

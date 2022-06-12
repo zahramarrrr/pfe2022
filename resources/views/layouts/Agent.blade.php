@@ -2,7 +2,8 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
+
+$NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('read_at', null)->get();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,20 +112,26 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
             <li class="dropdown-header">
               Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-              <a href="{{route('listenotif')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              <a href="{{route('listenotifagent')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
             @foreach($notif as $notifs)
 
-            <a href="{{route('commande.details' , ['id' => $cmd->id]) }}">
+            <a href="{{route('commande.details' , ['id' => $notifs->ID_commande]) }}">
               <li>
                 <hr class='dropdown-divider'>
               </li>
-              <div id='notif'>
-                <li class='notification-item'>
+              <?php
+              if (($notifs->read_at )== null)
+              
+              echo' <div id="notif" style="background-color:grey;" >';
+              else
+              echo' <div id="notif" style="background-color:white;" >';
+
+               ?>                <li class='notification-item'>
                   <i class='bi bi-exclamation-circle text-warning'></i>
                   <div>
                     <h4>
-                      Admin {{$notifs->texte}} {{$notifs->ID_commande}}
+                      Admin {{$notifs->Text_Notif}} {{$notifs->ID_commande}}
                     </h4>
                   </div>
                 </li>
@@ -203,8 +210,14 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('agent') }}">
+          <i class="bi bi-envelope"></i>
+          <span>Mes commandes</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="contactview">
+        <a class="nav-link collapsed" href="{{ url('contactview') }}">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -357,7 +370,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
 
         },
         error: function(error) {
-       //   console.log(response);
+         console.log(response);
 
           $("#err_preparation").show();
                   setTimeout(function(){
@@ -386,17 +399,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
         },
         success: function(response) {
           $("#preparee").show();
-         // location.reload();
-         /* if(response.redirect_url){
-       window.location=data.redirect_url; 
-       return redirect()->route('commande_declaree_admin'); */
-  //  }
-         /* 
-                  setTimeout(function(){
-           location.reload(); 
-        }, 2500);      
-        console.log(response); */
-          // alert(response.success);
+          top.location.href="{{url('agent')}}";
 
         },
         error: function(error) {
@@ -445,7 +448,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->get();
       msg = notifmsg.replace(/["']/g, " ");
       //   alert(JSON.stringify(data.message[2])+" | "+JSON.stringify(data.message[3]));
       oldcontent = document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
+      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif' style='background-color:grey;'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
   <script>

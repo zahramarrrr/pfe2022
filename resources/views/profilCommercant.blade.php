@@ -66,12 +66,12 @@
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label" class="label">Adresse:</div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> adresse}}</div>
+                  <div class="col-lg-9 col-md-8">{{$comm-> Adresse}}</div>
                 </div>
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label" class="label">Télèphone:</div>
-                  <div class="col-lg-9 col-md-8">(+216) {{$comm-> telephone}}</div>
+                  <div class="col-lg-9 col-md-8">(+216) {{$comm-> Telephone}}</div>
                 </div>
 
                 <div class="row">

@@ -237,10 +237,10 @@
 								</div>
                 <div class="col-sm-6">
 									<div class="form-group">
-										<span class="form-label"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+										<span class="form-label"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-Telephone-fill" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                  </svg>  Télèphone</span>
-										<input class="form-control" type="text" name="telephone" value="{{$commande->telephone}}" id="telephone">
+										<input class="form-control" type="text" name="Telephone" value="{{$commande->Telephone}}" id="Telephone">
 									</div>
 								</div>
 							
@@ -249,7 +249,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                        </svg> Adresse 1</span>
-										<input class="form-control" type="text" name="adresse1" value="{{$commande->adresse1}}" id="adresse1">
+										<input class="form-control" type="text" name="Adresse1" value="{{$commande->Adresse1}}" id="Adresse1">
 									</div>
 								</div>
                 <div class="col-sm-6">
@@ -257,7 +257,7 @@
 										<span class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                       <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                        </svg> Adresse 2</span>
-										<input class="form-control" type="text" name="adresse2" value="{{$commande->adresse2}}" id="adresse2">
+										<input class="form-control" type="text" name="Adresse2" value="{{$commande->Adresse2}}" id="Adresse2">
 									</div>
 								</div>
 						
@@ -344,7 +344,7 @@
                       <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
                       <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
                       </svg> prix total</span>
-										<input class="form-control" type="text" name="prix" value="{{$commande->telephone}}" id="prix" >
+										<input class="form-control" type="text" name="prix" value="{{$commande->Telephone}}" id="prix" >
                     </div>
                     <div class="form-group">
 

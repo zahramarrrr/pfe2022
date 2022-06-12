@@ -1,18 +1,18 @@
+<?php
+
+use App\Models\User;
+
+?>
 @extends("layouts.livreur")
 @section("content")
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Liste des commandes à livrée</h1>
 
-    <button class='btn4' id="livrer">livraison</button>
 
   </div>
 
 
-  <div id="livree" class="alert alert-success" role="alert" style="display:none">
-    commande(s) livrée(s) avec succée(s)</div>
-  <div id="erreur" class="alert alert-danger" role="alert" style="display:none">
-    erreur(s)</div>
   <div class="container">
     <div class="height d-flex justify-content-center align-items-center">
       <div class="row">
@@ -32,7 +32,6 @@
 
                     <th>Etat actuel</th>
                     <th>Détails</th>
-                    <th >Action</th>
                   </tr>
 
                 </thead>
@@ -46,19 +45,26 @@
                     <td>{{$com->Date_Affect_Agent}}</td>
                     <td>{{$com->Description}}</td>
 
-                    <td>{{$commercant->societe}}</td>
+                    <?php
+                    $commercant = User::where('id', $com->ID_Commercant)->first();
+
+                    if (is_null($com->ID_Commercant)) {
+                      $societe = "admin";
+                    } else        $societe = $commercant->NomSociete;
+
+
+
+                    ?>
+                    <td>{{$societe}}</td>
                     <td><span class="badge bg-success" style="font-size:0.8rem;">{{$com->Etat}}</span></a>
-                  </td>
+                    </td>
 
                     <td>
-                    <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="bi bi-eye" style="font-size:2rem;"></i>
+                      <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="bi bi-eye" style="font-size:2rem;"></i>
                     </td>
-                    <td>    <span><i class="bi bi-truck" onclick="getId(this);"  id="{{$com->id}}"  type="button" style="font-size:2rem;"></i>
+            
 
-                   
-</span></td>
 
-                    
 
                   </tr>
                   @endforeach

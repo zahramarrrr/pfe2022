@@ -41,12 +41,12 @@
                                 @endif
                         </div>
                         <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label "  for="adresse" :value="__('Adresse:')" />
-                          <input type="text" class="form-control" name="adresse" id="adresse">
+                          <x-label class="col-lg-3 col-md-4 label "  for="Adresse" :value="__('Adresse:')" />
+                          <input type="text" class="form-control" name="Adresse" id="Adresse">
                         </div>
                         <div class="form-group">
                           <x-label class="col-lg-3 col-md-4 label "  for="tel" :value="__('Télèphone:')" />
-                          <input type="text" class="form-control" name="telephone" id="tel">
+                          <input type="text" class="form-control" name="Telephone" id="tel">
                         </div>
                       </div>
                       <div class="col-md-12">

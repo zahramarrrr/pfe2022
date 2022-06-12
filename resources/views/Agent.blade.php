@@ -1,16 +1,19 @@
+<?php
+use App\Models\User;
+
+?>
 @extends("layouts.Agent")
 @section("content")
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Liste des commandes à préparer</h1>
-  
+
   </div>
 
-  
-    <div id="err_preparation" class="alert alert-danger" role="alert" style="display:none">erreur</div>
-    <div id="prep" class="alert alert-success" role="alert" style="display:none">
-      commande(s) préparée(s) avec succée(s)</div>
-      <button class='btn4' id="preparation">Préparation</button>
+
+  <div id="err_preparation" class="alert alert-danger" role="alert" style="display:none">erreur</div>
+  <div id="prep" class="alert alert-success" role="alert" style="display:none">
+    commande(s) préparée(s) avec succée(s)</div>
 
   <div class="row">
     <div>
@@ -28,7 +31,6 @@
                 <th>Société commerçante</th>
 
                 <th>Etat actuel</th>
-                <th>preparer</th>
                 <th>Details</th>
 
               </tr>
@@ -44,10 +46,19 @@
                 <td>{{$com->Date_Affect_Agent}}</td>
                 <td>{{$com->Description}}</td>
 
-                <td>{{$commercant->societe}}</td>
+                <?php
+                $commercant = User::where('id', $com->ID_Commercant)->first();
+
+                if (is_null($com->ID_Commercant)) {
+                  $societe = "admin";
+                } else        $societe = $commercant->NomSociete;
+
+
+
+                ?>
+                <td>{{$societe}}</td>
                 <td><span class="badge bg-success">{{$com->Etat}}</span></td>
-                <td> <button onclick="getId(this);"  id="{{$com->id}}" type="button">preparer</button>
-                </td>
+          
 
                 <td>
                   <a href="{{route('commande.details' , ['id' => $com->id]) }}"><i class="material-icons"></i></a>

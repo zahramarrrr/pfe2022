@@ -44,12 +44,12 @@
                                 @endif
                         </div>
                         <div class="form-group">
-                          <x-label for="adresse" :value="__('Adresse')" />
-                          <input type="text" class="form-control" name="adresse" id="adresse">
+                          <x-label for="Adresse" :value="__('Adresse')" />
+                          <input type="text" class="form-control" name="Adresse" id="Adresse">
                         </div>
                         <div class="form-group">
-                          <x-label for="telephone" :value="__('Télèphone')" />
-                          <input type="text" class="form-control" name="telephone" id="telephone">
+                          <x-label for="Telephone" :value="__('Télèphone')" />
+                          <input type="text" class="form-control" name="Telephone" id="Telephone">
                         </div>
                       </div>
                       <div class="col-md-12">

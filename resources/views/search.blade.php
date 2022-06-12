@@ -21,7 +21,7 @@
                                     
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
                                     <td>{{$commande->date}}</td>
-                                    <td>{{$commande->telephone}}</td>
+                                    <td>{{$commande->Telephone}}</td>
                                     <td> <span class="badge badge-success m-0">Declarée</span></td>
                                     <td><a href="#" class="view"  data-toggle="tooltip" data-original-title="View" data-toggle="modal" data-target="#infos" class="btn btn-primary"><i class="material-icons"></i></a>
                                          <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a></span>

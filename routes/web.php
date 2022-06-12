@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\chart;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\profilcontroller;
+use App\Imports\UsersImport;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +70,7 @@ route::post('livrercommande', [CommandeController::class, 'livrercommande'])->na
 route::post('retournercommande', [CommandeController::class, 'retourner'])->name('retourner');
 // les fonctions d'addectation
 route::post('affecteragent', [CommandeController::class, 'affecteragent'])->name('affecteragent');
+//route::get('affecteragent', [CommandeController::class, 'affecteragent'])->name('affecteragent');
 route::post('affecterlivreur', [CommandeController::class, 'affecterlivreur'])->name('affecterlivreur');
 
 route::get('liste-commandes-preparee', [CommandeController::class, 'ListprepareeAdmin'])->name('commande.preparee');
@@ -127,7 +130,7 @@ route::get('Deletepersonnel/{id}', [CommandeController::class, 'Deletepersonnel'
 route::post('preparer', [CommandeController::class, 'preparer'])->name('preparer');
 route::post('livrer', [CommandeController::class, 'livrer'])->name('livrer');
 route::post('preparation', [CommandeController::class, 'preparation'])->name('preparation');
-route::post('livraisontion', [CommandeController::class, 'livraison'])->name('livraison');
+route::post('livraison', [CommandeController::class, 'livraison'])->name('livraison');
 
 route::post('updatemdp', [CommandeController::class, 'updatemdp'])->name('updatemdp');
 
@@ -152,7 +155,8 @@ route::get('contact_client', [HomeController::class, 'contact_client'])->name('c
 // afficher liste retournee pour livreur
 route::get('cmd_retournee', [CommandeController::class, 'cmd_retournee'])->name('cmd_retournee');
 
-
+//a effacer excel
+route::get('model/{id}', [UsersImport::class, 'model'])->name('model');
 
 
 Route::get('/dashboard', function () {
@@ -183,4 +187,13 @@ route::get('editer-profil-commercant/{id}', [profilcontroller::class, 'Editerpro
 route::post('update-profilcommercant', [profilcontroller::class, 'profileUpDateCommercant'])->name('update.profilcommercant');
 route::get('editer-profil-admin/{id}', [profilcontroller::class, 'Editerprofiladmin'])->name('editer-profil-admin');
 route::post('update-profiladmin', [profilcontroller::class, 'profileUpDatAadmin'])->name('update.profiladmin');
+//route pour dashboard
+route::get('cmd_jour', [chart::class,'cmd_jour'])->name('cmd_jour');
 
+route::get('cmd_societe', [chart::class,'cmd_societe'])->name('cmd_societe');
+route::get('cmd_region', [chart::class,'cmd_region'])->name('cmd_region');
+route::get('jour_bat', [chart::class,'jour_bat'])->name('jour_bat');
+route::get('employee', [chart::class,'employee'])->name('employee');
+route::get('cmd_agent', [chart::class,'cmd_agent'])->name('cmd_agent');
+route::get('cmd_livreur', [chart::class,'cmd_livreur'])->name('cmd_livreur');
+route::get('moyenne', [chart::class,'moyenne'])->name('moyenne');
