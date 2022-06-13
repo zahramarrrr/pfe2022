@@ -43,6 +43,7 @@
                           <x-label class="col-lg-3 col-md-4 label "  for="Adresse" :value="__('Adresse:')" />
                           <input type="text" class="form-control" name="Adresse" id="Adresse">
                         </div>
+                      
                         <div class="form-group">
                           <x-label class="col-lg-3 col-md-4 label " for="Telephone" :value="__('Télèphone:')" />
                           <input type="text" class="form-control" name="Telephone" id="Telephone">
@@ -61,8 +62,14 @@
                                 @endif
                       </div>
 
-                 
-
+                      <div class="form-group">
+                          <x-label class="col-lg-3 col-md-4 label "  for="Salaire" :value="__('Salaire:')" />
+                          <input type="text" class="form-control" name="Salaire" id="Salaire">
+                        </div>
+                        <div class="form-group">
+                          <x-label class="col-lg-3 col-md-4 label "  for="DateNaiss" :value="__('DateNaiss:')" />
+                          <input type="date" class="form-control" name="DateNaiss" id="DateNaiss">
+                        </div>
                       <div class="mt-4">
 
                         <x-button class="btn4">

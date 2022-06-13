@@ -48,6 +48,7 @@
                           <x-label class="col-lg-3 col-md-4 label "  for="tel" :value="__('Télèphone:')" />
                           <input type="text" class="form-control" name="Telephone" id="tel">
                         </div>
+                      
                       </div>
                       <div class="col-md-12">
                       </div>
@@ -61,9 +62,19 @@
                                     <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
                       </div>
-
+                      <div class="form-group">
+                          <x-label class="col-lg-3 col-md-4 label "  for="TypeVehicule" :value="__('TypeVehicule:')" />
+                          <input type="text" class="form-control" name="TypeVehicule" id="TypeVehicule">
+                        </div>
                 
-
+                        <div class="form-group">
+                          <x-label class="col-lg-3 col-md-4 label "  for="TypePermis" :value="__('TypePermis:')" />
+                          <input type="text" class="form-control" name="TypePermis" id="TypePermis">
+                        </div>   
+                          <div class="form-group">
+                          <x-label class="col-lg-3 col-md-4 label "  for="DateNaiss" :value="__('DateNaiss:')" />
+                          <input type="date" class="form-control" name="DateNaiss" id="DateNaiss">
+                        </div>
                       <div class="mt-4">
 
                         <x-button class="btn4">

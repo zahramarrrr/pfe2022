@@ -9,6 +9,7 @@ use App\Charts\parsociete;
 use App\Charts\cmdparagent;
 use Illuminate\Http\Request;
 use App\Charts\cmdparlivreur;
+use App\Charts\preparation;
 use App\Models\Notifications;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -115,7 +116,7 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
 
         return view('cmd_prep',compact('admin','notif','chart10'));
     }
-    public function cmd_livreur(moyenne $chart12){
+    public function cmd_livreur(cmdparlivreur $chart11){
         $notif = Notifications::query()->where('Notifiable', 'admin')
 ->orderBy('created_at', 'desc')
 ->take(5)
@@ -125,7 +126,7 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
 
         return view('cmd_livreur',compact('admin','notif','chart11'));
     }
-    public function moyenne(cmdparlivreur $chart11){
+    public function moyenne( moyenne $chart12){
         $notif = Notifications::query()->where('Notifiable', 'admin')
 ->orderBy('created_at', 'desc')
 ->take(5)
@@ -133,6 +134,16 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
     $admin = DB::table('users')->where('id', Auth::user()->id)->first();
     $chart12=$chart12->build();
 
-        return view('cmd_livreur',compact('admin','notif','chart11'));
+        return view('moyenne',compact('admin','notif','chart12'));
+    }
+    public function cmd_preparation( preparation $chart15){
+        $notif = Notifications::query()->where('Notifiable', 'admin')
+->orderBy('created_at', 'desc')
+->take(5)
+->get();
+    $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+    $chart15=$chart15->build();
+
+        return view('cmd_preparation',compact('admin','notif','chart15'));
     }
 }

@@ -2,6 +2,10 @@
 
 namespace App\Charts;
 
+use DateTime;
+use Carbon\Carbon;
+use App\Models\Commande;
+use Illuminate\Support\Facades\DB;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class moyenne
@@ -15,12 +19,50 @@ class moyenne
 
     public function build(): \ArielMejiaDev\LarapexCharts\AreaChart
     {
-        
-        return $this->chart12->areaChart()
+        $to=Carbon::now();
+        $from=Carbon::now()->subDays(15);   
+$liv1= Commande::where('ID_Livreur',2)
+->whereNotNull('Date_Livraison')
+->whereBetween('Date_Affect_Livreur', [$from, $to])
+->whereBetween('Date_Livraison', [$from, $to])
+->get();
+
+$x=array();
+foreach($liv1 as $l){
+    $totalDuration = Carbon::parse($l->Date_Livraison)->diffIndays(Carbon::parse($l->Date_Affect_Livreur));
+    $x=array_merge($x,(array)$totalDuration);
+}
+
+    $liv2= Commande::where('ID_Livreur',3)
+    ->whereNotNull('Date_Livraison')
+    ->whereBetween('Date_Affect_Livreur', [$from, $to])
+    ->whereBetween('Date_Livraison', [$from, $to])
+    ->get();
+    $y=array();
+foreach($liv2 as $m){
+    $Duration = Carbon::parse($m->Date_Livraison)->diffIndays(Carbon::parse($m->Date_Affect_Livreur));
+    $y=array_merge($y,(array)$Duration);
+  //$date=($l->Date_Livraison)-($l->Date_Date_Declaration);
+   // $totalDuration = Carbon::parse($l)->diffIndays(Carbon::parse($dec));
+  //  dd($date);
+  
+}
+
+//dd($x);
+$date_aff = DB::table('commandes')
+->select(DB::raw('DATE(Date_Affect_Livreur) as affect '))
+->whereBetween('Date_Affect_Livreur', [$from, $to])
+->groupBy(DB::raw("DATE(Date_Affect_Livreur)"))
+->pluck('affect');
+
+
+
+;//dd($liv,$dec);
+ return $this->chart12->areaChart()
             ->setTitle('Sales during 2021.')
             ->setSubtitle('Physical sales vs Digital sales.')
-            ->addData('Physical sales', [40, 93, 35, 42, 18, 82])
-            ->addData('Digital sales', [70, 29, 77, 28, 55, 45])
-            ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
+            ->addData('taieb', $x)
+            ->addData('bechir', $y)
+             ->setXAxis($date_aff->all());
     }
 }

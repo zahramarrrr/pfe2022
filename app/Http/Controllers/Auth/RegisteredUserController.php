@@ -70,6 +70,9 @@ class RegisteredUserController extends Controller
             'adresse' => $request->adresse,
             'telephone' => $request->telephone,
             'email' => $request->email,
+            'DateNaiss' => $request->DateNaiss,
+            'Salaire' => $request->Salaire,
+
             'Role' => 'agent',
         ]);
         $status = Password::sendResetLink(
@@ -125,6 +128,10 @@ class RegisteredUserController extends Controller
             'adresse' => $request->adresse,
             'telephone' => $request->telephone,
             'email' => $request->email,
+            'DateNaiss' => $request->DateNaiss,
+            'TypePermis' => $request->TypePermis,
+            'TypeVehicule' => $request->TypeVehicule,
+
             'Role' => 'livreur',
         ]);
         $status = Password::sendResetLink(
@@ -182,6 +189,12 @@ class RegisteredUserController extends Controller
             'adresse' => $request->adresse,
             'telephone' => $request->telephone,
             'email' => $request->email,
+            'TelephoneSociete'=>$request->TelephoneSociete,
+            'EmailSociete' => $request->EmailSociete,
+            'RaisonSociale' => $request->RaisonSociale,
+            'NomSociete' => $request->NomSociete,
+            'DateNaiss' => $request->DateNaiss,
+
             'Role' => 'commerçant',
         ]);
         $status = Password::sendResetLink(

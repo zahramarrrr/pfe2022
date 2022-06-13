@@ -199,101 +199,122 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-      <li class="nav-item"> 
-        <a class="nav-link" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="{{ url('admin') }}" aria-expanded="true">
-           <i class="bi bi-bar-chart"></i><span>Tableaux de bord</span><i class="bi bi-chevron-down ms-auto"></i> 
+    <li class="nav-item">
+          <a class="nav-link" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+          <i class="bi bi-bar-chart"></i><span>Tableaux de bord</span><i class="bi bi-chevron-down ms-auto"></i>
           </a>
-        <ul id="charts-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav" style="">
-        <li> <a href="{{ url('admin') }}"> <i class="bi bi-circle"></i><span>commande</span> </a></li>
-       <ul> <li> <a href="{{ url('jour_bat') }}"> <i class="bi bi-circle"></i><span>cmd livré ret par nom du jour en baton</span> </a></li>
 
-          <li> <a href="{{url('cmd_jour')}}"> <i class="bi bi-circle"></i><span>toute les commandes par date</span> </a></li>
-          <li> <a href="{{url('cmd_societe')}}"> <i class="bi bi-circle"></i><span> tt commande par societe</span> </a></li>
-          <li> <a href="{{url('cmd_region')}}"> <i class="bi bi-circle"></i><span>tt commande par region</span> </a></li>
-       </ul>
-       <li> <a href="{{ url('employee') }}"> <i class="bi bi-circle"></i><span>employee</span> </a></li>
-       <ul>
-          <li> <a href="{{url('cmd_agent')}}"> <i class="bi bi-circle"></i><span>cmd par agent</span> </a></li>
-          <li> <a href="{{url('cmd_livreur')}}"> <i class="bi bi-circle"></i><span>cmd par livreur</span> </a></li>
-          <li> <a href="{{url('moyenne')}}"> <i class="bi bi-circle"></i><span>moyenne</span> </a></li>
+        
+        <ul id="charts-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+          <li> <a href="{{ url('admin') }}"> <i class="bi bi-circle"></i><span>commande</span> </a></li>
+          <ul>
+            <li> <a href="{{ url('jour_bat') }}"> <i class="bi bi-circle"></i><span>cmd livré ret par nom du jour en baton</span> </a></li>
 
-       </ul>
-      </ul>
+            <li> <a href="{{url('cmd_jour')}}"> <i class="bi bi-circle"></i><span>toute les commandes par date</span> </a></li>
+            <li> <a href="{{url('cmd_societe')}}"> <i class="bi bi-circle"></i><span> tt commande par societe</span> </a></li>
+            <li> <a href="{{url('cmd_region')}}"> <i class="bi bi-circle"></i><span>tt commande par region</span> </a></li>
+          </ul>
+          <li> <a href="{{ url('employee') }}"> <i class="bi bi-circle"></i><span>employee</span> </a></li>
+          <ul>
+            <li> <a href="{{url('cmd_agent')}}"> <i class="bi bi-circle"></i><span>cmd par agent</span> </a></li>
+            <li> <a href="{{url('cmd_livreur')}}"> <i class="bi bi-circle"></i><span>cmd par livreur</span> </a></li>
+            <li> <a href="{{url('moyenne')}}"> <i class="bi bi-circle"></i><span>moyenne</span> </a></li>
+            <li> <a href="{{url('cmd_preparation')}}"> <i class="bi bi-circle"></i><span>cmd par agent</span> </a></li>
+
+          </ul>
+        </ul>
       </li>
-     <!-- End Dashboard Nav -->
+      <!-- End Dashboard Nav -->
+      <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item"> <a class="nav-link " >
+            <i class="bi bi-person"></i> <span>Personnels</span> </a></li>
+        <!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person"></i><span>Personnels</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ url('Listecommercant') }}">
-              <i class="bi bi-circle"></i><span>Commerçants</span>
+        <ul id="components-nav" data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a href="{{ url('Listecommercant') }}" class="nav-link collapsed" data-bs-target="#components-nav">
+              <i class="bi bi-person"></i><span>Commerçants</span><i class="bi bi-chevron"></i>
+            </a>
+
+
+          </li>
+          
+
+          <li class="nav-item">
+            <a href="{{url('ListeAgent')}}" class="nav-link collapsed" data-bs-target="#components-nav">
+              <i class="bi bi-person"></i>
+              <span>Agents d'entrepots</span>
             </a>
           </li>
-          <li>
-            <a href="{{ url('ListeAgent') }}">
-              <i class="bi bi-circle"></i><span>Agents d'entrepots</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('ListeLivreur') }}">
-              <i class="bi bi-circle"></i><span>Livreurs</span>
+          <li class="nav-item">
+            <a href="{{ url('ListeLivreur') }}" class="nav-link collapsed" data-bs-target="#components-nav">
+              <i class="bi bi-person"></i>
+        <span>Livreurs</span>
             </a>
           </li>
 
         </ul>
-      </li><!-- End Personnels Nav -->
+        </li><!-- End Personnels Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Commandes</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ url('commande_declaree_admin') }}">
-              <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('liste-validee') }}">
-              <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('liste-commandes-preparee') }}">
-              <i class="bi bi-circle"></i><span>Liste des commandes préparées</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('liste-commandes-livree') }}">
-              <i class="bi bi-circle"></i><span>Liste des commandes livrées</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('liste-commandes-retournee') }}">
-              <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
-            </a>
-          </li>
-
-        </ul>
-      </li><!-- End commandes Nav -->
-
-      <li class="nav-item">
-        <form action="{{ route('logout') }}" method="POST" href="pages-login.html">
-
-          @csrf
-          <a class="nav-link collapsed bi bi-arrow-left" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-            {{ __('Déconnexion') }}
+        <li class="nav-item"> <a class="nav-link " >
+            <i class="bi bi-journal-text"></i><span>Commandes</span>
           </a>
-        </form>
+        </li>
+        
+        <ul id="components-nav" data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a href="{{ url('commande_declaree_admin') }}" class="nav-link collapsed" data-bs-target="#components-nav">
+         
+              
+                <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a href="{{ url('liste-validee') }}" class="nav-link collapsed" data-bs-target="#components-nav">
+         
+            
+                <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a href="{{ url('liste-commandes-preparee') }}" class="nav-link collapsed" data-bs-target="#components-nav">
+         
+              
+                <i class="bi bi-circle"></i><span>Liste des commandes préparées</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a href="{{ url('liste-commandes-livree') }}" class="nav-link collapsed" data-bs-target="#components-nav">
+         
+          
+                <i class="bi bi-circle"></i><span>Liste des commandes livrées</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a href="{{ url('liste-commandes-retournee') }}" class="nav-link collapsed" data-bs-target="#components-nav">
+         
+           
+                <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
+              </a>
+            </li>
 
-        <!-- END contact -->
+          </ul>
+        </li><!-- End commandes Nav -->
+
+        <li class="nav-item">
+          <form action="{{ route('logout') }}" method="POST" href="pages-login.html">
+
+            @csrf
+            <a class="nav-link collapsed bi bi-arrow-left" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+              {{ __('Déconnexion') }}
+            </a>
+          </form>
+
+          <!-- END contact -->
 
 
 
-      </li>
+        </li>
 
   </aside><!-- End Sidebar-->
 

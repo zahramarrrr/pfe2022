@@ -90,7 +90,7 @@ class AuthenticatesUsersTest extends TestCase
         $this->assertInstanceOf(ValidationException::class, $response->exception);
         $this->assertSame([
             'email' => [
-                'These credentials do not match our records.',
+                'Adresse  d’email ou mot de passe saisie incorrecte.',
             ],
         ], $response->exception->errors());
     }
