@@ -41,7 +41,7 @@
     <ul>
         
         <li><a class="getstarted scrollto" href="{{ url('contact_client') }}">Contact</a></li>
-        <li><a class="getstarted scrollto" href="index">Retoure</a></li>
+        <li><a class="getstarted scrollto" href="index">Retour</a></li>
     </ul>
          
       <i class="bi bi-list mobile-nav-toggle"></i>

@@ -275,7 +275,13 @@ font-family: "Poppins", sans-serif; }
     font-family: "Poppins", sans-serif;
        }
       
-
+       .header .logo {
+        line-height: 0;
+    }
+    a:link 
+    { 
+     text-decoration:none; 
+    } 
 .btn {
   cursor: pointer;
   border-radius: 30px;
