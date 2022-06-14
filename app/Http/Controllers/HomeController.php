@@ -83,10 +83,9 @@ class HomeController extends Controller
             ->get();
             $agent = DB::table('users')->where('id', Auth::user()->id)->first();
             $search_text = isset($_GET['query']);
-            $commande= DB::table('commandes')->where('ID_Agent', Auth::user()->id)
-            ->where('Etat', 'preparee')
+            $commande=Commande::where('ID_Agent',Auth::user()->id)
                 ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
-                ->orderBy('created_at', 'desc')->get();
+                ->get();
 
               
             return view('Agent', compact('notif', 'agent','commande'));
@@ -137,7 +136,7 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
         $commande= DB::table('commandes')->where('ID_Agent', Auth::user()->id)
-            ->where('Etat', 'preparee')
+     
                 ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
                 ->orderBy('created_at', 'desc')->get();
                 $notif = Notifications::query()->where('Notifiable', 'agent')

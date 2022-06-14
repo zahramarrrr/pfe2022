@@ -20,6 +20,22 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import VueApexCharts from "vue3-apexcharts";
+import ApexCharts from 'apexcharts';
+
+createApp({...}).use(VueApexCharts)
+import VueApexCharts from "vue3-apexcharts";
+
+createInertiaApp({
+    resolve: (name) => require(`./Pages/${name}`),
+    setup({ el, app, props, plugin }) {
+        createApp({ render: () => h(app, props) })
+            .mixin({ methods: { route } })
+            .use(plugin)
+            .use(VueApexCharts)
+            .mount(el);
+    },
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

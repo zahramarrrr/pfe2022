@@ -31,5 +31,11 @@
         "vue": "^2.6.12",
         "vue-loader": "^16.1.2",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "apexcharts": "^3.35.3",
+        "pinia": "^2.0.14",
+        "vee-validate": "^3.4.9",
+        "vue3-apexcharts": "^1.4.1"
     }
 }

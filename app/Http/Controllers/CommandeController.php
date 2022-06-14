@@ -249,8 +249,14 @@ class CommandeController extends Controller
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
         $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-        $newnotif = Notifications::where('ID_commande', $id);
-        $newnotif->read_at = now();
+        DB::table('notifications')->where('ID_commande', $id)->update([
+          
+
+            'read_at' => Carbon::now(),
+
+
+        ]);
+     
      
 
 

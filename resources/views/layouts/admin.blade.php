@@ -213,13 +213,15 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
             <li> <a href="{{url('cmd_jour')}}"> <i class="bi bi-circle"></i><span>toute les commandes par date</span> </a></li>
             <li> <a href="{{url('cmd_societe')}}"> <i class="bi bi-circle"></i><span> tt commande par societe</span> </a></li>
             <li> <a href="{{url('cmd_region')}}"> <i class="bi bi-circle"></i><span>tt commande par region</span> </a></li>
+            <li> <a href="{{url('duree')}}"> <i class="bi bi-circle"></i><span>duree entre declaration et livraison des commandes</span> </a></li>
+
           </ul>
           <li> <a href="{{ url('employee') }}"> <i class="bi bi-circle"></i><span>employee</span> </a></li>
           <ul>
             <li> <a href="{{url('cmd_agent')}}"> <i class="bi bi-circle"></i><span>cmd par agent</span> </a></li>
             <li> <a href="{{url('cmd_livreur')}}"> <i class="bi bi-circle"></i><span>cmd par livreur</span> </a></li>
-            <li> <a href="{{url('moyenne')}}"> <i class="bi bi-circle"></i><span>moyenne</span> </a></li>
-            <li> <a href="{{url('cmd_preparation')}}"> <i class="bi bi-circle"></i><span>cmd par agent</span> </a></li>
+            <li> <a href="{{url('diff_affect_liv')}}"> <i class="bi bi-circle"></i><span>duree entre affecatation et livraiison</span> </a></li>
+            <li> <a href="{{url('diff_affect_prep')}}"> <i class="bi bi-circle"></i><span>duree entre affectation et preparation</span> </a></li>
 
           </ul>
         </ul>
@@ -352,6 +354,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
   <script src="assetsajout/js/bootstrap.min.js"></script>
   <script src="assetsajout/js/jquery.validate.min.js"></script>
   <script src="assetsajout/js/main.js"></script>
+
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;

@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem; 
 }
 .label {
-  color: #6d0aca;
+  color: #5f71c8;
   font-size: 25px;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
@@ -27,7 +27,7 @@ p {
   margin-bottom: 1rem; }
 
   .navbar .getstarted, .navbar .getstarted:focus {
-    background: #B15FC8;
+    background: #5f71c8;
     padding: 5px 20px;
     margin-left: 30px;
     border-radius: 4px;
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5,
 
 .heading-section {
   font-size: 32px;
-  color: #6d0aca
+  color: #5f71c8
   ; 
   font-family: "Poppins", sans-serif;}
 
@@ -261,14 +261,14 @@ font-family: "Poppins", sans-serif; }
 
     
     .labellogin{
-    color: #6d0aca;
+    color: #5f71c8;
     font-size: 18px;
   font-weight: 500;
   
   font-family: "Poppins", sans-serif;
      }
      .rest{
-      color: #6d0aca!important ;
+      color: #5f71c8!important ;
       font-size: 18px;
     font-weight: 500;
     
@@ -286,8 +286,8 @@ font-family: "Poppins", sans-serif; }
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #b067c2 !important;
-    border: 1px solid #b067c2 !important;
+    background: #5f71c8 !important;
+    border: 1px solid #5f71c8 !important;
     color: rgb(255, 255, 255) !important; }
     .btn.btn-primary:hover {
       border: 1px solid #fbceb5;

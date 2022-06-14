@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use App\Charts\duree;
 use App\Charts\moyenne;
 use App\Models\Commande;
 use App\Charts\cmdparjour;
 use App\Charts\parsociete;
 use App\Charts\cmdparagent;
+use App\Charts\preparation;
 use Illuminate\Http\Request;
 use App\Charts\cmdparlivreur;
-use App\Charts\preparation;
 use App\Models\Notifications;
+use App\Charts\MonthlyUsersChart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -126,24 +129,51 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
 
         return view('cmd_livreur',compact('admin','notif','chart11'));
     }
-    public function moyenne( moyenne $chart12){
+    public function diff_affect_liv(){
         $notif = Notifications::query()->where('Notifiable', 'admin')
 ->orderBy('created_at', 'desc')
 ->take(5)
 ->get();
     $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-    $chart12=$chart12->build();
 
-        return view('moyenne',compact('admin','notif','chart12'));
+        return view('diff_affect_liv',compact('admin','notif'));
     }
-    public function cmd_preparation( preparation $chart15){
+
+
+    public function diff_affect_prep(){
         $notif = Notifications::query()->where('Notifiable', 'admin')
 ->orderBy('created_at', 'desc')
 ->take(5)
 ->get();
     $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-    $chart15=$chart15->build();
+   
 
-        return view('cmd_preparation',compact('admin','notif','chart15'));
+        return view('diff_affect_prep',compact('admin','notif'));
     }
+    
+    
+   /*  public function duree( duree $chart20){
+        $notif = Notifications::query()->where('Notifiable', 'admin')
+->orderBy('created_at', 'desc')
+->take(5)
+->get();
+    $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+    $chart20=$chart20->build();
+
+        return view('duree',compact('admin','notif','chart20'));
+    } */
+
+    public function duree()
+{
+    $notif = Notifications::query()->where('Notifiable', 'admin')
+->orderBy('created_at', 'desc')
+->take(5)
+->get();
+    $admin = DB::table('users')->where('id', Auth::user()->id)->first();
+ 
+
+
+    return view('duree',compact('admin','notif'));
+
+}
 }

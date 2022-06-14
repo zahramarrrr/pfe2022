@@ -10607,8 +10607,8 @@ textarea.form-control {
     -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.22) !important;
     box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.22) !important; }
   .btn.btn-primary {
-    background: #6495ED!important;
-    border-color: #6495ED !important;
+    background: #5f71c8!important;
+    border-color: #5f71c8 !important;
     color: #fff; }
     .btn.btn-primary:hover, .btn.btn-primary:focus {
       border-color: #8A2BE2 !important;

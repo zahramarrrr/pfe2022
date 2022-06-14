@@ -196,5 +196,6 @@ route::get('jour_bat', [chart::class,'jour_bat'])->name('jour_bat');
 route::get('employee', [chart::class,'employee'])->name('employee');
 route::get('cmd_agent', [chart::class,'cmd_agent'])->name('cmd_agent');
 route::get('cmd_livreur', [chart::class,'cmd_livreur'])->name('cmd_livreur');
-route::get('moyenne', [chart::class,'moyenne'])->name('moyenne');
-route::get('cmd_preparation', [chart::class,'cmd_preparation'])->name('cmd_preparation');
+route::get('diff_affect_liv', [chart::class,'diff_affect_liv'])->name('diff_affect_liv');
+route::get('diff_affect_prep', [chart::class,'diff_affect_prep'])->name('diff_affect_prep');
+route::get('duree', [chart::class,'duree'])->name('duree');
