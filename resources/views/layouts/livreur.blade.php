@@ -3,6 +3,7 @@
 use App\models\Notifications;
 
 $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('read_at', null)->get();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -209,13 +210,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('livreur') }}"> <i class="bi bi-bag-plus"></i>
-          <i class="bi bi-bag"></i><span>Mes commandes</span>
+          <span>Les commandes livrées</span>
         </a>
 
       </li><!-- End declarer commande nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('cmd_retournee') }}">
-          <i class="bi bi-bag"></i><span>Liste des commandes retournées</span>
+          <i class="bi bi-bag"></i><span>Les commandes retournées</span>
         </a>
 
       </li>
@@ -232,14 +233,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
         </a>
       </li>
       <!-- End Contact Page Nav -->
-      <form action="{{ route('logout') }}" method="POST" class="nav-link collapsed" href="pages-login.html">
-        <i class="bi bi-box-arrow-in-right"></i>
-        @csrf
-        <a class="logout" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-          {{ __('Déconnexion') }}
-        </a>
-
-      </form>
+      <form action="{{ route('logout') }}" method="POST"   href="pages-login.html">
+         
+         @csrf
+         <a class="nav-link collapsed bi bi-arrow-left"  href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+             {{ __('Déconnexion') }}
+</a>
+</form>
 
       <!-- END contact -->
 

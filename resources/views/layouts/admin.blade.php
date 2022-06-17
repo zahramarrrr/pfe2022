@@ -113,7 +113,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
               <?php
               if (($notifs->read_at) == null)
 
-                echo ' <div id="notif" style="background-color:grey;" >';
+                echo ' <div id="notif" style="background-color:#DCDCDC;" >';
               else
                 echo ' <div id="notif" style="background-color:white;" >';
 
@@ -375,7 +375,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
       msg = notifmsg.replace(/["']/g, " ");
       // alert(JSON.stringify(data.message[0])+" | "+JSON.stringify(data.message[1])+" | "+JSON.stringify(data.message[2]));
       oldcontent = document.getElementById('notif').innerHTML;
-      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif' style='background-color:grey;'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
+      document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif' style='background-color:#DCDCDC;'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
   <script type="text/javascript">

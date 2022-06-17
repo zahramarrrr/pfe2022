@@ -15,7 +15,6 @@ namespace App\Models{
  * App\Models\Commande
  *
  * @property int $id
- * @property string $Date_Declaration
  * @property int $ID_commande
  * @property string $Nom
  * @property string $Prenom
@@ -33,12 +32,13 @@ namespace App\Models{
  * @property int|null $ID_Commercant
  * @property int|null $ID_Agent
  * @property int|null $ID_Livreur
- * @property string $Date_Validation
- * @property string $Date_Affect_Agent
- * @property string $Date_Preparation
- * @property string $Date_Affect_Livreur
- * @property string $Date_Livraison
- * @property string $Date_Retour
+ * @property string|null $Date_Declaration
+ * @property string|null $Date_Validation
+ * @property string|null $Date_Affect_Agent
+ * @property string|null $Date_Preparation
+ * @property string|null $Date_Affect_Livreur
+ * @property string|null $Date_Livraison
+ * @property string|null $Date_Retour
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Notifications[] $notif_cmd
@@ -82,10 +82,10 @@ namespace App\Models{
  * App\Models\Notifications
  *
  * @property int $id
- * @property string|null $Notifieur
+ * @property string $Notifieur
  * @property int|null $ID_Notifieur
- * @property string $Notifiable
- * @property string $Text_Notif
+ * @property string|null $Notifiable
+ * @property string|null $Text_Notif
  * @property string|null $DateNotifPrep
  * @property string|null $DateNotifLiv
  * @property string|null $DateNotifDec
@@ -129,20 +129,21 @@ namespace App\Models{
  * @property string $email
  * @property string|null $password
  * @property string $Role
- * @property string $Adresse
- * @property string $Telephone
- * @property string $TelephoneSociete
- * @property string $EmailSociete
- * @property string $RaisonSociale
- * @property string $NomSociete
- * @property float $Salaire
- * @property string $DateNaiss
- * @property string $TypePermis
- * @property string $TypeVehicule
+ * @property string|null $Adresse
+ * @property string|null $Telephone
+ * @property string|null $TelephoneSociete
+ * @property string|null $EmailSociete
+ * @property string|null $RaisonSociale
+ * @property string|null $NomSociete
+ * @property float|null $Salaire
+ * @property string|null $DateNaiss
+ * @property string|null $TypePermis
+ * @property string|null $TypeVehicule
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $Instagram
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
@@ -159,6 +160,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailSociete($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereInstagram($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereNom($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereNomSociete($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)

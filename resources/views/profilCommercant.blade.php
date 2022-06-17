@@ -18,6 +18,7 @@
               <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
               <h2>{{$comm-> Prenom}} {{$comm-> Nom}} </h2>
               <h3>{{$comm-> Role}}</h3>
+              
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -73,6 +74,7 @@
                 <div class="col-lg-3 col-md-4 label" class="label">Télèphone:</div>
                   <div class="col-lg-9 col-md-8">(+216) {{$comm-> Telephone}}</div>
                 </div>
+
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label" class="label">Adresse d'email:</div>

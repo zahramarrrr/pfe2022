@@ -6,7 +6,7 @@ use App\Models\User;
 @section("content")
 <main id="main" class="main">
   <div class="pagetitle">
-    <h1>Liste des commandes à préparer</h1>
+    <h1>Liste des commandes préparée</h1>
 
   </div>
 

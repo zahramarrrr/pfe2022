@@ -139,7 +139,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('commercant') }}">
         <i class="bi bi-bag"></i>
-          <span>la liste des commandes déclarées</span>
+          <span>les commandes déclarées</span>
         </a>
       </li><!-- End liste des commandes nav -->
       <li class="nav-item">

@@ -112,7 +112,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('re
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="">
             <li class="dropdown-header">
               Vous avez {{count($NotificationsCommandes)}} nouvelles alertes
-              <a href="{{route('listenotifagent')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              <a href="{{route('listenotifagent')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">Afficher tout</span></a>
             </li>
             @foreach($notif as $notifs)
 
@@ -123,7 +123,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('re
               <?php
               if (($notifs->read_at )== null)
               
-              echo' <div id="notif" style="background-color:grey;" >';
+              echo' <div id="notif" style="background-color:#DCDCDC;" >';
               else
               echo' <div id="notif" style="background-color:white;" >';
 
@@ -213,7 +213,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('re
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('agent') }}">
           <i class="bi bi-envelope"></i>
-          <span>Mes commandes</span>
+          <span>Les commandes préparées</span>
         </a>
       </li><!-- End Contact Page Nav -->
       <li class="nav-item">

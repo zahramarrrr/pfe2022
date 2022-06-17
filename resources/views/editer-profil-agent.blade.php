@@ -80,11 +80,10 @@
                                         <input type="text" class="form-control" name="Role" id="Role" value="{{$agent->Role}}">
                                     </div>
                                 </div>
-
-
+       
 
                                 <div class="row mb-3">
-                                    <label for="Address" class="col-lg-3 col-md-4 label ">Adresse:</label>
+                                    <label for="Adresse" class="col-lg-3 col-md-4 label ">Adresse:</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input type="text" class="form-control" name="Adresse" id="Adresse" value="{{$agent->Adresse}}">
                                     </div>

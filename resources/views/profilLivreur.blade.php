@@ -81,9 +81,7 @@
                   <div class="col-lg-3 col-md-4 label">Adresse d'email:</div>
                   <div class="col-lg-9 col-md-8">{{$livreur-> email}}</div>
                 </div>
-
              
-
 
 
 

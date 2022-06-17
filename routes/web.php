@@ -184,7 +184,7 @@ route::post('update-profilAgent', [profilcontroller::class, 'profileUpDatAagent'
 route::get('editer-profil-livreur/{id}', [profilcontroller::class, 'EditerprofilLivreur'])->name('Editer-profil-Livreur');
 route::post('update-profillivreur', [profilcontroller::class, 'profileUpDateLivreur'])->name('update.profillivreur');
 route::get('editer-profil-commercant/{id}', [profilcontroller::class, 'Editerprofilcommercant'])->name('Editer-profil-commercant');
-route::post('update-profilcommercant', [profilcontroller::class, 'profileUpDateCommercant'])->name('update.profilcommercant');
+route::post('update.profilcommercant', [profilcontroller::class, 'profileUpDateCommercant'])->name('update.profilcommercant');
 route::get('editer-profil-admin/{id}', [profilcontroller::class, 'Editerprofiladmin'])->name('editer-profil-admin');
 route::post('update-profiladmin', [profilcontroller::class, 'profileUpDatAadmin'])->name('update.profiladmin');
 //route pour dashboard

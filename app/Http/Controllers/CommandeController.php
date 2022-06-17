@@ -700,13 +700,13 @@ class CommandeController extends Controller
         now("Europe/Rome");
         $commande = $request->vals;
         $cmd = Commande::find($commande);
-        $cmd->Etat = 'preparee';
-        $cmd->Date_Preparation = Carbon::now();
+        $cmd->Etat = 'livree';
+        $cmd->Date_Livraison = Carbon::now();
 
 
         $cmd->save();
 
-        return response()->json(["redirect_url" => url('livreur')]);
+       
 
         Notifications::create([
             'ID_Notifieur' =>  Auth::user()->id,
@@ -717,8 +717,12 @@ class CommandeController extends Controller
             'DateNotifLiv'=> Carbon::now(),
 
         ]);
-        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
-    }
+        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->Nom, 'a livré la commande', $cmd->ID_commande]));
+
+
+        return response()->json(['success' => 'xx']);
+
+        return redirect()->route('livreur');      }
     //retournee de page details
 
     public function retourner(Request $request)
@@ -728,7 +732,7 @@ class CommandeController extends Controller
         $commande = $request->vals;
         $cmd = Commande::find($commande);
         $cmd->Etat = 'retournée';
-        // $cmd->Date_Retour = Carbon::now();
+         $cmd->Date_Retour = Carbon::now();
 
 
         $cmd->save();
@@ -744,7 +748,7 @@ class CommandeController extends Controller
 
 
         ]);
-        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a retournée la commande', $cmd->ID_commande]));
+        event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->Nom, 'a retournée la commande', $cmd->ID_commande]));
 
         return response()->json(["redirect_url" => url('livreur')]);
     }
@@ -772,7 +776,7 @@ class CommandeController extends Controller
 
             ]);
 
-            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->id, 'a livré la commande', $cmd->ID_commande]));
+            event(new MyEvenet([route('commande.details', ['id' => $cmd->id]), Auth::user()->Nom, 'a livré la commande', $cmd->ID_commande]));
         }
     }
     //livrer 1 seul

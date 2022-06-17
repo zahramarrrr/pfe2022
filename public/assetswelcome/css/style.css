@@ -9,12 +9,12 @@ body {
 }
 
 a {
-  color: #5f71c8;
+  color: #4154f1;
   text-decoration: none;
 }
 
 a:hover {
-  color: #5f71c8;
+  color: #717ff5;
   text-decoration: none;
 }
 
@@ -39,11 +39,11 @@ section {
   letter-spacing: 1px;
   font-weight: 700;
   margin: 0;
-  color: #5f71c8;
+  color: #4154f1;
   text-transform: uppercase;
 }
 .section-header p {
-  color: #5f71c8;
+  color: #004AAD;
     margin: 40px 0 0 0;
     font-size: 40px;
 }
@@ -145,7 +145,7 @@ section {
   padding: 20px 0;
 }
 .header.header-scrolled {
-  background: #fff;
+  background: transparent;
   padding: 15px 0;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
 }
@@ -160,7 +160,7 @@ section {
   font-size: 25px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #5f71c8;
+  color: #B15FC8;
   font-family: "Nunito", sans-serif;
   margin-top: 3px;
 }
@@ -192,7 +192,7 @@ section {
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #5f71c8;
+  color: #B15FC8;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -202,14 +202,13 @@ section {
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #5f71c8;
+  color: #B15FC8;
 }
 .navbar .getstarted, .navbar .getstarted:focus {
-  background: #5f67c8;
+  background: #B15FC8;
   padding: 5px 20px;
   margin-left: 30px;
   border-radius: 4px;
-  font-weight: bold;
   color: #fff;
 }
 .navbar .getstarted:hover, .navbar .getstarted:focus:hover {
@@ -376,8 +375,9 @@ section {
   font-weight: 600;
   color: #B15FC8;
 }
+
 .Macommande h2 {
-  color: #5f71c8;
+  color: #004AAD;
   margin: 15px 0 0 0;
   font-size: 26px;
 }
@@ -388,7 +388,7 @@ section {
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
-  background: #5f71c8;
+  background: #B15FC8;
   box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
 }
 .Macommande .btn-get-started span {
@@ -460,7 +460,7 @@ section {
 .about h2 {
   font-size: 24px;
   font-weight: 700;
-  color: #5f71c8;
+  color: #B15FC8;
 }
 .about p {
   margin: 15px 0 30px 0;
@@ -1705,7 +1705,7 @@ section {
 }
 .blog .blog-comments .reply-form textarea:focus {
   box-shadow: none;
-  border-color: #5f71c8;
+  border-color: #a0aaf8;
 }
 .blog .blog-comments .reply-form .form-group {
   margin-bottom: 25px;
@@ -1714,13 +1714,13 @@ section {
   border-radius: 4px;
   padding: 10px 20px;
   border: 0;
-  background-color: #5f71c8;
+  background-color: #012970;
 }
 .blog .blog-comments .reply-form .btn-primary:hover {
-  background-color: #5f71c8;
+  background-color: #013289;
 }
 .blog .blog-pagination {
-  color: #5f71c8;
+  color: #024ed5;
 }
 .blog .blog-pagination ul {
   display: flex;
@@ -1733,14 +1733,14 @@ section {
   transition: 0.3s;
 }
 .blog .blog-pagination li a {
-  color: #5f71c8;
+  color: #012970;
   padding: 7px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .blog .blog-pagination li.active, .blog .blog-pagination li:hover {
-  background: #5f71c8;
+  background: #4154f1;
 }
 .blog .blog-pagination li.active a, .blog .blog-pagination li:hover a {
   color: #fff;
@@ -1755,7 +1755,7 @@ section {
   font-weight: 700;
   padding: 0 0 0 0;
   margin: 0 0 15px 0;
-  color: #5f71c8;
+  color: #012970;
   position: relative;
 }
 .blog .sidebar .sidebar-item {
@@ -1783,7 +1783,7 @@ section {
   font-size: 16px;
   padding: 0 15px;
   margin: -1px;
-  background: #5f71c8;
+  background: #4154f1;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 4px 4px 0;
@@ -1793,7 +1793,7 @@ section {
   line-height: 0;
 }
 .blog .sidebar .search-form form button:hover {
-  background: #5f71c8;
+  background: #5465f2;
 }
 .blog .sidebar .categories ul {
   list-style: none;
@@ -1803,11 +1803,11 @@ section {
   padding-top: 10px;
 }
 .blog .sidebar .categories ul a {
-  color: #5f71c8;
+  color: #012970;
   transition: 0.3s;
 }
 .blog .sidebar .categories ul a:hover {
-  color: #5f71c8;
+  color: #4154f1;
 }
 .blog .sidebar .categories ul a span {
   padding-left: 5px;
@@ -1827,11 +1827,11 @@ section {
   font-weight: bold;
 }
 .blog .sidebar .recent-posts h4 a {
-  color: #5f71c8;
+  color: #012970;
   transition: 0.3s;
 }
 .blog .sidebar .recent-posts h4 a:hover {
-  color: #5f71c8;
+  color: #4154f1;
 }
 .blog .sidebar .recent-posts time {
   display: block;
@@ -1851,7 +1851,7 @@ section {
   display: inline-block;
 }
 .blog .sidebar .tags ul a {
-  color: #5f71c8;
+  color: #0257ee;
   font-size: 14px;
   padding: 6px 14px;
   margin: 0 6px 8px 0;
@@ -1861,8 +1861,8 @@ section {
 }
 .blog .sidebar .tags ul a:hover {
   color: #fff;
-  border: 1px solid #5f71c8;
-  background: #5f71c8;
+  border: 1px solid #4154f1;
+  background: #4154f1;
 }
 .blog .sidebar .tags ul a span {
   padding-left: 5px;
@@ -1889,7 +1889,7 @@ section {
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  color: #5f71c8;
+  color: #012970;
 }
 .footer .footer-newsletter form {
   margin-top: 20px;
@@ -1914,13 +1914,13 @@ section {
   font-size: 16px;
   padding: 0 30px;
   margin: 3px;
-  background: #5f71c8;
+  background: #4154f1;
   color: #fff;
   transition: 0.3s;
   border-radius: 4px;
 }
 .footer .footer-newsletter form input[type=submit]:hover {
-  background: #5f71c8;
+  background: #5969f3;
 }
 .footer .footer-top {
   background: white url(../img/footer-bg.png) no-repeat right top;
@@ -2128,7 +2128,7 @@ body {
 
 /*Color number of the step and the connector before it*/
 #progressbar li.active:before, #progressbar li.active:after {
-  background: #5f71c8;
+  background: #651FFF;
 }
 
 #progressbar li.active:before {

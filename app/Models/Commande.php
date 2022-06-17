@@ -13,7 +13,7 @@ class Commande extends Model
     protected $table = "commandes";
     protected $fillable = [
         'ID_commande',
-     
+   
    
         'Nom',
         'Prenom',

@@ -636,6 +636,12 @@ class ComposerStaticInit957ae71b2ccf96a84a067844617e0023
     );
 
     public static $classMap = array (
+        'App\\Charts\\cmdparagent' => __DIR__ . '/../..' . '/app/Charts/cmdparagent.php',
+        'App\\Charts\\cmdparjour' => __DIR__ . '/../..' . '/app/Charts/cmdparjour.php',
+        'App\\Charts\\cmdparlivreur' => __DIR__ . '/../..' . '/app/Charts/cmdparlivreur.php',
+        'App\\Charts\\paiement' => __DIR__ . '/../..' . '/app/Charts/paiement.php',
+        'App\\Charts\\parsociete' => __DIR__ . '/../..' . '/app/Charts/parsociete.php',
+        'App\\Console\\Commands\\ChartMakeCommand' => __DIR__ . '/../..' . '/app/Console/Commands/ChartMakeCommand.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Events\\MyEvenet' => __DIR__ . '/../..' . '/app/Events/MyEvenet.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -658,6 +664,7 @@ class ComposerStaticInit957ae71b2ccf96a84a067844617e0023
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LogoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogoutController.php',
+        'App\\Http\\Controllers\\chart' => __DIR__ . '/../..' . '/app/Http/Controllers/chart.php',
         'App\\Http\\Controllers\\profilcontroller' => __DIR__ . '/../..' . '/app/Http/Controllers/profilcontroller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AdminAuthenticated​' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminAuthenticated​.php',

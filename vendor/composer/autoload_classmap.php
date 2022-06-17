@@ -6,6 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Charts\\cmdparagent' => $baseDir . '/app/Charts/cmdparagent.php',
+    'App\\Charts\\cmdparjour' => $baseDir . '/app/Charts/cmdparjour.php',
+    'App\\Charts\\cmdparlivreur' => $baseDir . '/app/Charts/cmdparlivreur.php',
+    'App\\Charts\\paiement' => $baseDir . '/app/Charts/paiement.php',
+    'App\\Charts\\parsociete' => $baseDir . '/app/Charts/parsociete.php',
+    'App\\Console\\Commands\\ChartMakeCommand' => $baseDir . '/app/Console/Commands/ChartMakeCommand.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Events\\MyEvenet' => $baseDir . '/app/Events/MyEvenet.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -28,6 +34,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\LogoutController' => $baseDir . '/app/Http/Controllers/LogoutController.php',
+    'App\\Http\\Controllers\\chart' => $baseDir . '/app/Http/Controllers/chart.php',
     'App\\Http\\Controllers\\profilcontroller' => $baseDir . '/app/Http/Controllers/profilcontroller.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\AdminAuthenticated​' => $baseDir . '/app/Http/Middleware/AdminAuthenticated​.php',

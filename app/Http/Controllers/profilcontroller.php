@@ -42,34 +42,30 @@ class profilcontroller extends Controller
     {
         $request->validate(
             [
+             'Nom' => 'required|regex:/^[\pL\s\-]+$/u',
+                'Prenom' => 'required|alpha',
+                
+            
+         
+                // 'Email' => 'email:rfc,dns',
                
-                'Nom' => 'required|regex:/^[\pL\s\-]+$/u',
-                'Prenom' => 'required|regex:/^[\pL\s\-]+$/u',
-                'telephone' => 'required|numeric',
-               'email' => 'email:rfc,dns',
-               
-    ],
+
+            ],
             [
                 'Nom.required' => 'le nom du client est obligatoir',
-                'Nom.regex' => 'Le nom ne doit contenir que des lettres.',
+                'Nom.alpha' => 'Le nom ne doit contenir que des lettres.',
                 'Prenom.required' => 'le Prenom du client est obligatoir',
-                'Prenom.regex' => 'le Prenom ne doit contenir que des lettres.',
-                'telephone.required' => 'le numéro du téléphone est obligatoire',
-                'telephone.numeric' => 'le numéro du téléphone est invalide',
-    
-                 'email.email' => 'email invalide',
-
-               
-            ]
+                'Prenom.alpha' => 'le Prenom ne doit contenir que des lettres.',
+                ]
         );
         DB::table('users')->where('id', Auth::user()->id)->update([
             'Nom' => $request->Nom,
 
             'Prenom' => $request->Prenom,
             'Role' => 'admin',
-            'adresse' => $request->adresse,
+            'Adresse' => $request->Adresse,
             'email' => $request->email,
-            'telephone' => $request->telephone,
+            'Telephone' => $request->Telephone,
 
 
         ]);
@@ -106,36 +102,15 @@ class profilcontroller extends Controller
     }
     public function profileUpDatAagent(Request $request)
     {
-        $request->validate(
-            [
-               
-                'Nom' => 'required|regex:/^[\pL\s\-]+$/u',
-                'Prenom' => 'required|regex:/^[\pL\s\-]+$/u',
-                'telephone' => 'required|numeric',
-               'email' => 'email:rfc,dns',
-               
-    ],
-            [
-                'Nom.required' => 'le nom du client est obligatoir',
-                'Nom.regex' => 'Le nom ne doit contenir que des lettres.',
-                'Prenom.required' => 'le Prenom du client est obligatoir',
-                'Prenom.regex' => 'le Prenom ne doit contenir que des lettres.',
-                'telephone.required' => 'le numéro du téléphone est obligatoire',
-                'telephone.numeric' => 'le numéro du téléphone est invalide',
-    
-                 'email.email' => 'email invalide',
-
-               
-            ]
-        );
+            
         DB::table('users')->where('id', Auth::user()->id)->update([
             'Nom' => $request->Nom,
 
             'Prenom' => $request->Prenom,
             'Role' => 'agent',
-            'adresse' => $request->adresse,
+            'Adresse' => $request->Adresse,
             'email' => $request->email,
-            'telephone' => $request->telephone,
+            'Telephone' => $request->Telephone,
 
 
         ]);
@@ -173,28 +148,6 @@ class profilcontroller extends Controller
         }
         public function profileUpDateLivreur(Request $request)
         {
-            $request->validate(
-                [
-                   
-                    'Nom' => 'required|regex:/^[\pL\s\-]+$/u',
-                    'Prenom' => 'required|regex:/^[\pL\s\-]+$/u',
-                    'telephone' => 'required|numeric',
-                   'email' => 'email:rfc,dns',
-                   
-        ],
-                [
-                    'Nom.required' => 'le nom du client est obligatoir',
-                    'Nom.regex' => 'Le nom ne doit contenir que des lettres.',
-                    'Prenom.required' => 'le Prenom du client est obligatoir',
-                    'Prenom.regex' => 'le Prenom ne doit contenir que des lettres.',
-                    'telephone.required' => 'le numéro du téléphone est obligatoire',
-                    'telephone.numeric' => 'le numéro du téléphone est invalide',
-        
-                     'email.email' => 'email invalide',
-    
-                   
-                ]
-            );
             DB::table('users')->where('id', Auth::user()->id)->update([
                 'Nom' => $request->Nom,
     
@@ -203,8 +156,8 @@ class profilcontroller extends Controller
                 'adresse' => $request->adresse,
                 'email' => $request->email,
                 'telephone' => $request->telephone,
-    
-    
+                
+
             ]);
               return redirect()->route('profillivreur');
         } 
@@ -225,39 +178,15 @@ class profilcontroller extends Controller
                 }
                 public function profileUpDateCommercant(Request $request)
                 {
-                    $request->validate(
-                        [
-                           
-                            'Nom' => 'required|regex:/^[\pL\s\-]+$/u',
-                            'Prenom' => 'required|regex:/^[\pL\s\-]+$/u',
-                            'telephone' => 'required|numeric',
-                           'email' => 'email:rfc,dns',
-                           
-                ],
-                        [
-                            'Nom.required' => 'le nom du client est obligatoir',
-                            'Nom.regex' => 'Le nom ne doit contenir que des lettres.',
-                            'Prenom.required' => 'le Prenom du client est obligatoir',
-                            'Prenom.regex' => 'le Prenom ne doit contenir que des lettres.',
-                            'telephone.required' => 'le numéro du téléphone est obligatoire',
-                            'telephone.numeric' => 'le numéro du téléphone est invalide',
-                
-                             'email.email' => 'email invalide',
-            
-                           
-                        ]
-                    );
-                    DB::table('users')->where('id', Auth::user()->id)->update([
+                  
+                    DB::table('users')->where('id',Auth::user()->id)->update([
                         'Nom' => $request->Nom,
-            
-                        'Prenom' => $request->Prenom,
+            'Prenom' => $request->Prenom,
                         'Role' => 'commerçant',
-                        'adresse' => $request->adresse,
+                        'Adresse' => $request->Adresse,
                         'email' => $request->email,
-                        'telephone' => $request->telephone,
-            
-            
-                    ]);
+                        'Telephone' => $request->Telephone,
+            ]);
             
                     return redirect()->route('profilcommercant');
                 }

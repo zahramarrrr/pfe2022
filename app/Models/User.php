@@ -21,6 +21,7 @@ class User extends Authenticatable
 
     protected $table = "users";
     protected $fillable = [
+       'Instagram',
         'Nom',
         'Prenom',
         'Adresse',
@@ -28,6 +29,13 @@ class User extends Authenticatable
         'email',
         'Role',
         'password',
+        'TelephoneSociete',
+        'EmailSociete',
+        'RaisonSociale',
+        'NomSociete',
+        'Salaire',
+        'TypePermis',
+        'TypeVehicule',
     ];
 
     /**

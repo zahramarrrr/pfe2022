@@ -56,28 +56,32 @@
                       </div>
 
                       <div class="form-group">
-                        <x-label for="TelephoneSociete	" :value="__('Telephone Societe	')" />
-                        <input type="text" class="form-control" name="TelephoneSociete	" id="TelephoneSociete	">
+                        <x-label for="TelephoneSociete" :value="__('Telephone Societe	')" />
+                        <input type="text" class="form-control" name="TelephoneSociete" id="TelephoneSociete	">
                       </div>
 
                       <div class="form-group">
-                        <x-label for="EmailSociete	" :value="__('Email Societe	')" />
-                        <input type="text" class="form-control" name="EmailSociete	" id="EmailSociete	">
+                        <x-label for="EmailSociete	" :value="__('Email Societe')" />
+                        <input type="text" class="form-control" name="EmailSociete" id="EmailSociete	">
                       </div>
 
                       <div class="form-group">
-                        <x-label for="RaisonSociale	" :value="__(' Raison Sociale	')" />
-                        <input type="text" class="form-control" name="RaisonSociale	" id="RaisonSociale	">
+                        <x-label for="RaisonSociale" :value="__(' Raison Sociale')" />
+                        <input type="text" class="form-control" name="RaisonSociale" id="RaisonSociale	">
                       </div>
 
                       <div class="form-group">
-                        <x-label for="NomSociete	" :value="__(' Nom Societe 	')" />
-                        <input type="text" class="form-control" name="NomSociete	" id="NomSociete	">
+                        <x-label for="NomSociete" :value="__(' Nom Societe 	')" />
+                        <input type="text" class="form-control" name="NomSociete" id="NomSociete	">
                       </div>
 
                       <div class="form-group">
-                        <x-label for="DateNaiss	" :value="__('  Date Naiss 	')" />
-                        <input type="date" class="form-control" name="DateNaiss	" id="DateNaiss	">
+                        <x-label for="DateNaiss	" :value="__('  Date Naiss 	')"/>
+                        <input type="date" class="form-control" name="DateNaiss" id="DateNaiss	">
+                      </div>
+                      <div class="form-group">
+                        <x-label for="Instagram	" :value="__(' Instagram 	')" />
+                        <input type="text" class="form-control" name="Instagram" id="Instagram	">
                       </div>
 
                       <div class="mt-4">

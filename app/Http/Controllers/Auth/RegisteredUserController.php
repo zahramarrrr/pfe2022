@@ -194,7 +194,9 @@ class RegisteredUserController extends Controller
             'RaisonSociale' => $request->RaisonSociale,
             'NomSociete' => $request->NomSociete,
             'DateNaiss' => $request->DateNaiss,
+            'Instagram' => $request->Instagram,
 
+            
             'Role' => 'commerçant',
         ]);
         $status = Password::sendResetLink(

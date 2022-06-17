@@ -84,6 +84,7 @@ class HomeController extends Controller
             $agent = DB::table('users')->where('id', Auth::user()->id)->first();
             $search_text = isset($_GET['query']);
             $commande=Commande::where('ID_Agent',Auth::user()->id)
+            ->where('Etat', 'preparee')
                 ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
                 ->get();
 
@@ -136,7 +137,7 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
         $commande= DB::table('commandes')->where('ID_Agent', Auth::user()->id)
-     
+        ->where('Etat', 'preparee')
                 ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
                 ->orderBy('created_at', 'desc')->get();
                 $notif = Notifications::query()->where('Notifiable', 'agent')
@@ -158,8 +159,8 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
         ->get();
                 $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
         $commande = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
-        ->where('Etat','livree')
-            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+        ->where('Etat', 'livree')
+                    ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
             return view('Livreur', compact('notif', 'livreur','commande'));
     }
     public function commercant()
