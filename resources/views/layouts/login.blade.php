@@ -1,4 +1,5 @@
 <meta content="" name="keywords">
+<title>MaCommande</title>
 
 <!-- Favicons -->
 <link href="assetswelcome/img/favicon.png" rel="icon">
@@ -23,7 +24,24 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   
   <link rel="stylesheet" href="assets/login/css/style.css">
+	<link rel="icon" type="image/png" href="assets/contact/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/contact/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/contact/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/contact/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/contact/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/contact/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/contact/css/util.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/contact/css/main.css">
+<!--===============================================================================================-->
 
+  
 
 </head>
 
@@ -67,6 +85,15 @@
   <script src="assets/login/js/popper.js"></script>
   <script src="assets/login/js/bootstrap.min.js"></script>
   <script src="assets/login/js/main.js"></script>
+  <script src="assets/contact/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+	<script src="assets/contact/vendor/bootstrap/js/popper.js"></script>
+	<script src="assets/contact/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+	<script src="assets/contact/vendor/select2/select2.min.js"></script>
+  <!--===============================================================================================-->
+	<script src="assets/contact/vendor/tilt/tilt.jquery.min.js"></script>
+  <!--===============================================================================================-->
 
 </body>
 

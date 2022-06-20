@@ -8,7 +8,7 @@
 
 
 <div class="card-body">
-  <h5 class="card-title">commande <span>| par agent</span></h5>
+  <h5 class="card-title">Visualisation<span>| Quantité des commande pour chaque agent d'entrepôt </span></h5>
 
   {{$chart10->container() }}
 

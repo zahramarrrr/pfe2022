@@ -32,8 +32,8 @@ class parsociete
 
         
         return $this->chart3->barChart()
-        ->setTitle('commande')
-        ->setSubtitle('par societe')
+        
+        ->setSubtitle('Quantité des commandes')
         ->addData('PULL AND BEAR', [$PULL])
         ->addData('ZARA', [$zara])
         ->addData('MYTEK', [$MYTEK])
@@ -56,6 +56,6 @@ class parsociete
         
         
         
-        ->setXAxis(['commande']);
+        ->setXAxis(['Les société']);
 }
 }

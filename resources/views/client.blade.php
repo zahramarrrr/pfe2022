@@ -2,10 +2,27 @@
 @section("content")
 
 
-<body>
+
+  
   <section id="Macommande" class="Macommande d-flex align-items-center">
-    <input type="text" name="idcommande" id="name">
-    <input type="button" class="verifier" value="verifier" />
+    
+  <div class="col-lg-10 ">
+  <img src="assetswelcome/img/search2.png" class="img-fluid col-lg-6" alt="">
+  
+    <form class=" form" action="" >
+  
+      
+       <label class="labelsearch"><i class="bi bi-arrow-down-right"></i> Suivre votre commande par ici :</label>
+      <input class=" search" type="text">
+      <button  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"type="submit"><i class="bi bi-search"></i></button>
+      </form>
+    
+  </div><!-- End sidebar search formn-->
+
+
+  </div><!-- End sidebar recent posts-->
+
+  
     @csrf
     
 

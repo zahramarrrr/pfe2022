@@ -23,12 +23,10 @@ class cmdparjour
         
 
 $to=Carbon::now();
-$from=Carbon::now()->subDays(10);
-$sub = Commande::orderBy('Date_Livraison','DESC');
 
-$date = DB::table('commandes')->select(DB::raw('DATE_FORMAT(Date_Livraison, "%W, %d %M %y") as date'))
-->ORDERBY(DB::raw('DATE_FORMAT(Date_Livraison, "%W, %d %M %y")','asc'))
-
+$from=Carbon::now()->subDays(7);
+$date = DB::table('Commandes')->select(DB::raw('DAYNAME(Date_Livraison) as date'))
+>>>>>>> Stashed changes
 ->whereBetween('Date_Livraison', [$from, $to])
 ->groupBy(DB::raw('DATE_FORMAT(Date_Livraison, "%W, %d %M %y")'))
 ->pluck('date');
@@ -45,10 +43,14 @@ $x = Commande::select(DB::raw("COUNT(*) as count"))
 //dd($date);
 
 return $this->chart5->barChart()
+<<<<<<< Updated upstream
 ->setTitle('commandes livrées vs commandes retournées')
 ->setSubtitle('les 10 derniers jours')
-->addData('livré ', $z->all())
-->addData('retourné', $x->all())
-->setXAxis($date->all());
+
+
+->addData('Livrée ', $z->all())
+->addData('Retournée', $x->all())
+->setXAxis($date->all(),$retour->all());
+
 }
 }

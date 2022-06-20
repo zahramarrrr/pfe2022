@@ -6,7 +6,7 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Reports <span>/Today</span></h5>
+                <h5 class="card-title">Visualisation  <span>| les commandes déclarées par rapport aux commandes livrées et retournées</span></h5>
                 <!-- div trées importante !!! -->
                 <div id="reportsChart" style="min-height: 365px;">
 
@@ -28,21 +28,21 @@
                             document.addEventListener("DOMContentLoaded", () => {
                                 new ApexCharts(document.querySelector("#reportsChart"), {
                                     series: [{
-                                        name: 'declarée par jour',
+                                        name: 'Commandes déclarées',
                                         data: [
                                             @foreach($z as $key => $value)
                                             '{{ $value->nb }}',
                                             @endforeach
                                         ],
                                     }, {
-                                        name: 'cmd livré',
+                                        name: 'Commandes livrées',
                                         data: [
                                             @foreach($l as $key => $value)
                                             '{{ $value->l }}',
                                             @endforeach
                                         ],
                                     }, {
-                                        name: 'cmd retournée',
+                                        name: 'Commande retournées',
                                         data: [
                                             @foreach($r as $key => $value)
                                             '{{ $value->r }}',
@@ -93,7 +93,7 @@
                                 }).render();
                             });
                         </script>
-<h5> les cmd retournee livree et declaree lkol bel date </h5>
+
                     </div>
                 </div>
             </div>

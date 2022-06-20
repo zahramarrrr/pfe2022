@@ -7,7 +7,7 @@
 
 
 <div class="card-body">
-  <h5 class="card-title">commande <span>| par societe</span></h5>
+  <h5 class="card-title">Visualisation <span>| Quantité des commandes pour chaque société</span></h5>
 
   {{$chart3->container() }}
 

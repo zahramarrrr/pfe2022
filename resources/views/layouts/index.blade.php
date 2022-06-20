@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>welcome</title>
+  <title>MaCommande</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -32,22 +32,7 @@
 <!--===============================================================================================-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="assets/contact/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/contact/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/contact/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/contact/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/contact/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/contact/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/contact/css/util.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/contact/css/main.css">
-<!--===============================================================================================-->
+
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -92,12 +77,23 @@
             @endif
        
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
+      </nav>
+      <!-- .navbar -->
     </div>
   </header>
   <!-- End Header -->
+ 
     @yield('content')
+     <!-- Footer -->
+     <footer id="footer" class="footer">
+
+<div class="container-fluid ">
+  <div class="copyright">
+    © Copyright <strong><span>MaCommande</span></strong>. All Rights Reserved
+  </div>
+
+</footer>
+<!--  End Footer -->
  <!--===============================================================================================-->
  <script src="assetswelcome/vendor/purecounter/purecounter.js"></script>
  <!--===============================================================================================-->
@@ -115,15 +111,7 @@
   <!--===============================================================================================-->
   <script src="assetswelcome/js/main.js"></script>
   <!--===============================================================================================-->
-  <script src="assets/contact/vendor/jquery/jquery-3.2.1.min.js"></script>
-  <!--===============================================================================================-->
-	<script src="assets/contact/vendor/bootstrap/js/popper.js"></script>
-	<script src="assets/contact/vendor/bootstrap/js/bootstrap.min.js"></script>
-  <!--===============================================================================================-->
-	<script src="assets/contact/vendor/select2/select2.min.js"></script>
-  <!--===============================================================================================-->
-	<script src="assets/contact/vendor/tilt/tilt.jquery.min.js"></script>
-  <!--===============================================================================================-->
+  
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1

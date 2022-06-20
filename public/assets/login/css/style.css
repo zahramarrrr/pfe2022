@@ -166,7 +166,7 @@ h1, h2, h3, h4, h5,
   color: #004AAD !important;
   border: 1px solid transparent;
   background: rgb(255, 255, 255) ;
-  border-radius: 40px;
+  border-radius: 40px!important;
   padding-left: 20px;
   padding-right: 50px;
   -webkit-transition: 0.3s;

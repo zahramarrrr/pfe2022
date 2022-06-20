@@ -40,8 +40,7 @@ $agent = User::select(DB::raw("Nom"))
 
 
         return $this->chart10->pieChart()
-            ->setTitle('commande preparee par agent dernier 7 j ')
-            ->setSubtitle('meilleur agent')
+            
             ->addData($cmd->all())
             ->setLabels($agent->all());
     }
