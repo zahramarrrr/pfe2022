@@ -66,32 +66,13 @@
                                         @endif
                                     </div>
                                 </div>
+                       
                                 <div class="row mb-3">
-                                    <label for="Role" class="col-lg-3 col-md-4 label " class="label">Poste:</label>
+                                    <label for="DateNaiss" class="col-lg-3 col-md-4 label " class="label">Date Naissance:</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="Role" id="Role" value="{{$comm->Role}}">
+                                        <input type="date" class="form-control" name="DateNaiss" id="DateNaiss" value="{{$livreur->DateNaiss}}">
                                     </div>
                                 </div>
-
-
-
-                                <div class="row mb-3">
-                                    <label for="Adresse" class="col-lg-3 col-md-4 label " class="label">Adresse:</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="Adresse" id="Adresse" value="{{$comm->Adresse}}">
-                                    </div>
-                                </div>
-                             
-                                <div class="row mb-3">
-                                    <label for="Phone" class="col-lg-3 col-md-4 label " class="label">téléphone:</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="Telephone" id="Telephone" value="{{$comm->Telephone}}">
-                                        @if ($errors->has('Telephone'))
-                                        <span class="text-danger">{{ $errors->first('Telephone') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-
                                 <div class="row mb-3">
                                     <label for="Email" class="col-lg-3 col-md-4 label " class="label">Adresse d'email:</label>
                                     <div class="col-md-8 col-lg-9">
@@ -99,6 +80,41 @@
                                         @if ($errors->has('email'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                         @endif
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="Adresse" class="col-lg-3 col-md-4 label " class="label">Adresse commerçant:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="text" class="form-control" name="Adresse" id="Adresse" value="{{$comm->Adresse}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="EmailSociete" class="col-lg-3 col-md-4 label " class="label">Email Societe:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="text" class="form-control" name="EmailSociete" id="EmailSociete" value="{{$comm->EmailSociete}}">
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <label for="NomSociete" class="col-lg-3 col-md-4 label " class="label">Nom Societe:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="text" class="form-control" name="NomSociete" id="NomSociete" value="{{$comm->NomSociete}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="TelephoneSociete" class="col-lg-3 col-md-4 label " class="label">Telephone Societe:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="text" class="form-control" name="TelephoneSociete" id="TelephoneSociete" value="{{$comm->TelephoneSociete}}">
+                                        @if ($errors->has('TelephoneSociete'))
+                                        <span class="text-danger">{{ $errors->first('TelephoneSociete') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="RaisonSociale" class="col-lg-3 col-md-4 label " class="label">Raison Sociale:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="text" class="form-control" name="RaisonSociale" id="RaisonSociale" value="{{$comm->RaisonSociale}}">
                                     </div>
                                 </div>
 

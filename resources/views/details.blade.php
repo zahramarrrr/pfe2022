@@ -114,7 +114,7 @@
                       <td id="description-val">{{$commande->Description}}</td>
                     </tr>
                     <tr class="space-row">
-                      <th>description:</th>
+                      <th>Etat:</th>
                       <td id="description-val">{{$commande->Etat}}</td>
                     </tr>
                   </tbody>

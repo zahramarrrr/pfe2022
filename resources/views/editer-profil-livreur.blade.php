@@ -68,16 +68,7 @@
                                 @endif
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label for="Job" class="col-lg-3 col-md-4 label " class="label">Poste:</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="Role" id="Role" value="{{$livreur->Role}}">
-                                     
-                               </div>
-                                </div>
-
-    
-
+           
                                 <div class="row mb-3">
                                     <label for="Address" class="col-lg-3 col-md-4 label " class="label">Adresse:</label>
                                     <div class="col-md-8 col-lg-9">
@@ -105,7 +96,24 @@
                               </div>
                                 </div>
 
-
+                                <div class="row mb-3">
+                                    <label for="TypePermis" class="col-lg-3 col-md-4 label " class="label">Type Permis:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="text" class="form-control" name="TypePermis" id="TypePermis" value="{{$livreur->TypePermis}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="TypeVehicule" class="col-lg-3 col-md-4 label " class="label">Type Vehicule:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="text" class="form-control" name="TypeVehicule" id="TypeVehicule" value="{{$livreur->TypeVehicule}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="DateNaiss" class="col-lg-3 col-md-4 label " class="label">Date Naissance:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="date" class="form-control" name="DateNaiss" id="DateNaiss" value="{{$livreur->DateNaiss}}">
+                                    </div>
+                                </div>
                                 <div class="text-center">
                                     
                                 <button type="submit" class="btn2">Enregistrer les modifications</button>

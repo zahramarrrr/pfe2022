@@ -67,12 +67,7 @@
                                 @endif
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Poste</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input type="text" class="form-control" name="Role" id="Role" value="{{$admin->Role}}">
-                                    </div>
-                                </div>
+                   
 
 
 
@@ -92,7 +87,12 @@
                                 @endif
                                     </div>
                                 </div>
-
+                                <div class="row mb-3">
+                                    <label for="DateNaiss" class="col-lg-3 col-md-4 label " class="label">Date Naissance:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="date" class="form-control" name="DateNaiss" id="DateNaiss" value="{{$livreur->DateNaiss}}">
+                                    </div>
+                                </div>
                                 <div class="row mb-3">
                                     <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                     <div class="col-md-8 col-lg-9">

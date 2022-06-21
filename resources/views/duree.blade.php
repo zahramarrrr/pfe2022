@@ -26,13 +26,13 @@ use App\Models\Commande;
                              function secondsToTime($seconds) {
                               $dtF = new \DateTime('@0');
                               $dtT = new \DateTime("@$seconds");
-                              return $dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');}
+                              return $dtF->diff($dtT)->format('%a days %h hours %i minutes');}
                              $to=Carbon::now();
-                             $from=Carbon::now()->subDays(10);   
+                             $from=Carbon::now()->subDays(7);   
                     
                                      $cmd= Commande::
                                      whereNotNull('Date_Livraison')
-                                     ->whereBetween('Date_Declaration', [$from, $to])
+                                     ->whereBetween('Date_Livraison', [$from, $to])
                                      ->get();
                                      $i=array();
                                      foreach($cmd as $m){
@@ -42,23 +42,24 @@ use App\Models\Commande;
                                       }
                                          
 
-                                     // dd($i);
+                              // dd($i);
                      $date = DB::table('commandes')
-                     ->select(DB::raw('Date_Declaration as date '))
-                     ->whereBetween('Date_Declaration', [$from, $to])
-                     ->groupBy(DB::raw("(Date_Declaration)"))
+                     ->select(DB::raw('Date_Livraison as date '))
+                     ->whereBetween('Date_Livraison', [$from, $to])
+                     ->groupBy(DB::raw("Date_Livraison"))
                      ->pluck('date');
                             ?>
                             document.addEventListener("DOMContentLoaded", () => {
                                 new ApexCharts(document.querySelector("#reportsChart"), {
                                   series: [{
-          name: 'jours',
-          data: [ @foreach($i as $key => $value)
-                                            '{{($value)}}',
-                                            @endforeach ]
+                                     name: 'jours',
+          data: [ 
+            @foreach($i as $key => $value)
+         '{{($value)}}',
+         @endforeach ]
         }],
           chart: {
-          type: 'area',
+          type: 'line',
           height: 350,
           stacked: true,
           toolbar: {
@@ -87,7 +88,7 @@ use App\Models\Commande;
    
         xaxis: {
           type: 'category',
-          categories: [ @foreach($i as $key => $value)
+          categories: [ @foreach($date as $key => $value)
                                             '{{ $value }}',
                                             @endforeach
           ]

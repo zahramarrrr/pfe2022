@@ -82,7 +82,9 @@
                   <div class="col-lg-9 col-md-8">{{$agent-> email}}</div>
                 </div>
 
-             
+                <div class="col-lg-3 col-md-4 label" class="label">Date Naissance:</div>
+                  <div class="col-lg-9 col-md-8">{{$agent-> DateNaiss}}</div>
+                </div>  <div class="row">
 
 
 
