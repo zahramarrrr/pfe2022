@@ -12,7 +12,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Espace Agent</title>
+  <title>Livreur</title>
 
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -26,26 +26,26 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
   <link href='{{asset("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i") }}' rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-  <link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href='{{asset("assets/vendor/bootstrap/css/bootstrap.min.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/boxicons/css/boxicons.min.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/quill/quill.snow.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/quill/quill.bubble.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/remixicon/remixicon.css") }}' rel="stylesheet">
+  <link href='{{asset("assets/vendor/simple-datatables/style.css") }}' rel="stylesheet">
+  <link href='{{asset("//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" ) }}'rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href='{{asset("assets/css/style.css") }}' rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  <link rel="stylesheet" href='{{asset("https://fonts.googleapis.com/css?family=Roboto|Varela+Round") }}'>
+  <link rel="stylesheet" href='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css") }}'>
+  <link rel="stylesheet" href='{{asset("https://fonts.googleapis.com/icon?family=Material+Icons") }}'>
+  <link rel="stylesheet" href='{{asset("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css") }}'>
+  <script src='{{asset("https://code.jquery.com/jquery-3.5.1.min.js") }}'></script>
+  <script src='{{asset("https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js") }}'></script>
+  <script src='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js") }}'></script>
+  <script src='{{asset("https://js.pusher.com/7.0/pusher.min.js") }}'></script>
 
   <link href='{{asset("assets/vendor/bootstrap/css/bootstrap.min.css") }}' rel="stylesheet">
   <link href='{{asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}' rel="stylesheet">
@@ -89,7 +89,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+        <img src='{{asset("assets/img/logo.png") }}' alt="">
         <span class="d-none d-lg-block">MaCommande</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -153,7 +153,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
       <li class="nav-item dropdown pe-3">
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-          <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+          <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle ps-2">{{$livreur-> Nom}} {{$livreur-> Prenom}}</span>
         </a><!-- End Profile Iamge Icon -->
 
@@ -209,14 +209,14 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
 
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('livreur') }}"> <i class="bi bi-bag-plus"></i>
+        <a class="nav-link collapsed" href="{{ url('livreur') }}"><i class="bi bi-bag-check"></i>
           <span>Les commandes livrées</span>
         </a>
 
       </li><!-- End declarer commande nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('cmd_retournee') }}">
-          <i class="bi bi-bag"></i><span>Les commandes retournées</span>
+        <i class="bi bi-bag-x"></i><span>Les commandes retournées</span>
         </a>
 
       </li>
@@ -257,7 +257,15 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
   </aside><!-- End Sidebar-->
 
   @yield("content")
+     <!-- Footer -->
+     <footer id="footer" class="footer">
 
+<div class="container-fluid ">
+  <div class="copyright">
+    © Copyright <strong><span>MaCommande</span></strong>. All Rights Reserved
+  </div>
+
+</footer>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->

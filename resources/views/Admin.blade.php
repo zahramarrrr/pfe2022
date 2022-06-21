@@ -58,21 +58,62 @@ use App\Models\Commande;
     <div class="row">
 
       <!-- Left side columns -->
-      <div class="col-lg-8">
+      <div class="col-lg-11">
         <div class="row">
+<!-- Livreurs Card -->
+<div class="col-xxl-4 col-md-6">
+
+
+<div class="card info-card revenue-card">
+
+
+
+  <div class="card-body">
+    <h5 class="card-title"><i class="bi bi-arrow-right"></i>Moyenne des commandes déclarées par jour: </h5>
+
+    <div class="d-flex align-items-center">
+      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+      <i class="bi bi-bag-plus"></i>
+      </div>
+      <div class="ps-3">
+        <h6>
+          <?php
+          $commande = DB::table('commandes')->select(DB::raw('DATE(Date_Declaration) as date , count(*) as nb'))->groupBy(DB::raw("DATE(Date_Declaration)"))->get();
+          $s = 0;
+          $i = 0;
+          foreach ($commande as $cmd) {
+            $x = $cmd->nb;
+
+            $s = $s + $x;
+            $i = $i + 1;
+          }
+          $m = $s / $i;
+
+
+          ?>
+          {{round($m);}}
+        </h6>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+<!-- End Livreurs Card -->
 
           <!-- Sales Card -->
           <div class="col-xxl-4 col-md-6">
-            <div class="card info-card sales-card">
+          <div class="card info-card revenue-card card-body">
 
 
 
               <div class="card-body">
-                <h5 class="card-title">moyenne de commandes preparee par jour</span></h5>
+                <h5 class="card-title"><i class="bi bi-arrow-right"></i>Moyenne des commandes préparées par jour:</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-cart"></i>
+                  <i class="bi bi-archive"></i>
                   </div>
                   <div class="ps-3">
                     <h6>
@@ -99,57 +140,17 @@ use App\Models\Commande;
 
             </div>
           </div><!-- End Sales Card -->
-          <!-- agent Card -->
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card revenue-card">
 
 
 
               <div class="card-body">
-                <h5 class="card-title">moy commande retournee par jour</h5>
+                <h5 class="card-title"><i class="bi bi-arrow-right"></i>Moyenne des commandes livrées par jour:</h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-people"></i>
-
-                  </div>
-                  <div class="ps-3">
-                    <h6>
-                      <?php
-                      $commande = DB::table('commandes')->select(DB::raw('DATE(Date_Retour) , count(*) as b'))->whereNotNull('Date_Retour')->groupBy(DB::raw("DATE(Date_Retour)"))->get();
-                      $s = 0;
-                      $i = 0;
-                      foreach ($commande as $cmd) {
-                        $x = $cmd->b;
-
-                        $s = $s + $x;
-                        $i = $i + 1;
-                      }
-                      $m = $s / $i;
-
-
-                      ?>
-                      {{ round($m);}}
-                    </h6>
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div><!-- End Agent Card -->
-
-          <div class="col-xxl-4 col-md-6">
-            <div class="card info-card revenue-card">
-
-
-
-              <div class="card-body">
-                <h5 class="card-title">moyenne de commande livrée par jour</h5>
-
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-people"></i>
+                  <i class="bi bi-truck"></i>
 
                   </div>
                   <div class="ps-3">
@@ -178,33 +179,28 @@ use App\Models\Commande;
             </div>
           </div><!-- End Agent Card -->
 
-
-
-
-
-          <!-- Livreurs Card -->
+          <!-- agent Card -->
           <div class="col-xxl-4 col-md-6">
-
-
-            <div class="card info-card sales-card">
+            <div class="card info-card revenue-card">
 
 
 
               <div class="card-body">
-                <h5 class="card-title">moyenne commandes declarees par jour </h5>
+                <h5 class="card-title"><i class="bi bi-arrow-right"></i>Moyenne des commandes retournées par jour:</h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-people"></i>
+                  <i class="bi bi-bag-x"></i>
+
                   </div>
                   <div class="ps-3">
                     <h6>
                       <?php
-                      $commande = DB::table('commandes')->select(DB::raw('DATE(Date_Declaration) as date , count(*) as nb'))->groupBy(DB::raw("DATE(Date_Declaration)"))->get();
+                      $commande = DB::table('commandes')->select(DB::raw('DATE(Date_Retour) , count(*) as b'))->whereNotNull('Date_Retour')->groupBy(DB::raw("DATE(Date_Retour)"))->get();
                       $s = 0;
                       $i = 0;
                       foreach ($commande as $cmd) {
-                        $x = $cmd->nb;
+                        $x = $cmd->b;
 
                         $s = $s + $x;
                         $i = $i + 1;
@@ -213,7 +209,7 @@ use App\Models\Commande;
 
 
                       ?>
-                      {{round($m);}}
+                      {{ round($m);}}
                     </h6>
 
                   </div>
@@ -221,8 +217,14 @@ use App\Models\Commande;
               </div>
 
             </div>
-          </div>
-          <!-- End Livreurs Card -->
+          </div><!-- End Agent Card -->
+
+          
+
+
+
+
+         
 
         </div>
       </div>

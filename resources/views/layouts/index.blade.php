@@ -86,12 +86,10 @@
     @yield('content')
      <!-- Footer -->
      <footer id="footer" class="footer">
-
 <div class="container-fluid ">
   <div class="copyright">
     © Copyright <strong><span>MaCommande</span></strong>. All Rights Reserved
   </div>
-
 </footer>
 <!--  End Footer -->
  <!--===============================================================================================-->

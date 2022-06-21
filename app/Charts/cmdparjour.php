@@ -26,9 +26,9 @@ $to=Carbon::now();
 
 $from=Carbon::now()->subDays(7);
 $date = DB::table('Commandes')->select(DB::raw('DAYNAME(Date_Livraison) as date'))
->>>>>>> Stashed changes
+
 ->whereBetween('Date_Livraison', [$from, $to])
-->groupBy(DB::raw('DATE_FORMAT(Date_Livraison, "%W, %d %M %y")'))
+->groupBy('Date_Livraison')
 ->pluck('date');
 $z = Commande::select(DB::raw("COUNT(*) as count"))
 ->whereBetween('Date_Livraison', [$from, $to])
@@ -43,14 +43,14 @@ $x = Commande::select(DB::raw("COUNT(*) as count"))
 //dd($date);
 
 return $this->chart5->barChart()
-<<<<<<< Updated upstream
-->setTitle('commandes livrées vs commandes retournées')
-->setSubtitle('les 10 derniers jours')
+
+->setTitle('Une visualisation des commandes livrées par rapport aux retournées pendants les  7 derniers jours')
+->setSubtitle('Jours')
 
 
 ->addData('Livrée ', $z->all())
 ->addData('Retournée', $x->all())
-->setXAxis($date->all(),$retour->all());
+->setXAxis($date->all());
 
 }
 }

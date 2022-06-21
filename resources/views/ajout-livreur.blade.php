@@ -15,24 +15,29 @@
           
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-12">
-            <div class="wrapper">
+          <div class="col-md-16">
+           
               <div class="row no-gutters">
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                   <div class="contact-wrap w-100 p-md-5 p-4">
 
                     <p class="card-title">Entrez les informations nécessaires:</p>
 
                     <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
+                      <div class="col-md-8">
+                        <div class="form-group" >
                           <x-label class="col-lg-3 col-md-4 label "  for="name" :value="__('Nom:')" />
 
                           <x-input id="Nom" class="form-control" type="text" name="Nom" :value="old('Nom')"  />
                           @if ($errors->has('Nom'))
                                     <span class="text-danger">{{ $errors->first('Nom') }}</span>
                                 @endif
+                                
                         </div>
+</div>
+</div>
+                        <div class="row">
+                        <div class="col-md-8">
                         <div class="form-group">
                           <x-label class="col-lg-3 col-md-4 label "  for="prenom" :value="__('Prénom:')" />
                           <input type="text" class="form-control" name="Prenom" id="prenom">
@@ -86,12 +91,7 @@
 									
 								</div>
 							</div>
-							<div class="col-lg-6 d-flex align-items-stretch">
-    <img  src="assetsajout/images/livreur.png" >   
-      
-						
-				
-</div>
+	
 
   </main><!-- End #main -->
 

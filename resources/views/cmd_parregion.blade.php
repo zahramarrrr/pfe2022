@@ -2,15 +2,15 @@
 @section("content")
 <main id="main" class="main">
     <section class="section dashboard">
-
+  
 
         <div class="card">
+        <div class="card-body">
+  <h5 class="card-title">commande <span>| par gouvernorat</span></h5>
             <div class="col-12">
-                <div class="card recent-sales overflow-auto">
-
+    
                     {{$chart->container() }}
-
-                </div>
+  
             </div>
         </div>
     </section>

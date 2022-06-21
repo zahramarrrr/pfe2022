@@ -28,7 +28,7 @@
  
     
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features Macommande d-flex align-items-center"> 
+    <section id="features" class="features Macommande d-flex align-items-center" style="padding-bottom:120px"> 
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
