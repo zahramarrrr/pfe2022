@@ -81,7 +81,7 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
 
 
     $chart=( new LarapexChart)
-    ->setTitle('commande par region')
+    ->setTitle('Les nombres des commandes pour les 24 gouvernorats')
     ->setXAxis(['tunis','ariana','beja','ben arous','bizerte' , 'gabes','gafsa','jendouba','KAIROUAN','KASSERINE','KEBILI','KEF','MAHDIA','MANOUBA','MEDENINE','MONASTIR','NABEUL','SFAX','SIDI BOUZID','SILIANA','SOUSSE','TATAOUINE','TOZEUR','ZAGHOUAN'])
 ->setDataset([$tunis, $ariana,$beja,$barous,$bizerte,$gabes,$gafsa,$jendouba,$KAIROUAN,$KASSERINE,$KEBILI,$KEF,$MAHDIA,$MANOUBA,$MEDENINE,$MONASTIR,$NABEUL,$SFAX,$SIDIBOUZID,$SILIANA,$SOUSSE,$TATAOUINE,$TOZEUR,$ZAGHOUAN])
 ->setlabels(['tunis','ariana','beja','ben arous','bizerte' , 'gabes','gafsa','jendouba','KAIROUAN','KASSERINE','KEBILI','KEF','MAHDIA','MANOUBA','MEDENINE','MONASTIR','NABEUL','SFAX','SIDI BOUZID','SILIANA','SOUSSE','TATAOUINE','TOZEUR','ZAGHOUAN']);

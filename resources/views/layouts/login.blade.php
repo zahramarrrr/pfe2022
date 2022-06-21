@@ -69,6 +69,12 @@
    </header>
    <!-- End Header -->
    @yield('content')
+   <footer id="footer" class="footer">
+<div class="container-fluid ">
+  <div class="copyright">
+    © Copyright <strong><span>MaCommande</span></strong>. All Rights Reserved
+  </div>
+</footer>
      <!-- Vendor JS Files -->
   <script src="assetswelcome/vendor/purecounter/purecounter.js"></script>
   <script src="assetswelcome/vendor/aos/aos.js"></script>

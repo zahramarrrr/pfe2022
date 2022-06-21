@@ -44,8 +44,10 @@ $x = Commande::select(DB::raw("COUNT(*) as count"))
 
 return $this->chart5->barChart()
 
-->setTitle('commandes livrées vs commandes retournées')
-->setSubtitle('les 10 derniers jours')
+
+->setTitle('Une visualisation des commandes livrées par rapport aux retournées pendants les  7 derniers jours')
+->setSubtitle('Jours')
+
 
 
 ->addData('Livrée ', $z->all())

@@ -16,6 +16,12 @@ use App\Models\User;
 
 
     <div class="container">
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+           
+            <div class="card-body">
     <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
                 affecter un livreur
             </button>

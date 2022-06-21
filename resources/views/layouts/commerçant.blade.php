@@ -80,7 +80,7 @@
     <!-- End Logo -->
     
     <nav class="header-nav ms-auto">
-        <li class="nav-item dropdown pe-3">
+        
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
   <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
   <span class="d-none d-md-block dropdown-toggle ps-2"> {{$comm-> Nom}} {{$comm-> Prenom}}</span>
@@ -165,6 +165,15 @@
   </aside>
   <!-- End Sidebar-->
 @yield("content")
+     <!-- Footer -->
+     <footer id="footer" class="footer">
+
+<div class="container-fluid ">
+  <div class="copyright">
+    © Copyright <strong><span>MaCommande</span></strong>. All Rights Reserved
+  </div>
+
+</footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
      <!--===============================================================================================-->
      <script src='{{asset("assets/vendor/apexcharts/apexcharts.min.js") }}'></script>

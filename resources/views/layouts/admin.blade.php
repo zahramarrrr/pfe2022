@@ -148,7 +148,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
       <li class="nav-item dropdown pe-3">
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="true">
-          <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
+          <img src='{{asset("assets/img/profile-img.png") }}' alt="Profil" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle ps-2">{{$admin->Nom}} {{$admin->Prenom}}</span>
         </a><!-- End Profile Iamge Icon -->
 
@@ -206,29 +206,24 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
 
         
         <ul id="charts-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
-          <li> <a href="{{ url('admin') }}"> <i class="bi bi-circle"></i><span>commande</span> </a></li>
-          <ul>
-            <li> <a href="{{ url('jour_bat') }}"> <i class="bi bi-circle"></i><span>cmd livré ret par nom du jour en baton</span> </a></li>
+          
+            <li> <a href="{{ url('jour_bat') }}"> <i class="bi bi-circle"></i><span>Les commandes livrées par rapport aux retournées</span> </a></li>
 
-            <li> <a href="{{url('cmd_jour')}}"> <i class="bi bi-circle"></i><span>toute les commandes par date</span> </a></li>
-            <li> <a href="{{url('cmd_societe')}}"> <i class="bi bi-circle"></i><span> tt commande par societe</span> </a></li>
-            <li> <a href="{{url('cmd_region')}}"> <i class="bi bi-circle"></i><span>tt commande par region</span> </a></li>
-            <li> <a href="{{url('duree')}}"> <i class="bi bi-circle"></i><span>duree entre declaration et livraison des commandes</span> </a></li>
+            <li> <a href="{{url('cmd_jour')}}"> <i class="bi bi-circle"></i><span>Les commandes livrées par rapport aux déclarées et préparées</span> </a></li>
+            <li> <a href="{{url('cmd_societe')}}"> <i class="bi bi-circle"></i><span> Les commandes par société</span> </a></li>
+            <li> <a href="{{url('cmd_region')}}"> <i class="bi bi-circle"></i><span>Les commandes par région</span> </a></li>
+            <li> <a href="{{url('cmd_agent')}}"> <i class="bi bi-circle"></i><span>Les commandes par agent d'entrepôt</span> </a></li>
+            <li> <a href="{{url('cmd_livreur')}}"> <i class="bi bi-circle"></i><span>Les commandes par livreur</span> </a></li>
+            <li> <a href="{{url('duree')}}"> <i class="bi bi-circle"></i><span>La durée entre la déclaration et la livraison</span> </a></li>
+            <li> <a href="{{url('diff_affect_liv')}}"> <i class="bi bi-circle"></i><span>La durée entre l'affectation et la livraison</span> </a></li>
+            <li> <a href="{{url('diff_affect_prep')}}"> <i class="bi bi-circle"></i><span>La durée entre l'affectation et la préparation</span> </a></li>
 
-          </ul>
-          <li> <a href="{{ url('employee') }}"> <i class="bi bi-circle"></i><span>employee</span> </a></li>
-          <ul>
-            <li> <a href="{{url('cmd_agent')}}"> <i class="bi bi-circle"></i><span>cmd par agent</span> </a></li>
-            <li> <a href="{{url('cmd_livreur')}}"> <i class="bi bi-circle"></i><span>cmd par livreur</span> </a></li>
-            <li> <a href="{{url('diff_affect_liv')}}"> <i class="bi bi-circle"></i><span>duree entre affecatation et livraiison</span> </a></li>
-            <li> <a href="{{url('diff_affect_prep')}}"> <i class="bi bi-circle"></i><span>duree entre affectation et preparation</span> </a></li>
-
-          </ul>
+          
         </ul>
       </li>
       <!-- End Dashboard Nav -->
       <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item"> <a class="nav-link " >
+        <li class="nav-item nav-link collapsed" data-bs-target="#components-nav"> 
             <i class="bi bi-person"></i> <span>Personnels</span> </a></li>
         <!-- End Dashboard Nav -->
 
@@ -258,7 +253,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
         </ul>
         </li><!-- End Personnels Nav -->
 
-        <li class="nav-item"> <a class="nav-link " >
+        <li class="nav-item nav-link collapsed" data-bs-target="#components-nav"> 
             <i class="bi bi-journal-text"></i><span>Commandes</span>
           </a>
         </li>
@@ -268,35 +263,35 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
             <a href="{{ url('commande_declaree_admin') }}" class="nav-link collapsed" data-bs-target="#components-nav">
          
               
-                <i class="bi bi-circle"></i><span>Liste des commandes déclarées</span>
+            <i class="bi bi-bag"></i></i><span>Les commandes déclarées</span>
               </a>
             </li>
             <li class="nav-item">
             <a href="{{ url('liste-validee') }}" class="nav-link collapsed" data-bs-target="#components-nav">
          
             
-                <i class="bi bi-circle"></i><span>Liste des commandes validées</span>
+            <i class="bi bi-bag"></i><span>Les commandes validées</span>
               </a>
             </li>
             <li class="nav-item">
             <a href="{{ url('liste-commandes-preparee') }}" class="nav-link collapsed" data-bs-target="#components-nav">
          
               
-                <i class="bi bi-circle"></i><span>Liste des commandes préparées</span>
+            <i class="bi bi-bag"></i><span>Les commandes préparées</span>
               </a>
             </li>
             <li class="nav-item">
             <a href="{{ url('liste-commandes-livree') }}" class="nav-link collapsed" data-bs-target="#components-nav">
          
           
-                <i class="bi bi-circle"></i><span>Liste des commandes livrées</span>
+            <i class="bi bi-bag"></i><span>Les commandes livrées</span>
               </a>
             </li>
             <li class="nav-item">
             <a href="{{ url('liste-commandes-retournee') }}" class="nav-link collapsed" data-bs-target="#components-nav">
          
            
-                <i class="bi bi-circle"></i><span>Liste des commandes retournées</span>
+            <i class="bi bi-bag"></i><span>Les commandes retournées</span>
               </a>
             </li>
 
@@ -323,7 +318,16 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
 
   @yield("content")
 
+     <!-- Footer -->
+     <footer id="footer" class="footer">
 
+<div class="container-fluid ">
+  <div class="copyright">
+    © Copyright <strong><span>MaCommande</span></strong>. All Rights Reserved
+  </div>
+
+</footer>
+<!--  End Footer -->
 
 
 
@@ -349,11 +353,11 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
   <script src='{{asset("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js") }}'></script>
   <script src='{{asset("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js") }}' type='text/javascript'></script>
 
-  <script src="assetsajout/js/jquery.min.js"></script>
-  <script src="assetsajout/js/popper.js"></script>
-  <script src="assetsajout/js/bootstrap.min.js"></script>
-  <script src="assetsajout/js/jquery.validate.min.js"></script>
-  <script src="assetsajout/js/main.js"></script>
+  <script src='{{asset("assetsajout/js/jquery.min.js") }}'></script>
+  <script src='{{asset("assetsajout/js/popper.js") }}'></script>
+  <script src='{{asset("assetsajout/js/bootstrap.min.js") }}'></script>
+  <script src='{{asset("assetsajout/js/jquery.validate.min.js") }}'></script>
+  <script src='{{asset("assetsajout/js/main.js") }}'></script>
 
   <script>
     // Enable pusher logging - don't include this in production
