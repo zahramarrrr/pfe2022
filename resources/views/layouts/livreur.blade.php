@@ -2,7 +2,7 @@
 
 use App\models\Notifications;
 
-$NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('read_at', null)->get();
+$NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('ID_Notifiable',  Auth::user()->id)->where('read_at', null)->get();
 
 ?>
 <!DOCTYPE html>
@@ -88,7 +88,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{{(('livreur'))}}" class="logo d-flex align-items-center">
         <img src='{{asset("assets/img/logo.png") }}' alt="">
         <span class="d-none d-lg-block">MaCommande</span>
       </a>
@@ -209,7 +209,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
 
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('livreur') }}"><i class="bi bi-bag-check"></i>
+        <a class="nav-link collapsed" href="{{ url('livree_livreur') }}"><i class="bi bi-bag-check"></i>
           <span>Les commandes livrées</span>
         </a>
 

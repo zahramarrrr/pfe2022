@@ -3,7 +3,7 @@
 use App\models\Notifications;
 
 
-$NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('read_at', null)->get();
+$NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('ID_Notifiable',  Auth::user()->id)->where('read_at', null)->get();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +88,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('re
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+    <a href="{{(('agent'))}}" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">MaCommande</span>
       </a>
@@ -211,7 +211,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('re
     <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('agent') }}">
+        <a class="nav-link collapsed" href="{{ url('preparee_agent') }}">
           <i class="bi bi-envelope"></i>
           <span>Les commandes préparées</span>
         </a>

@@ -110,30 +110,27 @@
   <script src="assetswelcome/js/main.js"></script>
   <!--===============================================================================================-->
   
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
+
 <!--===============================================================================================-->
 <script type="text/javascript">
-      $('.verifier').on('click', function(e) {
-        var ID_cmd = $('input[name="idcommande"]').val();
-        console.log(ID_cmd)
-
+  $(document).ready(function(){
+  $("button").click(function(){
+     
+        var ID_cmd =$("input:text").val(); 
+        console.log(JSON.stringify(ID_cmd));
         if (ID_cmd) {
           $.ajax({
             type: 'post',
-            url: "{{ route('chercher')}} ",
+            url: "{{route('chercher')}} ",
             data: {
 
               'ID': ID_cmd,
-              "_token": "{{ csrf_token() }}",
+              "_token": "{{csrf_token()}}",
             },
             success: function(response) {
               $("#res").show();
 
-              console.log(response);
+              console.log(response.etat);
               marker = JSON.stringify(response.etat);
 
               if (marker == '"declaree"') {
@@ -233,16 +230,25 @@
                   .addClass('active step0')
                   .html(marker);
               }
-            }
-          });
-        } else {
+        else
+         {
 
           $('#res')
             .removeClass('font-weight-bold')
             .addClass('text-nowrap')
             .html("Entrez le nom de l'utilisateur");;
         }
-      });
+      },
+      error: function(error) {
+          console.log(response);
+
+          $("#err").show();
+      
+        }
+    });
+  }
+  })
+})
     </script>
 
 </body>

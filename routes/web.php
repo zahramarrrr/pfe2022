@@ -41,8 +41,12 @@ Route::get('/list', 'CommandeController@list')->name('list');
 Route::get('/Statut', function () {
     return view('Statut');
 });
+//les espaces
+route::get('preparee_agent', [HomeController::class, 'preparee_agent'])->name('preparee_agent');
+route::get('livree_livreur', [HomeController::class, 'livree_livreur'])->name('livree_livreur');
+route::get('declaree_commercant', [HomeController::class, 'declaree_commercant'])->name('declaree_commercant');
 
-//pour afficher les espaces 
+//pour afficher les listes pour chaque espace 
 route::get('livreur', [HomeController::class, 'livreur'])->name('livreur');
 route::get('agent', [HomeController::class, 'agent'])->name('agent');
 route::get('admin', [HomeController::class, 'admin'])->name('admin');

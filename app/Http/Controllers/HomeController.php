@@ -78,34 +78,28 @@ class HomeController extends Controller
 
         } elseif ($role == 'agent') {
             $notif = Notifications::query()->where('Notifiable', 'agent')
+            ->where('ID_Notifiable',  Auth::user()->id)
+
             ->orderBy('created_at', 'desc')
            ->take(5)
             ->get();
             $agent = DB::table('users')->where('id', Auth::user()->id)->first();
-            $search_text = isset($_GET['query']);
-            $commande=Commande::where('ID_Agent',Auth::user()->id)
-            ->where('Etat', 'preparee')
-                ->where('ID_commande', 'LIKE', '%' . $search_text . '%')
-                ->get();
-
+            
               
-            return view('Agent', compact('notif', 'agent','commande'));
+            return view('acc_agt', compact('notif', 'agent'));
         } elseif ($role == 'livreur') {
-            $search_text = isset($_GET['query']);
+          
 
             $notif = Notifications::query()->where('Notifiable', 'livreur')
+            ->where('ID_Notifiable',  Auth::user()->id)
             ->orderBy('created_at', 'desc')
            ->take(5)
             ->get();           
              $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
           
     
-            $commande = DB::table('commandes')->where('ID_Livreur', Auth::user()->id)
-            ->where('Etat', 'livree')
-
-                ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
         
-            return view('Livreur', compact('notif', 'livreur','commande'));
+            return view('acc_liv', compact('notif', 'livreur'));
         } else {
             $search_text = isset($_GET['query']);
             $comm = DB::table('users')->where('id', Auth::user()->id)->first();
@@ -131,8 +125,31 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
             return view('Admin',compact('notif', 'admin','chart1','chart3'));
 
     }
+    public function livreur()
+{
+    $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
 
-    public function agent()
+    $notif = Notifications::query()->where('Notifiable', 'livreur')
+    ->where('ID_Notifiable',  Auth::user()->id)
+    ->orderBy('created_at', 'desc')
+   ->take(5)
+    ->get();   
+    return view('acc_liv', compact('notif','livreur'));
+ 
+}
+public function agent()
+{
+    $agent = DB::table('users')->where('id', Auth::user()->id)->first();
+
+    $notif = Notifications::query()->where('Notifiable', 'livreur')
+    ->where('ID_Notifiable',  Auth::user()->id)
+    ->orderBy('created_at', 'desc')
+   ->take(5)
+    ->get();   
+    return view('acc_agt', compact('notif','agent'));
+ 
+}
+    public function preparee_agent()
     {
         $agent = DB::table('users')->where('id', Auth::user()->id)->first();
         $search_text = isset($_GET['query']);
@@ -147,7 +164,7 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
      
         return view('Agent', compact('notif', 'agent', 'commande'));
     }
-    public function livreur()
+    public function livree_livreur()
     {
         $search_text = isset($_GET['query']);
 
@@ -163,7 +180,7 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
                     ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
             return view('Livreur', compact('notif', 'livreur','commande'));
     }
-    public function commercant()
+    public function declaree_commercant()
     {
         $search_text = isset($_GET['query']);
         $comm = DB::table('users')->where('id', Auth::user()->id)->first();
@@ -171,6 +188,13 @@ $notif = Notifications::query()->where('Notifiable', 'admin')
         ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
 
         return view('Commerçant', compact( 'commandes','comm'));
+    }
+    public function commercant()
+    {
+        
+        $comm = DB::table('users')->where('id', Auth::user()->id)->first();
+       
+        return view('acc_com', compact( 'comm'));
     }
   
     public function contact_client(){

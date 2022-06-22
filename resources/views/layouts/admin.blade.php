@@ -78,10 +78,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <div href="Admin" class="logo d-flex align-items-center">
+     <a href="{{url('admin')}}"> <div  class="logo d-flex align-items-center" >
         <img src='{{asset("assets/img/logo.png") }}' alt="">
         <span class="d-none d-lg-block">MaCommande</span>
-      </div>
+      </div></a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
@@ -228,6 +228,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
         <!-- End Dashboard Nav -->
 
         <ul id="components-nav" data-bs-parent="#sidebar-nav">
+          
           <li class="nav-item">
             <a href="{{ url('Listecommercant') }}" class="nav-link collapsed" data-bs-target="#components-nav">
               <i class="bi bi-person"></i><span>Commerçants</span><i class="bi bi-chevron"></i>
@@ -259,6 +260,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
         </li>
         
         <ul id="components-nav" data-bs-parent="#sidebar-nav">
+        <li class="nav-item">
+            <a href="{{ url('ajoutCommande') }}" class="nav-link collapsed" data-bs-target="#components-nav">
+         
+              
+            <i class="bi bi-bag"></i></i><span>Déclarer une commande</span>
+              </a>
+            </li>
           <li class="nav-item">
             <a href="{{ url('commande_declaree_admin') }}" class="nav-link collapsed" data-bs-target="#components-nav">
          

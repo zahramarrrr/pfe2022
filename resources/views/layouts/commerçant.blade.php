@@ -71,7 +71,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{{url('commercant')}}" class="logo d-flex align-items-center">
         <img src='{{asset("assets/img/logo.png") }}' alt="">
         <span class="d-none d-lg-block">MaCommande</span>
       </a>
@@ -137,7 +137,7 @@
         </a>
         </li><!-- End declarer commande nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('commercant') }}">
+        <a class="nav-link collapsed" href="{{ url('declaree_commercant') }}">
         <i class="bi bi-bag"></i>
           <span>les commandes déclarées</span>
         </a>

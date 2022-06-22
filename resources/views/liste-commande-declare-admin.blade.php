@@ -25,7 +25,6 @@ commande(s) validée(s) avec succée(s)</div>
 
   <div class="container" id="reload_declaree">
   <input class='btn4'type="button" id="validation" value="valider"></button>
-  <button type="button" class="btn4" onclick="window.location.href ='ajoutCommande'" ></i> Ajouter</button>
 
 </div>
     <div class="row">
