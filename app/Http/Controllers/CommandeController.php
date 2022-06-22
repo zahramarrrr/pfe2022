@@ -874,8 +874,7 @@ class CommandeController extends Controller
     {
 
 
-        $commandes = DB::table('commandes')->where('id_commande', 'ID_commande')->get();
-        return view('client', compact('commandes'));
+        return view('recherche');
     }
     public function chercher(Request $request)
     {
