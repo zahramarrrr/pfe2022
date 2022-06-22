@@ -183,7 +183,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
           <li>
             <a class="dropdown-item d-flex align-items-center" href="{{ url('mdpadmin') }}">
               <i class="bi bi-gear"></i>
-              <span>modifier mot de passe</span>
+              <span>Changer le mot de passe</span>
             </a>
           </li>
           <li>
@@ -519,7 +519,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
 
 
   <script>
-    $('.affectlivreur').on('click', function(e) {
+    $('#affectlivreur').on('click', function(e) {
       var allVals = [];
       livreurid = $(this).attr('data-id');
       $(".sub_chk:checked").each(function(e) {
@@ -535,13 +535,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
 
 
       $.ajax({
-        url: "{{ route('affecterlivreur')}} ",
+        url:"{{route('affecterlivreur')}}",
         type: "POST",
         data: {
           'livreurid': livreurid,
 
           'vals': allVals,
-          "_token": "{{ csrf_token() }}",
+          "_token":"{{csrf_token()}}",
         },
         success: function(response) {
           // console.log(response);

@@ -15,16 +15,18 @@
           
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-16">
+          <div class="col-md-20">
            
               <div class="row no-gutters">
-                <div class="col-lg-8">
-                  <div class="contact-wrap w-100 p-md-5 p-4">
+                <div class="col-lg-20">
+                  <div class="contact-wrap w-100 p-md-6 p-4">
 
-                    <p class="card-title">Entrez les informations nécessaires:</p>
+                    <p class="card-title" >Entrez les informations nécessaires:</p>
+</br>
 
-                    <div class="row">
-                      <div class="col-md-8">
+                    <div class="row" >
+                      
+                      <div class="col-md-6">
                         <div class="form-group" >
                           <x-label class="col-lg-3 col-md-4 label "  for="name" :value="__('Nom:')" />
 
@@ -35,9 +37,8 @@
                                 
                         </div>
 </div>
-</div>
-                        <div class="row">
-                        <div class="col-md-8">
+
+<div class="col-md-6">
                         <div class="form-group">
                           <x-label class="col-lg-3 col-md-4 label "  for="prenom" :value="__('Prénom:')" />
                           <input type="text" class="form-control" name="Prenom" id="prenom">
@@ -45,41 +46,67 @@
                                     <span class="text-danger">{{ $errors->first('Prenom') }}</span>
                                 @endif
                         </div>
-                        <div class="form-group">
+</div>
+
+
+<div class="col-md-6">
+                        <div class="form-group" >
                           <x-label class="col-lg-3 col-md-4 label "  for="Adresse" :value="__('Adresse:')" />
-                          <input type="text" class="form-control" name="Adresse" id="Adresse">
+
+                          <input type="text" class="form-control" name="Adresse" id="Adresse"  />
                         </div>
+</div>
+
+<div class="col-md-6">
                         <div class="form-group">
                           <x-label class="col-lg-3 col-md-4 label "  for="tel" :value="__('Télèphone:')" />
                           <input type="text" class="form-control" name="Telephone" id="tel">
-                        </div>
-                      
-                      </div>
-                      <div class="col-md-12">
-                      </div>
+                          
+         
+                   </div>
+</div>
 
 
-                      <div class="mt-4">
+<div class="col-md-6">
+<div class="form-group">
+<x-label class="col-lg-3 col-md-4 label "  for="DateNaiss" :value="__('DateNaiss:')" />
+<input type="date" class="form-control" name="DateNaiss" id="DateNaiss">
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="form-group">
+
                         <x-label class="col-lg-3 col-md-4 label "  for="email" :value="__('Adresse mail:')" />
 
-                        <x-input id="email" class="form-control" type="email" name="email" :value="old('email')"  />
-                        @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
-                      </div>
-                      <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label "  for="TypeVehicule" :value="__('TypeVehicule:')" />
-                          <input type="text" class="form-control" name="TypeVehicule" id="TypeVehicule">
+<x-input id="email" class="form-control" type="email" name="email" :value="old('email')"  />
+@if ($errors->has('email'))
+            <span class="text-danger">{{ $errors->first('email') }}</span>
+        @endif
+                          
                         </div>
-                
-                        <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label "  for="TypePermis" :value="__('TypePermis:')" />
-                          <input type="text" class="form-control" name="TypePermis" id="TypePermis">
-                        </div>   
-                          <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label "  for="DateNaiss" :value="__('DateNaiss:')" />
-                          <input type="date" class="form-control" name="DateNaiss" id="DateNaiss">
+</div>
+
+<div class="col-md-6">
+<div class="form-group">
+<x-label class="col-lg-3 col-md-4 label "  for="TypeVehicule" :value="__('TypeVehicule:')" />
+<input type="text" class="form-control" name="TypeVehicule" id="TypeVehicule">
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="form-group">
+
+<x-label class="col-lg-3 col-md-4 label "  for="TypePermis" :value="__('TypePermis:')" />
+<input type="text" class="form-control" name="TypePermis" id="TypePermis">
+                          
                         </div>
+</div>
+            
+                        
+
+                      
+                      
                       <div class="mt-4">
 
                         <x-button class="btn4">

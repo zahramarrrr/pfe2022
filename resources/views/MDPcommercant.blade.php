@@ -21,9 +21,9 @@
         <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                <h2>Commerçant x</h2>
-                <h3>responsable commerçial</h3>
+                <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
+                <h2>{{$commerçant->Nom}} {{$commerçant->Prenom}}</h2>
+                <h3>Commerçant</h3>
                 <div class="social-links mt-2">
                     <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                     <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -40,46 +40,8 @@
         <div class="card">
             <div class="card-body pt-3">
                 <!-- Bordered Tabs -->
-                <ul class="nav nav-tabs nav-tabs-bordered">
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Changer mot de passe</button>
-                    </li>
-
-                </ul>
-                <!-- 
-                    Change Password Form 
-                <form method="POST" action="">
-            @csrf
-
-
-                    <div class="row mb-3">
-                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">mot de passe actuel</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="password" type="password" class="form-control" id="currentPassword">
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">nouveau mot de passe</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="newpassword" type="password" class="form-control" id="newPassword">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Réécrivez votre mot de passe</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Changer mot de passe</button>
-                    </div>
-                </form> -->
-                <!-- End Change Password Form -->
+                
+               
                 @if(Session::has('erreur'))
                 <div class="alert alert-danger" role="alert">{{Session::get('erreur')}} </div>
                 
@@ -91,33 +53,42 @@
     
        
         @endif
-                <form method="POST" action="{{ route('updatemdp') }}">
+        <form method="POST" action="{{ route('updatemdp') }}">
             @csrf
+            <div class="row mb-3">
 
+
+<div class="tab-content pt-2">
+    <h5 class="card-title">Changer le mot de passe:</h5>
          
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="old_password" class="block mt-1 w-full" type="password" name="old_password" required />
+            <div class="row mb-3">
+                <x-label class="col-lg-3 col-md-4 label" for="password" :value="__('Actuel:')" />
+                <div class="col-md-8 col-lg-9">
+                <x-input id="old_password" class="form-control" type="password" name="old_password" required />
+            </div>
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
+            <div class="row mb-3">
+                <x-label class="col-lg-3 col-md-4 label" for="password" :value="__('Nouveau: ')" />
+<div class="col-md-8 col-lg-9">
+                <x-input id="password"  class="form-control" type="password" name="password" required />
             </div>
+</div>
 
             <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
+            <div class="row mb-3">
+                <x-label class="col-lg-3 col-md-4 label"  for="password_confirmation" :value="__('Confirmer:')" />
+                <div class="col-md-8 col-lg-9">
+                <x-input id="password_confirmation" class="form-control"
                                     type="password"
                                     name="password_confirmation" required />
             </div>
-            <div class="flex items-center justify-end mt-4">
-              <button type="submit">ajouter</button>
+            </div>
+                                            <div class="text-center">
+
+                                    
+              <button type="submit" class="btn2" >Modifier</button>
             </div>
         </form>
                

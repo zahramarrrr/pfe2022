@@ -58,7 +58,7 @@
     <nav id="navbar" class="navbar">
     <ul>
         
-        <li><a class="getstarted scrollto" href="{{ url('contact_client') }}">Contact</a></li>
+        <li><a class="getstarted scrollto" href="{{url('contact_client')}}">Contact</a></li>
         <li><a class="getstarted scrollto" href="index">Retour</a></li>
     </ul>
          

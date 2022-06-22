@@ -15,23 +15,20 @@ use App\Models\User;
     </div>
 
 
-    <div class="container">
+   
 
-<div class="row">
-    <div class="col-xl-12">
-        <div class="card">
-           
-            <div class="card-body">
-    <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
-                affecter un livreur
+  
+
+    <div class="container">
+        
+            <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
+                Affecter un livreur
             </button>
-</div>
+        </div>
         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
-                    <div class="height d-flex justify-content-center align-items-center">
-                
-                    </div>
+
                     <div class="card-body">
 
 
@@ -76,7 +73,7 @@ use App\Models\User;
 
                                     <td>{{$commande->Telephone}}</td>
                                     <td>
-                                        <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons"></i></a>
+                                        <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="bi bi-eye-fill"></i></a>
                                     </td>
 
                                     <td><span class="badge bg-success">{{$commande->Etat}}</span></td>
@@ -120,10 +117,10 @@ commande(s) validée(s) avec succée(s)</div>
                     <div>
                         <table class="ui celled table">
                             <thead>
-                                <tr>
-                                    <th>ID livreur</th>
+                                <tr class="labeldetail1">
+                                    <th>ID</th>
                                     <th>Nom</th>
-                                    <th>commandes affectées</th>
+                                    <th>Commandes  </th>
                                     <th></th>
 
 
@@ -136,13 +133,13 @@ commande(s) validée(s) avec succée(s)</div>
                                 $cmd = DB::table('commandes')->where('ID_livreur', $livreur->id)->whereDay('Date_Affect_livreur', now())->get();
 
                                 ?>
-                                <tr>
+                                <tr class="labeldetail">
 
                                     <td>{{$livreur->id}}</td>
                                     <td>{{$livreur->Nom}}</td>
                                     <td>{{count($cmd)}}</td>
 
-                                    <td><button class='affectlivreur' data-id="{{$livreur->id}}"><input type="button" value="Affecter"></button></td>
+                                    <td><input class="btn4" type="button" id='affectlivreur'  data-id="{{$livreur->id}}"  value="Affecter"></td>
 
 
                                 </tr>

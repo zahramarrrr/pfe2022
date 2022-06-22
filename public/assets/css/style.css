@@ -175,15 +175,18 @@ i{
 }
 
 
-
+.labeldetail1{
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
 .card-title {
-  padding: 20px 0 15px 0;
+  text-align: center;
   font-size: 22px;
   font-weight: 500;
-  color: 	#816fe7;
-  
-
+  color: 	#4c32da;
   font-family: "Poppins", sans-serif;
+ 
 }
 .label {
   padding: 0 20px 20px 20px;
@@ -192,11 +195,15 @@ i{
   color: #8e31e6;
   font-family: "Poppins", sans-serif;
 }
-.card-title span {
-  color: #3bcf54;
-  font-size: 24px;
-  font-weight: 400;
+.labeldetail {
+  
+  font-size: 16px;
+  font-weight: 500;
+  color: #8e31e6;
+  font-family: "Poppins", sans-serif;
 }
+
+
 
 .card-img-overlay {
   background-color: rgba(255, 255, 255, 0.6);
@@ -1962,7 +1969,7 @@ body {
 ul.row,
 ul.row-sm {
     list-style: none;
-    padding: 0
+    padding: 10px;
 }
 
 .itemside .info {
@@ -2128,7 +2135,7 @@ float:right;
           font-family: open sans;
         }
         .receipt-main p {
-          color: #333333;
+          color: #2518dd;
           font-family: open sans;
           line-height: 1.42857;
         }
@@ -2137,17 +2144,9 @@ float:right;
           font-weight: 400 !important;
           margin: 0 !important;
         }
-        .receipt-main::after {
-          background: #414143 none repeat scroll 0 0;
-          content: "";
-          height: 5px;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: -13px;
-        }
+       
         .receipt-main thead {
-          background: #414143 none repeat scroll 0 0;
+          background: #2828a1 none repeat scroll 0 0;
         }
         .receipt-main thead th {
           color:#fff;
@@ -2156,10 +2155,14 @@ float:right;
           font-size: 16px;
           font-weight: bold;
           margin: 0 0 7px 0;
+          color:#2828a1;
+         
         }
         .receipt-right p {
-          font-size: 12px;
-          margin: 0px;
+          font-size: 16px; 
+          font-weight: 500;
+           color: #8e31e6; 
+           font-family: "Poppins", sans-serif;
         }
         .receipt-right p i {
           text-align: center;
@@ -2687,7 +2690,9 @@ pre {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: -15px;
-  margin-left: 15px; }
+  margin-left: 15px;
+  width: 90%;
+ }
 
 .no-gutters {
   margin-right: 0;
@@ -3539,24 +3544,6 @@ pre {
   .offset-xl-11 {
     margin-left: 91.66667%; } }
 
-.table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529; }
-  .table th,
-  .table td {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6; }
-  .table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6; }
-  .table tbody + tbody {
-    border-top: 2px solid #dee2e6; }
-
-.table-sm th,
-.table-sm td {
-  padding: 0.3rem; }
 
 .table-bordered {
   border: 1px solid #dee2e6; }
@@ -3910,7 +3897,7 @@ textarea.form-control {
 
 .form-group {
   margin-bottom: 1rem; 
-  padding-left:80px;
+  padding-left:90px;
 }
 
 .form-text {
@@ -8944,7 +8931,8 @@ button.bg-dark:focus {
   padding-left: 1rem !important; }
 
 .p-4 {
-  padding: 1.5rem !important; }
+  padding: 1.5rem !important; 
+position:center ! important;}
 
 .pt-4,
 .py-4 {
@@ -10320,6 +10308,7 @@ a.text-dark:hover, a.text-dark:focus {
     size: a3; }
   body {
     min-width: 992px !important; }
+    
   .container {
     min-width: 992px !important; }
   .navbar {
@@ -10429,7 +10418,8 @@ textarea.form-control {
   box-shadow: 0px 21px 41px -13px rgba(0, 0, 0, 0.18); }
 
 .contact-wrap {
-  background: #fff; }
+  background: #fff;
+  width: 90%;}
   .contact-wrap h3 {
     color: #000; }
 

@@ -51,12 +51,12 @@
       <a href="index" class="logo d-flex align-items-center">
         <img src="assetswelcome/img/logo.png" alt="">
         <span>MaCommande</span>
-      </a>
+   </a>
 
       <nav id="navbar" class="navbar">
       <ul>
           
-          <li><a class="getstarted scrollto" href="{{ url('contact_client') }}">Contact</a></li>
+          <li><a class="getstarted scrollto" href="{{url('contact_client')}}">Contact</a></li>
       </ul>
       @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -250,6 +250,7 @@
   })
 })
     </script>
+
 
 </body>
 

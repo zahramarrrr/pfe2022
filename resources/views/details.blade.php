@@ -2,23 +2,19 @@
 @section("content")
 <<main id="main" class="main">
 
-  <div class="col-md-12">
+  <div class="col-md-10">
     <div class="row">
 
-      <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+      <div class="receipt-main col-md-8 col-md-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
         <div class="row">
           <div class="receipt-header">
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="receipt-left">
-                <img alt="iamgurdeeposahan" src='{{asset("assets/img/commande.png") }}' style="width: 71px; border-radius: 43px;">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+            
+            <div class="col-xs-8 col-sm-8 col-md-8 text-left">
               <div class="receipt-right">
-                <h5>Company Name.</h5>
-                <p>+1 3649-6589 <i class="fa fa-phone"></i></p>
-                <p>company@gmail.com <i class="fa fa-envelope-o"></i></p>
-                <p>USA <i class="fa fa-location-arrow"></i></p>
+                <h5>Société commerçante:</h5>
+                <p>Nom de commerçant:</p>
+                <p>Adresse d'email:</p>
+                <p>Télèphone:</p>
               </div>
             </div>
           </div>
@@ -44,9 +40,7 @@
 
         <div>
 
-          <?php // dd($commandes); 
-          ?>
-
+      
         </div>
        <!--  @if(Auth::user()->Role =='admin')
         <form method="post" action="{{ route('validercommande' ,  ['id' => $commande->id])}}">
@@ -61,60 +55,62 @@
                 <table class="table table-bordered">
 
                   <tbody>
-                    <tr class="space-row">
-                      <th>nom:</th>
-                      <td data-id="$commande->id" id="nom-val">{{$commande->Nom}}</td>
-                    <tr class="space-row">
-                      <th>prénom:</th>
-                      <td id="prenom-val">{{$commande->Prenom}}</td>
+                    <tr class="labeldetail ">
+                      <th >Nom:</th>
+                      <td class=" labeldetail1"data-id="$commande->id" id="nom-val">{{$commande->Nom}}</td>
+                    <tr class="labeldetail ">
+                      <th>Prénom:</th>
+                      <td class=" labeldetail1"id="prenom-val">{{$commande->Prenom}}</td>
                     </tr>
-                    <tr class="space-row">
+                    <tr class="labeldetail ">
                       <th>téléphone:</th>
-                      <td id="Telephone-val">{{$commande->Telephone}}</td>
+                      <td class=" labeldetail1" id="Telephone-val">{{$commande->Telephone}}</td>
                     </tr>
-                    <tr class="space-row">
+                    <tr class="labeldetail ">
                       <th>Addresse mail:</th>
-                      <td id="email-val">{{$commande->Email}}</td>
+                      <td class=" labeldetail1" id="email-val">{{$commande->Email}}</td>
                     </tr>
-                    <tr class="space-row">
+                    <tr class="labeldetail ">
                       <th>Adresse:</th>
                       <td id="Adresse1-val">{{$commande->Adresse}}</td>
                     </tr>
 
-                    <tr class="space-row">
+                    <tr class="labeldetail ">
                       <th>Governorat:</th>
                       <td id="governorat-val">{{$commande->Governorat}}</td>
                     </tr>
-                    <tr class="space-row">
-                      <th>ville</th>
+                    <tr class="labeldetail ">
+                      <th>Ville</th>
                       <td id="ville-val">{{$commande->Ville}}</td>
                     </tr>
-                    <tr class="space-row">
-                      <th>code postal</th>
+                    <tr class="labeldetail ">
+                      <th>Code postal</th>
                       <td id="code_postal-val">{{$commande->Code_postal}}</td>
                     </tr>
-                    <tr class="space-row">
+                    <tr class="labeldetail ">
                       <th>ID Commande:</th>
                       <td id="ID_commande-val">{{$commande->ID_commande}} </td>
                     </tr>
-                    <tr class="space-row">
-                      <th>poids:</th>
+                    <tr class="labeldetail ">
+                      <th>Poids:</th>
                       <td id="poids-val">{{$commande->Poids}}</td>
                     </tr>
-                    <tr class="space-row">
-                      <th>mode de paiment:</th>
+                    <tr class="labeldetail ">
+                      <th>Mode de paiment:</th>
                       <td id="paiment-val">{{$commande->Paiement}}</td>
                     </tr>
-                    <tr class="space-row">
-                      <th>total prix:</th>
+                    <tr class="labeldetail ">
+                      <th>Total prix:</th>
                       <td id="prix-val">{{$commande->Prix}}</td>
                     </tr>
-                    <tr class="space-row">
+                    <tr class="labeldetail ">
                       <th>description:</th>
                       <td id="description-val">{{$commande->Description}}</td>
                     </tr>
                     <tr class="space-row">
                       <th>Etat:</th>
+                    <tr class="labeldetail ">
+                      <th>Description:</th>
                       <td id="description-val">{{$commande->Etat}}</td>
                     </tr>
                   </tbody>
@@ -146,6 +142,7 @@
               ?>
             </form>
 
-            </main>
+       </div>
+            </div>
 
             @endsection

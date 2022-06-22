@@ -45,40 +45,7 @@
                     
 
                 </ul>
-                <!-- 
-                    Change Password Form 
-                <form method="POST" action="">
-            @csrf
-
-
-                    <div class="row mb-3">
-                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">mot de passe actuel</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="password" type="password" class="form-control" id="currentPassword">
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">nouveau mot de passe</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="newpassword" type="password" class="form-control" id="newPassword">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Réécrivez votre mot de passe</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Changer mot de passe</button>
-                    </div>
-                </form> -->
-                <!-- End Change Password Form -->
+               
                 @if(Session::has('erreur'))
                 <div class="alert alert-danger" role="alert">{{Session::get('erreur')}} </div>
                 

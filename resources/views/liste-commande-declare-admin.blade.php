@@ -54,7 +54,7 @@ commande(s) validée(s) avec succée(s)</div>
 
                 <tr id="tr_{{$commande->id}}">
                   <td><input type="checkbox" class="sub_chk" data-id="{{$commande->id}}"></td>
-                  <td><img src='{{asset("assets/img/comm.png") }}' alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
+                  <td><img src="assets/img/avatar4.png"  alt="" class="thumb-sm rounded-circle mr-2">{{$commande->ID_commande}}</td>
                   <td>{{$commande->created_at}}</td>
                   <?php
                                          $commercant = User::where('id', $commande->ID_Commercant)->first();
@@ -72,7 +72,7 @@ commande(s) validée(s) avec succée(s)</div>
 
                   <td>{{$commande->Telephone}}</td>
                   <td>
-                  <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons"></i></a>
+                  <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="bi bi-eye-fill"></i></a>
                   </td>
                   
                   <td><span class="badge bg-success">{{$commande->Etat}}</span></td>

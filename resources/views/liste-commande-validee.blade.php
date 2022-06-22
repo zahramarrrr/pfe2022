@@ -23,7 +23,7 @@ use App\Models\User;
     <div class="container">
         
             <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
-                affecter un agent
+                Affecter un agent
             </button>
         </div>
         <div class="row">
@@ -72,7 +72,7 @@ use App\Models\User;
                                     <td>{{$societe}}</td>
                                     <td>{{$commande->Telephone}}</td>
                                     <td>
-                                        <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="material-icons"></i></a>
+                                        <a href="{{route('commande.details' , ['id' => $commande->id]) }}"><i class="bi bi-eye-fill"></i></a>
                                     </td>
 
                                     <td><span class="badge bg-success">{{$commande->Etat}}</span></td>
@@ -111,10 +111,10 @@ use App\Models\User;
                     <div>
                         <table class="ui celled table">
                             <thead>
-                                <tr>
-                                    <th>ID agent</th>
+                                <tr class=" labeldetail1">
+                                    <th>ID </th>
                                     <th>Nom</th>
-                                    <th>commandes affectées</th>
+                                    <th>Commandes </th>
                                     <th></th>
 
 
@@ -127,13 +127,13 @@ use App\Models\User;
                                 $cmd = DB::table('commandes')->where('ID_Agent', $agent->id)->whereDay('Date_Affect_Agent', now())->get();
 
                                 ?>
-                                <tr>
+                                <tr class="labeldetail">
 
                                     <td>{{$agent->id}}</td>
                                     <td>{{$agent->Nom}}</td>
                                     <td>{{count($cmd)}}</td>
 
-                                    <td><button class='affectagent' data-id="{{$agent->id}}"><input type="button" value="Affecter"></button></td>
+                                    <td><input class="btn4" class='affectagent' data-id="{{$agent->id}}"  type="button" value="Affecter"></td>
 
 
                                 </tr>

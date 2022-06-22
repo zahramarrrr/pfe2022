@@ -190,7 +190,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'agent')->where('ID
           <li>
             <a class="dropdown-item d-flex align-items-center" href="{{ url('mdpagent') }}">
               <i class="bi bi-gear"></i>
-              <span class="h6">Changer mot de passe</span>
+              <span class="h6">Changer le mot de passe</span>
             </a>
           </li>
           <li>

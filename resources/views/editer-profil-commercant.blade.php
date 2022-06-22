@@ -33,9 +33,7 @@
                     <!-- Bordered Tabs -->
                     <ul class="nav nav-tabs nav-tabs-bordered">
 
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Editer Profil</button>
-                        </li>
+                       
 
                     </ul>
                     @if(Session::has('commandes_update'))
@@ -121,7 +119,7 @@
 
                                 <div class="text-center">
 
-                                    <button type="submit" class="btn-primary1">Enregistrer les modifications</button>
+                                    <button type="submit" class="btn4">Enregistrer les modifications</button>
 
                                 </div>
                             </div>

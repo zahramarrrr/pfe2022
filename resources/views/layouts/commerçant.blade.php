@@ -117,7 +117,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="{{ url('mdpcommercant') }}">
                 <i class="bi bi-gear"></i>
-                <span>Changer mot de passe</span>
+                <span>Changer le mot de passe</span>
               </a>
             </li>
             <li>

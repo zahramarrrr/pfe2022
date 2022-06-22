@@ -50,7 +50,7 @@ use App\Models\User;
                                 @foreach($commande as $cmd)
 
 
-                                <tr id="tr_{{$cmd->id}}">
+                                <tr  id="tr_{{$cmd->id}}">
                                     <td><input type="checkbox" class="sub_chk" data-id="{{$cmd->id}}"></td>
                                     <td><img src="assets/img/avatar4.png" alt="" class="thumb-sm rounded-circle mr-2">{{$cmd->ID_commande}}</td>
                                     <td>{{$cmd->Date_Preparation}}</td>
@@ -73,7 +73,7 @@ use App\Models\User;
 
                                     <td>{{$cmd->Telephone}}</td>
                                     <td>
-                                        <a href="{{route('commande.details' , ['id' => $cmd->id]) }}"><i class="material-icons"></i></a>
+                                        <a href="{{route('commande.details' , ['id' => $cmd->id]) }}"><i class="bi bi-eye-fill"></i>></a>
                                     </td>
 
                                     <td><span class="badge bg-success">{{$cmd->Etat}}</span></td>

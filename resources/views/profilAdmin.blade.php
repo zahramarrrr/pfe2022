@@ -4,12 +4,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-  <h1>Profile</h1>
+  <h1>Profil</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/Commer%C3%A7ant">Page d'accueil</a></li>
 
-          <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item active">Profil</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -57,6 +57,7 @@
                   <div class="col-lg-9 col-md-8">{{$admin-> Nom}}</div>
                 </div>
 
+
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label" >Prénom:</div>
                   <div class="col-lg-9 col-md-8">{{$admin-> Prenom}}</div>
@@ -75,7 +76,7 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label" >Télèphone:</div>
-                  <div class="col-lg-9 col-md-8">(216) {{$admin-> Telephone}}</div>
+                  <div class="col-lg-9 col-md-8">(+216) {{$admin-> Telephone}}</div>
                 </div>
 
                 <div class="row">
