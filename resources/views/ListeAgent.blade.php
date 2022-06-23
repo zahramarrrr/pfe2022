@@ -2,11 +2,8 @@
  @section("content")
   <main id="main" class="main">
     <div class="pagetitle">
-      <h1>Liste des agents d'entrepot</h1>
-      <nav>
-        <ol class="breadcrumb">
-        </ol>
-      </nav>
+      <h1>La liste des agents  d'entrepôt</h1>
+     
     </div>
 
     @if(Session::has('delete'))

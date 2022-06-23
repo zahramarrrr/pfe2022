@@ -1,23 +1,25 @@
 @extends("layouts.admin")
 @section("content")
 <main id="main" class="main">
+<div class="pagetitle">
+      <h1>Déclaration d'une nouvelle commande</h1>
+     
+    </div>
 
-    <div class="pagetitle">
-        <h1>Déclaration d'une commande</h1>
-    </div><!-- End Page Title -->
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-15">
 
-    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
-        <div class="wrapper wrapper--w790">
-            <div class="card card-5">
+        <div class="card">
+          <div class="card-body">
 
-                <div class="card-body">
-                    @if(Session::has('post_add'))
-                    <span>{{Session::get('post_add')}} </span>
-                    @endif
+            <h5 class="card-title"> <img src='{{asset("assets/img/commande.png") }}' alt="Profile" class="img">Formulaire de déclaration</h5>
+            @if(Session::has('post_add'))
+            <span>{{Session::get('post_add')}} </span>
+            @endif
 
-        
-                
-                    <form class="register-form" id="register-form" method="post" action="{{ route('ajouter.commande') }}">
+            <!-- Horizontal Form -->
+            <form class="register-form" id="register-form" method="post" action="{{ route('save.post') }}">
               @csrf
               <div class="row mb-1">
                 <input class="input--style-5" type="text" name="commercant" style="display:none" value="Auth::user()->id">
@@ -171,11 +173,10 @@
                 <a href="{{route('list')}}"> <input class="btn3" type="submit" value="Déclarer" id="submit" name="submit"> </a>
               </div>
             </form><!-- End Horizontal Form -->
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
 
+          </div>
+        </div>
+
+</main>
 
     @endsection

@@ -11,65 +11,88 @@
 
       <div class="container">
         <div class="row justify-content-center">
-      
+          
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-12">
-            <div class="wrapper">
+          <div class="col-md-20">
+           
               <div class="row no-gutters">
-                <div class="col-lg-6">
-                  <div class="contact-wrap w-100 p-md-5 p-4">
+                <div class="col-lg-20">
+                  <div class="contact-wrap w-100 p-md-6 p-4">
 
-                    <p class="card-title">Entrez les informations nécessaires:</p>
+                    <p class="card-title" >Entrez les informations nécessaires:</p>
+</br>
 
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label " for="name" :value="__('Nom:')" />
+                    <div class="row" >
+                      
+                      <div class="col-md-6">
+                        <div class="form-group" >
+                          <x-label class="col-lg-3 col-md-4 label "  for="name" :value="__('Nom:')" />
 
                           <x-input id="Nom" class="form-control" type="text" name="Nom" :value="old('Nom')"  />
                           @if ($errors->has('Nom'))
                                     <span class="text-danger">{{ $errors->first('Nom') }}</span>
                                 @endif
+                                
                         </div>
+</div>
+
+<div class="col-md-6">
                         <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label " for="Prenom" :value="__('Prénom:')" />
-                          <input type="text" class="form-control" name="Prenom" id="Prenom">
+                          <x-label class="col-lg-3 col-md-4 label "  for="prenom" :value="__('Prénom:')" />
+                          <input type="text" class="form-control" name="Prenom" id="prenom">
                           @if ($errors->has('Prenom'))
                                     <span class="text-danger">{{ $errors->first('Prenom') }}</span>
                                 @endif
                         </div>
-                        <div class="form-group">
+</div>
+
+
+<div class="col-md-6">
+                        <div class="form-group" >
                           <x-label class="col-lg-3 col-md-4 label "  for="Adresse" :value="__('Adresse:')" />
-                          <input type="text" class="form-control" name="Adresse" id="Adresse">
+
+                          <input type="text" class="form-control" name="Adresse" id="Adresse"  />
                         </div>
-                      
+</div>
+
+<div class="col-md-6">
                         <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label " for="Telephone" :value="__('Télèphone:')" />
-                          <input type="text" class="form-control" name="Telephone" id="Telephone">
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                      </div>
+                          <x-label class="col-lg-3 col-md-4 label "  for="tel" :value="__('Télèphone:')" />
+                          <input type="text" class="form-control" name="Telephone" id="tel">
+                          
+         
+                   </div>
+</div>
 
+<div class="col-md-6">
+<div class="form-group">
 
-                      <div class="mt-4">
                         <x-label class="col-lg-3 col-md-4 label "  for="email" :value="__('Adresse mail:')" />
 
-                        <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
-                        @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
-                      </div>
+<x-input id="email" class="form-control" type="email" name="email" :value="old('email')"  />
+@if ($errors->has('email'))
+            <span class="text-danger">{{ $errors->first('email') }}</span>
+        @endif
+                          
+                        </div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<x-label class="col-lg-3 col-md-4 label "  for="DateNaiss" :value="__('DateNaiss:')" />
+<input type="date" class="form-control" name="DateNaiss" id="DateNaiss">
+</div>
+</div>
 
-                      <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label "  for="Salaire" :value="__('Salaire:')" />
-                          <input type="text" class="form-control" name="Salaire" id="Salaire">
-                        </div>
-                        <div class="form-group">
-                          <x-label class="col-lg-3 col-md-4 label "  for="DateNaiss" :value="__('DateNaiss:')" />
-                          <input type="date" class="form-control" name="DateNaiss" id="DateNaiss">
-                        </div>
+
+
+
+
+
+                        
+
+                      
+                      
                       <div class="mt-4">
 
                         <x-button class="btn4">
@@ -78,17 +101,10 @@
                       </div>
                     </div>
     </form>
-
-    </div>
-    </div>
-    
-    <div class="col-lg-6 d-flex align-items-stretch">
-    <img  src="assetsajout/images/agent.png" >   
-      
-						
-				
-</div>
-
+									
+								</div>
+							</div>
+	
 
   </main><!-- End #main -->
 @endsection

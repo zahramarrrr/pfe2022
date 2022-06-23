@@ -254,12 +254,6 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
         </ul>
         </li><!-- End Personnels Nav -->
 
-        <li class="nav-item nav-link collapsed" data-bs-target="#components-nav"> 
-            <i class="bi bi-journal-text"></i><span>Commandes</span>
-          </a>
-        </li>
-        
-        <ul id="components-nav" data-bs-parent="#sidebar-nav">
         <li class="nav-item">
             <a href="{{ url('ajoutCommande') }}" class="nav-link collapsed" data-bs-target="#components-nav">
          
@@ -267,6 +261,13 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
             <i class="bi bi-bag"></i></i><span>Déclarer une commande</span>
               </a>
             </li>
+        <li class="nav-item nav-link collapsed" data-bs-target="#components-nav"> 
+            <i class="bi bi-journal-text"></i><span>Les Commandes</span>
+          </a>
+        </li>
+        
+        <ul id="components-nav" data-bs-parent="#sidebar-nav">
+        
           <li class="nav-item">
             <a href="{{ url('commande_declaree_admin') }}" class="nav-link collapsed" data-bs-target="#components-nav">
          

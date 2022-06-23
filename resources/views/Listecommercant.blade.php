@@ -3,11 +3,8 @@
 
 <main id="main" class="main">
   <div class="pagetitle">
-    <h1>Liste des commerçants</h1>
-    <nav>
-      <ol class="breadcrumb">
-      </ol>
-    </nav>
+    <h1>La liste des commerçants</h1>
+   
   </div>
   <div class="container">
     <button type="button" class="btn4" onclick="window.location.href ='ajoutcom'" ></i> Ajouter</button>
