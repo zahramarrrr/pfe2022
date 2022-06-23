@@ -62,9 +62,11 @@ $com = Commande::where('id', $n->ID_commande)->first();
 
                 <!--  <td> <a href="{{route('commande.details' , ['id' => $n->id]) }}"> details</a></td>
 -->
+<td> <span><i class="bi bi-box-seam" onclick="getId(this);" id="{{$com->id}}" type="button" style="font-size:2rem;"></i>
 
-<td> <button onclick="getId(this);" id="{{$com->id}}" type="button">preparer</button>
-                </td>
+
+</span></td>
+
                 </tr>
                 @endforeach
 

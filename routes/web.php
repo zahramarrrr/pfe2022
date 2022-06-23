@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\chart;
+use App\Http\Controllers\clientController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\profilcontroller;
@@ -107,6 +108,9 @@ route::post('liste-commande-validee', [CommandeController::class, 'maj'])->name(
 
 route::post('savemessage', [ContactsController::class, 'store'])->name('savemessage');
 route::get('contactview', [ContactsController::class, 'create'])->name('contactview');
+//contact client
+route::post('savemessage1', [clientController::class, 'store'])->name('savemessage1');
+route::get('contactview', [clientController::class, 'create'])->name('contactview1');
 
 
 

@@ -53,7 +53,7 @@
 						{{Session::get('email')}}
 					</div>
 					@endif
-					<form class="register-form" id="register-form" method="post" action="{{ route('savemessage') }}">
+					<form class="register-form" id="register-form" method="post" action="{{route('savemessage')}}">
 						@csrf
 
 						<div class="row gy-4">

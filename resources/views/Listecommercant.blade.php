@@ -64,7 +64,7 @@
                 @foreach($comm as $c)
                 <tr>
 
-                  <td><img src='{{asset("assets/img/Macommande.png") }}' alt="" class="thumb-sm rounded-circle mr-2">{{$c->id}}</td>
+                  <td><img src='{{asset("assets/img/avatar.png") }}' alt="" class="thumb-sm rounded-circle mr-2">{{$c->id}}</td>
 
                   <td>{{$c->Nom}}</td>
                   <td>{{$c->Prenom}}</td>
