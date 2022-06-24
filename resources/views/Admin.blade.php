@@ -44,13 +44,13 @@ use App\Models\Commande;
 
 
 
-  <div class="pagetitle">
-    <h1>Tableaux de bord</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active">Tableaux de bord</li>
-      </ol>
-    </nav>
+<div class="pagetitle">
+            <h1>Espace personnel</h1>
+            <nav>
+                <ol class="breadcrumb">
+                  
+                </ol>
+            </nav>
   </div><!-- End Page Title -->
 
 

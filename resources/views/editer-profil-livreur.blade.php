@@ -3,12 +3,10 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Profil</h1>
+            <h1>Editer le profil</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="Livreur">page d'accueil</a></li>
-
-                    <li class="breadcrumb-item active">Editer le profile</li>
+                  
                 </ol>
             </nav>
         </div><!-- End Page Title -->

@@ -6,9 +6,13 @@ use App\Models\User;
 @extends("layouts.commerçant")
 @section("content")
 <main id="main" class="main">
-<section class="section dashboard">
-    <div class="row">
-
+<div class="pagetitle">
+            <h1>Espace personnel</h1>
+            <nav>
+                <ol class="breadcrumb">
+                  
+                </ol>
+            </nav>
       <!-- Left side columns -->
       <div class="col-lg-11">
         <div class="row">

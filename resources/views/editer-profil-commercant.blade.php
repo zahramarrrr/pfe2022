@@ -4,7 +4,11 @@
 
     <div class="pagetitle">
         <h1>Profile</h1>
-
+        <nav>
+                <ol class="breadcrumb">
+                  
+                </ol>
+            </nav>
     </div><!-- End Page Title -->
     <div class="row">
         <div class="col-xl-4">

@@ -5,7 +5,11 @@
 
     <div class="pagetitle">
   <h1>profile</h1>
-    
+  <nav>
+                <ol class="breadcrumb">
+                  
+                </ol>
+            </nav>
     </div><!-- End Page Title -->
 
     <section class="section profile">

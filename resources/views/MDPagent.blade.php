@@ -4,12 +4,10 @@
  <main id="main" class="main">
 
 <div class="pagetitle">
-<h1>Profile</h1>
+<h1>Changer le mot de passe</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/Commer%C3%A7ant">Page d'accueil</a></li>
-
-      <li class="breadcrumb-item active">Changer le mot de passe</li>
+      
     </ol>
   </nav>
 </div><!-- End Page Title -->

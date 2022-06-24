@@ -65,6 +65,7 @@
 <link href='{{asset("assets/declaration/css/main.css") }}' rel="stylesheet" media="all">
 <!--===============================================================================================-->
 <link href='{{asset("//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css") }}' rel="stylesheet">
+<link rel="stylesheet" href="assets/Calendrier/css/style.css">
 
 </head>
 <body>
@@ -156,7 +157,26 @@
                             {{ __('Déconnexion') }}
 </a>
       </form>
-      
+      </br>
+
+<div class="row justify-content-center">
+  <div class="col-md-18">
+    <div class="today">
+      <div class="today-piece  top  day"><?php
+// Return current date from the remote server
+$date = date(' h:i:s ');
+echo $date;
+?></div>
+      <div class="today-piece  middle  month"><?php
+// Return current date from the remote server
+$date = date('  d/m/y ');
+echo $date;
+?></div>
+      <div class="today-piece  middle  date"><div class="today-piece  middle  month"></div></div>
+</div>
+    </div>
+  </div>
+</div>
       <!-- END contact -->
 
 
@@ -255,5 +275,10 @@
             });
 } );
 </script>
+<script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
  </body>
 </html>

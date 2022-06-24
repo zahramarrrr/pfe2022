@@ -4,13 +4,9 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Profil</h1>
+        <h1>Changer le mot de passe</h1>
         <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">page d'accueil</li>
-
-                <li class="breadcrumb-item active">Profil</li>
-            </ol>
+          
         </nav>
     </div><!-- End Page Title -->
 

@@ -10,11 +10,11 @@
     <span>{{Session::get('delete')}}</span>
     @endif
 
-    <div class="container">
+    <div >
     <button type="button" class="btn4" onclick="window.location.href ='ajoutlivreur'" ></i> Ajouter</button>
 </div>
       <div class="row">
-        <div class="col-xl-12">
+        <div class="col-xl-18">
           <div class="card">
            
 

@@ -5,6 +5,7 @@ use App\models\Notifications;
 $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('ID_Notifiable',  Auth::user()->id)->where('read_at', null)->get();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,6 +68,8 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
   <script src='{{asset("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js") }}'></script>
   <script src='{{asset("https://js.pusher.com/7.0/pusher.min.js") }}'></script>
 
+
+<link rel="stylesheet" href="assets/Calendrier/css/style.css">
   <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -241,6 +244,31 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
 </a>
 </form>
 
+
+			
+				
+  </br>
+
+			<div class="row justify-content-center">
+				<div class="col-md-18">
+					<div class="today">
+				    <div class="today-piece  top  day"><?php
+// Return current date from the remote server
+$date = date(' h:i:s ');
+echo $date;
+?></div>
+				    <div class="today-piece  middle  month"><?php
+// Return current date from the remote server
+$date = date('  d/m/y ');
+echo $date;
+?></div>
+				    <div class="today-piece  middle  date"><div class="today-piece  middle  month"></div></div>
+</div>
+					</div>
+				</div>
+  </div>
+	
+		
       <!-- END contact -->
 
 
@@ -514,7 +542,10 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'livreur')->where('
     });
   </script>
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
