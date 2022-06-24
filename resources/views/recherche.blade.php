@@ -40,11 +40,11 @@
     <style>
         @import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
 
-         .form-horizontal {
-            
-    padding-top:100px;
-}
-        
+        .form-horizontal {
+
+            padding-top: 100px;
+        }
+
 
         .shop-tracking-status .order-status {
             margin-top: 150px;
@@ -56,7 +56,7 @@
             height: 12px;
             border: 1px solid #aaa;
             border-radius: 7px;
-            background: #eee;
+            background: #5e17eb;
             box-shadow: 0px 0px 5px 0px #C2C2C2 inset
         }
 
@@ -64,7 +64,7 @@
             height: 8px;
             margin: 1px;
             border-radius: 7px;
-            background: #32CD32 ;
+            background: #5e17eb;
             width: 0px
         }
 
@@ -93,6 +93,16 @@
             margin-top: -35px
         }
 
+        .le1 {
+            border: 1px solid #ddd;
+            padding: 7px;
+            box-shadow: 0px 0px 10px 0px #999;
+            background-color: #32CD32 !important;
+            position: absolute;
+            margin-top: -35px
+        }
+
+
         .shop-tracking-status .image-order-status.disabled {
             filter: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'><filter%20id='grayscale'><feColorMatrix%20type='matrix'%20values='0.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200%200%200%201%200'/></filter></svg>#grayscale");
             filter: grayscale(100%);
@@ -104,7 +114,7 @@
         }
 
         .shop-tracking-status .image-order-status.active {
-            box-shadow: 0px 0px 10px 0px #9F2B68	
+            box-shadow: 0px 0px 10px 0px #9F2B68
         }
 
         .shop-tracking-status .image-order-status.active .status {
@@ -213,26 +223,40 @@
             padding-left: 5px;
             vertical-align: middle
         }
+
         .btn-get-started {
-  margin-top: 30px !important;
-  line-height: 0;
-  padding: 15px 40px !important;
-  border-radius: 4px;
-  transition: 0.5s;
-  color: #fff;
-  background: #B15FC8;
-  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
-}
-.header .logo {
-    line-height: 0;
-    padding-right: 1000 !important;
-}
-.labelsearch{
-    color:#004AAD;
-    font-size: 25px;
+            margin-top: 30px !important;
+            line-height: 0;
+            padding: 15px 40px !important;
+            border-radius: 4px;
+            transition: 0.5s;
+            color: #fff;
+            background: #B15FC8;
+            box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+        }
+
+        .header .logo {
+            line-height: 0;
+            padding-right: 1000 !important;
+        }
+
+        .labelsearch {
+            color: #004AAD;
+            font-size: 25px;
+        }
+
+        .le1 {
+            border: 1px solid #ddd;
+            padding: 7px;
+            box-shadow: 0px 0px 10px 0px #999;
+            background-color: #32CD32 !important;
+            position: absolute;
+            margin-top: -35px;
+        }
+        #erreur {
+            padding-right : 60px !important;
 }
     </style>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
     </script>
     <script language="JavaScript" type="text/javascript">
@@ -240,7 +264,7 @@
             $("button").click(function() {
 
                 var ID_cmd = $("input:text").val();
-
+     
                 console.log(JSON.stringify(ID_cmd));
                 if (ID_cmd) {
                     $.ajax({
@@ -251,55 +275,143 @@
                             'ID': ID_cmd,
                             "_token": "{{csrf_token()}}",
                         },
+    
                         success: function(response) {
+                           
                             $("#res").show();
-
                             console.log(response.etat);
-                            marker = JSON.stringify(response.etat);
 
-                            if (marker == '"Validée"') {
+                            marker = JSON.stringify(response.etat);
+                
+                            if (marker == '"validée"') {
                                 $('#etat')
                                     .removeClass('order-status-timeline-completion')
                                     .addClass('order-status-timeline-completion c0')
                                     .html();
+                                    
+                                $("#valider").css({
+                                    "background-color": "#8c52ff"
+                                });
+                                $("#validee").css({
+                                    "filter": "brightness(20)"
+                                });
+
                             } else if (marker == '"affecter a un agent"') {
                                 $('#etat')
                                     .removeClass('order-status-timeline-completion')
                                     .addClass('order-status-timeline-completion c1')
                                     .html();
-                            } else if (marker == '"Préparée"') {
+                                $("#valider").css("background-color", "#8c52ff");
+                                $("#affecterAgent").css("background-color", "#8c52ff");
+                                $("#validee").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#affecteeagent").css({
+                                    "filter": "brightness(20)"
+                                });
+
+
+                            } else if (marker == '"préparée"') {
                                 $('#etat')
                                     .removeClass('order-status-timeline-completion')
                                     .addClass('order-status-timeline-completion c2')
                                     .html();
-                            } else if (marker == '"En livraison"') {
+                                $("#valider").css("background-color", "#8c52ff");
+                                $("#affecterAgent").css("background-color", "#8c52ff");
+                                $("#preparer").css("background-color", "#8c52ff");
+                                $("#validee").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#affecteeagent").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#preparee").css({
+                                    "filter": "brightness(20)"
+                                });
+
+                            } else if (marker == '"affecter a un livreur"') {
                                 $('#etat')
                                     .removeClass('order-status-timeline-completion')
                                     .addClass('order-status-timeline-completion c3')
                                     .html();
+                                $("#valider").css("background-color", "#8c52ff");
+                                $("#affecterAgent").css("background-color", "#8c52ff");
+                                $("#preparer").css("background-color", "#8c52ff");
+                                $("#affecterLivreur").css("background-color", "#8c52ff");
+                                $("#validee").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#affecteeagent").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#preparee").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#affecteelivreur").css({
+                                    "filter": "brightness(20)"
+                                });
+
                             } else if (marker == '"livrée"') {
                                 $('#etat')
                                     .removeClass('order-status-timeline-completion')
                                     .addClass('order-status-timeline-completion c4')
                                     .html();
-                                    $('#liv')
-                                    $('#dd').text('Livrée')
-                            }
-                            else if (marker == '"retournée"') {
+                                $("#valider").css("background-color", "#8c52ff");
+                                $("#affecterAgent").css("background-color", "#8c52ff");
+                                $("#preparer").css("background-color", "#8c52ff");
+                                $("#affecterLivreur").css("background-color", "#8c52ff", );
+                                $('#liv').css("background-color", "#8c52ff");
+                                $('#dd').text('Livrée');
+                                $("#validee").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#affecteeagent").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#preparee").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#affecteelivreur").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#livree").css({
+                                    "filter": "brightness(20)"
+                                });
+
+                            } else if (marker == '"retournée"') {
                                 $('#etat')
                                     .removeClass('order-status-timeline-completion')
                                     .addClass('order-status-timeline-completion c4')
                                     .html();
-                                    $('#liv')
-                                    $('#dd').text('Retournée')
-                                   
+                                    $("#valider").css("background-color", "#8c52ff");
+                                $("#affecterAgent").css("background-color", "#8c52ff");
+                                $("#preparer").css("background-color", "#8c52ff");
+                                $("#affecterLivreur").css("background-color", "#8c52ff", );
+                                $('#liv').css("background-color", "#8c52ff");
+                                $("#validee").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#affecteeagent").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#preparee").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#affecteelivreur").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $("#livree").css({
+                                    "filter": "brightness(20)"
+                                });
+                                $('#liv')
+                                $('#dd').text('Retournée')
+
                             }
 
                         },
                         error: function(error) {
-                            console.log(response);
 
-                            $("#err").show();
+                            $("#erreur").show();
 
                         }
                     });
@@ -309,7 +421,7 @@
     </script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 </head>
 
@@ -335,53 +447,60 @@
         <div class="col-lg-10 ">
             <img src="assetswelcome/img/search2.png" class="img-fluid col-lg-6" alt="">
 
-           
-                
 
-                        <div class="form-horizontal">
-                            
-                            <label class="labelsearch"><i class="bi bi-arrow-down-right"></i> Suivre votre commande par ici :</label>
-        <input class=" search" type="text">
-        <button  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"type="submit"><i class="bi bi-search"></i></button>
-        </form>
-                       
+            
+            <div class="form-horizontal">
+            <div id="erreur" class="alert alert-danger" role="alert" style="display:none">
+    la commande n'existe pas !</div>
+
+                <label class="labelsearch"><i class="bi bi-arrow-down-right"></i> Suivre votre commande par ici :</label>
+                     
+
+
+                <input class=" search" type="text">
+                <button class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center" type="submit"><i class="bi bi-search"></i></button>
    
-        <div class="row shop-tracking-status">
+                </form>
 
-                        <div id="res" class="order-status" style="display:none">
 
-                            <div class="order-status-timeline">
-                                <!-- class names: c0 c1 c2 c3 and c4 -->
-                                <div id="etat" class="order-status-timeline-completion"></div>
-                            </div>
+                <div class="row shop-tracking-status">
 
-                            <div class="image-order-status image-order-status-new active img-circle">
-                                <span class="status">Validée</span>
-                                <div class="icon"></div>
-                            </div>
-                            <div class="image-order-status image-order-status-active active img-circle">
-                                <span class="status">En préparation</span>
-                                <div class="icon"></div>
-                            </div>
-                            <div class="image-order-status image-order-status-intransit active img-circle">
-                                <span class="status">Préparée</span>
-                                <div class="icon"></div>
-                            </div>
-                            <div class="image-order-status image-order-status-delivered active img-circle">
-                                <span class="status">Affectée a un livreur</span>
-                                <div class="icon"></div>
-                            </div>
-                            <div id="liv" class="image-order-status image-order-status-completed active img-circle">
-                                <span id="dd" class="status"></span>
-                                
+                    <div id="res" class="order-status" style="display:none">
 
-                                <div class="icon"></div>
-                            </div>
-
+                        <div class="order-status-timeline">
+                            <!-- class names: c0 c1 c2 c3 and c4 -->
+                            <div id="etat" class="order-status-timeline-completion"></div>
                         </div>
+
+                        <div id="valider" class="image-order-status image-order-status-new active img-circle">
+                            <span class="status">Validée</span>
+                            <div id="validee" class="icon"></div>
+                         
+                        </div>
+                        <div id="affecterAgent" class="image-order-status image-order-status-active active img-circle">
+                            <span class="status">En préparation</span>
+                            <div id="affecteeagent" class="icon"></div>
+                        </div>
+                        <div id="preparer" class="image-order-status image-order-status-intransit active img-circle">
+                            <span class="status">Préparée</span>
+                            <div id="preparee" class="icon"></div>
+                        </div>
+                        <div id="affecterLivreur" class="image-order-status image-order-status-delivered active img-circle">
+                            <span class="status">Affectée a un livreur</span>
+                            <div id="affecteelivreur" class="icon"></div>
+                        </div>
+                        <div id="liv" class="image-order-status image-order-status-completed active img-circle">
+                            <span id="dd" class="status"></span>
+                           
+
+                           
+                            <div id="livree" class="icon"></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 </body>

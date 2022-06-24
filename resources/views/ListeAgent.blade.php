@@ -46,7 +46,7 @@
                     <td>{{$agent->email}}</td>
                     <td>{{$agent->Telephone}}</td>
                 
-                  <td>  <a href="Deletepersonnel/{{$agent->id}}" ><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                  <td>  <a href="Deletepersonnel/{{$agent->id}}" ><i class="bi bi-trash-fill" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
 
 
 

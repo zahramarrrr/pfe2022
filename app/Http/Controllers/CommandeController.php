@@ -886,10 +886,11 @@ class CommandeController extends Controller
         $data = DB::table('commandes')->where('ID_commande', $ID)->first();
 
         $etat = $data->Etat;
-
+        $Date_Validation=$data->Date_Validation;
         return response()->json(['etat' => $etat]);
 
-        return view('client', compact('etat'));
+
+        return view('client', compact('etat','data'));
     }
 
 
