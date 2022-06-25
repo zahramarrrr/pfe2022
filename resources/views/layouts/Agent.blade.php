@@ -480,11 +480,11 @@ echo $date;
       document.getElementById('notif').innerHTML = "<a href=" + urlcmd + "><li><hr class='dropdown-divider'></li><div id='notif' style='background-color:grey;'><li class='notification-item'><i class='bi bi-exclamation-circle text-warning'></i><div><h4>" + msg + "</h4></div></li></div></li></a>" + oldcontent;
     });
   </script>
-  <script>
+<script>
     $(document).ready(function() {
       $('#table').DataTable({
         language: {
-          url: "{{ asset('assets/datatable-fr-FR.json') }}"
+          url: "//cdn.datatables.net/plug-ins/1.12.1/i18n/fr-FR.json"
         },
         "searching": true
       });

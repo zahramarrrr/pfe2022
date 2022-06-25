@@ -106,7 +106,7 @@ class HomeController extends Controller
             $commandes = DB::table('commandes')->where('ID_Commercant', Auth::user()->id)
             ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
 
-            return view('Commerçant', compact('comm', 'commandes'));
+            return view('acc_com', compact('comm', 'commandes'));
         }
     }
     public function admin(paiement $chart1 , parsociete $chart3)

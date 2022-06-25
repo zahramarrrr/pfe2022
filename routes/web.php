@@ -132,7 +132,7 @@ route::get('ListeLivreur', [CommandeController::class, 'listeLivreur'])->name('l
 route::get('Listecommercant', [CommandeController::class, 'listecommercant'])->name('listecommercant');
 
 //pour la supression des personnels
-route::get('Deletepersonnel/{id}', [CommandeController::class, 'Deletepersonnel'])->name('personnel.delete');
+route::delete('Deletepersonnel/{id}', [CommandeController::class, 'Deletepersonnel'])->name('personnel.delete');
 
 // preparer et livrer plusieurs commandes
 route::post('preparer', [CommandeController::class, 'preparer'])->name('preparer');

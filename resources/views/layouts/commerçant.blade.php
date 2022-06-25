@@ -264,17 +264,16 @@ echo $date;
 <!--===============================================================================================-->
 
   <script src='{{asset("//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js") }}'></script>
- </script>
-       <script>
-       $(document).ready( function () {
-    $('#table').DataTable({
-      language: {
-                    url: "{{ asset('assets/datatable-fr-FR.json') }}"
-                },
-                "searching": true
-            });
-} );
-</script>
+  <script>
+    $(document).ready(function() {
+      $('#table').DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/1.12.1/i18n/fr-FR.json"
+        },
+        "searching": true
+      });
+    });
+  </script>
 <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 	<script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
