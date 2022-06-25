@@ -72,7 +72,7 @@
                                 <div class="row mb-3">
                                     <label for="DateNaiss" class="col-lg-3 col-md-4 label " class="label">Date Naissance:</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input type="date" class="form-control" name="DateNaiss" id="DateNaiss" value="{{$livreur->DateNaiss}}">
+                                        <input type="date" class="form-control" name="DateNaiss" id="DateNaiss" value="{{$comm->DateNaiss}}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">

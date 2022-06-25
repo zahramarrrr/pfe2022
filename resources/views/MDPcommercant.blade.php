@@ -20,7 +20,7 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                 <img src='{{asset("assets/img/profile-img.png") }}' alt="Profile" class="rounded-circle">
-                <h2>{{$commerçant->Nom}} {{$commerçant->Prenom}}</h2>
+                <h2>{{$comm->Nom}} {{$comm->Prenom}}</h2>
                 <h3>Commerçant</h3>
                 <div class="social-links mt-2">
                     <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>

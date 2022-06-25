@@ -73,30 +73,32 @@
                 </div>
 
                 <div class="row">
-                <div class="col-lg-3 col-md-4 label" class="label">Télèphone:</div>
-                  <div class="col-lg-9 col-md-8">(+216) {{$comm-> Telephone}}</div>
+                <div class="col-lg-4 col-md-4 label" class="label">Télèphone:</div>
+                  <div class="col-lg-7 col-md-7">(+216) {{$comm-> Telephone}}</div>
                 </div>
 
 
                 <div class="row">
-                <div class="col-lg-3 col-md-4 label" class="label">Adresse d'email:</div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> email}}</div>
+                <div class="col-lg-5 col-md-4 label" class="label">Adresse d'email:</div>
+                  <div class="col-lg-7 col-md-8">{{$comm-> email}}</div>
                 </div>
-                <div class="col-lg-3 col-md-4 label" class="label">Date Naissance:</div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> DateNaiss}}</div>
-                </div>  <div class="row">
                 <div class="row">
-                <div class="col-lg-3 col-md-4 label" class="label">Telephone Societe:</div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> TelephoneSociete}}</div>
+                <div class="col-lg-5 col-md-4 label" class="label">Date Naissance:</div>
+                  <div class="col-lg-7 col-md-8">{{$comm-> DateNaiss}}</div>
+                </div>
+               
+                <div class="row">
+                <div class="col-lg-7 col-md-4 label" class="label">Telephone Societe:</div>
+                  <div class="col-lg-6 col-md-8">{{$comm-> TelephoneSociete}}</div>
                 </div>  <div class="row">
-                <div class="col-lg-3 col-md-4 label" class="label">Email Societe:</div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> EmailSociete}}</div>
+                <div class="col-lg-5 col-md-4 label" class="label">Email Societe:</div>
+                  <div class="col-lg-6 col-md-8">{{$comm-> EmailSociete}}</div>
                 </div>  <div class="row">
-                <div class="col-lg-3 col-md-4 label" class="label">Raison Sociale:</div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> RaisonSociale}}</div>
+                <div class="col-lg-6 col-md-4 label" class="label">Raison Sociale:</div>
+                  <div class="col-lg-6 col-md-8">{{$comm-> RaisonSociale}}</div>
                 </div>  <div class="row">
-                <div class="col-lg-3 col-md-4 label" class="label">Nom Societe:</div>
-                  <div class="col-lg-9 col-md-8">{{$comm-> NomSociete}}</div>
+                <div class="col-lg-5 col-md-4 label" class="label">Nom Societe:</div>
+                  <div class="col-lg-7 col-md-8">{{$comm-> NomSociete}}</div>
                 </div>  <div class="row">
           
 

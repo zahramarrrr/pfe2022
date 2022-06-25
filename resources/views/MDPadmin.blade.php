@@ -94,23 +94,23 @@
      
         <div class="row mb-3">
             <x-label class="col-lg-3 col-md-4 label" for="password" :value="__('Actuel:')" />
-            <div class="col-md-8 col-lg-9">
+            <div class="col-md-8 col-lg-7">
             <x-input id="old_password" class="form-control" type="password" name="old_password" required />
         </div>
         </div>
 
         <!-- Password -->
         <div class="row mb-3">
-            <x-label class="col-lg-3 col-md-4 label" for="password" :value="__('Nouveau: ')" />
-<div class="col-md-8 col-lg-9">
+            <x-label class="col-lg-4 col-md-4 label" for="password" :value="__('Nouveau: ')" />
+<div class="col-md-8 col-lg-7">
             <x-input id="password"  class="form-control" type="password" name="password" required />
         </div>
 </div>
 
         <!-- Confirm Password -->
         <div class="row mb-3">
-            <x-label class="col-lg-3 col-md-4 label"  for="password_confirmation" :value="__('Confirmer:')" />
-            <div class="col-md-8 col-lg-9">
+            <x-label class="col-lg-4 col-md-4 label"  for="password_confirmation" :value="__('Confirmer:')" />
+            <div class="col-md-8 col-lg-7">
             <x-input id="password_confirmation" class="form-control"
                                 type="password"
                                 name="password_confirmation" required />

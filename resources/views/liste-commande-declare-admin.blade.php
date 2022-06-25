@@ -7,7 +7,7 @@ use App\Models\User;
 @section("content")
 <main id="main" class="main">
   <div class="pagetitle">
-    <h1>Liste des commandes déclarées</h1>
+ 
  
   </div>
 
@@ -31,7 +31,6 @@ commande(s) validée(s) avec succée(s)</div>
 
   <div class="container" id="reload_declaree">
 
-  <input class='btn4'type="button" id="validation" value="valider" onclick="window.location.href = 'http://127.0.0.1:8000/liste-validee';"></button>
 
   
  

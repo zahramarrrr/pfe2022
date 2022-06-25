@@ -49,7 +49,7 @@
                                 <h5 class="card-title">Informations personnelles:</h5>
                                 <div class="row mb-3">
                                     <label for="fullName" class="col-lg-3 col-md-4 label ">Nom: </label>
-                                    <div class="col-md-8 col-lg-9">
+                                    <div class="col-md-8 col-lg-8">
                                         <input type="text" class="form-control" name="Nom" id="Nom" value="{{$admin->Nom}}">
                                         @if ($errors->has('Nom'))
                                     <span class="text-danger">{{ $errors->first('Nom') }}</span>
@@ -58,8 +58,8 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="about" class="col-lg-3 col-md-4 label ">Prénom:</label>
-                                    <div class="col-md-8 col-lg-9">
+                                    <label for="about" class="col-lg-4 col-md-4 label ">Prénom:</label>
+                                    <div class="col-md-4 col-lg-8">
                                         <input type="text" class="form-control" name="Prenom" id="Prenom" value="{{$admin->Prenom}}" />
                                         @if ($errors->has('Prenom'))
                                     <span class="text-danger">{{ $errors->first('Prenom') }}</span>
@@ -71,22 +71,22 @@
 
                                 <div class="row mb-3">
                                     <label for="Job" class="col-lg-3 col-md-4 label ">Poste:</label>
-                                    <div class="col-md-8 col-lg-9">
+                                    <div class="col-md-4 col-lg-8">
                                         <input type="text" class="form-control" name="Role" id="Role" value="{{$admin->Role}}">
                                     </div>
                                 </div>
        
 
                                 <div class="row mb-3">
-                                    <label for="Adresse" class="col-lg-3 col-md-4 label ">Adresse:</label>
-                                    <div class="col-md-8 col-lg-9">
+                                    <label for="Adresse" class="col-lg-4 col-md-4 label ">Adresse:</label>
+                                    <div class="col-md-4 col-lg-8">
                                         <input type="text" class="form-control" name="Adresse" id="Adresse" value="{{$admin->Adresse}}">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="Phone" class="col-lg-6 col-md-4 label ">Téléphone:</label>
-                                    <div class="col-md-8 col-lg-6">
+                                    <label for="Phone" class="col-lg-5 col-md-4 label ">Téléphone:</label>
+                                    <div class="col-md-5 col-lg-7">
                                         <input type="text" class="form-control" name="Telephone" id="Telephone" value="{{$admin->Telephone}}">
                                         @if ($errors->has('Telephone'))
                                     <span class="text-danger">{{ $errors->first('Telephone') }}</span>
@@ -94,14 +94,14 @@
                              </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="DateNaiss" class="col-lg-4 col-md-4 label " class="label">Date Naissance:</label>
-                                    <div class="col-md-8 col-lg-8">
+                                    <label for="DateNaiss" class="col-lg-6 col-md-4 label " class="label">Date Naissance:</label>
+                                    <div class="col-md-8 col-lg-6">
                                         <input type="date" class="form-control" name="DateNaiss" id="DateNaiss" value="{{$admin->DateNaiss}}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="Email" class="col-lg-3 col-md-4 label ">Adresse d'email:</label>
-                                    <div class="col-md-8 col-lg-9">
+                                    <label for="Email" class="col-lg-6 col-md-4 label ">Adresse d'email:</label>
+                                    <div class="col-md-6 col-lg-6">
                                         <input type="email" class="form-control" name="email" id="email" value="{{$admin->email}}">
                                         @if ($errors->has('email'))
                                     <span class="text-danger">{{ $errors->first('email') }}</span>

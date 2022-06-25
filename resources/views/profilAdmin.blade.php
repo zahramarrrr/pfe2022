@@ -20,7 +20,7 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-              <h2>{{$admin-> Nom}} {{$admin-> Prenom}} </h2>
+              <h2 class="nom">{{$admin-> Nom}} {{$admin-> Prenom}} </h2>
               <h3>Administrateur</h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -63,27 +63,29 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Poste:</div>
-                  <div class="col-lg-9 col-md-8"> {{$admin-> Role}}</div>
+                  <div class="col-lg-3 col-md-8"> {{$admin-> Role}}</div>
                 </div>
 
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Adresse:</div>
-                  <div class="col-lg-9 col-md-8">{{$admin-> Adresse}}</div>
+                  <div class="col-lg-3 col-md-8">{{$admin-> Adresse}}</div>
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-3 col-md-4 label" >Télèphone:</div>
-                  <div class="col-lg-9 col-md-8">(+216) {{$admin-> Telephone}}</div>
+                  <div class="col-lg-4 col-md-4 label" >Télèphone:</div>
+                  <div class="col-lg-3 col-md-8">(+216) {{$admin-> Telephone}}</div>
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-3 col-md-4 label">Adresse d'email:</div>
-                  <div class="col-lg-9 col-md-8">{{$admin-> email}}</div>
+                  <div class="col-lg-5 col-md-4 label">Adresse d'email:</div>
+                  <div class="col-lg-7 col-md-8">{{$admin-> email}}</div>
                 </div>
-                <div class="col-lg-3 col-md-4 label" class="label">Date Naissance:</div>
-                  <div class="col-lg-9 col-md-8">{{$admin-> DateNaiss}}</div>
-                </div>  <div class="row">
+                <div class="row">
+                  <div class="col-lg-6 col-md-4 label">Date de naissance:</div>
+                  <div class="col-lg-5 col-md-8">{{$admin-> DateNaiss}}</div>
+                </div>
+              
              
 
 
