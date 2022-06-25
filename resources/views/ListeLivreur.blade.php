@@ -45,11 +45,12 @@
                     <td>{{$l->email}}</td>
                     <td>{{$l->Telephone}}</td>
 
-                  <td>  <a href="Deletepersonnel/{{$l->id}}" ><i class="bi bi-trash-fill" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-
-
-
-
+                  <td>   
+                <form method="POST" action="{{ route('personnel.delete', $l->id) }}">
+                            @csrf
+                            <input name="_method" type="hidden" value="DELETE">
+                            <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+                        </form>
                     </td>
                   </tr>
                   @endforeach
@@ -64,6 +65,28 @@
 
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `vous voulez vraiment supprimer ce livreur ?`,
+              text: "Si vous le supprimez, il disparaîtra pour toujours",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  
+</script>
 @endsection
 
 
