@@ -18,8 +18,7 @@ $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
 $agent = DB::table('users')->where('id', Auth::user()->id)->first();
 $comm = DB::table('users')->where('id', Auth::user()->id)->first();
 $livreur = DB::table('users')->where('id', Auth::user()->id)->first();
-$commandes = Notifications::join('commandes', 'commandes.ID_commande', '=', 'notifications.ID_commande')
-->first(['commandes.*', 'notifications.*']);
+
 
 if(Auth::user()->Role=='agent')
 $type = "layouts.Agent" ;
@@ -30,7 +29,7 @@ $type = "layouts.livreur";
 else
 $type = "layouts.commerçant" 
 ;
-        return view('contactadmin',compact('commandes','user','notif','agent','comm','type','livreur'));
+        return view('contactadmin',compact('user','notif','agent','comm','type','livreur'));
     }
 
  
@@ -47,8 +46,8 @@ $type = "layouts.commerçant"
     ],
             [
                 'Nom.alpha' => 'Le nom ne doit contenir que des lettres.',
-                'Prenom.alpha' => 'le Prenom ne doit contenir que des lettres.',
-                'email.email' => 'email invalide',
+                'Prenom.alpha' => 'Le Prénom doit contenir que des lettres.',
+                'email.email' => 'Email invalide',
                  ]
         );
      

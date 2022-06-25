@@ -19,7 +19,7 @@
             @endif
 
             <!-- Horizontal Form -->
-            <form class="register-form" id="register-form" method="post" action="{{ route('save.post') }}">
+            <form class="register-form" id="register-form" method="post" action="{{ route('ajouter.commande') }}">
               @csrf
               <div class="row mb-1">
                 <input class="input--style-5" type="text" name="commercant" style="display:none" value="Auth::user()->id">

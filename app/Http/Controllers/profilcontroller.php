@@ -18,7 +18,6 @@ class profilcontroller extends Controller
             ->orderBy('id', 'desc')->take(5)
             ->get();
 
-        $search_text = isset($_GET['query']);
 
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 
@@ -26,12 +25,10 @@ class profilcontroller extends Controller
     }
     public function Editerprofiladmin($id)
     {
-        $id = Auth::user()->id;
         $notif = Notifications::query()->where('Notifiable', 'admin')
             ->orderBy('id', 'desc')->take(5)
             ->get();
 
-        $search_text = isset($_GET['query']);
 
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
 

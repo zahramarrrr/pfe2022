@@ -12,19 +12,11 @@ use App\Models\User;
   </div>
 
 
-  <div id="err_validation" class="alert alert-danger" role="alert" style="display:none">
-selectionner une commande</div>
-
-
-  <div id="valider" class="alert alert-success" role="alert" style="display:none">
-commande(s) validée(s) avec succée(s)</div>
-
-  
 
 
 
   <div class="container" id="reload_declaree">
-  <input class='btn4'type="button" id="validation" value="valider"></button>
+  <input class='btn4'type="button" id="validation" value="valider" onclick="window.location.href = 'http://127.0.0.1:8000/liste-validee';"></button>
 
 </div>
     <div class="row">

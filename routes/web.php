@@ -110,7 +110,7 @@ route::post('savemessage', [ContactsController::class, 'store'])->name('savemess
 route::get('contactview', [ContactsController::class, 'create'])->name('contactview');
 //contact client
 route::post('savemessage1', [clientController::class, 'store'])->name('savemessage1');
-route::get('contactview', [clientController::class, 'create'])->name('contactview1');
+route::get('contactview1', [clientController::class, 'create'])->name('contactview1');
 
 
 

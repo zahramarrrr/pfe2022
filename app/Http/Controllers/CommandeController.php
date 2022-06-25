@@ -852,11 +852,11 @@ class CommandeController extends Controller
         //   $oldpassword = Hash::make($request->oldpassword);
         //   dd(Auth::user()->password , $oldpassword);
 
-        if (!(password_verify($request->old_password, $pass))) {
-            // dd($request);
-            return back()->with('old password', 'old password');
-        } elseif ($request->password !== $request->password_confirmation) {
+        if ($request->password !== $request->password_confirmation) {
             return back()->with('erreur', 'erreur confirmation');
+        } elseif (!(password_verify($request->old_password, $pass))) {
+                // dd($request);
+                return back()->with('old password', 'old password');
         } else {
             /* $user = Auth::user();
             Auth::user()->fill([

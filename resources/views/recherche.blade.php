@@ -56,7 +56,7 @@
             height: 12px;
             border: 1px solid #aaa;
             border-radius: 7px;
-            background: #5e17eb;
+            background: #ddd;
             box-shadow: 0px 0px 5px 0px #C2C2C2 inset
         }
 
@@ -486,7 +486,7 @@
                             <div id="preparee" class="icon"></div>
                         </div>
                         <div id="affecterLivreur" class="image-order-status image-order-status-delivered active img-circle">
-                            <span class="status">Affectée a un livreur</span>
+                            <span class="status">En livraison</span>
                             <div id="affecteelivreur" class="icon"></div>
                         </div>
                         <div id="liv" class="image-order-status image-order-status-completed active img-circle">

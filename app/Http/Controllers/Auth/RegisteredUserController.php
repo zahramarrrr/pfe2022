@@ -36,27 +36,21 @@ class RegisteredUserController extends Controller
      */
     public function storeagent(Request $request)
     {
-
-
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
-
-        $request->validate(
+             $request->validate(
             [
                 'Nom' => 'required|alpha',
                 'Prenom' => 'required|alpha',
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ],
             [
-                'Nom.required' => 'le nom  est obligatoir',
-                'Nom.alpha' => 'Le nom ne doit contenir que des lettres.',
-                'Prenom.required' => 'le Prenom  est obligatoir',
-                'Prenom.alpha' => 'le Prenom ne doit contenir que des lettres.',
+                'Nom.required' => 'Le nom  est obligatoire',
+                'Nom.alpha' => 'Le nom doit contenir que des lettres.',
+                'Prenom.required' => 'Le Prénom est obligatoire',
+                'Prenom.alpha' => 'le Prénom ne doit contenir que des lettres.',
 
-                'email.required' => 'email est obligatoir ',
-                'email.unique' => 'email doit etre unique',
-                'email.email' => 'email invalide',
+                'email.required' => 'Email est obligatoire ',
+                'email.unique' => 'Email doit être unique',
+                'email.email' => 'Email invalide',
 
 
 
@@ -194,7 +188,6 @@ class RegisteredUserController extends Controller
             'RaisonSociale' => $request->RaisonSociale,
             'NomSociete' => $request->NomSociete,
             'DateNaiss' => $request->DateNaiss,
-            'Instagram' => $request->Instagram,
 
             
             'Role' => 'commerçant',
@@ -228,28 +221,21 @@ class RegisteredUserController extends Controller
      
         $notif = Notifications::query()->where('Notifiable', 'admin')->take(5)->get();
         $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        $search_text = isset($_GET['query']);
-       
-        $comm = DB::table('users')->where('Role', 'commerçant')
-            ->where('id', 'LIKE', '%' . $search_text . '%')->get();
-        return view('ajout-commerçant', compact('comm', 'notif', 'admin'));
+      
+        return view('ajout-commerçant', compact( 'notif', 'admin'));
     }
     public function ajoutagent()
     {
        $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        $search_text = isset($_GET['query']);
-        $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
-            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+      
         $notif = Notifications::query()->where('Notifiable', 'agent')->take(5)->get();
-        return view('ajout-agent', compact('commandes', 'notif', 'admin'));
+        return view('ajout-agent', compact( 'notif', 'admin'));
     }
     public function ajoutlivreur()
     {
          $admin = DB::table('users')->where('id', Auth::user()->id)->first();
-        $search_text = isset($_GET['query']);
-        $commandes = DB::table('commandes')->where('ID_Agent', Auth::user()->id)
-            ->where('ID_commande', 'LIKE', '%' . $search_text . '%')->get();
+       
         $notif = Notifications::query()->where('Notifiable', 'livreur')->take(5)->get();
-        return view('ajout-livreur', compact('commandes', 'notif', 'admin'));
+        return view('ajout-livreur', compact( 'notif', 'admin'));
     }
 }

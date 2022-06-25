@@ -3,12 +3,7 @@
  @section("content")
  
 		<div class="container-contact100">
-		@if(Session::has('email'))
-					<div class="alert alert-success" role="alert">
-
-						{{Session::get('email')}}
-					</div>
-					@endif
+	
 				<div class="contact100-pic js-tilt" data-tilt>
 					<img src="assets/contact/images/img.png" alt="IMG">
 				</div>
@@ -27,7 +22,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Name is required">
-						<input class="input100" type="text" name="Nom" placeholder="Nom et prénom"">
+						<input class="input100" type="text" name="Nom" placeholder="Nom et prénom">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
