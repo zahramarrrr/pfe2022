@@ -939,6 +939,7 @@ i{
 }
 .bi {
   color: #a560b6;
+  
 }
 
 
@@ -2059,13 +2060,14 @@ top: -0.8em; left:788px;
 .btn4{
   background: #8e31e6;
   border-color:#9e4aec ;
-  padding: 8px 80px;
+  padding: 8px 23px;
   margin-left: 80px;
   margin-left: 80px;
   border-radius: 4px;
   color: #fff;
   font-family: "Poppins", sans-serif;
 float:right;
+
   
 }
 .btnbar{

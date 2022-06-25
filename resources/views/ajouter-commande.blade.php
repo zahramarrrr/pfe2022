@@ -115,7 +115,7 @@
 
               </div>
               <div class="row mb-1">
-                <label class="col-sm-2 col-form-label">ID commande:</label>
+                <label class="col-sm-2 col-form-label">Réfèrence:</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" name="ID_commande" id="ID_commande">
                   @if ($errors->has('ID_commande'))

@@ -6,14 +6,11 @@
      
     </div>
 
-    @if(Session::has('delete'))
-    <span>{{Session::get('delete')}}</span>
-    @endif
+   
 
     <div class="container">
     <button type="button" class="btn4" onclick="window.location.href ='ajoutagent'" ></i> Ajouter</button>
 </div>
-<div class="row">
         <div class="col-xl-12">
           <div class="card">
            
@@ -46,7 +43,7 @@
                     <td>{{$agent->email}}</td>
                     <td>{{$agent->Telephone}}</td>
                 
-                  <td>  <a href="Deletepersonnel/{{$agent->id}}" ><i class="bi bi-trash-fill" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                  <td>  <a href="Deletepersonnel/{{$agent->id}}" ><i class="bi bi-trash-fill" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
 
 
 

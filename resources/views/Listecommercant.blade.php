@@ -10,30 +10,10 @@
     <button type="button" class="btn4" onclick="window.location.href ='ajoutcom'"></i> Ajouter</button>
   </div>
 
-  <div class="dataTable-top">
-    <div class="dataTable-dropdown" style="float:right">
+    
 
 
 
-      <div class="row">
-        <div class="col-lg-3">
-
-          <div class="accordion" id="accordionExample">
-
-            <a data-toggle="collapse" href="#collapseOne" class="job-list" aria-expanded="true" aria-controls="collapseOne">
-
-
-          </div>
-        </div>
-
-
-
-      </div>
-    </div>
-
-
-
-    <div class="row">
       <div class="col-xl-12">
         <div class="card">
           <div class="dataTable-dropdown" style="float:right">
@@ -69,7 +49,11 @@
                     <td>{{$c->email}}</td>
                     <td>{{$c->Telephone}}</td>
 
+<<<<<<< Updated upstream
                     <td> <a href="Deletepersonnel/{{$c->id}}"><i class="bi bi-trash-fill" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+=======
+                  <td>  <a href="Deletepersonnel/{{$c->id}}" ><i class="bi bi-trash-fill" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+>>>>>>> Stashed changes
 
 
 
@@ -85,7 +69,11 @@
           </div>
         </div>
       </div>
+<<<<<<< Updated upstream
     </div>
+=======
+   
+>>>>>>> Stashed changes
 
 
 

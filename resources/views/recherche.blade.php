@@ -256,6 +256,8 @@
         #erreur {
             padding-right : 60px !important;
 }
+.icon{margin-right:5px!important;
+}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
     </script>

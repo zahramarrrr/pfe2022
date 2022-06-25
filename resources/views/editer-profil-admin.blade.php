@@ -85,8 +85,8 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="Phone" class="col-lg-3 col-md-4 label ">Téléphone:</label>
-                                    <div class="col-md-8 col-lg-9">
+                                    <label for="Phone" class="col-lg-6 col-md-4 label ">Téléphone:</label>
+                                    <div class="col-md-8 col-lg-6">
                                         <input type="text" class="form-control" name="Telephone" id="Telephone" value="{{$admin->Telephone}}">
                                         @if ($errors->has('Telephone'))
                                     <span class="text-danger">{{ $errors->first('Telephone') }}</span>
@@ -94,9 +94,9 @@
                              </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="DateNaiss" class="col-lg-3 col-md-4 label " class="label">Date Naissance:</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input type="date" class="form-control" name="DateNaiss" id="DateNaiss" value="{{$livreur->DateNaiss}}">
+                                    <label for="DateNaiss" class="col-lg-4 col-md-4 label " class="label">Date Naissance:</label>
+                                    <div class="col-md-8 col-lg-8">
+                                        <input type="date" class="form-control" name="DateNaiss" id="DateNaiss" value="{{$admin->DateNaiss}}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">

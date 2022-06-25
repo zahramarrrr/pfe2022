@@ -10,7 +10,7 @@ use App\Models\Commande;
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Reports <span>/Today</span></h5>
+                <h5 class="card-title">Visualisation <span>| La durée entre l'affecttaion et la préparation</span></h5>
                 <!-- div trées importante !!! -->
                 <div id="reportsChart" style="min-height: 365px;">
 
@@ -250,7 +250,6 @@ use App\Models\Commande;
         }).render();
                             });
                         </script>
-<h5>la difference entre affectation et preparation les 10 derniers jours</h5>
                     </div>
                 </div>
             </div>

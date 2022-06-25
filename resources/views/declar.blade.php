@@ -12,9 +12,7 @@
     </div>
 
             <h5 class="card-title"> <img src='{{asset("assets/img/commande.png") }}' alt="Profile" class="img">Formulaire de déclaration</h5>
-            @if(Session::has('post_add'))
-            <span>{{Session::get('post_add')}} </span>
-            @endif
+        
 
             <!-- Horizontal Form -->
             <form class="register-form" id="register-form" method="post" action="{{ route('save.post') }}">
@@ -113,7 +111,7 @@
 
               </div>
               <div class="row mb-1">
-                <label class="col-sm-2 col-form-label">ID commande:</label>
+                <label class="col-sm-2 col-form-label">Réfèrence:</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" name="ID_commande" id="ID_commande">
                   @if ($errors->has('ID_commande'))

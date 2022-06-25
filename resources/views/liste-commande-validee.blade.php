@@ -23,16 +23,18 @@ use App\Models\User;
     <div class="container">
         
             <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
-                Affecter un agent
+                Affecter un agent d'entrepôt
             </button>
         </div>
-        <div class="row">
+      
             <div class="col-xl-12">
                 <div class="card">
 
                     <div class="card-body">
 
-
+               
+<div            style=" justify-content: space-between";
+>
                         <table id="table" class="ui celled table" style="width:100%">
                             <thead>
                                 <tr>

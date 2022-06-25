@@ -20,17 +20,17 @@ use App\Models\User;
   
 
     <div class="container">
-        
-            <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
+    <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target="#basicModal">
                 Affecter un livreur
             </button>
+            
         </div>
         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
 
                     <div class="card-body">
-
+            
 
                     <table id="table" class="ui celled table" style="width:100%">
                             <thead>

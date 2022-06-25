@@ -305,4 +305,14 @@ font-family: "Poppins", sans-serif; }
         border: 1px solid transparent;
         background: #fbceb5;
         color: #fff; }
-        
+        .footer .copyright {
+          text-align: center;
+          padding-top: 30px;
+          color: #012970;
+      }
+      .footer1 .copyright1 {
+        text-align: center;
+        padding-top: 100px;
+        color: #012970;
+    }
+

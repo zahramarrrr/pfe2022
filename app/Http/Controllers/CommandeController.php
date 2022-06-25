@@ -44,23 +44,23 @@ class CommandeController extends Controller
 
             ],
             [
-                'Nom.required' => 'le nom du client est obligatoir',
-                'Nom.alpha' => 'Le nom ne doit contenir que des lettres.',
-                'Prenom.required' => 'le Prenom du client est obligatoir',
-                'Prenom.alpha' => 'le Prenom ne doit contenir que des lettres.',
-                'Telephone.required' => 'le numéro du téléphone est obligatoire',
-                'Telephone.digits_between' => 'le numéro du téléphone est invalide',
+                'Nom.required' => 'Le nom du client est obligatoire',
+                'Nom.alpha' => 'Le nom  doit contenir que des lettres.',
+                'Prenom.required' => 'Le Prénom du client est obligatoire',
+                'Prenom.alpha' => 'Le Prénom doit contenir que des lettres.',
+                'Telephone.required' => 'Le numéro du téléphone est obligatoire',
+                'Telephone.digits_between' => 'Le numéro du téléphone est invalide',
 
-                'Adresse.required' => ' Adresse du client est obligatoir',
-                'Governorat.required' => ' Governorat du client est obligatoir',
-                'Ville.required' => ' Ville du client est obligatoir',
-                'Prix.required_if' => ' le prix est obligatoire car le paiement est a la livraison',
+                'Adresse.required' => ' Adresse du client est obligatoire',
+                'Governorat.required' => ' L gouvernorat du client est obligatoire',
+                'Ville.required' => ' La ville du client est obligatoire',
+                'Prix.required_if' => ' Paiement à la livraison : Prix obligatoire',
                 // 'Email.email' => 'email invalide',
-                'Code_postal.required' => 'le code postal doit etre de 4 chiffre',
-                'Code_postal.digits_between' => 'le code postal  est obligatoir',
+                'Code_postal.required' => 'Le code postal doit être formé de 4 chiffres',
+                'Code_postal.digits_between' => 'Le code postal  est obligatoire',
 
-                'ID_commande.required' => 'la références du commande est obligatoire',
-                'ID_commande.unique' => 'la références du commande doit etre unique'
+                'ID_commande.required' => 'La référence du commande est obligatoire',
+                'ID_commande.unique' => 'La références du commande doit être unique'
             ]
         );
         $newcommande = Commande::create([

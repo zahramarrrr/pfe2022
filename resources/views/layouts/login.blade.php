@@ -69,9 +69,9 @@
    </header>
    <!-- End Header -->
    @yield('content')
-   <footer id="footer" class="footer">
+   <footer id="footer" class="footer1">
 <div class="container-fluid ">
-  <div class="copyright">
+  <div class="copyright1">
     © Copyright <strong><span>MaCommande</span></strong>. All Rights Reserved
   </div>
 </footer>

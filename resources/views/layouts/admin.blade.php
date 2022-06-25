@@ -223,7 +223,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
 
             <li> <a href="{{url('cmd_jour')}}"> <i class="bi bi-circle"></i><span>Les commandes livrées par rapport aux déclarées et préparées</span> </a></li>
             <li> <a href="{{url('cmd_societe')}}"> <i class="bi bi-circle"></i><span> Les commandes par société</span> </a></li>
-            <li> <a href="{{url('cmd_region')}}"> <i class="bi bi-circle"></i><span>Les commandes par région</span> </a></li>
+            <li> <a href="{{url('cmd_region')}}"> <i class="bi bi-circle"></i><span>Les commandes par gouvernorat</span> </a></li>
             <li> <a href="{{url('cmd_agent')}}"> <i class="bi bi-circle"></i><span>Les commandes par agent d'entrepôt</span> </a></li>
             <li> <a href="{{url('cmd_livreur')}}"> <i class="bi bi-circle"></i><span>Les commandes par livreur</span> </a></li>
             <li> <a href="{{url('duree')}}"> <i class="bi bi-circle"></i><span>La durée entre la déclaration et la livraison</span> </a></li>
@@ -628,7 +628,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
     $(document).ready(function() {
       $('#table').DataTable({
         language: {
-          url: "{{ asset('assets/datatable-fr-FR.json') }}"
+          url: "//cdn.datatables.net/plug-ins/1.12.1/i18n/fr-FR.json"
         },
         "searching": true
       });
