@@ -122,19 +122,19 @@
               <?php
               if ((Auth::user()->Role == 'admin') &&(($commande->Etat)=='declaree')) {
                 echo '                 
-                   <button id="valider" data-id="' . $commande->id . '" type="button">valider</button>
+                   <button class="btn4" id="valider" data-id="' . $commande->id . '" type="button">valider</button>
                 ';
               } elseif ((Auth::user()->Role == 'agent') &&(($commande->Etat)=='affecter a un agent')){
                 echo ' 
-                <button id="preparer" data-id="' . $commande->id . '" type="button">preparer</button>
+                <button class="btn4" id="preparer" data-id="' . $commande->id . '" type="button">preparer</button>
                 ';
               } elseif ((Auth::user()->Role == 'livreur')&&(($commande->Etat)=='affecter a un livreur')) {
                 echo ' 
-                <button id="livrer" data-id="' . $commande->id . '" type="button">livrer</button>
+                <button class="btn4" id="livrer" data-id="' . $commande->id . '" type="button">livrer</button>
 
                 ';
                 echo '           
-                   <button id="retourner" data-id="' . $commande->id . '" type="button">retournée</button>
+                   <button class="btn4" id="retourner" data-id="' . $commande->id . '" type="button">retournée</button>
                 ';
               } else {
                 echo '';

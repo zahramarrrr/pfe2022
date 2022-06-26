@@ -78,6 +78,8 @@
               icon: "warning",
               buttons: true,
               dangerMode: true,
+              buttons: ["Annuler", "Supprimer"],
+
           })
           .then((willDelete) => {
             if (willDelete) {
