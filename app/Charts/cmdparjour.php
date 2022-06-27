@@ -24,7 +24,7 @@ class cmdparjour
 
 $to=Carbon::now();
 
-$from=Carbon::now()->subDays(7);
+$from=Carbon::now()->subDays(15);
 $date = DB::table('Commandes')->select(DB::raw('DAYNAME(Date_Livraison) as date'))
 
 ->whereBetween('Date_Livraison', [$from, $to])

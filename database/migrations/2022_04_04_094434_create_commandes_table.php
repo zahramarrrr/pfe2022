@@ -34,7 +34,6 @@ class CreateCommandesTable extends Migration
             $table->string('Description')->default('')->nullable();
             $table->string('Etat')->default('declaree');
             $table->unsignedBigInteger('ID_Commercant')->nullable();
-
             $table->unsignedBigInteger('ID_Agent')->nullable();
             $table->unsignedBigInteger('ID_Livreur')->nullable();
             $table->dateTime('Date_Validation')->useCurrent();
@@ -51,7 +50,6 @@ class CreateCommandesTable extends Migration
             $table->foreign('ID_Agent')->references('id')->on('users')->onDelete('cascade');
 
             $table->foreign('ID_Livreur')->references('id')->on('users')->onDelete('cascade');
-
         });
     }
 

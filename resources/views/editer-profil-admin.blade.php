@@ -103,9 +103,7 @@
                                     <label for="Email" class="col-lg-6 col-md-4 label ">Adresse d'email:</label>
                                     <div class="col-md-6 col-lg-6">
                                         <input type="email" class="form-control" name="email" id="email" value="{{$admin->email}}">
-                                        @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
+                                    
                                     </div>
                                 </div>
 

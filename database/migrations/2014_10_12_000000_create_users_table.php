@@ -30,12 +30,9 @@ class CreateUsersTable extends Migration
             $table->date('DateNaiss')->useCurrent();
             $table->string('TypePermis')->default('');
             $table->string('TypeVehicule')->default('');
-
-
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            
         });
     }
 

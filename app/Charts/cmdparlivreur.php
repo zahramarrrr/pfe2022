@@ -21,7 +21,7 @@ class cmdparlivreur
     {
             
 $to=Carbon::now();
-$from=Carbon::now()->subDays(7);
+$from=Carbon::now()->subDays(15);
         $cmd = Commande::select(DB::raw("COUNT(*) as count"))
         ->whereBetween('Date_Livraison', [$from, $to])
 ->groupBy(DB::raw("(ID_Livreur)"))

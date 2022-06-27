@@ -10,7 +10,7 @@ use App\Models\Commande;
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Visualisation <span>| La durée entre la déclaration et la préparation</span></h5>
+                <h5 class="card-title">Visualisation <span>| La durée entre la déclaration et la livraison</span></h5>
                 <!-- div trées importante !!! -->
                 <div id="reportsChart" style="min-height: 365px;">
 
@@ -26,7 +26,7 @@ use App\Models\Commande;
                              function secondsToTime($seconds) {
                               $dtF = new \DateTime('@0');
                               $dtT = new \DateTime("@$seconds");
-                              return $dtF->diff($dtT)->format('%a days %h hours %i minutes');}
+                              return $dtF->diff($dtT)->format('%a days ');}
                              $to=Carbon::now();
                              $from=Carbon::now()->subDays(7);   
                     
@@ -59,7 +59,7 @@ use App\Models\Commande;
          @endforeach ]
         }],
           chart: {
-          type: 'line',
+          type: 'area',
           height: 350,
           stacked: true,
           toolbar: {

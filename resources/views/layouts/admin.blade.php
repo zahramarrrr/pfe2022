@@ -416,6 +416,7 @@ $NotificationsCommandes = Notifications::where('Notifiable', 'admin')->where('re
       });
     });
   </script>
+  
   <script>
     $('#validation').on('click', function(e) {
       var allVals = [];

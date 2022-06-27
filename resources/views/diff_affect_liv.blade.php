@@ -25,7 +25,7 @@ use App\Models\Commande;
                             <?php
                             
         $to=Carbon::now();
-        $from=Carbon::now()->subDays(10);   
+        $from=Carbon::now()->subDays(15);   
 $liv1= Commande::where('ID_Livreur',2)
 ->whereNotNull('Date_Livraison')
 ->whereBetween('Date_Affect_Livreur', [$from, $to])

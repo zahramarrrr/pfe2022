@@ -43,7 +43,6 @@ class profilcontroller extends Controller
                 'Prenom' => 'required|alpha',
 
 
-                'email' => 'email:rfc,dns',
                 'Telephone' => 'required|alpha_num',
 
             ],
@@ -65,6 +64,8 @@ class profilcontroller extends Controller
             'email' => $request->email,
             'Telephone' => $request->Telephone,
             'DateNaiss' => $request->DateNaiss,
+            'test' => $request->test,
+
 
 
         ]);
